@@ -3,14 +3,14 @@ import React, { useState } from "react";
 const Fertilizer = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
-        temperature: '',
-        humidity: '',
-        moisture: '',
-        soil: '',
-        crop: '',
-        nitrogen: '',
-        potassium: '',
-        phosphorus: ''
+        Temparature: '',
+        Humidity: '',
+        Moisture: '',
+        Soil_Type: '',
+        Crop_Type: '',
+        Nitrogen: '',
+        Potassium: '',
+        Phosphorous: ''
     });
     const [result, setResult] = useState("");
     const [showSpan, setShowSpan] = useState(false);
@@ -28,6 +28,7 @@ const Fertilizer = () => {
         const url = "http://localhost:5000/fertilizer_predict";
         setIsLoading(true);
         const jsonData = JSON.stringify(formData);
+        console.log("Sending data:", jsonData); // Log the data being sent
         fetch(url, {
             headers: {
                 Accept: "application/json",
@@ -43,6 +44,7 @@ const Fertilizer = () => {
             return response.json();
         })
         .then((response) => {
+            console.log("Received response:", response); // Log the response
             setResult(response.Prediction);
             setIsLoading(false);
             setShowSpan(true);
@@ -67,9 +69,9 @@ const Fertilizer = () => {
                         <input
                             type="text"
                             className="w-full px-3 py-2 border border-gray-300 rounded"
-                            id="temperature"
-                            name="temperature"
-                            value={formData.temperature}
+                            id="Temparature"
+                            name="Temparature"
+                            value={formData.Temparature}
                             onChange={handleChange}
                             placeholder="Enter temperature"
                         />
@@ -81,9 +83,9 @@ const Fertilizer = () => {
                         <input
                             type="text"
                             className="w-full px-3 py-2 border border-gray-300 rounded"
-                            id="humidity"
-                            name="humidity"
-                            value={formData.humidity}
+                            id="Humidity"
+                            name="Humidity"
+                            value={formData.Humidity}
                             onChange={handleChange}
                             placeholder="Enter humidity"
                         />
@@ -95,9 +97,9 @@ const Fertilizer = () => {
                         <input
                             type="text"
                             className="w-full px-3 py-2 border border-gray-300 rounded"
-                            id="moisture"
-                            name="moisture"
-                            value={formData.moisture}
+                            id="Moisture"
+                            name="Moisture"
+                            value={formData.Moisture}
                             onChange={handleChange}
                             placeholder="Enter moisture"
                         />
@@ -108,9 +110,9 @@ const Fertilizer = () => {
                         </label>
                         <select
                             className="w-full px-3 py-2 border border-gray-300 rounded"
-                            id="soil"
-                            name="soil"
-                            value={formData.soil}
+                            id="Soil_Type"
+                            name="Soil_Type"
+                            value={formData.Soil_Type}
                             onChange={handleChange}
                             required
                         >
@@ -130,9 +132,9 @@ const Fertilizer = () => {
                         </label>
                         <select
                             className="w-full px-3 py-2 border border-gray-300 rounded"
-                            id="crop"
-                            name="crop"
-                            value={formData.crop}
+                            id="Crop_Type"
+                            name="Crop_Type"
+                            value={formData.Crop_Type}
                             onChange={handleChange}
                             required
                         >
@@ -159,9 +161,9 @@ const Fertilizer = () => {
                         <input
                             type="text"
                             className="w-full px-3 py-2 border border-gray-300 rounded"
-                            id="nitrogen"
-                            name="nitrogen"
-                            value={formData.nitrogen}
+                            id="Nitrogen"
+                            name="Nitrogen"
+                            value={formData.Nitrogen}
                             onChange={handleChange}
                             placeholder="Enter nitrogen"
                         />
@@ -173,23 +175,23 @@ const Fertilizer = () => {
                         <input
                             type="text"
                             className="w-full px-3 py-2 border border-gray-300 rounded"
-                            id="potassium"
-                            name="potassium"
-                            value={formData.potassium}
+                            id="Potassium"
+                            name="Potassium"
+                            value={formData.Potassium}
                             onChange={handleChange}
                             placeholder="Enter potassium"
                         />
                     </div>
                     <div className="mb-4">
                         <label className="block text-left font-semibold mb-2">
-                            Phosphorus
+                        Phosphorous
                         </label>
                         <input
                             type="text"
                             className="w-full px-3 py-2 border border-gray-300 rounded"
-                            id="phosphorus"
-                            name="phosphorus"
-                            value={formData.phosphorus}
+                            id="Phosphorous"
+                            name="Phosphorous"
+                            value={formData.Phosphorous}
                             onChange={handleChange}
                             placeholder="Enter phosphorus"
                         />
@@ -221,4 +223,5 @@ const Fertilizer = () => {
 };
 
 export default Fertilizer;
+
 

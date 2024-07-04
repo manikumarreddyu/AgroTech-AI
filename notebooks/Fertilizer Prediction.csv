@@ -1,4 +1,4 @@
-Temparature,Humidity ,Moisture,Soil Type,Crop Type,Nitrogen,Potassium,Phosphorous,Fertilizer Name
+Temparature,Humidity,Moisture,Soil_Type,Crop_Type,Nitrogen,Potassium,Phosphorous,Fertilizer_Name
 26,52,38,Sandy,Maize,37,0,0,Urea
 29,52,45,Loamy,Sugarcane,12,0,36,DAP
 34,65,62,Black,Cotton,7,9,30,14-35-14

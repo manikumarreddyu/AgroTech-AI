@@ -10,14 +10,14 @@ const Navbar = () => {
           Agri AI
         </div>
         <div className="space-x-4">
-          <Link to="/app" className="text-white hover:text-gray-200">
+          <Link to="/" className="text-white hover:text-gray-200">
             Home
           </Link>
           <Link to="/app/crop" className="text-white hover:text-gray-200">
             Crop
           </Link>
-          <Link to="/app/car" className="text-white hover:text-gray-200">
-            Car
+          <Link to="/app/fertilizer" className="text-white hover:text-gray-200">
+            Fertilizer
           </Link>
         </div>
       </div>

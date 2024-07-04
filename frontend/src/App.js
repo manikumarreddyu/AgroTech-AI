@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter , Route,  Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Crop from './components/CropRecommendation';
-import Car from './components/CarPrice';
 import Home from './pages/Home'
+import Fertilizer from './components/Fertilizer';
 
 const App = () => {
   return (
@@ -11,9 +11,9 @@ const App = () => {
       <div>
         <Navbar />
         <Routes>
-          <Route path="/app" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/app/crop" element={<Crop />} />
-          <Route path="/app/car" element={<Car />} />
+          <Route path="/app/fertilizer" element={<Fertilizer />} />
         </Routes>
       </div>
     </BrowserRouter>
