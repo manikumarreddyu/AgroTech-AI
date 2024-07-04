@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form2 = () => {
+const CropRecommendation = () => {
     const [isLoading, setIsloading] = useState(false);
     const [formData, setFormData] = useState({
         Nitrogen: '',
@@ -176,4 +176,4 @@ const Form2 = () => {
     );
 };
 
-export default Form2;
+export default CropRecommendation;

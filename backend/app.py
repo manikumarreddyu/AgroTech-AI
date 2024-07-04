@@ -44,6 +44,7 @@ app = Flask(__name__)
 # Enable CORS for all routes, allowing requests from any origin
 CORS(app,resources={r"/*":{"origins":"*"}})
 
+
 model = pickle.load(open('ml_model2.pkl', 'rb'))
 
 # Define a route for handling HTTP GET requests to the root URL

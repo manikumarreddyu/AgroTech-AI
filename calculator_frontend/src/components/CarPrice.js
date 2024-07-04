@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const CarPrice = () => {
   const [isLoading, setIsloading] = useState(false);
   const [formData, setFormData] = useState({
     Year: "",
@@ -188,4 +188,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default CarPrice;

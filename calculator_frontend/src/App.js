@@ -1,15 +1,26 @@
-import React from 'react'
-import Form from './components/Form';
-import Form2 from './components/Form2';
+import React from 'react';
+import { BrowserRouter , Route,  Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Crop from './components/CropRecommendation';
+import Car from './components/CarPrice';
+import Home from './pages/Home'
 
-const App=()=>{
-    return (
+const App = () => {
+  return (
+    <BrowserRouter>
       <div>
-            <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-          <Form2/>
+        <Navbar />
+        <Routes>
+          <Route path="/app" element={<Home />} />
+          <Route path="/app/crop" element={<Crop />} />
+          <Route path="/app/car" element={<Car />} />
+        </Routes>
       </div>
-    )
-}
+    </BrowserRouter>
+  );
+};
+
 export default App;
+
+
+
