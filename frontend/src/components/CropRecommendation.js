@@ -156,7 +156,7 @@ const CropRecommendation = () => {
                             disabled={isLoading}
                             onClick={!isLoading ? handlePredictClick : null}
                         >
-                            {isLoading ? "Predicting..." : "Predict Selling Price"}
+                            {isLoading ? "Predicting..." : "Predict Suitable Crop"}
                         </button>
                     </div>
                 </form>
