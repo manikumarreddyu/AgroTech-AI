@@ -44,9 +44,13 @@ const CropRecommendation = () => {
     };
 
     return (
-        <div className="container mx-auto text-center mt-4">
-            <h1 className="text-2xl font-bold mb-4">crop recommendation</h1>
-            <div className="max-w-lg mx-auto">
+        <div className="container-fluid mx-auto   mt-4 fs-10 text-xl">
+            <h1 className="text-3xl  text-center font-bold mb-4">Crop Recommendation</h1>
+            <div className="mx-auto px-3 md:ml-10 ">
+            <p> In the realm of agriculture, where traditional knowledge meets cutting-edge technology, the Crop Recommendation System is revolutionizing how farmers choose crops. By taking into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall, this data-driven project is empowering farmers with precise recommendations. In this blog, we'll delve deeper into how these critical factors play a pivotal role in the decision-making process.</p>
+            </div>
+            <div className="max-w-lg mx-auto mt-10 bg-blue-600 text-center p-5">
+
                 <form method="post" acceptCharset="utf-8" name="Modelform">
                     <div className="mb-4">
                         <label className="block text-left font-semibold mb-2">
@@ -124,7 +128,7 @@ const CropRecommendation = () => {
                     </div>
                     <div>
                         <label className="block text-left font-semibold mb-2">
-                        ph
+                        PH-value
                         </label>
                         <input
                             type="text"
@@ -150,27 +154,53 @@ const CropRecommendation = () => {
                             placeholder="Enter Rainfall "
                         />
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-4 mt-5">
                         <button
-                            className="w-full px-3 py-2 bg-blue-500 text-white rounded disabled:bg-blue-300"
+                            className="w-full px-3 py-2 bg-rose-500 text-white rounded disabled:bg-blue-300"
                             disabled={isLoading}
                             onClick={!isLoading ? handlePredictClick : null}
                         >
-                            {isLoading ? "Predicting..." : "Predict Selling Price"}
+                            {isLoading ? "Predicting..." : "Predict Crop that suitable"}
                         </button>
                     </div>
                 </form>
                 {showSpan && (
                     <div className="mt-4">
-                        <h4 className="text-lg font-semibold">
+                        <h4 className="text-lg font-semibold text-white">
                             {result && Object.keys(result).length !== 0 ? (
-                                <p>The Predicted crop  is <h1 className="text-red-900">{result} </h1> </p>
+                                <p>The Predicted crop  is <span className="  text-2xl ">{result} </span> </p>
                             ) : (
                                 <p>Please fill out each field in the form completely</p>
                             )}
                         </h4>
                     </div>
                 )}
+            </div>
+            <div className="mx-auto px-3 mt-5 ">
+                <h1 className="text-3xl md:ml-10    font-bold mb-4">The Role of Soil Minerals:</h1>
+                <dl className=" ml-0 md:ml-10">
+                    <dt className="font-bold text-xl">Potassium:</dt>
+                        <dd>Potassium is a vital nutrient for plant growth, contributing to root development, disease resistance, and overall plant health. Soil tests reveal potassium levels, helping the system suggest crops that thrive in either high or low potassium conditions.</dd>
+                    <dt className="font-bold text-xl">Nitrogen:</dt>
+                        <dd>Nitrogen is essential for chlorophyll production and overall plant growth. Soil nitrogen content influences crop recommendations, as different crops have varying nitrogen requirements.</dd>
+                    <dt className="font-bold text-xl">Phosphorous:</dt>
+                        <dd>Phosphorous is crucial for root development and flowering. Soil phosphorous levels guide the system in suggesting crops that can optimize the available phosphorous.</dd>
+                </dl>
+            </div>
+            <div className="mx-auto px-3 mt-5 ">
+                <h1 className="text-3xl md:ml-10    font-bold mb-4">Environmental Variables:</h1>
+                <dl className=" ml-0 md:ml-10">
+                    <dt className="font-bold text-xl">Humidity:</dt>
+                        <dd>Crop success is closely tied to humidity levels. High humidity can lead to moisture-related diseases, while low humidity can result in stress for certain crops. The Crop Recommendation System factors in local humidity conditions to make precise recommendations.</dd>
+                    <dt className="font-bold text-xl">Temperature:</dt>
+                        <dd>Temperature affects the rate of plant growth and flowering. Some crops thrive in cooler conditions, while others prefer warmer climates. The system considers local temperature data for tailored suggestions</dd>
+                    <dt className="font-bold text-xl">Rainfall:</dt>
+                        <dd> Rainfall during the growing season is essential for crop success. The Crop Recommendation System accounts for historical rainfall patterns and monsoon data to provide recommendations that align with local water availability.</dd>
+                </dl>
+            </div>
+            <div className="mx-auto px-3 mt-5 md:ml-10 ">
+            <h3 className="text-3xl      font-bold mb-4"> Conclusion:</h3>
+            <p> The Crop Recommendation System represents the pinnacle of data-driven agriculture. By accounting for soil minerals, humidity, temperature, and rainfall, it empowers farmers to make informed decisions about crop selection. This approach not only boosts productivity but also contributes to more sustainable and resilient farming practices, which are essential for the future of agriculture in an ever-changing world. As technology continues to advance, projects like these demonstrate the transformative power of data in agriculture.</p> 
             </div>
         </div>
     );
