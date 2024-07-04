@@ -24,7 +24,7 @@ const CropRecommendation = () => {
 
     const handlePredictClick = (e) => {
         e.preventDefault();
-        const url = "http://localhost:5000/croppredict";
+        const url = "http://localhost:5000/crop_predict";
         setIsloading(true);
         const jsonData = JSON.stringify(formData);
         fetch(url, {
@@ -149,7 +149,7 @@ const CropRecommendation = () => {
                             onChange={handleChange}
                             placeholder="Enter Rainfall "
                         />
-                    </div>                                        
+                    </div>
                     <div className="mb-4">
                         <button
                             className="w-full px-3 py-2 bg-blue-500 text-white rounded disabled:bg-blue-300"

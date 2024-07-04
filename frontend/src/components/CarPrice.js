@@ -24,7 +24,7 @@ const CarPrice = () => {
 
   const handlePredictClick = (e) => {
     e.preventDefault();
-    const url = "http://localhost:5000/carpredict";
+    const url = "http://localhost:5000/car_predict";
     setIsloading(true);
     const jsonData = JSON.stringify(formData);
     fetch(url, {
