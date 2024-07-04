@@ -24,7 +24,7 @@ const CropRecommendation = () => {
 
     const handlePredictClick = (e) => {
         e.preventDefault();
-        const url = "http://localhost:5000/predict";
+        const url = "http://localhost:5000/croppredict";
         setIsloading(true);
         const jsonData = JSON.stringify(formData);
         fetch(url, {
