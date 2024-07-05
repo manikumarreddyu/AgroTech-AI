@@ -14,6 +14,7 @@ car_price_model = pickle.load(open('car_price_model.pkl', 'rb'))
 crop_model = pickle.load(open('crop_recommendation_model.pkl', 'rb'))
 fertilizer_model = pickle.load(open('fertilizer.pkl', 'rb'))
 classifier_model = pickle.load(open('classifier.pkl', 'rb'))
+soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
 
 
 
@@ -55,6 +56,17 @@ def fertilizer_predict():
         return jsonify({'Prediction': str(prediction)})
     except Exception as e:
         return jsonify({'error': str(e)})
+    
+@app.route('/soil_quality_predict', methods=['POST'])
+def soil_quality_predict():
+    data = request.get_json()
+    features = np.array([
+        data['N'], data['P'], data['K'], data['pH'], data['EC'],
+        data['OC'], data['S'], data['Zn'], data['Fe'], data['Cu'],
+        data['Mn'], data['B']
+    ]).reshape(1, -1)  # Convert to 2D array
+    prediction = soil_quality_model.predict(features)
+    return jsonify({'prediction': str(prediction[0])})
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

@@ -1,5 +1,6 @@
 import CropRecommendation from "../components/CropRecommendation";
 import Fertilizer from "../components/Fertilizer";
+import SoilQuality from "../components/SoilQuality";
 
 function Home() {
   
@@ -7,6 +8,7 @@ function Home() {
     <>
         <CropRecommendation/>
         <Fertilizer/>
+        <SoilQuality/>
 
     </>
   );
