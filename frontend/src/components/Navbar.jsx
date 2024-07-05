@@ -13,11 +13,14 @@ const Navbar = () => {
           <Link to="/" className="text-white hover:text-gray-200">
             Home
           </Link>
-          <Link to="/app/crop" className="text-white hover:text-gray-200">
+          <Link to="/crop" className="text-white hover:text-gray-200">
             Crop
           </Link>
-          <Link to="/app/fertilizer" className="text-white hover:text-gray-200">
+          <Link to="/fertilizer" className="text-white hover:text-gray-200">
             Fertilizer
+          </Link>
+          <Link to="/soil" className="text-white hover:text-gray-200">
+            Soil Quality
           </Link>
         </div>
       </div>
