@@ -1,6 +1,5 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import icon from '../images/playstore.png'
+import icon from '../assets/playstore.png'
 
 const Navbar = () => {
   return (

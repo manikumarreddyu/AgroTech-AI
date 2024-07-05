@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 
 const CropRecommendation = () => {
     const [isLoading, setIsloading] = useState(false);
@@ -47,7 +47,7 @@ const CropRecommendation = () => {
         <div className="container-fluid mx-auto   mt-4 fs-10 text-xl">
             <h1 className="text-3xl  text-center font-bold mb-4">Crop Recommendation</h1>
             <div className="mx-auto px-3 md:ml-10 ">
-            <p> In the realm of agriculture, where traditional knowledge meets cutting-edge technology, the Crop Recommendation System is revolutionizing how farmers choose crops. By taking into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall, this data-driven project is empowering farmers with precise recommendations. In this blog, we'll delve deeper into how these critical factors play a pivotal role in the decision-making process.</p>
+            <p> In the realm of agriculture, where traditional knowledge meets cutting-edge technology, the Crop Recommendation System is revolutionizing how farmers choose crops. By taking into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall, this data-driven project is empowering farmers with precise recommendations. In this blog, we will delve deeper into how these critical factors play a pivotal role in the decision-making process.</p>
             </div>
             <div className="max-w-lg mx-auto mt-10 bg-blue-600 text-center p-5">
 
