@@ -22,6 +22,9 @@ const Navbar = () => {
           <Link to="/soil" className="text-white hover:text-gray-200">
             Soil Quality
           </Link>
+          <Link to="/forecast" className="text-white hover:text-gray-200">
+            Forecast
+          </Link>
         </div>
       </div>
     </nav>
