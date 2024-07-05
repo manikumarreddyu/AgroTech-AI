@@ -16,7 +16,6 @@ const App = () => {
           <Route path="/crop" element={<Crop />} />
           <Route path="/fertilizer" element={<Fertilizer />} />
           <Route path="/soil" element={<SoilQuality />} />
-
         </Routes>
       </div>
     </BrowserRouter>
