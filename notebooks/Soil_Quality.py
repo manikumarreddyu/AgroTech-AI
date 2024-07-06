@@ -63,3 +63,5 @@ with open('soil_quality.pkl', 'wb') as file:
     pickle.dump(svr_rbf, file)
 
 print("Models saved to pickle files.")
+
+print(svr_rbf.__getstate__()['_sklearn_version'])
