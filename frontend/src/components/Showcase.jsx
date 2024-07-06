@@ -1,4 +1,4 @@
-import editor from "../assets/editor.png";
+import editor from "../assets/prediction.webp";
 
 const Showcase = () => {
   const editorData = {
@@ -39,7 +39,7 @@ const Showcase = () => {
             ))}
           </div>
           <div className="mt-10 md:mt-0 md:w-1/2 flex justify-center">
-            <img src={editor} alt="Code Editor" className="max-w-full mx-20 h-auto rounded-lg shadow-md" />
+            <img src={editor} alt="Code Editor" className="" />
           </div>
         </div>
       </div>

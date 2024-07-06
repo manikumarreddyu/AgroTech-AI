@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import about from '../assets/aboutus.png';
+import about from '../assets/about.png';
 import bgHero from "../assets/bgHero.png";
 
 

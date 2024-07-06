@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import numpy as np
 import pandas as pd
 from flask_cors import CORS # CORS for handling Cross-Origin Resource Sharing
-import pickle 
+import pickle
 
 # Create a Flask application instance
 app = Flask(__name__)
