@@ -10,10 +10,10 @@
 # if __name__ == '__main__':
 #     app.run(debug=True)
 from flask import Flask, request, jsonify, render_template
-import numpy as np
-import pandas as pd
-# from flask_cors import CORS # CORS for handling Cross-Origin Resource Sharing
-import pickle
+# import numpy as np
+# import pandas as pd
+# # from flask_cors import CORS # CORS for handling Cross-Origin Resource Sharing
+# import pickle
 
 # Create a Flask application instance
 app = Flask(__name__)
@@ -24,11 +24,11 @@ def index():
 # Enable CORS for all routes, allowing requests from any origin
 # CORS(app,resources={r"/*":{"origins":"*"}})
 
-car_price_model = pickle.load(open('car_price_model.pkl', 'rb'))
-crop_model = pickle.load(open('crop_recommendation_model.pkl', 'rb'))
-fertilizer_model = pickle.load(open('fertilizer.pkl', 'rb'))
-classifier_model = pickle.load(open('classifier.pkl', 'rb'))
-soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
+# car_price_model = pickle.load(open('car_price_model.pkl', 'rb'))
+# crop_model = pickle.load(open('crop_recommendation_model.pkl', 'rb'))
+# fertilizer_model = pickle.load(open('fertilizer.pkl', 'rb'))
+# classifier_model = pickle.load(open('classifier.pkl', 'rb'))
+# soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
 
 
 
