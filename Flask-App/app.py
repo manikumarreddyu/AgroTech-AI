@@ -10,10 +10,10 @@
 # if __name__ == '__main__':
 #     app.run(debug=True)
 from flask import Flask, request, jsonify, render_template
-# import numpy as np
-# import pandas as pd
-# # from flask_cors import CORS # CORS for handling Cross-Origin Resource Sharing
-# import pickle
+import numpy as np
+import pandas as pd
+# from flask_cors import CORS # CORS for handling Cross-Origin Resource Sharing
+import pickle
 
 # Create a Flask application instance
 app = Flask(__name__)
