@@ -41,46 +41,46 @@ soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
 #     return jsonify(data)
   
 # Define a route for making predictions
-@app.route('/car_predict', methods=['POST'])
-def car_predict():
-    try:
-        data = request.get_json()
-        query_df = pd.DataFrame([data])
-        prediction = car_price_model.predict(query_df)
-        return jsonify({'Prediction': list(prediction)})
-    except Exception as e:
-        return jsonify({'error': str(e)})
+# @app.route('/car_predict', methods=['POST'])
+# def car_predict():
+#     try:
+#         data = request.get_json()
+#         query_df = pd.DataFrame([data])
+#         prediction = car_price_model.predict(query_df)
+#         return jsonify({'Prediction': list(prediction)})
+#     except Exception as e:
+#         return jsonify({'error': str(e)})
     
-@app.route('/crop_predict', methods=['POST'])
-def crop_predict():
-    try:
-        data = request.get_json()
-        query_df = pd.DataFrame([data])
-        prediction = crop_model.predict(query_df)
-        return jsonify({'Prediction': list(prediction)})
-    except Exception as e:
-        return jsonify({'error': str(e)})
+# @app.route('/crop_predict', methods=['POST'])
+# def crop_predict():
+#     try:
+#         data = request.get_json()
+#         query_df = pd.DataFrame([data])
+#         prediction = crop_model.predict(query_df)
+#         return jsonify({'Prediction': list(prediction)})
+#     except Exception as e:
+#         return jsonify({'error': str(e)})
     
-@app.route('/fertilizer_predict', methods=['POST'])
-def fertilizer_predict():
-    try:
-        data = request.get_json()
-        query_df = pd.DataFrame([data])
-        prediction = fertilizer_model.classes_[classifier_model.predict(query_df)]
-        return jsonify({'Prediction': str(prediction)})
-    except Exception as e:
-        return jsonify({'error': str(e)})
+# @app.route('/fertilizer_predict', methods=['POST'])
+# def fertilizer_predict():
+#     try:
+#         data = request.get_json()
+#         query_df = pd.DataFrame([data])
+#         prediction = fertilizer_model.classes_[classifier_model.predict(query_df)]
+#         return jsonify({'Prediction': str(prediction)})
+#     except Exception as e:
+#         return jsonify({'error': str(e)})
     
-@app.route('/soil_quality_predict', methods=['POST'])
-def soil_quality_predict():
-    data = request.get_json()
-    features = np.array([
-        data['N'], data['P'], data['K'], data['pH'], data['EC'],
-        data['OC'], data['S'], data['Zn'], data['Fe'], data['Cu'],
-        data['Mn'], data['B']
-    ]).reshape(1, -1)  # Convert to 2D array
-    prediction = soil_quality_model.predict(features)
-    return jsonify({'prediction': str(prediction[0])})
+# @app.route('/soil_quality_predict', methods=['POST'])
+# def soil_quality_predict():
+#     data = request.get_json()
+#     features = np.array([
+#         data['N'], data['P'], data['K'], data['pH'], data['EC'],
+#         data['OC'], data['S'], data['Zn'], data['Fe'], data['Cu'],
+#         data['Mn'], data['B']
+#     ]).reshape(1, -1)  # Convert to 2D array
+#     prediction = soil_quality_model.predict(features)
+#     return jsonify({'prediction': str(prediction[0])})
 
 if __name__ == '__main__':
     app.run(debug=True)
