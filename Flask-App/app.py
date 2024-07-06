@@ -33,12 +33,12 @@ soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
 
 
 # Define a route for handling HTTP GET requests to the root URL
-@app.route('/api', methods=['GET'])
-def get_data():
-    data = {
-        "message":"API is Running"
-    }
-    return jsonify(data)
+# @app.route('/api', methods=['GET'])
+# def get_data():
+#     data = {
+#         "message":"API is Running"
+#     }
+#     return jsonify(data)
   
 # Define a route for making predictions
 @app.route('/car_predict', methods=['POST'])
