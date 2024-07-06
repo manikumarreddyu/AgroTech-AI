@@ -68,5 +68,5 @@ def soil_quality_predict():
     prediction = soil_quality_model.predict(features)
     return jsonify({'prediction': str(prediction[0])})
 
-# if __name__ == '__main__':
-#     app.run(debug=True, port=5000)
+if __name__ == '__main__':
+    app.run(debug=True)
