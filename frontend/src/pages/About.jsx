@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import about from '../assets/aboutus.png';
 import bgHero from "../assets/bgHero.png";
 
+
 function About() {
   return (
     <div className="w-full text-[#000435] bg-white dark:text-white dark:bg-green-500 py-16 px-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
