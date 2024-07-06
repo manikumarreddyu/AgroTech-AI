@@ -25,7 +25,7 @@ def index():
 # CORS(app,resources={r"/*":{"origins":"*"}})
 
 import os
-
+import sklearn
 # Get the current directory of the script
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
