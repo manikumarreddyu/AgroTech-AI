@@ -1,5 +1,5 @@
 import  { useState } from "react";
-
+import bgHero from "../assets/bgHero.png";
 const Fertilizer = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -58,8 +58,8 @@ const Fertilizer = () => {
     };
 
     return (
-        <div className="container mx-auto text-center mt-4">
-            <h1 className="text-2xl font-bold mb-4">Fertilizer Prediction</h1>
+        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 mt-20  text-center "style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <h1 className="text-2xl font-bold text-green-600 mb-4">Fertilizer Prediction</h1>
             <div className="max-w-lg mx-auto">
                 <form method="post" acceptCharset="utf-8" name="Modelform">
                     <div className="mb-4">

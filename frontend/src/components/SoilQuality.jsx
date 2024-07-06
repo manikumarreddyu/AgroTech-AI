@@ -1,5 +1,5 @@
 import  { useState } from 'react';
-
+import bgHero from "../assets/bgHero.png";
 const SoilQuality = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -71,13 +71,13 @@ const SoilQuality = () => {
     };
 
     return (
-        <div className="container mx-auto mt-4 fs-10 text-xl">
-            <h1 className="text-3xl text-center font-bold mb-4">Soil Quality Prediction</h1>
-            <div className="max-w-lg mx-auto mt-10 bg-blue-600 text-center p-5">
-                <form method="post" acceptCharset="utf-8" name="Modelform">
+        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8   text-center mt-20"style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <h1 className="text-2xl text-center font-bold mb-4 text-green-600">Soil Quality Prediction</h1>
+            <div className="max-w-lg mx-auto mt-10 bg-green-400 text-center p-5">
+                <form method="post" acceptCharset="utf-8" name="Modelform"style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     {Object.keys(formData).map((key, index) => (
                         <div key={index} className="mb-4">
-                            <label className="block text-left font-semibold mb-2">
+                            <label className="block text-center  text-black font-semibold mb-2">
                                 {key}
                             </label>
                             <input

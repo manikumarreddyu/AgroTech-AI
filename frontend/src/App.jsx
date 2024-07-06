@@ -5,13 +5,19 @@ import Crop from './components/CropRecommendation';
 import Home from './pages/Home'
 import Fertilizer from './components/Fertilizer';
 import SoilQuality from './components/SoilQuality';
+import Footer from './components/Footer';
+import GoTop from './components/GoTop';
 import Forecast from './pages/Forecast';
+import useTheme from './hooks/useTheme';
 
 const App = () => {
+  const { theme, toggleTheme } = useTheme();
   return (
     <BrowserRouter>
       <div>
-        <Navbar />
+        <GoTop/>
+        <div style={{ backgroundColor: theme === 'light' ? '#fff' : '#000435', color: theme === 'light' ? '#000435' : '#fff' }}> 
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/crop" element={<Crop />} />
@@ -19,6 +25,8 @@ const App = () => {
           <Route path="/soil" element={<SoilQuality />} />
           <Route path="/forecast" element={<Forecast />} />
         </Routes>
+        <Footer />
+        </div>
       </div>
     </BrowserRouter>
   );

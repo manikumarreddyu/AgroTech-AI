@@ -23,8 +23,8 @@ export const StateContextProvider = ({ children }) => {
                 shortColumnNames: 0,
             },
             headers: {
-                // 'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
-                'X-RapidAPI-Key': '3e80f9cba0mshb23d5515029b67cp143a90jsnc12e97b5a918',
+                'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
+                // 'X-RapidAPI-Key': '3e80f9cba0mshb23d5515029b67cp143a90jsnc12e97b5a918',
                 'X-RapidAPI-Host': 'visual-crossing-weather.p.rapidapi.com'
             }
         }
@@ -39,7 +39,7 @@ export const StateContextProvider = ({ children }) => {
         } catch (e) {
             console.error(e);
             // if the api throws error.
-            alert('This place does not exist')
+            // alert('This place does not exist')
         }
     }
 
