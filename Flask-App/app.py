@@ -24,7 +24,6 @@ def index():
 # Enable CORS for all routes, allowing requests from any origin
 # CORS(app,resources={r"/*":{"origins":"*"}})
 
-import pickle
 import os
 
 # Get the current directory of the script
