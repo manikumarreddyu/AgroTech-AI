@@ -1,5 +1,5 @@
 import  { useEffect, useState } from 'react'
-import { useStateContext } from '../../context'
+import { useStateContext } from '../../context/StateContextProvider'
 //images
 import Clear from '../../assets/images/Clear.jpg'
 import Fog from '../../assets/images/fog.png'
