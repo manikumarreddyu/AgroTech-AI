@@ -24,11 +24,11 @@ def index():
 # Enable CORS for all routes, allowing requests from any origin
 # CORS(app,resources={r"/*":{"origins":"*"}})
 
-car_price_model = pickle.load(open('car_price_model.pkl', 'rb'))
-crop_model = pickle.load(open('crop_recommendation_model.pkl', 'rb'))
-fertilizer_model = pickle.load(open('fertilizer.pkl', 'rb'))
-classifier_model = pickle.load(open('classifier.pkl', 'rb'))
-soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
+# car_price_model = pickle.load(open('car_price_model.pkl', 'rb'))
+# crop_model = pickle.load(open('crop_recommendation_model.pkl', 'rb'))
+# fertilizer_model = pickle.load(open('fertilizer.pkl', 'rb'))
+# classifier_model = pickle.load(open('classifier.pkl', 'rb'))
+# soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
 
 
 
