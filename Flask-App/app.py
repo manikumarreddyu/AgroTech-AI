@@ -24,11 +24,19 @@ def index():
 # Enable CORS for all routes, allowing requests from any origin
 # CORS(app,resources={r"/*":{"origins":"*"}})
 
-# car_price_model = pickle.load(open('car_price_model.pkl', 'rb'))
-# crop_model = pickle.load(open('crop_recommendation_model.pkl', 'rb'))
-# fertilizer_model = pickle.load(open('fertilizer.pkl', 'rb'))
-# classifier_model = pickle.load(open('classifier.pkl', 'rb'))
-# soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
+import pickle
+import os
+
+# Get the current directory of the script
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Load models
+car_price_model = pickle.load(open(os.path.join(current_dir, 'models', 'car_price_model.pkl'), 'rb'))
+crop_model = pickle.load(open(os.path.join(current_dir, 'models', 'crop_recommendation_model.pkl'), 'rb'))
+fertilizer_model = pickle.load(open(os.path.join(current_dir, 'models', 'fertilizer.pkl'), 'rb'))
+classifier_model = pickle.load(open(os.path.join(current_dir, 'models', 'classifier.pkl'), 'rb'))
+soil_quality_model = pickle.load(open(os.path.join(current_dir, 'models', 'soil_quality.pkl'), 'rb'))
+
 
 
 
