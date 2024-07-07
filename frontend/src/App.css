@@ -1,82 +1,84 @@
 ::-webkit-scrollbar-track {
-    background-image:white
+  background-image: white
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #06ac06;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #32cd32;
+  cursor: pointer;
+}
+
+.scroll-margin-top {
+  scroll-margin-top: 100px;
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-color: rgb(66, 4, 128);
   }
-  
-  ::-webkit-scrollbar {
-    width: 7px;
+
+  25% {
+    border-color: rgb(21, 3, 100);
   }
-  
-  ::-webkit-scrollbar-thumb {
-    border-radius: 50px;
-    background-color: #06ac06;
+
+  50% {
+    border-color: rgb(98, 0, 128);
   }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #32cd32; 
-    cursor: pointer;
+
+  75% {
+    border-color: rgb(44, 4, 88);
   }
-  
-  .scroll-margin-top {
-    scroll-margin-top: 100px;
+
+  100% {
+    border-color: rgb(59, 3, 97);
   }
-  
-  @keyframes borderAnimation {
-    0% {
-      border-color: rgb(66, 4, 128);
-    }
-    25% {
-      border-color: rgb(21, 3, 100);
-    }
-    50% {
-      border-color: rgb(98, 0, 128);
-    }
-    75% {
-      border-color: rgb(44, 4, 88);
-    }
-    100% {
-      border-color: rgb(59, 3, 97);
-    }
-  }
-  
-  .animated-border1 {
-    border-width: 2px;
-    border-style: solid;
-    animation: borderAnimation 5s ease-in-out infinite;
-  }
-  
-  .element {
-    animation: border-spin 10s linear infinite;
-  }
-  .animated-border {
-    position: relative;
-    border-radius: 30px;
-    padding: 1px;
-    background: conic-gradient(
-      from 10deg at 50% 50%,
+}
+
+.animated-border1 {
+  border-width: 2px;
+  border-style: solid;
+  animation: borderAnimation 5s ease-in-out infinite;
+}
+
+.element {
+  animation: border-spin 10s linear infinite;
+}
+
+.animated-border {
+  position: relative;
+  border-radius: 30px;
+  padding: 1px;
+  background: conic-gradient(from 10deg at 50% 50%,
       #e2cbff 0%,
       #393bb2 50%,
-      #e2cbff 100%
-    );
-    animation: border-spin 10s linear infinite;
-  }
-  
-  .animated-border-inner {
-    display: inline-flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    background: #000435;
-    padding: 12px 16px;
-    border-radius: 8px;
-    color: white;
-    text-align: left;
-  }
-  
-  .emoji-button {
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .emoji-button:hover {
-    transform: translateY(-5px);
-  }
-  
+      #e2cbff 100%);
+  animation: border-spin 10s linear infinite;
+}
+
+.animated-border-inner {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background: #000435;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: white;
+  text-align: left;
+}
+
+.emoji-button {
+  transition: transform 0.2s ease-in-out;
+}
+
+.emoji-button:hover {
+  transform: translateY(-5px);
+}

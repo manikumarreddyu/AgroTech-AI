@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { FaHome, FaGithub, FaRegCopyright } from 'react-icons/fa';
 import playstore from "../assets/playstore.png";
+import bgHero from "../assets/bgHero.png";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className='bg-[#11cb46] text-white p-10'>
+        <div className='bg-[#11cb46] text-white p-6'style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className='md:flex'>
                 <div className="md:w-1/2 lg:-mt-8 md:-mt-14 sm:mt-1 sm:w-full content-center">
                     <div className="flex flex-col md:items-start">
@@ -66,8 +67,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='block w-3/4 m-auto mt-10'>
-                <div className='flex gap-4 justify-center md:justify-end'>
+            <div className='block items-center m-auto mt-2'>
+                <div className='flex gap-4 justify-center '>
                     <a href="https://github.com/manikumarreddyu/AGRO-AI" className="hover:scale-110 hover:shadow-[0_0_10px_2px_green] transition-transform duration-300 ease-in-out flex items-center justify-center p-2 rounded-full">
                         <FaGithub size={35} className="text-white" />
                     </a>
@@ -76,7 +77,7 @@ const Footer = () => {
                     </Link>
                 </div>
             </div>
-            <div className='mt-10 text-white flex justify-center text-md lg:text-xl xl:text-md'>
+            <div className='mt-4 text-white flex justify-center text-md lg:text-xl xl:text-md'>
                 Copyright <FaRegCopyright className="ml-2 mr-1 mt-1" /> {currentYear} AgroTech AI
             </div>
         </div>

@@ -1,5 +1,5 @@
 import editor from "../assets/prediction.webp";
-
+import bgHero from "../assets/bgHero.png";
 const Showcase = () => {
   const editorData = {
     title: "🚀 Our Prediction Models 🚀",
@@ -20,7 +20,7 @@ const Showcase = () => {
   };
   
   return (
-    <section className="text-[#000435] bg-white dark:text-white dark:bg-green-500">
+    <section className="text-[#000435] bg-white dark:text-white dark:bg-green-400"style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-2xl lg:text-4xl xl:text-4xl 2xl:text-4xl mb-6 lg:mb-14 font-extrabold text-center text-[#b752fa] dark:text-white">
           {editorData.title}
@@ -28,7 +28,7 @@ const Showcase = () => {
         <div className="flex flex-col md:flex-row md:space-x-6 items-center">
           <div className="md:w-1/2 space-y-5">
             {editorData.features.map((feature, index) => (
-              <div key={index} className="p-4 sm:p-4 md:p-6 lg:p-8 rounded-lg shadow-md border dark:bg-green-600 border-green-600 transition-transform duration-300 hover:-translate-y-2">
+              <div key={index} className="p-4 sm:p-4 md:p-6 lg:p-8 rounded-lg shadow-md border dark:bg-green-400 border-green-600 transition-transform duration-300 hover:-translate-y-2">
                 <h3 className="text-md md:text-xl lg:text-2xl font-bold mb-2 text-[#b752fa] dark:text-white">
                   {feature.title}
                 </h3>

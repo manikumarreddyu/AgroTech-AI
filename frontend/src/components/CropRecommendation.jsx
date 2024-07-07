@@ -44,12 +44,12 @@ const CropRecommendation = () => {
     };
 
     return (
-        <div className="max-w-full mt-20  mx-auto px-4 sm:px-6 lg:px-8  "style={{ backgroundImage: `url(${bgHero})` }}>
-            <h1 className="text-2xl  text-center text-green-600 font-bold mb-4 ">Crop Recommendation</h1>
+        <div className="max-w-full  mt-16 mx-auto px-4 sm:px-6 lg:px-8 bg-green-300 "style={{ backgroundImage: `url(${bgHero})` }}>
+            <h1 className="text-2xl  text-center text-green-700 font-bold mb-4 ">Crop Recommendation</h1>
             <div className="mx-auto px-3 md:ml-10 ">
             <p> In the realm of agriculture, where traditional knowledge meets cutting-edge technology, the Crop Recommendation System is revolutionizing how farmers choose crops. By taking into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall, this data-driven project is empowering farmers with precise recommendations. In this blog, we will delve deeper into how these critical factors play a pivotal role in the decision-making process.</p>
             </div>
-            <div className="max-w-lg mx-auto mt-10 bg-green-300 text-center p-5 border-2 text-green-900 border-green-500 shadow-md rounded-md">
+            <div className="max-w-lg mx-auto mt-10  text-center p-5 border-2 bg-green-300 text-green-900 border-green-500 shadow-md rounded-md">
 
                 <form method="post" acceptCharset="utf-8" name="Modelform"style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <div className="mb-4">
@@ -199,7 +199,7 @@ const CropRecommendation = () => {
                 </dl>
             </div>
             <div className="mx-auto px-3 mt-5 md:ml-10 ">
-            <h3 className="text-3xl      font-bold mb-4"> Conclusion:</h3>
+            <h3 className="text-3xl      font-bold "> Conclusion:</h3>
             <p> The Crop Recommendation System represents the pinnacle of data-driven agriculture. By accounting for soil minerals, humidity, temperature, and rainfall, it empowers farmers to make informed decisions about crop selection. This approach not only boosts productivity but also contributes to more sustainable and resilient farming practices, which are essential for the future of agriculture in an ever-changing world. As technology continues to advance, projects like these demonstrate the transformative power of data in agriculture.</p> 
             </div>
         </div>

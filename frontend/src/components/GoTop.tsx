@@ -31,7 +31,7 @@ const GoTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="bg-green-600 hover:bg-green-700 border border-green-500 shadow-2xl text-white font-bold py-3 px-3 rounded-full transition-all duration-300 animate-movebtn hover-stop"
+          className="bg-green-500 hover:bg-green-600 border border-green-700 shadow-2xl text-white font-bold py-3 px-3 rounded-full transition-all duration-300 animate-movebtn hover-stop"
         >
           <svg
             className="h-6 w-6 text-white"

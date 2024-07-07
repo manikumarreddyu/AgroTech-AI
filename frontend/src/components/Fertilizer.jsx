@@ -58,10 +58,10 @@ const Fertilizer = () => {
     };
 
     return (
-        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 mt-20  text-center "style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <h1 className="text-2xl font-bold text-green-600 mb-4">Fertilizer Prediction</h1>
-            <div className="max-w-lg mx-auto">
-                <form method="post" acceptCharset="utf-8" name="Modelform">
+        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 mt-16  bg-green-300 text-center "style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <h1 className="text-2xl font-bold text-green-700 mb-4">Fertilizer Prediction</h1>
+            <div className="max-w-lg mx-auto mt-10  text-center p-5 border-2 bg-green-300 text-green-900 border-green-500 shadow-md rounded-md ">
+                <form method="post" acceptCharset="utf-8" name="Modelform"style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <div className="mb-4">
                         <label className="block text-left font-semibold mb-2">
                             Temperature

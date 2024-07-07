@@ -33,18 +33,18 @@ const FAQ = () => {
   };
 
   return (
-    <section className="text-[rgb(0,4,53)] bg-white dark:text-white dark:bg-green-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-[#000435] bg-white dark:text-white dark:bg-green-500" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <h2 className="text-4xl md:text-4xl  sm:text-2xl  lg:text-4xl mb-7 font-extrabold text-center text-[#000435] bg-white dark:text-white dark:bg-green-500">🤔 Frequently Asked Questions 🤔</h2>
+    <section className="text-[rgb(0,4,53)] bg-white dark:text-white dark:bg-green-400">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-[#000435] bg-white dark:text-white dark:bg-green-400" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <h2 className="text-4xl md:text-4xl  sm:text-2xl  lg:text-4xl mb-7 font-extrabold text-center text-[#000435] bg-white dark:text-white dark:bg-green-400">🤔 Frequently Asked Questions 🤔</h2>
         <dl className="space-y-2">
           {faqQuestions.map((faq, index) => (
             <div key={index} className="space-y-2">
-              <div className={`rounded-lg ${activeIndex === index ? 'border' : 'border border-green-700 text-[#000435] bg-white dark:text-white dark:bg-green-500'}`}>
+              <div className={`rounded-lg ${activeIndex === index ? 'border' : 'border border-green-700 text-[#000435] bg-white dark:text-white dark:bg-green-400'}`}>
                 <button
                   onClick={() => handleToggle(index)}
-                  className={`animated-border-inner w-full focus:outline-none transition duration-100 ease-in-out text-[#000435] bg-white dark:text-white dark:bg-green-500`}
+                  className={`animated-border-inner w-full focus:outline-none transition duration-100 ease-in-out text-[#000435] bg-white dark:text-white dark:bg-green-400`}
                 >
-                  <span className="text-sm sm:text-sm md:text-xl lg:text-2xl leading-6 font-medium text-[#000435] bg-white dark:text-white dark:bg-green-500 hover:text-green-600 dark:hover:text-green-800">{faq.question}</span>
+                  <span className="text-sm sm:text-sm md:text-xl lg:text-2xl leading-6 font-medium text-[#000435] bg-white dark:text-white dark:bg-green-400 hover:text-green-600 dark:hover:text-green-800">{faq.question}</span>
                   {activeIndex === index ? <BiChevronUp className="h-5 w-5" /> : <BiChevronDown className="h-5 w-5" />}
                 </button>
               </div>

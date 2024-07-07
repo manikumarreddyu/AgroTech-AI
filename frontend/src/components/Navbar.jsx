@@ -1,12 +1,12 @@
 import  { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons from react-icons
+// import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons from react-icons
 import icon from '../assets/playstore.png';
-import useTheme from '../hooks/useTheme'; // Import useTheme hook
+// import useTheme from '../hooks/useTheme'; // Import useTheme hook
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { theme, toggleTheme } = useTheme(); // Use useTheme hook
+    // const { theme, toggleTheme } = useTheme(); // Use useTheme hook
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -17,8 +17,9 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] fixed w-full z-20 top-0 start-0 ${theme === 'dark' ? 'dark' : ''}`}>
-            <div className="max-w-screen-xl flex flex-wrap items-center font-semibold justify-between mx-auto p-4">
+        // <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] fixed w-full z-20 top-0 start-0 ${theme === 'dark' ? 'dark' : ''}`}>
+        <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] fixed w-full  z-20 top-0 start-0  `}>
+            <div className="max-w-screen-xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
                 <div className="text-white font-bold flex items-center">
                     <img className="float-left" src={icon} alt="icon" style={{ height: '30px', width: '30px' }} />
                     <span className="px-2 text-xl">AgroTech AI</span>
@@ -56,12 +57,12 @@ const Navbar = () => {
                         </Link>
                     </div>
                 </div>
-                <button
+                {/* <button
                     className="inline-flex   items-center justify-center w-10 h-10 text-gray-100 rounded-lg hover:bg-green-400 focus:outline-none focus:ring-1 focus:ring-gray-200"
                     onClick={toggleTheme}
                 >
                     {theme === 'light' ? <FaMoon className="text-2xl p-1" /> : <FaSun className="text-2xl p-1" />}
-                </button>
+                </button> */}
             </div>
         </nav>
     );

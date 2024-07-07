@@ -91,7 +91,7 @@ const TestimonialSlider = () => {
 
   return (
     <div
-      className="testimonial-slider-container w-full flex flex-col text-center py-10 bg-cover bg-center text-[#000435] dark:text-white dark:bg-green-500"
+      className="testimonial-slider-container w-full flex flex-col text-center py-10 bg-cover bg-center text-[#000435] dark:text-white dark:bg-green-400"
       style={{ backgroundImage: `url(${bgHero})` }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -107,11 +107,11 @@ const TestimonialSlider = () => {
         </button>
         <div className="flex overflow-hidden max-w-full">
           {testimonialsData.users.slice(currentIndex, currentIndex + slidesToShow).map((testimonial, index) => (
-            <div key={index} className="testimonial mx-2 p-6 md:p-10 rounded-lg shadow-lg bg-white dark:bg-green-600 text-[#000435] dark:text-white flex flex-col items-center justify-center min-w-[260px] md:min-w-[350px] lg:min-w-[400px]">
+            <div key={index} className="testimonial mx-2 p-6 md:p-10 rounded-lg drop-shadow-xl border border-green-600 bg-white dark:bg-green-400 text-[#000435] dark:text-white flex flex-col items-center justify-center min-w-[260px] md:min-w-[350px] lg:min-w-[400px]">
               <img
                 src={testimonial.image}
                 alt={`${testimonial.author}'s picture`}
-                className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-6 border-4 p-1 border-green-600 dark:border-white"
+                className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-6 border-4 p-1 border-green-400 dark:border-white"
               />
               <p className="text-lg md:text-2xl italic mb-4 text-center">{testimonial.quote}</p>
               <h4 className="text-base md:text-xl font-semibold text-center">- {testimonial.author}</h4>
