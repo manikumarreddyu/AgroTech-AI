@@ -49,7 +49,7 @@ const Price = () => {
             <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                     <h2 className="text-xl font-semibold mb-4">Top Gainers (Current trends)</h2>
-                    <table className="min-w-full border-collapse border border-gray-300">
+                    <table className="min-w-full text-left border-collapse border border-gray-300 ">
                         <thead>
                             <tr>
                                 <th className="px-4 py-2 border border-gray-300">Item Name</th>
@@ -70,7 +70,7 @@ const Price = () => {
                 </div>
                 <div>
                     <h2 className="text-xl font-semibold mb-4">Top Losers (Current trends)</h2>
-                    <table className="min-w-full border-collapse border border-gray-300">
+                    <table className="min-w-full text-left border-collapse border border-gray-300">
                         <thead>
                             <tr>
                                 <th className="px-4 py-2 border border-gray-300">Item Name</th>
