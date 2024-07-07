@@ -9,6 +9,8 @@ import Footer from './components/Footer';
 import GoTop from './components/GoTop';
 import Forecast from './pages/Forecast';
 import useTheme from './hooks/useTheme';
+import Price from './components/price';
+import Report from './components/report';
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();
@@ -24,6 +26,8 @@ const App = () => {
           <Route path="/fertilizer" element={<Fertilizer />} />
           <Route path="/soil" element={<SoilQuality />} />
           <Route path="/forecast" element={<Forecast />} />
+          <Route path="/price" element={<Price />} />
+          <Route path="/report" element={<Report />} />
         </Routes>
         <Footer />
         </div>
