@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState,useEffect } from "react";
-import React from "react";
+import { Link } from "react-router-dom";
 import ChartComponent from "./Chart";
  
  
@@ -306,6 +306,14 @@ const Report = () => {
                                     previousX={receivedData.previous_x}
                                     previousY={receivedData.previous_y}
                                 /> 
+                                <div>
+                                  <Link to="/price">
+                                    <button>
+                                      GoBack
+                                    </button>
+
+                                  </Link>
+                                </div>
                         
 
                             
