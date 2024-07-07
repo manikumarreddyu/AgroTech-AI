@@ -9,8 +9,8 @@ import Footer from './components/Footer';
 import GoTop from './components/GoTop';
 import Forecast from './pages/Forecast';
 import useTheme from './hooks/useTheme';
-import Price from './components/price';
-import Report from './components/report';
+import Price from './components/Price';
+import Report from './components/Report';
 
 const App = () => {
   const { theme, toggleTheme } = useTheme();

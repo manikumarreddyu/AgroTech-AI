@@ -1,179 +1,144 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import gain from '../assets/images/gain-icon.png';
 import loss from '../assets/images/loss-icon.png';
+import bgHero from "../assets/bgHero.png";
 
 const Price = () => {
-    var commodityArray= ['arhar','bajra','barley','copra','urad','gram','groundnut','jowar','jute','maize','masoor','moong','niger','paddy','ragi','rape']
-    console.log(commodityArray)
+    const commodityArray = ['arhar', 'bajra', 'barley', 'copra', 'urad', 'gram', 'groundnut', 'jowar', 'jute', 'maize', 'masoor', 'moong', 'niger', 'paddy', 'ragi', 'rape'];
 
     const initialData = {
         chunks: [
-          ["arhar", "bajra", "barley", "copra", "urad", "gram", "groundnut", "jowar"],
-          ["jute", "maize", "masoor", "moong", "niger", "paddy", "ragi", "rape"]
+            ["arhar", "bajra", "barley", "copra", "urad", "gram", "groundnut", "jowar"],
+            ["jute", "maize", "masoor", "moong", "niger", "paddy", "ragi", "rape"]
         ],
-        commodities: [
-          "arhar"
-        ],
+        commodities: ["arhar"],
         six_months_forecast: [
-          ["Aug 24", "Copra", 5650.8, -0.36, "Barley", 1085.84, -0.36],
-  
+            ["Aug 24", "Copra", 5650.8, -0.36, "Barley", 1085.84, -0.36],
         ],
         top_gainers: [
-          ["Gram", 3592.4, 5.51],
-      
+            ["Gram", 3592.4, 5.51],
         ],
         top_losers: [
-          ["Niger", 4648.0, -6.28],
-         
+            ["Niger", 4648.0, -6.28],
         ]
-      };
+    };
+
     const [receivedData, setReceivedData] = useState(initialData);
-     
-   
-  console.log(receivedData);
 
     useEffect(() => {
         const fetchData = async () => {
-        try {
-            const response = await fetch('http://localhost:5000/price_predict');
-            if (!response.ok) {
-            throw new Error('Network response was not ok');
+            try {
+                const response = await fetch('http://localhost:5000/price_predict');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const responseData = await response.json();
+                setReceivedData(responseData);
+            } catch (error) {
+                console.log('Error:', error);
             }
-            const responseData = await response.json();
-            setReceivedData(responseData);
-        } catch (error) {
-            console.log('Error:', error);
-        }
         };
         fetchData();
     }, []);
 
-    console.log(receivedData);
-
-
-    return( 
-        <div className="container-fluid mx-auto">
-            <div className="row"> 
-                <h1 className="text-3xl font-bold text-center">Price Prediction</h1>
-                 
-            </div>
-            <div className="row">
-
-                {/* Top Gainers */}
-
-                <div className="col"> 
-                    <div class="table_container">
-                        <h1 class="heading">Top Gainers (Current trends)</h1>
-                        <table class="border-4 border-sky-500">
-                            <thead>
+    return (
+        <div className="container mx-auto px-4 py-6 mt-12">
+            <h1 className="text-3xl font-bold text-center mb-6">Price Prediction</h1>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h2 className="text-xl font-semibold mb-4">Top Gainers (Current trends)</h2>
+                    <table className="min-w-full border-collapse border border-gray-300">
+                        <thead>
                             <tr>
-                                <th className="px-2">Item Name</th>
-                                <th className="px-2">Price (per Qtl.)</th>
-                                <th className="px-2">Change</th>
+                                <th className="px-4 py-2 border border-gray-300">Item Name</th>
+                                <th className="px-4 py-2 border border-gray-300">Price (per Qtl.)</th>
+                                <th className="px-4 py-2 border border-gray-300">Change</th>
                             </tr>
-                            </thead>
-                            <tbody>
-                                {receivedData.top_gainers.map((ele, index) => (
-                                    <tr key={index}>
-                                    <td>{ele[0]}</td>
-                                    <td>{ele[1]}</td>
-                                    <td>{ele[2]}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                        </thead>
+                        <tbody>
+                            {receivedData.top_gainers.map((ele, index) => (
+                                <tr key={index}>
+                                    <td className="px-4 py-2 border border-gray-300">{ele[0]}</td>
+                                    <td className="px-4 py-2 border border-gray-300">{ele[1]}</td>
+                                    <td className="px-4 py-2 border border-gray-300">{ele[2]}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
-
-                {/* Top Loosers */}
-
-                <div className="col"> 
-                    <div class="table_container">
-                        <h1 class="heading">Top Loosers (Current trends)</h1>
-                        <table class="border-4 border-sky-500">
-                            <thead>
+                <div>
+                    <h2 className="text-xl font-semibold mb-4">Top Losers (Current trends)</h2>
+                    <table className="min-w-full border-collapse border border-gray-300">
+                        <thead>
                             <tr>
-                                <th className="px-2">Item Name</th>
-                                <th className="px-2">Price (per Qtl.)</th>
-                                <th className="px-2">Change</th>
+                                <th className="px-4 py-2 border border-gray-300">Item Name</th>
+                                <th className="px-4 py-2 border border-gray-300">Price (per Qtl.)</th>
+                                <th className="px-4 py-2 border border-gray-300">Change</th>
                             </tr>
-                            </thead>
-                            <tbody>
-                                {receivedData.top_losers.map((ele, index) => (
-                                    <tr key={index}>
-                                    <td>{ele[0]}</td>
-                                    <td>{ele[1]}</td>
-                                    <td>{ele[2]}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                        </thead>
+                        <tbody>
+                            {receivedData.top_losers.map((ele, index) => (
+                                <tr key={index}>
+                                    <td className="px-4 py-2 border border-gray-300">{ele[0]}</td>
+                                    <td className="px-4 py-2 border border-gray-300">{ele[1]}</td>
+                                    <td className="px-4 py-2 border border-gray-300">{ele[2]}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            {/* Star Commodity Prediction */}
-
-
-            <div className="row">
-                <div className="col">
-                    <h4 class="heading">Star Commodity Prediction</h4>
-                    <div className="table_container">
-                    <table class="border-4 border-sky-500">
-                            <tr>
-                            <td><h5 id="crop1">{ receivedData.six_months_forecast[0][1] }</h5></td>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td class="right">
-                                <h4 id="price1">₹{ receivedData.six_months_forecast[0][2] }</h4>
-                                <p id="pos-change" class="valign-wrapper right">{ receivedData.six_months_forecast[0][3] }% <img src={gain} alt="Gain Icon" class="commodity_icon" /></p>
+            <div className="mb-6">
+                <h2 className="text-xl font-semibold mb-4">Star Commodity Prediction</h2>
+                <table className="min-w-full border-collapse border border-gray-300">
+                    <tbody>
+                        <tr>
+                            <td className="px-4 py-2 border border-gray-300">
+                                <h5>{receivedData.six_months_forecast[0][1]}</h5>
                             </td>
-                            </tr>
-                            <tr>
-                            <td><h5 id="crop2">{ receivedData.six_months_forecast[0][4] }</h5></td>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <td class="right">
-                                <h4 id="price2">₹{ receivedData.six_months_forecast[0][5] }</h4>
-                                <p id="neg-change" class="valign-wrapper right">{ receivedData.six_months_forecast[0][6] }% <img src={loss} alt="Loss Icon" class="commodity_icon" /></p>
+                            <td className="px-4 py-2 border border-gray-300">
+                                <h4>₹{receivedData.six_months_forecast[0][2]}</h4>
+                                <p className="flex items-center">
+                                    {receivedData.six_months_forecast[0][3]}% 
+                                    <img src={gain} alt="Gain Icon" className="ml-2 h-4 w-4" />
+                                </p>
                             </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-
+                        </tr>
+                        <tr>
+                            <td className="px-4 py-2 border border-gray-300">
+                                <h5>{receivedData.six_months_forecast[0][4]}</h5>
+                            </td>
+                            <td className="px-4 py-2 border border-gray-300">
+                                <h4>₹{receivedData.six_months_forecast[0][5]}</h4>
+                                <p className="flex items-center">
+                                    {receivedData.six_months_forecast[0][6]}% 
+                                    <img src={loss} alt="Loss Icon" className="ml-2 h-4 w-4" />
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            {/*  */}
-            <div className="row">
-                <div className="col grid grid-rows-4 grid-flow-col gap-1">
+            <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
                 {commodityArray.map((commodity, index) => (
-                    <div key={index}>
-                        <Link to={`/report?commodity=${commodity} `}  className="btn">
-                                                    <div className="card row-span-1">
-                                    <div className="card-content row valign-wrapper">
-                                        <div className="col s3">
-                                       
-                                            
-                                        <img
-                                            src={`src/assets/crops_images/${commodity}.png`}
-                                            alt={commodity}
-                                            className="commodity_icon"
-                                        />
-                                        </div>
-                                        <div className="col s9">
-                                        <span className="card-title">{commodity.charAt(0).toUpperCase() + commodity.slice(1)}</span>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </Link>
+                    <Link key={index} to={`/report?commodity=${commodity}`} className="block p-4 border border-gray-300 rounded-md hover:shadow-lg">
+                        <div className="flex flex-col items-center">
+                            <img
+                                src={`src/assets/crops_images/${commodity}.png`}
+                                alt={commodity}
+                                className="h-12 w-12 mb-2"
+                            />
+                            <span className="font-medium">{commodity.charAt(0).toUpperCase() + commodity.slice(1)}</span>
                         </div>
-                        ))}
-                </div>
+                    </Link>
+                ))}
             </div>
-                        
         </div>
-    )
+    );
+};
 
-}
 export default Price;
