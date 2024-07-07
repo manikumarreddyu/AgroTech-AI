@@ -30,21 +30,21 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Load models
-# crop_model = pickle.load(open(os.path.join(current_dir, 'models', 'crop_recommendation_model.pkl'), 'rb'))
-# fertilizer_model = pickle.load(open(os.path.join(current_dir, 'models', 'fertilizer.pkl'), 'rb'))
-# classifier_model = pickle.load(open(os.path.join(current_dir, 'models', 'classifier.pkl'), 'rb'))
-# soil_quality_model = pickle.load(open(os.path.join(current_dir, 'models', 'soil_quality.pkl'), 'rb'))
+crop_model = pickle.load(open(os.path.join(current_dir, 'models', 'crop_recommendation_model.pkl'), 'rb'))
+fertilizer_model = pickle.load(open(os.path.join(current_dir, 'models', 'fertilizer.pkl'), 'rb'))
+classifier_model = pickle.load(open(os.path.join(current_dir, 'models', 'classifier.pkl'), 'rb'))
+soil_quality_model = pickle.load(open(os.path.join(current_dir, 'models', 'soil_quality.pkl'), 'rb'))
 
 
 
 
 # Define a route for handling HTTP GET requests to the root URL
-# @app.route('/api', methods=['GET'])
-# def get_data():
-#     data = {
-#         "message":"API is Running"
-#     }
-#     return jsonify(data)
+@app.route('/api', methods=['GET'])
+def get_data():
+    data = {
+        "message":"API is Running"
+    }
+    return jsonify(data)
   
 # Define a route for making predictions
 # @app.route('/car_predict', methods=['POST'])
