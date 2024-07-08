@@ -8,7 +8,8 @@ import CropImages from './CropImages';
 const Reports = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const crop = searchParams.get('crop');
+  const cropName = searchParams.get('crop');
+  const cropimg = CropImages.find(crop => crop.crop_name === cropName);
 
   const [CData, setCData] = useState(null);
 
@@ -75,7 +76,7 @@ const Reports = () => {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ crop }), // Adjust 'jute' as needed
+          body: JSON.stringify({ cropName }), // Adjust 'jute' as needed
         });
 
         if (!response.ok) {
@@ -107,7 +108,7 @@ const Reports = () => {
           <div className="w-full md:w-1/2 lg:w-1/3 p-4">
             <div className="border rounded-lg overflow-hidden">
               <img
-                src={receivedData.image_url}
+                src={cropimg.crop_image}
                 alt="Crop"
                 className="w-full h-64 object-cover"
               />
