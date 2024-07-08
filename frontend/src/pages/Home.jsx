@@ -29,7 +29,7 @@ function Home() {
             
             </p>
             <Link
-              to="/app/posts"
+              to="/"
               className='text-[#000435] bg-white dark:text-white dark:bg-green-400 mt-9'>
               <MagicButton title="Explore Now" />
             </Link>

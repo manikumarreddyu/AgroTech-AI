@@ -34,7 +34,7 @@ const FAQ = () => {
 
   return (
     <section className="text-[rgb(0,4,53)] bg-white dark:text-white dark:bg-green-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-[#000435] bg-white dark:text-white dark:bg-green-400" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <div className="max-w-7xl pb-10 pt-5 mx-auto px-4 sm:px-6 lg:px-8 text-[#000435] bg-white dark:text-white dark:bg-green-400" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <h2 className="text-4xl md:text-4xl  sm:text-2xl  lg:text-4xl mb-7 font-extrabold text-center text-[#000435] bg-white dark:text-white dark:bg-green-400">🤔 Frequently Asked Questions 🤔</h2>
         <dl className="space-y-2">
           {faqQuestions.map((faq, index) => (

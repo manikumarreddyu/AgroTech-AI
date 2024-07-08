@@ -256,7 +256,7 @@ const CropRecommendation = () => {
     };
 
     return (
-        <div className="max-w-full mt-16 mx-auto px-4 sm:px-6 lg:px-8 bg-green-300" style={{ backgroundImage: `url(${bgHero})` }}>
+        <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8 bg-green-300" style={{ backgroundImage: `url(${bgHero})` }}>
             <h1 className="text-2xl text-center text-green-700 font-bold mb-4">Crop Recommendation</h1>
             <div className="mx-auto px-3 md:ml-10">
                 <p> In the realm of agriculture, where traditional knowledge meets cutting-edge technology, the Crop Recommendation System is revolutionizing how farmers choose crops. By taking into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall, this data-driven project is empowering farmers with precise recommendations. In this blog, we will delve deeper into how these critical factors play a pivotal role in the decision-making process.</p>

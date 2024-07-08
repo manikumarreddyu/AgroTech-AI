@@ -26,7 +26,7 @@ function About() {
             <span> ☑️ Use the platform to make informed decisions on crop management and pest control.</span><br />
           </p>
           <Link
-            to="/app/posts"
+            to="/"
             className='bg-gradient-to-r from-green-700 to-green-500 hover:from-green-600 hover:to-green-400 text-white py-3 px-6 rounded-md shadow-md transition-transform transform hover:-translate-y-1 hover:shadow-lg w-[170px] text-center font-medium my-6 mx-auto md:mx-0'
           >
             Explore Now
