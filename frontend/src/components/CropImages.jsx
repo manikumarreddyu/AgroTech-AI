@@ -18,67 +18,67 @@ import rape from "../assets/crops/rape.png";
 const CropImages = [
     {
         crop_name: "arhar",
-        src: arhar
+        crop_image: arhar
     },
     {
         crop_name: "bajra",
-        src: bajra
+        crop_image: bajra
     },
     {
         crop_name: "barley",
-        src: barley
+        crop_image: barley
     },
     {
         crop_name: "copra",
-        src: copra
+        crop_image: copra
     },
     {
         crop_name: "urad",
-        src: urad
+        crop_image: urad
     },
     {
         crop_name: "gram",
-        src: gram
+        crop_image: gram
     },
     {
         crop_name: "groundnut",
-        src: groundnut
+        crop_image: groundnut
     },
     {
         crop_name: "jowar",
-        src: jowar
+        crop_image: jowar
     },
     {
         crop_name: "jute",
-        src: jute
+        crop_image: jute
     },
     {
         crop_name: "maize",
-        src: maize
+        crop_image: maize
     },
     {
         crop_name: "masoor",
-        src: masoor
+        crop_image: masoor
     },
     {
         crop_name: "moong",
-        src: moong
+        crop_image: moong
     },
     {
         crop_name: "niger",
-        src: niger
+        crop_image: niger
     },
     {
         crop_name: "paddy",
-        src: paddy
+        crop_image: paddy
     },
     {
         crop_name: "ragi",
-        src: ragi
+        crop_image: ragi
     },
     {
         crop_name: "rape",
-        src: rape
+        crop_image: rape
     }
 ];
 

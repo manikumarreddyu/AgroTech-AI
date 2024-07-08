@@ -6,7 +6,6 @@ import CropImages from "./CropImages";
 import bgHero from "../assets/bgHero.png";
 
 const Prices = () => {
-    const cropArray = ['arhar', 'bajra', 'barley', 'copra', 'urad', 'gram', 'groundnut', 'jowar', 'jute', 'maize', 'masoor', 'moong', 'niger', 'paddy', 'ragi', 'rape'];
 
     const initialData = {
         chunks: [
@@ -129,7 +128,7 @@ const Prices = () => {
                     <Link key={index} to={`/reports?crop=${crop.crop_name}`} className="block p-4 border border-gray-300 rounded-md hover:shadow-lg">
                         <div className="flex flex-col items-center">
                             <img
-                                src={crop.src}
+                                src={crop.crop_image}
                                 alt={crop.crop_name}
                                 className="h-12 w-12 mb-2"
                             />
