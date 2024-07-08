@@ -9,8 +9,8 @@ import Footer from './components/Footer';
 import GoTop from './components/GoTop';
 import Forecast from './pages/Forecast';
 import useTheme from './hooks/useTheme';
-import Price from './components/Price';
-import Report from './components/Report';
+import Prices from './components/Prices';
+import Reports from './components/Reports';
 
 
 const App = () => {
@@ -27,8 +27,8 @@ const App = () => {
           <Route path="/fertilizer" element={<Fertilizer />} />
           <Route path="/soil" element={<SoilQuality />} />
           <Route path="/forecast" element={<Forecast />} />
-          <Route path="/price" element={<Price />} />
-          <Route path="/report" element={<Report />} />
+          <Route path="/prices" element={<Prices />} />
+          <Route path="/reports" element={<Reports />} />
         </Routes>
         <Footer />
         </div>

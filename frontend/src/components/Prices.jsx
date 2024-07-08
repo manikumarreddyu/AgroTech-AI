@@ -4,7 +4,7 @@ import gain from '../assets/images/gain-icon.png';
 import loss from '../assets/images/loss-icon.png';
 import bgHero from "../assets/bgHero.png";
 
-const Price = () => {
+const Prices = () => {
     const commodityArray = ['arhar', 'bajra', 'barley', 'copra', 'urad', 'gram', 'groundnut', 'jowar', 'jute', 'maize', 'masoor', 'moong', 'niger', 'paddy', 'ragi', 'rape'];
 
     const initialData = {
@@ -125,7 +125,7 @@ const Price = () => {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
                 {commodityArray.map((commodity, index) => (
-                    <Link key={index} to={`/report?commodity=${commodity}`} className="block p-4 border border-gray-300 rounded-md hover:shadow-lg">
+                    <Link key={index} to={`/reports?commodity=${commodity}`} className="block p-4 border border-gray-300 rounded-md hover:shadow-lg">
                         <div className="flex flex-col items-center">
                             <img
                                 src={`src/assets/crops_images/${commodity}.png`}
@@ -141,4 +141,4 @@ const Price = () => {
     );
 };
 
-export default Price;
+export default Prices;

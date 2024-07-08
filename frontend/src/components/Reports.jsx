@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ChartComponent from "./Chart";
 
-
-const Report = () => {
+const Reports = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const crop = searchParams.get('commodity');
@@ -161,7 +160,7 @@ const Report = () => {
           />
         </div>
         <div className="mt-6">
-          <Link to="/price">
+          <Link to="/prices">
             <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
               Go Back
             </button>
@@ -172,4 +171,4 @@ const Report = () => {
   );
 }
 
-export default Report;
+export default Reports;
