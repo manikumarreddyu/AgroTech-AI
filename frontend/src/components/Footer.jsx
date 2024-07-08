@@ -67,7 +67,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='block items-center m-auto mt-2'>
+            {/* <div className='block items-center m-auto mt-2'>
                 <div className='flex gap-4 justify-center '>
                     <a href="https://github.com/manikumarreddyu/AGRO-AI" className="hover:scale-110 hover:shadow-[0_0_10px_2px_green] transition-transform duration-300 ease-in-out flex items-center justify-center p-2 rounded-full">
                         <FaGithub size={35} className="text-white" />
@@ -76,7 +76,7 @@ const Footer = () => {
                         <FaHome size={35} />
                     </Link>
                 </div>
-            </div>
+            </div> */}
             <div className='mt-4 text-white flex justify-center text-md lg:text-xl xl:text-md'>
                 Copyright <FaRegCopyright className="ml-2 mr-1 mt-1" /> {currentYear} AgroTech AI
             </div>
