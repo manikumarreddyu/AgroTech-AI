@@ -880,7 +880,7 @@ def commodity_profile():
     
     
     data = request.get_json()
-    name = data.get('crop')  # Accessing 'crop' key from the JSON data
+    name = data.get('cropName')  # Accessing 'crop' key from the JSON data
      
     max_crop, min_crop, forecast_crop_values = TwelveMonthsForecast(name)
     prev_crop_values = TwelveMonthPrevious(name)
