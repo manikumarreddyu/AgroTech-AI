@@ -11,6 +11,7 @@ from math import ceil
 
 # Create a Flask application instance
 app = Flask(__name__)
+application =app
 
 # Enable CORS for all routes, allowing requests from any origin
 CORS(app,resources={r"/*":{"origins":"*"}})
