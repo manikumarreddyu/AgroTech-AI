@@ -30,7 +30,7 @@ const SoilQuality = () => {
 
     const handlePredictClick = (e) => {
         e.preventDefault();
-        const url = "http://localhost:5000/soil_quality_predict";
+        const url = "https://agro-ai-1.onrender.com/soil_quality_predict";
         setIsLoading(true);
 
         // Convert form data values to floats

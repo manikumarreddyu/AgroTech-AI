@@ -66,7 +66,7 @@ const Reports = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = "http://localhost:5000/commodity_predict";
+        const url = "https://agro-ai-1.onrender.com/commodity_predict";
         const response = await fetch(url, {
           method: "POST",
           headers: {
