@@ -12,7 +12,6 @@ import useTheme from './hooks/useTheme';
 import Price from './components/Price';
 import Report from './components/Report';
 
-
 const App = () => {
   const { theme, toggleTheme } = useTheme();
   return (
