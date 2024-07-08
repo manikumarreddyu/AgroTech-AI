@@ -18,12 +18,12 @@ const featureData = [
   {
     icon: <FaLaptopFile size={23} />,
     title: "User-Friendly Interface",
-    description: "Our intuitive interface allows farmers to easily navigate throughout the platform and utilize the AI tools. The platform is designed to be accessible even for users with minimal technical knowledge.",
+    description: "Our intuitive interface allows farmers to easily navigate throughout the platform and utilize the AI tools to solve there problem. The platform is designed to be accessible even for users with minimal technical knowledge.",
   },
   {
     icon: <BiSolidCustomize size={23} />,
     title: "Customizable Solutions",
-    description: "AgroTech AI provides customizable solutions tailored to the unique needs of each farm. Farmers can adjust parameters to get the most accurate and relevant predictions for their specific  conditions.",
+    description: "AgroTech AI provides customizable solutions tailored to the unique needs of each farm. Farmers can adjust parameters to get the most accurate and relevant predictions by using AI tools for their specific  conditions .",
   }
 ];
 
