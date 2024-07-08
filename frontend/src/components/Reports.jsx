@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ChartComponent from "./Chart";
+import CropImages from './CropImages';
+ 
 
 const Reports = () => {
   const location = useLocation();
@@ -166,6 +168,7 @@ const Reports = () => {
             </button>
           </Link>
         </div>
+        {/* <div><img src={CropImages.}  /></div> */}
       </div>
     </div>
   );
