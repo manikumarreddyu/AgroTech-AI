@@ -25,7 +25,7 @@ const Fertilizer = () => {
 
     const handlePredictClick = (e) => {
         e.preventDefault();
-        const url = "http://localhost:5000/fertilizer_predict";
+        const url = "https://agro-ai-1.onrender.com/fertilizer_predict";
         setIsLoading(true);
         const jsonData = JSON.stringify(formData);
         console.log("Sending data:", jsonData); // Log the data being sent
