@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ChartComponent from "./Chart";
 
+
 const Report = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
