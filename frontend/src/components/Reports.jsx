@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ChartComponent from "./Chart";
 
-
-const Report = () => {
+const Reports = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const crop = searchParams.get('commodity');
@@ -34,7 +33,7 @@ const Report = () => {
     "forecast_y": [
       1855.9, 1855.9, 1832.45, 1909.5, 2075.32, 1953.05, 1951.38, 1953.05, 1931.28, 1941.32, 1896.1, 1862.6
     ],
-    "image_url": "src/assets/crops_images/jute.png",
+    "image_url": "src/assets/crops/jute.png",
     "max_crop": ["Dec 24", 2075.32],
     "min_crop": ["Oct 24", 1832.45],
     "name": "jute",
@@ -161,7 +160,7 @@ const Report = () => {
           />
         </div>
         <div className="mt-6">
-          <Link to="/price">
+          <Link to="/prices">
             <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
               Go Back
             </button>
@@ -172,4 +171,4 @@ const Report = () => {
   );
 }
 
-export default Report;
+export default Reports;
