@@ -128,7 +128,7 @@ const Prices = () => {
                     <Link key={index} to={`/reports?commodity=${commodity}`} className="block p-4 border border-gray-300 rounded-md hover:shadow-lg">
                         <div className="flex flex-col items-center">
                             <img
-                                src={`src/assets/crops_images/${commodity}.png`}
+                                src={`src/assets/crops/${commodity}.png`}
                                 alt={commodity}
                                 className="h-12 w-12 mb-2"
                             />

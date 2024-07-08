@@ -33,7 +33,7 @@ const Reports = () => {
     "forecast_y": [
       1855.9, 1855.9, 1832.45, 1909.5, 2075.32, 1953.05, 1951.38, 1953.05, 1931.28, 1941.32, 1896.1, 1862.6
     ],
-    "image_url": "src/assets/crops_images/jute.png",
+    "image_url": "src/assets/crops/jute.png",
     "max_crop": ["Dec 24", 2075.32],
     "min_crop": ["Oct 24", 1832.45],
     "name": "jute",
