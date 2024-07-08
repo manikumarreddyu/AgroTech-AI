@@ -6,7 +6,7 @@ import ChartComponent from "./Chart";
 const Reports = () => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const crop = searchParams.get('commodity');
+  const crop = searchParams.get('crop');
 
   const [CData, setCData] = useState(null);
 
