@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import gain from '../assets/images/gain-icon.png';
 import loss from '../assets/images/loss-icon.png';
+import CropImages from "./CropImages";
 import bgHero from "../assets/bgHero.png";
 
 const Prices = () => {
-    const commodityArray = ['arhar', 'bajra', 'barley', 'copra', 'urad', 'gram', 'groundnut', 'jowar', 'jute', 'maize', 'masoor', 'moong', 'niger', 'paddy', 'ragi', 'rape'];
+    const cropArray = ['arhar', 'bajra', 'barley', 'copra', 'urad', 'gram', 'groundnut', 'jowar', 'jute', 'maize', 'masoor', 'moong', 'niger', 'paddy', 'ragi', 'rape'];
 
     const initialData = {
         chunks: [
@@ -92,7 +93,7 @@ const Prices = () => {
             </div>
 
             <div className="mb-6">
-                <h2 className="text-xl font-semibold mb-4">Star Commodity Prediction</h2>
+                <h2 className="text-xl font-semibold mb-4">Star crop Prediction</h2>
                 <table className="min-w-full border-collapse border border-gray-300">
                     <tbody>
                         <tr>
@@ -124,15 +125,15 @@ const Prices = () => {
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
-                {commodityArray.map((commodity, index) => (
-                    <Link key={index} to={`/reports?commodity=${commodity}`} className="block p-4 border border-gray-300 rounded-md hover:shadow-lg">
+                {CropImages.map((crop, index) => (
+                    <Link key={index} to={`/reports?crop=${crop.crop_name}`} className="block p-4 border border-gray-300 rounded-md hover:shadow-lg">
                         <div className="flex flex-col items-center">
                             <img
-                                src={`src/assets/crops/${commodity}.png`}
-                                alt={commodity}
+                                src={crop.src}
+                                alt={crop.crop_name}
                                 className="h-12 w-12 mb-2"
                             />
-                            <span className="font-medium">{commodity.charAt(0).toUpperCase() + commodity.slice(1)}</span>
+                            <span className="font-medium">{crop.crop_name.charAt(0).toUpperCase() + crop.crop_name.slice(1)}</span>
                         </div>
                     </Link>
                 ))}
