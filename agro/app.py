@@ -171,7 +171,7 @@ def price_predict():
             current_month_prediction.append(current_predict)
             prev_predict = i.getPredictedValue([float(prev_month), current_year, prev_rainfall])
             prev_month_prediction.append(prev_predict)
-            change.append((((current_predict - prev_predict) * 100 / prev_predict), commodity_list.index(i)))
+            change.append((((current_predict - prev_predict) * 100 /prev_predict), commodity_list.index(i)))
         sorted_change = change
         sorted_change.sort(reverse=True)
 
@@ -179,7 +179,7 @@ def price_predict():
         for j in range(0, 5):
             perc, i = sorted_change[j]
             name = commodity_list[i].getCropName().split('/')[1]
-            to_send.append([name, round((current_month_prediction[i] * base[name]) / 100, 2), round(perc, 2)])
+            to_send.append([name, round((current_month_prediction[i] * base[name]) /100, 2), round(perc, 2)])
         return to_send
 
 
@@ -198,14 +198,14 @@ def price_predict():
             current_month_prediction.append(current_predict)
             prev_predict = i.getPredictedValue([float(prev_month), current_year, prev_rainfall])
             prev_month_prediction.append(prev_predict)
-            change.append((((current_predict - prev_predict) * 100 / prev_predict), commodity_list.index(i)))
+            change.append((((current_predict - prev_predict) * 100 /prev_predict), commodity_list.index(i)))
         sorted_change = change
         sorted_change.sort()
         to_send = []
         for j in range(0, 5):
             perc, i = sorted_change[j]
             name = commodity_list[i].getCropName().split('/')[1]
-            to_send.append([name, round((current_month_prediction[i] * base[name]) / 100, 2), round(perc, 2)])
+            to_send.append([name, round((current_month_prediction[i] * base[name]) /100, 2), round(perc, 2)])
         return to_send
 
 
@@ -283,14 +283,14 @@ def price_predict():
         for m, y, r in month_with_year:
             current_predict = commodity.getPredictedValue([float(m), y, r])
             wpis.append(current_predict)
-            change.append(((current_predict - current_wpi) * 100) / current_wpi)
+            change.append(((current_predict - current_wpi) * 100) /current_wpi)
 
         crop_price = []
         for i in range(0, len(wpis)):
             m, y, r = month_with_year[i]
             x = datetime(y, m, 1)
             x = x.strftime("%b %y")
-            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) / 100, 2), round(change[i], 2)])
+            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) /100, 2), round(change[i], 2)])
 
         return crop_price
 
@@ -306,7 +306,7 @@ def price_predict():
                 commodity = i
                 break
         current_wpi = commodity.getPredictedValue([float(current_month), current_year, current_rainfall])
-        current_price = (base[name.capitalize()] * current_wpi) / 100
+        current_price = (base[name.capitalize()] * current_wpi) /100
         return current_price
 
 
@@ -344,18 +344,18 @@ def price_predict():
                 min_value = current_predict
                 min_index = month_with_year.index((m, y, r))
             wpis.append(current_predict)
-            change.append(((current_predict - current_wpi) * 100) / current_wpi)
+            change.append(((current_predict - current_wpi) * 100) /current_wpi)
 
         max_month, max_year, r1 = month_with_year[max_index]
         min_month, min_year, r2 = month_with_year[min_index]
-        min_value = min_value * base[name.capitalize()] / 100
-        max_value = max_value * base[name.capitalize()] / 100
+        min_value = min_value * base[name.capitalize()] /100
+        max_value = max_value * base[name.capitalize()] /100
         crop_price = []
         for i in range(0, len(wpis)):
             m, y, r = month_with_year[i]
             x = datetime(y, m, 1)
             x = x.strftime("%b %y")
-            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) / 100, 2), round(change[i], 2)])
+            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) /100, 2), round(change[i], 2)])
 
         x = datetime(max_year, max_month, 1)
         x = x.strftime("%b %y")
@@ -395,7 +395,7 @@ def price_predict():
             m, y, r = month_with_year[i]
             x = datetime(y, m, 1)
             x = x.strftime("%b %y")
-            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) / 100, 2)])
+            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) /100, 2)])
         new_crop_price = []
         for i in range(len(crop_price) - 1, -1, -1):
             new_crop_price.append(crop_price[i])
@@ -458,7 +458,7 @@ def price_predict():
     # Pass data to the HTML template
     commodities = ['arhar','bajra','barley','copra','urad','gram','groundnut','jowar','jute','maize','masoor','moong','niger','paddy','ragi','rape']
     num_buttons_per_row = 8
-    num_rows = ceil(len(commodities) / num_buttons_per_row)
+    num_rows = ceil(len(commodities) /num_buttons_per_row)
     chunks = [commodities[i:i+num_buttons_per_row] for i in range(0, len(commodities), num_buttons_per_row)]
     
     return jsonify({ 'top_gainers': top_gainers,'top_losers': top_losers,'six_months_forecast': six_months_forecast,'commodities': commodities,'chunks': chunks})
@@ -570,7 +570,7 @@ def commodity_profile():
             current_month_prediction.append(current_predict)
             prev_predict = i.getPredictedValue([float(prev_month), current_year, prev_rainfall])
             prev_month_prediction.append(prev_predict)
-            change.append((((current_predict - prev_predict) * 100 / prev_predict), commodity_list.index(i)))
+            change.append((((current_predict - prev_predict) * 100 /prev_predict), commodity_list.index(i)))
         sorted_change = change
         sorted_change.sort(reverse=True)
 
@@ -578,7 +578,7 @@ def commodity_profile():
         for j in range(0, 5):
             perc, i = sorted_change[j]
             name = commodity_list[i].getCropName().split('/')[1]
-            to_send.append([name, round((current_month_prediction[i] * base[name]) / 100, 2), round(perc, 2)])
+            to_send.append([name, round((current_month_prediction[i] * base[name]) /100, 2), round(perc, 2)])
         return to_send
 
 
@@ -597,14 +597,14 @@ def commodity_profile():
             current_month_prediction.append(current_predict)
             prev_predict = i.getPredictedValue([float(prev_month), current_year, prev_rainfall])
             prev_month_prediction.append(prev_predict)
-            change.append((((current_predict - prev_predict) * 100 / prev_predict), commodity_list.index(i)))
+            change.append((((current_predict - prev_predict) * 100 /prev_predict), commodity_list.index(i)))
         sorted_change = change
         sorted_change.sort()
         to_send = []
         for j in range(0, 5):
             perc, i = sorted_change[j]
             name = commodity_list[i].getCropName().split('/')[1]
-            to_send.append([name, round((current_month_prediction[i] * base[name]) / 100, 2), round(perc, 2)])
+            to_send.append([name, round((current_month_prediction[i] * base[name]) /100, 2), round(perc, 2)])
         return to_send
 
 
@@ -682,14 +682,14 @@ def commodity_profile():
         for m, y, r in month_with_year:
             current_predict = commodity.getPredictedValue([float(m), y, r])
             wpis.append(current_predict)
-            change.append(((current_predict - current_wpi) * 100) / current_wpi)
+            change.append(((current_predict - current_wpi) * 100) /current_wpi)
 
         crop_price = []
         for i in range(0, len(wpis)):
             m, y, r = month_with_year[i]
             x = datetime(y, m, 1)
             x = x.strftime("%b %y")
-            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) / 100, 2), round(change[i], 2)])
+            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) /100, 2), round(change[i], 2)])
 
         return crop_price
 
@@ -705,7 +705,7 @@ def commodity_profile():
                 commodity = i
                 break
         current_wpi = commodity.getPredictedValue([float(current_month), current_year, current_rainfall])
-        current_price = (base[name.capitalize()] * current_wpi) / 100
+        current_price = (base[name.capitalize()] * current_wpi) /100
         return current_price
 
 
@@ -743,18 +743,18 @@ def commodity_profile():
                 min_value = current_predict
                 min_index = month_with_year.index((m, y, r))
             wpis.append(current_predict)
-            change.append(((current_predict - current_wpi) * 100) / current_wpi)
+            change.append(((current_predict - current_wpi) * 100) /current_wpi)
 
         max_month, max_year, r1 = month_with_year[max_index]
         min_month, min_year, r2 = month_with_year[min_index]
-        min_value = min_value * base[name.capitalize()] / 100
-        max_value = max_value * base[name.capitalize()] / 100
+        min_value = min_value * base[name.capitalize()] /100
+        max_value = max_value * base[name.capitalize()] /100
         crop_price = []
         for i in range(0, len(wpis)):
             m, y, r = month_with_year[i]
             x = datetime(y, m, 1)
             x = x.strftime("%b %y")
-            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) / 100, 2), round(change[i], 2)])
+            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) /100, 2), round(change[i], 2)])
 
         x = datetime(max_year, max_month, 1)
         x = x.strftime("%b %y")
@@ -794,7 +794,7 @@ def commodity_profile():
             m, y, r = month_with_year[i]
             x = datetime(y, m, 1)
             x = x.strftime("%b %y")
-            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) / 100, 2)])
+            crop_price.append([x, round((wpis[i] * base[name.capitalize()]) /100, 2)])
         new_crop_price = []
         for i in range(len(crop_price) - 1, -1, -1):
             new_crop_price.append(crop_price[i])
@@ -803,29 +803,29 @@ def commodity_profile():
     
     def cropimg(crop_name):
         crop_data = {
-        "wheat":["../assets/crops/ wheat.png", "U.P., Punjab, Haryana, Rajasthan, M.P., bihar", "rabi","Sri Lanka, United Arab Emirates, Taiwan"],
-        "paddy":["../assets/crops/ paddy.png", "W.B., U.P., Andhra Pradesh, Punjab, T.N.", "kharif","Bangladesh, Saudi Arabia, Iran"],
-        "barley":["../assets/crops/ barley.png", "Rajasthan, Uttar Pradesh, Madhya Pradesh, Haryana, Punjab", "rabi","Oman, UK, Qatar, USA"],
-        "maize":["../assets/crops/ maize.png", "Karnataka, Andhra Pradesh, Tamil Nadu, Rajasthan, Maharashtra", "kharif", "Hong Kong, United Arab Emirates, France"],
-        "bajra":["../assets/crops/ bajra.png", "Rajasthan, Maharashtra, Haryana, Uttar Pradesh and Gujarat", "kharif", "Oman, Saudi Arabia, Israel, Japan"],
-        "copra":["../assets/crops/ copra.png", "Kerala, Tamil Nadu, Karnataka, Andhra Pradesh, Orissa, West Bengal","rabi", "Veitnam, Bangladesh, Iran, Malaysia"],
-        "cotton":["../assets/crops/ cotton.png", "Punjab, Haryana, Maharashtra, Tamil Nadu, Madhya Pradesh, Gujarat", " China, Bangladesh, Egypt"],
-        "masoor":["../assets/crops/ masoor.png", "Uttar Pradesh, Madhya Pradesh, Bihar, West Bengal, Rajasthan", "rabi", "Pakistan, Cyprus,United Arab Emirates"],
-        "gram":["../assets/crops/ gram.png", "Madhya Pradesh, Maharashtra, Rajasthan, Uttar Pradesh, Andhra Pradesh & Karnataka", "rabi", "Veitnam, Spain, Myanmar"],
-        "groundnut":["../assets/crops/ groundnut.png", "Andhra Pradesh, Gujarat, Tamil Nadu, Karnataka, and Maharashtra", "kharif", "Indonesia, Jordan, Iraq"],
-        "arhar":["../assets/crops/ arhar.png", "Maharashtra, Karnataka, Madhya Pradesh and Andhra Pradesh", "kharif", "United Arab Emirates, USA, Chicago"],
-        "sesamum":["../assets/crops/ sesamum.png", "Maharashtra, Rajasthan, West Bengal, Andhra Pradesh, Gujarat", "rabi", "Iraq, South Africa, USA, Netherlands"],
-        "jowar":["../assets/crops/ jowar.png", "Maharashtra, Karnataka, Andhra Pradesh, Madhya Pradesh, Gujarat", "kharif", "Torronto, Sydney, New York"],
-        "moong":["../assets/crops/ moong.png", "Rajasthan, Maharashtra, Andhra Pradesh", "rabi", "Qatar, United States, Canada"],
-        "niger":["../assets/crops/ niger.png", "Andha Pradesh, Assam, Chattisgarh, Gujarat, Jharkhand", "kharif", "United States of American,Argenyina, Belgium"],
-        "rape":["../assets/crops/ rape.png", "Rajasthan, Uttar Pradesh, Haryana, Madhya Pradesh, and Gujarat", "rabi", "Veitnam, Malaysia, Taiwan"],
-        "jute":["../assets/crops/ jute.png", " West Bengal , Assam , Orissa , Bihar , Uttar Pradesh", "kharif", "JOrdan, United Arab Emirates, Taiwan"],
-        "safflower":["../assets/crops/ safflower.png",  "Maharashtra, Karnataka, Andhra Pradesh, Madhya Pradesh, Orissa", "kharif", " Philippines, Taiwan, Portugal"],
-        "soyabean":["../assets/crops/ soyabean.png",  "Madhya Pradesh, Maharashtra, Rajasthan, Madhya Pradesh and Maharashtra", "kharif", "Spain, Thailand, Singapore"],
-        "urad":["../assets/crops/ urad.png",  "Andhra Pradesh, Maharashtra, Madhya Pradesh, Tamil Nadu", "rabi", "United States, Canada, United Arab Emirates"],
-        "ragi":["../assets/crops/ ragi.png",  "Maharashtra, Tamil Nadu and Uttarakhand", "kharif", "United Arab Emirates, New Zealand, Bahrain"],
-        "sunflower":["../assets/crops/ sunflower.png",  "Karnataka, Andhra Pradesh, Maharashtra, Bihar, Orissa", "rabi", "Phillippines, United States, Bangladesh"],
-        "sugarcane":["../assets/crops/ sugarcane.png","Uttar Pradesh, Maharashtra, Tamil Nadu, Karnataka, Andhra Pradesh" , "kharif", "Kenya, United Arab Emirates, United Kingdom"]
+        "wheat":["../assets/crops/wheat.png", "U.P., Punjab, Haryana, Rajasthan, M.P., bihar", "rabi","Sri Lanka, United Arab Emirates, Taiwan"],
+        "paddy":["../assets/crops/paddy.png", "W.B., U.P., Andhra Pradesh, Punjab, T.N.", "kharif","Bangladesh, Saudi Arabia, Iran"],
+        "barley":["../assets/crops/barley.png", "Rajasthan, Uttar Pradesh, Madhya Pradesh, Haryana, Punjab", "rabi","Oman, UK, Qatar, USA"],
+        "maize":["../assets/crops/maize.png", "Karnataka, Andhra Pradesh, Tamil Nadu, Rajasthan, Maharashtra", "kharif", "Hong Kong, United Arab Emirates, France"],
+        "bajra":["../assets/crops/bajra.png", "Rajasthan, Maharashtra, Haryana, Uttar Pradesh and Gujarat", "kharif", "Oman, Saudi Arabia, Israel, Japan"],
+        "copra":["../assets/crops/copra.png", "Kerala, Tamil Nadu, Karnataka, Andhra Pradesh, Orissa, West Bengal","rabi", "Veitnam, Bangladesh, Iran, Malaysia"],
+        "cotton":["../assets/crops/cotton.png", "Punjab, Haryana, Maharashtra, Tamil Nadu, Madhya Pradesh, Gujarat", " China, Bangladesh, Egypt"],
+        "masoor":["../assets/crops/masoor.png", "Uttar Pradesh, Madhya Pradesh, Bihar, West Bengal, Rajasthan", "rabi", "Pakistan, Cyprus,United Arab Emirates"],
+        "gram":["../assets/crops/gram.png", "Madhya Pradesh, Maharashtra, Rajasthan, Uttar Pradesh, Andhra Pradesh & Karnataka", "rabi", "Veitnam, Spain, Myanmar"],
+        "groundnut":["../assets/crops/groundnut.png", "Andhra Pradesh, Gujarat, Tamil Nadu, Karnataka, and Maharashtra", "kharif", "Indonesia, Jordan, Iraq"],
+        "arhar":["../assets/crops/arhar.png", "Maharashtra, Karnataka, Madhya Pradesh and Andhra Pradesh", "kharif", "United Arab Emirates, USA, Chicago"],
+        "sesamum":["../assets/crops/sesamum.png", "Maharashtra, Rajasthan, West Bengal, Andhra Pradesh, Gujarat", "rabi", "Iraq, South Africa, USA, Netherlands"],
+        "jowar":["../assets/crops/jowar.png", "Maharashtra, Karnataka, Andhra Pradesh, Madhya Pradesh, Gujarat", "kharif", "Torronto, Sydney, New York"],
+        "moong":["../assets/crops/moong.png", "Rajasthan, Maharashtra, Andhra Pradesh", "rabi", "Qatar, United States, Canada"],
+        "niger":["../assets/crops/niger.png", "Andha Pradesh, Assam, Chattisgarh, Gujarat, Jharkhand", "kharif", "United States of American,Argenyina, Belgium"],
+        "rape":["../assets/crops/rape.png", "Rajasthan, Uttar Pradesh, Haryana, Madhya Pradesh, and Gujarat", "rabi", "Veitnam, Malaysia, Taiwan"],
+        "jute":["../assets/crops/jute.png", " West Bengal , Assam , Orissa , Bihar , Uttar Pradesh", "kharif", "JOrdan, United Arab Emirates, Taiwan"],
+        "safflower":["../assets/crops/safflower.png",  "Maharashtra, Karnataka, Andhra Pradesh, Madhya Pradesh, Orissa", "kharif", " Philippines, Taiwan, Portugal"],
+        "soyabean":["../assets/crops/soyabean.png",  "Madhya Pradesh, Maharashtra, Rajasthan, Madhya Pradesh and Maharashtra", "kharif", "Spain, Thailand, Singapore"],
+        "urad":["../assets/crops/urad.png",  "Andhra Pradesh, Maharashtra, Madhya Pradesh, Tamil Nadu", "rabi", "United States, Canada, United Arab Emirates"],
+        "ragi":["../assets/crops/ragi.png",  "Maharashtra, Tamil Nadu and Uttarakhand", "kharif", "United Arab Emirates, New Zealand, Bahrain"],
+        "sunflower":["../assets/crops/sunflower.png",  "Karnataka, Andhra Pradesh, Maharashtra, Bihar, Orissa", "rabi", "Phillippines, United States, Bangladesh"],
+        "sugarcane":["../assets/crops/sugarcane.png","Uttar Pradesh, Maharashtra, Tamil Nadu, Karnataka, Andhra Pradesh" , "kharif", "Kenya, United Arab Emirates, United Kingdom"]
         }
         return crop_data[crop_name]
 
