@@ -9,7 +9,7 @@ joblib==1.4.2
 MarkupSafe==2.1.5
 numpy==2.0.0
 pandas==2.2.2
-python-dateutil==2.9.0.post0
+# python-dateutil==2.9.0.post0
 pytz==2024.1
 scikit-learn==1.5.1
 scipy==1.14.0
