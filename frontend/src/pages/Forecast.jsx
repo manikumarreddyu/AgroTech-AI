@@ -16,7 +16,7 @@ function Forecast() {
   }
 
   return (
-    <div className='w-full mt-12 max-h-screen text-white px-8'>
+    <div className='w-full mt-12 max-h-screen text-white px-8 '>
       <nav className='w-full p-3 flex justify-between items-center'>
         <h1 className='font-bold tracking-wide text-2xl mt-5'>Weather Forecast</h1>
         <div className='bg-white w-[15rem] border border-white overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2 mt-5'>
