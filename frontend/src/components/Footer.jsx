@@ -41,7 +41,22 @@ const Footer = () => {
                         <ul className='text-white py-4 cursor-pointer'>
                             <li className='py-1 cursor-pointer hover:text-green-800'>
                                 <Link className='flex items-center gap-1' to='/crop'>
-                                    All Models
+                                    Crop Recommendation 
+                                </Link>
+                            </li>
+                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                                <Link className='flex items-center gap-1' to='/fertilizer'>
+                                    Fertilizer Recommendation
+                                </Link>
+                            </li>
+                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                                <Link className='flex items-center gap-1' to='/soil'>
+                                    Soil Quality 
+                                </Link>
+                            </li>
+                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                                <Link className='flex items-center gap-1' to='/prices'>
+                                    Price Prediction
                                 </Link>
                             </li>
                             <li className='py-1 cursor-pointer hover:text-green-800'>
