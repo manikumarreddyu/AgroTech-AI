@@ -46,6 +46,9 @@ const Navbar = () => {
                         <Link to="/crop" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Crop
                         </Link>
+                        <Link to="/disease" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Disease
+                        </Link>
                         <Link to="/fertilizer" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Fertilizer
                         </Link>
