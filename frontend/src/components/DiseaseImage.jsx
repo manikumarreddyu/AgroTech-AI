@@ -19,7 +19,7 @@ const DiseaseImage = () => {
     formData.append('image', selectedFile);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/predict', {
+      const response = await fetch('http://127.0.0.1:5000/submit', {
         method: 'POST',
         body: formData,
       });
