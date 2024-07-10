@@ -6,6 +6,8 @@ import CNN
 import numpy as np
 import torch
 import pandas as pd
+from flask_cors import CORS
+
 
 
 disease_info = pd.read_csv('disease_info.csv' , encoding='cp1252')
@@ -27,6 +29,46 @@ def prediction(image_path):
 
 
 app = Flask(__name__)
+CORS(app)
+@app.route('/submit', methods=['POST'])
+def submit():
+    if request.method == 'POST':
+        try:
+            image = request.files['image']
+            filename = image.filename
+            file_path = os.path.join('static/uploads', filename)
+            image.save(file_path)
+
+            pred = prediction(file_path)
+            print(pred)
+            if pred not in disease_info['disease_name'] or pred not in supplement_info['supplement name']:
+                raise ValueError("Invalid prediction value")
+
+            title = disease_info['disease_name'][pred]
+            description = disease_info['description'][pred]
+            prevent = disease_info['Possible Steps'][pred]
+            image_url = disease_info['image_url'][pred]
+            supplement_name = supplement_info['supplement name'][pred]
+            supplement_image_url = supplement_info['supplement image'][pred]
+            supplement_buy_link = supplement_info['buy link'][pred]
+
+            # Convert any int64 to int
+            if isinstance(pred, np.int64):
+                pred = int(pred)
+
+            return jsonify({
+                'title': title,
+                'desc': description,
+                'prevent': prevent,
+                'image_url': image_url,
+                'pred': pred,
+                'sname': supplement_name,
+                'simage': supplement_image_url,
+                'buy_link': supplement_buy_link
+            })
+        except Exception as e:
+            print("error")
+            return jsonify({'error': str(e)}), 500
 
 # @app.route('/')
 # def home_page():
@@ -44,24 +86,26 @@ app = Flask(__name__)
 # def mobile_device_detected_page():
 #     return render_template('mobile-device.html')
 
-@app.route('/submit', methods=['GET', 'POST'])
-def submit():
-    if request.method == 'POST':
-        image = request.files['image']
-        filename = image.filename
-        file_path = os.path.join('static/uploads', filename)
-        image.save(file_path)
-        print(file_path)
-        pred = prediction(file_path)
-        title = disease_info['disease_name'][pred]
-        description =disease_info['description'][pred]
-        prevent = disease_info['Possible Steps'][pred]
-        image_url = disease_info['image_url'][pred]
-        supplement_name = supplement_info['supplement name'][pred]
-        supplement_image_url = supplement_info['supplement image'][pred]
-        supplement_buy_link = supplement_info['buy link'][pred]
-        return jsonify({'title' : title , 'desc' : description , 'prevent' : prevent , 'image_url' : image_url , 'pred' : pred ,'sname' : supplement_name , 'simage' : supplement_image_url , 'buy_link' : supplement_buy_link})
+# @app.route('/submit', methods=['GET', 'POST'])
+# def submit():
+#     if request.method == 'POST':
+#         image = request.files['image']
+#         filename = image.filename
+#         file_path = os.path.join('static/uploads', filename)
+#         image.save(file_path)
+#         print(file_path)
+#         pred = prediction(file_path)
+#         title = disease_info['disease_name'][pred]
+#         description =disease_info['description'][pred]
+#         prevent = disease_info['Possible Steps'][pred]
+#         image_url = disease_info['image_url'][pred]
+#         supplement_name = supplement_info['supplement name'][pred]
+#         supplement_image_url = supplement_info['supplement image'][pred]
+#         supplement_buy_link = supplement_info['buy link'][pred]
+#         return jsonify({'title' : title , 'desc' : description , 'prevent' : prevent , 'image_url' : image_url , 'pred' : pred ,'sname' : supplement_name , 'simage' : supplement_image_url , 'buy_link' : supplement_buy_link})
   
+
+
 
          
 # @app.route('/market', methods=['GET', 'POST'])

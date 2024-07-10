@@ -25,7 +25,8 @@ const DiseaseImage = () => {
       });
 
       const data = await response.json();
-      setResult(data.prediction);
+      console.log(data)
+      setResult(data);
       setShowResult(true);
     } catch (error) {
       console.error("Error:", error);
@@ -128,7 +129,7 @@ const DiseaseImage = () => {
       {showResult && (
         <div className="mt-8 text-center">
           <h2 className="text-2xl font-bold text-green-800">Prediction Result</h2>
-          <p className="text-xl text-gray-700 mt-2">{result}</p>
+          <p className="text-xl text-gray-700 mt-2">{result.title}</p>
         </div>
       )}
 
