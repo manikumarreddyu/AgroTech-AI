@@ -30,7 +30,7 @@ def prediction(image_path):
 
 
 app = Flask(__name__)
-
+application=app
 # Define a route for handling HTTP GET requests to the root URL
 @app.route('/', methods=['GET'])
 def get_data():
