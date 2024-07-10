@@ -2,6 +2,9 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Crop from './components/CropRecommendation';
+import Disease from './components/Disease';
+import DiseaseImage from './components/DiseaseImage';
+import DiseasePrediction from './components/DiseasePrediction';
 import Home from './pages/Home';
 import Fertilizer from './components/Fertilizer';
 import SoilQuality from './components/SoilQuality';
@@ -23,6 +26,9 @@ const MainContent = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/crop" element={<Crop />} />
+          <Route path="/disease" element={<Disease />} />
+          <Route path="/disease_image" element={<DiseaseImage />} />
+          <Route path="/disease_prediction" element={<DiseasePrediction />} />
           <Route path="/fertilizer" element={<Fertilizer />} />
           <Route path="/soil" element={<SoilQuality />} />
           <Route path="/forecast" element={<Forecast />} />
