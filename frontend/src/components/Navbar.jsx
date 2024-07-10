@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons from react-icons
 import icon from '../assets/playstore.png';
@@ -46,6 +46,9 @@ const Navbar = () => {
                         <Link to="/crop" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Crop
                         </Link>
+                        {/* <Link to="/disease" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Disease
+                        </Link> */}
                         <Link to="/disease" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Disease
                         </Link>
