@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const DiseaseImage = () => {
+const AIEngine = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileName, setFileName] = useState('No file chosen');
   const [isLoading, setIsLoading] = useState(false);
@@ -32,7 +32,7 @@ const DiseaseImage = () => {
 
       if (response.ok) {
         const result = await response.json();
-        navigate('/disease_prediction', { state: { result } });
+        navigate('/submit', { state: { result } });
       } else {
         throw new Error('File upload failed');
       }
@@ -127,4 +127,4 @@ const DiseaseImage = () => {
   );
 };
 
-export default DiseaseImage;
+export default AIEngine;

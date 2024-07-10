@@ -27,7 +27,7 @@ const Disease = () => {
       </div>
 
       <div className="text-center mb-8">
-        <Link to="/disease_image" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+        <Link to="/engine" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
           AI Engine
         </Link>
       </div>

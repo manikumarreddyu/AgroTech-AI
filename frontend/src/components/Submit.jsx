@@ -1,12 +1,12 @@
 import React from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 
-const DiseasePrediction = () => {
+const Submit = () => {
   const location = useLocation();
   const result = location.state?.result;
 
   if (!result) {
-    return <Navigate to="/disease_image" />;
+    return <Navigate to="/engine" />;
   }
 
   const { title, desc, prevent, image_url, pred, sname, simage, buy_link } = result;
@@ -68,4 +68,4 @@ const DiseasePrediction = () => {
   );
 };
 
-export default DiseasePrediction;
+export default Submit;
