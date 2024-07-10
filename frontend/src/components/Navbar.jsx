@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons from react-icons
-import icon from '../assets/playstore.png';
+import icon from '../assets/favicon2.png';
+
 // import useTheme from '../hooks/useTheme'; // Import useTheme hook
 
 const Navbar = () => {
