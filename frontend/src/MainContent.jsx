@@ -5,9 +5,6 @@ import Crop from './components/CropRecommendation';
 import Disease from './components/Disease';
 import AIEngine from './components/AIEngine';
 import Submit from './components/Submit';
-// import Disease from './components/Disease';
-// import DiseaseImage from './components/DiseaseImage';
-// import DiseasePrediction from './components/DiseasePrediction';
 import Home from './pages/Home';
 import Fertilizer from './components/Fertilizer';
 import SoilQuality from './components/SoilQuality';
@@ -32,9 +29,6 @@ const MainContent = () => {
           <Route path="/disease" element={<Disease />} />
           <Route path="/engine" element={<AIEngine/>} />
           <Route path="/submit" element={<Submit/>} />
-          {/* <Route path="/disease" element={<Disease />} />
-          <Route path="/disease_image" element={<DiseaseImage />} />
-          <Route path="/disease_prediction" element={<DiseasePrediction />} /> */}
           <Route path="/fertilizer" element={<Fertilizer />} />
           <Route path="/soil" element={<SoilQuality />} />
           <Route path="/forecast" element={<Forecast />} />

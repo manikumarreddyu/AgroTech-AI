@@ -25,13 +25,11 @@ const Disease = () => {
         <h1 className="text-4xl font-bold text-green-800">🍁Plant Disease Detection🍁</h1>
         <p className="text-xl text-gray-700 mt-2">This AI Engine Will Help To Detect Disease From Following Fruits And Veggies</p>
       </div>
-
       <div className="text-center mb-8">
         <Link to="/engine" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
           AI Engine
         </Link>
       </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {fruits.map((fruit, index) => (
           <div key={index} className="bg-white shadow rounded-lg p-4">
