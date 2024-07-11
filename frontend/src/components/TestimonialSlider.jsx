@@ -90,52 +90,56 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <div
-      className="testimonial-slider-container w-full flex flex-col text-center py-10 bg-cover bg-center text-[#000435] dark:text-white dark:bg-green-400"
-      style={{ backgroundImage: `url(${bgHero})` }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-8">{testimonialsData.title}</h2>
-      <div className="testimonial-slider flex items-center justify-center w-full my-auto mx-auto ">
-        <button
-          className="prev-arrow text-4xl cursor-pointer transform  hover:scale-125 transition-transform duration-300 mx-2 md:mx-4 lg:mx-6 text-white"
-          onClick={goToPrevious}
+
+    <section className=""style={{ backgroundImage: `url(${bgHero})`}}>
+      <div  className="max-w-7xl pb-10 pt-5 mx-auto px-4 sm:px-6 lg:px-8 " >
+        <div
+          className="testimonial-slider-container w-full flex flex-col text-center py-6"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
-         <BiChevronLeft /> 
-          {/* &#9664; */}
-        </button>
-        <div className="flex overflow-hidden max-w-full">
-          {testimonialsData.users.slice(currentIndex, currentIndex + slidesToShow).map((testimonial, index) => (
-            <div key={index} className="testimonial mx-2 p-6 md:p-10 rounded-lg drop-shadow-xl border border-green-600 bg-white dark:bg-green-400 text-[#000435] dark:text-white flex flex-col items-center justify-center min-w-[260px] md:min-w-[350px] lg:min-w-[400px]">
-              <img
-                src={testimonial.image}
-                alt={`${testimonial.author}'s picture`}
-                className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-6 border-4 p-1 border-green-400 dark:border-white"
-              />
-              <p className="text-lg md:text-2xl italic mb-4 text-center">{testimonial.quote}</p>
-              <h4 className="text-base md:text-xl font-semibold text-center">- {testimonial.author}</h4>
+          <h2 className="text-3xl md:text-4xl text-green-500 font-extrabold mb-8">{testimonialsData.title}</h2>
+          <div className="testimonial-slider flex items-center justify-center w-full my-auto mx-auto ">
+            <button
+              className="prev-arrow text-5xl cursor-pointer transform  hover:scale-125 transition-transform duration-300 mx-2 md:mx-4 lg:mx-6 text-green-500"
+              onClick={goToPrevious}
+            >
+            <BiChevronLeft /> 
+              {/* &#9664; */}
+            </button>
+            <div className="flex overflow-hidden max-w-full">
+              {testimonialsData.users.slice(currentIndex, currentIndex + slidesToShow).map((testimonial, index) => (
+                <div key={index} className="testimonial mx-2 p-6 md:p-10 rounded-lg drop-shadow-xl border border-green-600   flex flex-col items-center justify-center min-w-[260px] md:min-w-[350px] lg:min-w-[400px]">
+                  <img
+                    src={testimonial.image}
+                    alt={`${testimonial.author}'s picture`}
+                    className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-6 border  border-green-400 "
+                  />
+                  <p className="text-lg md:text-2xl italic mb-4 text-center">{testimonial.quote}</p>
+                  <h4 className="text-base md:text-xl text-green-500 font-semibold text-center">- {testimonial.author}</h4>
+                </div>
+              ))}
             </div>
-          ))}
+            <button
+              className="next-arrow text-5xl cursor-pointer transform hover:scale-125 transition-transform duration-300 mx-2 md:mx-4 lg:mx-6 text-green-500"
+              onClick={goToNext}
+            >
+              {/* &#9654; */}
+              <BiChevronRight />
+            </button>
+          </div>
+          <div className="dots flex justify-center mt-4">
+            {testimonialsData.users.map((_, index) => (
+              <div
+                key={index}
+                className={`w-3 h-3 mx-1 rounded-full border border-green-700 cursor-pointer ${index === currentIndex ? 'bg-green-600' : 'bg-white'}`}
+                onClick={() => setCurrentIndex(index)}
+              />
+            ))}
+          </div>
         </div>
-        <button
-          className="next-arrow text-4xl cursor-pointer transform hover:scale-125 transition-transform duration-300 mx-2 md:mx-4 lg:mx-6 text-white"
-          onClick={goToNext}
-        >
-          {/* &#9654; */}
-          <BiChevronRight />
-        </button>
       </div>
-      <div className="dots flex justify-center mt-4">
-        {testimonialsData.users.map((_, index) => (
-          <div
-            key={index}
-            className={`w-3 h-3 mx-1 rounded-full cursor-pointer ${index === currentIndex ? 'bg-green-600' : 'bg-white'}`}
-            onClick={() => setCurrentIndex(index)}
-          />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };
 

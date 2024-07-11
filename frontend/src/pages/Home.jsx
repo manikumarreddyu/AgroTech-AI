@@ -12,25 +12,25 @@ import Features from "../components/Features";
 function Home() {
   console.log("Home page rerendered");
 
-  document.title = 'AgroTech AI | Welcome 🙏';
+  document.title = 'AgroTech AI';
 
   return (      
-    <div className="mt-10 min-h-screen text-[#000435] bg-white dark:text-white dark:bbg-green-500" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="w-full text-[#000435] bg-white dark:text-white dark:bg-green-400 py-16 px-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="mt-10 min-h-screen   dark:bbg-green-500" >
+      <div className="w-full  py-16 px-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
           <div className="flex flex-col justify-center">
-            <p className="text-4xl font-bold">
+            <p className="text-4xl text-green-500 font-bold">
               Welcome To AgroTech AI
             </p>
-            <h1 className='md:text-3xl sm:text-3xl font-medium py-2'>A simple web-based platform where users can easily</h1>
-            <p className="text-lg text-[#000435] bg-white dark:text-white dark:bg-green-400 font-semibold">
+            <h1 className='md:text-3xl sm:text-3xl font-medium py-2 text-green-700'>A simple web-based platform where users can easily</h1>
+            <p className="text-lg text-[#000435]   font-semibold">
               {/* <span> ☑️ Contribute -Share your knowledge and insights to improve our AI models. Join our community of farmers, researchers, and tech enthusiasts to drive innovation in agriculture.</span><br /> */}
-              <span> ☑️ Explore - Discover a variety of AI models tailored to enhance farming practices. From crop prediction to soil analysis, explore solutions designed to optimize agricultural productivity.</span><br />
+              <span> ✅ Explore - Discover a variety of AI models tailored to enhance farming practices. From crop prediction to soil analysis, explore solutions designed to optimize agricultural productivity.</span><br />
             
             </p>
             <Link
               to="/"
-              className='text-[#000435] bg-white dark:text-white dark:bg-green-400 mt-9'>
+              className='mt-9'>
               <MagicButton title="Explore Now" />
             </Link>
           </div>

@@ -71,15 +71,15 @@ const SoilQuality = () => {
     };
 
     return (
-        <div className="max-w-full mx-auto  mt-16  pb-10 pt-5 px-4 sm:px-6 lg:px-8 bg-green-300 text-center" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <h1 className="text-2xl text-center font-bold mb-4 text-green-700">Soil Quality Prediction</h1>
-            <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2 bg-green-300 text-green-900 border-green-500 shadow-md rounded-md">
+        <div className="max-w-full mx-auto  mt-16  pb-10 pt-5 px-4 sm:px-6 lg:px-8  text-center" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <h1 className="text-2xl text-center font-bold mb-4 text-green-500">Soil Quality Prediction</h1>
+            <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2  text-green-900 border-green-500 shadow-md rounded-md">
                 <form method="post" acceptCharset="utf-8" name="Modelform" className="grid grid-cols-2 gap-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <div className="flex justify-between items-center">
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Nitrogen</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="N"
                             name="N"
                             value={formData.N}
@@ -91,7 +91,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Phosphorus</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="P"
                             name="P"
                             value={formData.P}
@@ -103,7 +103,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Potassium</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="K"
                             name="K"
                             value={formData.K}
@@ -115,7 +115,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">pH Level</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="pH"
                             name="pH"
                             value={formData.pH}
@@ -127,7 +127,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Electrical Conductivity</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="EC"
                             name="EC"
                             value={formData.EC}
@@ -139,7 +139,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Organic Carbon</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="OC"
                             name="OC"
                             value={formData.OC}
@@ -151,7 +151,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Sulphur</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="S"
                             name="S"
                             value={formData.S}
@@ -163,7 +163,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Zinc</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Zn"
                             name="Zn"
                             value={formData.Zn}
@@ -175,7 +175,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Iron</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Fe"
                             name="Fe"
                             value={formData.Fe}
@@ -187,7 +187,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Copper</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Cu"
                             name="Cu"
                             value={formData.Cu}
@@ -199,7 +199,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Manganese</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Mn"
                             name="Mn"
                             value={formData.Mn}
@@ -211,7 +211,7 @@ const SoilQuality = () => {
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Boron</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="B"
                             name="B"
                             value={formData.B}

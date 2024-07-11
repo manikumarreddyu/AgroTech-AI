@@ -20,58 +20,14 @@
   scroll-margin-top: 100px;
 }
 
-@keyframes borderAnimation {
-  0% {
-    border-color: rgb(66, 4, 128);
-  }
-
-  25% {
-    border-color: rgb(21, 3, 100);
-  }
-
-  50% {
-    border-color: rgb(98, 0, 128);
-  }
-
-  75% {
-    border-color: rgb(44, 4, 88);
-  }
-
-  100% {
-    border-color: rgb(59, 3, 97);
-  }
-}
-
-.animated-border1 {
-  border-width: 2px;
-  border-style: solid;
-  animation: borderAnimation 5s ease-in-out infinite;
-}
-
-.element {
-  animation: border-spin 10s linear infinite;
-}
-
-.animated-border {
-  position: relative;
-  border-radius: 30px;
-  padding: 1px;
-  background: conic-gradient(from 10deg at 50% 50%,
-      #e2cbff 0%,
-      #393bb2 50%,
-      #e2cbff 100%);
-  animation: border-spin 10s linear infinite;
-}
-
 .animated-border-inner {
   display: inline-flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  background: #000435;
   padding: 12px 16px;
   border-radius: 8px;
-  color: white;
+  color: rgb(0, 191, 0);
   text-align: left;
 }
 

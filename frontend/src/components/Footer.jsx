@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import { FaHome, FaGithub, FaRegCopyright } from 'react-icons/fa';
-import playstore from "../assets/playstore.png";
-import bgHero from "../assets/bgHero.png";
+import playstore from "../assets/favicon2.png";
+// import bgHero from "../assets/bgHero.png";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className='bg-[#11cb46]  text-white p-6'style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className='bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10]  p-6'>
             <div className='md:flex'>
-                <div className="md:w-1/2 lg:-mt-8 md:-mt-14 sm:mt-1 sm:w-full content-center">
+                <div className="md:w-1/2  lg:-mt-20  md:-mt-40 sm:mt-1 sm:w-full content-center">
                     <div className="flex flex-col md:items-start">
                         <div className="flex items-center sm:w-full">
                             <Link to="/app" className="flex items-center gap-1">
@@ -19,8 +19,8 @@ const Footer = () => {
                                 </span>
                             </Link>
                         </div>
-                        <p className="mt-2 text-white text-sm md:text-base md:text-left text-justify lg:w-1/2 sm:w-full pr-2">
-                            AgroTech AI platform provides various ML models for predictions.
+                        <p className="mt-2 text-white text-justify text-sm md:text-base md:text-left  lg:w-1/2 sm:w-full pr-2">
+                            AgroTech AI platform provides various Machine Learning models for predictions.
                         </p>
                     </div>
                 </div>
