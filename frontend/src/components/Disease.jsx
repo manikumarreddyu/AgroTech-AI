@@ -22,7 +22,7 @@ const Disease = () => {
   return (
     <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-green-800">🍁Plant Disease Detection🍁</h1>
+        <h1 className="text-4xl font-bold text-green-500">🍁Plant Disease Detection🍁</h1>
         <p className="text-xl text-gray-700 mt-2">This AI Engine Will Help To Detect Disease From Following Fruits And Veggies</p>
       </div>
       <div className="text-center mb-8">

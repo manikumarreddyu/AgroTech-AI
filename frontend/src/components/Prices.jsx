@@ -44,13 +44,13 @@ const Prices = () => {
 
     return (
         <div className="container mx-auto px-4 py-6 mt-12">
-            <h1 className="text-3xl font-bold text-center mb-6">Price Prediction</h1>
+            <h1 className="text-3xl font-bold text-green-500 text-center mb-6">Price Prediction</h1>
             
             <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                    <h2 className="text-xl font-semibold mb-4">Top Gainers (Current trends)</h2>
-                    <table className="min-w-full text-left border-collapse border border-gray-300 ">
-                        <thead>
+                    <h2 className="text-xl text-green-600 text-center font-bold mb-4">Top Gainers (Current trends)</h2>
+                    <table className="min-w-full text-left  border-collapse border border-gray-300 ">
+                        <thead className="text-green-700 font-medium">
                             <tr>
                                 <th className="px-4 py-2 border border-gray-300">Item Name</th>
                                 <th className="px-4 py-2 border border-gray-300">Price (per Qtl.)</th>
@@ -69,9 +69,9 @@ const Prices = () => {
                     </table>
                 </div>
                 <div>
-                    <h2 className="text-xl font-semibold mb-4">Top Losers (Current trends)</h2>
+                    <h2 className="text-xl  text-green-600 text-center font-bold mb-4">Top Losers (Current trends)</h2>
                     <table className="min-w-full text-left border-collapse border border-gray-300">
-                        <thead>
+                        <thead className="text-green-700 font-medium">
                             <tr>
                                 <th className="px-4 py-2 border border-gray-300">Item Name</th>
                                 <th className="px-4 py-2 border border-gray-300">Price (per Qtl.)</th>
@@ -92,11 +92,11 @@ const Prices = () => {
             </div>
 
             <div className="mb-6">
-                <h2 className="text-xl font-semibold mb-4">Star crop Prediction</h2>
+                <h2 className="text-xl font-bold text-green-500 text-center mb-4">Star crop Prediction</h2>
                 <table className="min-w-full border-collapse border border-gray-300">
                     <tbody>
                         <tr>
-                            <td className="px-4 py-2 border border-gray-300">
+                            <td className="px-4 py-2  border border-gray-300">
                                 <h5>{receivedData.six_months_forecast[0][1]}</h5>
                             </td>
                             <td className="px-4 py-2 border border-gray-300">
@@ -125,12 +125,12 @@ const Prices = () => {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
                 {CropImages.map((crop, index) => (
-                    <Link key={index} to={`/reports?crop=${crop.crop_name}`} className="block p-4 border border-gray-300 rounded-md hover:shadow-lg">
+                    <Link key={index} to={`/reports?crop=${crop.crop_name}`} className="block p-4 border border-green-500 bg-green-100 rounded-md hover:shadow-lg">
                         <div className="flex flex-col items-center">
-                            <img
+                            <img 
                                 src={crop.crop_image}
                                 alt={crop.crop_name}
-                                className="h-12 w-12 mb-2"
+                                className="rounded-md h-12 w-12 mb-2"
                             />
                             <span className="font-medium">{crop.crop_name.charAt(0).toUpperCase() + crop.crop_name.slice(1)}</span>
                         </div>

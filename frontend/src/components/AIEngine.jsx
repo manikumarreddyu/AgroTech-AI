@@ -47,7 +47,7 @@ const AIEngine = () => {
   return (
     <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8">
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-green-800">🍀AI Engine🍀</h1>
+        <h1 className="text-4xl font-bold text-green-500">🍀AI Engine🍀</h1>
         <p className="text-xl text-gray-700 mt-2">Let AI Engine Help You To Detect Disease</p>
       </div>
 

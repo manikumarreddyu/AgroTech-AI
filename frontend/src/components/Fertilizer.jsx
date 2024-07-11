@@ -59,15 +59,15 @@ const Fertilizer = () => {
     };
 
     return (
-        <div className="max-w-full mx-auto pb-10 pt-5 px-4 sm:px-6 lg:px-8 mt-16 bg-green-300 text-center" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <h1 className="text-2xl font-bold text-green-700 mb-4">Fertilizer Prediction</h1>
-            <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2 bg-green-300 text-green-900 border-green-500 shadow-md rounded-md" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="max-w-full mx-auto pb-10 pt-5 px-4 sm:px-6 lg:px-8 mt-16  text-center" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <h1 className="text-2xl font-bold text-green-500 mb-4">Fertilizer Prediction</h1>
+            <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2  text-green-900 border-green-500 shadow-md rounded-md" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <form method="post" acceptCharset="utf-8" name="Modelform" className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex justify-between items-center">
                         <label className="font-semibold mr-2">Temperature</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Temparature"
                             name="Temparature"
                             value={formData.Temparature}
@@ -79,7 +79,7 @@ const Fertilizer = () => {
                         <label className="font-semibold mr-2">Humidity</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Humidity"
                             name="Humidity"
                             value={formData.Humidity}
@@ -91,7 +91,7 @@ const Fertilizer = () => {
                         <label className="font-semibold mr-2">Moisture</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Moisture"
                             name="Moisture"
                             value={formData.Moisture}
@@ -102,7 +102,7 @@ const Fertilizer = () => {
                     <div className="flex justify-between items-center">
                         <label className="font-semibold mr-2">Soil Type</label>
                         <select
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Soil_Type"
                             name="Soil_Type"
                             value={formData.Soil_Type}
@@ -120,7 +120,7 @@ const Fertilizer = () => {
                     <div className="flex justify-between items-center">
                         <label className="font-semibold mr-2">Crop Type</label>
                         <select
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Crop_Type"
                             name="Crop_Type"
                             value={formData.Crop_Type}
@@ -145,7 +145,7 @@ const Fertilizer = () => {
                         <label className="font-semibold mr-2">Nitrogen</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Nitrogen"
                             name="Nitrogen"
                             value={formData.Nitrogen}
@@ -157,7 +157,7 @@ const Fertilizer = () => {
                         <label className="font-semibold mr-2">Potassium</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Potassium"
                             name="Potassium"
                             value={formData.Potassium}
@@ -169,7 +169,7 @@ const Fertilizer = () => {
                         <label className="font-semibold mr-2">Phosphorous</label>
                         <input
                             type="text"
-                            className="w-1/2 px-3 py-2 border border-gray-300 rounded"
+                            className="w-1/2 px-3 py-2 border border-green-500 rounded"
                             id="Phosphorous"
                             name="Phosphorous"
                             value={formData.Phosphorous}

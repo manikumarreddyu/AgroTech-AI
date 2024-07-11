@@ -18,7 +18,6 @@ const Navbar = () => {
     };
 
     return (
-        // <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] fixed w-full z-20 top-0 start-0 ${theme === 'dark' ? 'dark' : ''}`}>
         <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] fixed w-full  z-20 top-0 start-0  `}>
             <div className="max-w-screen-xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
                 <div className="text-white font-bold flex items-center">
