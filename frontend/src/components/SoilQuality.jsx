@@ -73,7 +73,7 @@ const SoilQuality = () => {
     return (
         <div className="max-w-full mx-auto  mt-16  pb-10 pt-5 px-4 sm:px-6 lg:px-8  text-center" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <h1 className="text-2xl text-center font-bold mb-4 text-green-500">Soil Quality Prediction</h1>
-            <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2  text-green-900 border-green-500 shadow-md rounded-md">
+            <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2  text-green-900 border-green-500 shadow-2xl shadow-green-200 rounded-md">
                 <form method="post" acceptCharset="utf-8" name="Modelform" className="grid grid-cols-2 gap-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <div className="flex justify-between items-center">
                         <label className="block text-left ml-2 text-black font-semibold w-1/3">Nitrogen</label>
