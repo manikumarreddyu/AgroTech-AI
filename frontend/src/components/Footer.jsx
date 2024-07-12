@@ -27,18 +27,18 @@ const Footer = () => {
                 <div className='md:w-3/4 md:flex'>
                     <div className='md:w-1/3'>
                         <p className='text-white font-bold mt-8 md:mt-0'>Company</p>
-                        <ul className='text-white py-4'>
-                            <li className='py-1 cursor-pointer hover:text-green-600'>
+                        <ul className='text-white py-1'>
+                            <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link to='/'>About Us</Link>
                             </li>
-                            <li className='py-1 cursor-pointer hover:text-green-600'>
+                            <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link to='/'>Contact Us</Link>
                             </li>
                         </ul>
                     </div>
                     <div className='md:w-1/3'>
-                        <p className='text-white font-bold'>Quick Links</p>
-                        <ul className='text-white py-4 cursor-pointer'>
+                        <p className='text-white font-bold text-md'>Quick Links</p>
+                        <ul className='text-white py-1 cursor-pointer'>
                             {/* <li className='py-1 cursor-pointer hover:text-green-800'>
                                 <Link className='flex items-center gap-1' to='/crop'>
                                     Crop Recommendation 
@@ -49,17 +49,17 @@ const Footer = () => {
                                     Fertilizer Recommendation
                                 </Link>
                             </li> */}
-                            <li className='py-1 cursor-pointer hover:text-green-600'>
+                            {/* <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link className='flex items-center gap-1' to='/soil'>
                                     Soil Quality 
                                 </Link>
-                            </li>
-                            <li className='py-1 cursor-pointer hover:text-green-600'>
+                            </li> */}
+                            <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link className='flex items-center gap-1' to='/prices'>
                                     Price Prediction
                                 </Link>
                             </li>
-                            <li className='py-1 cursor-pointer hover:text-green-600'>
+                            <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link className='flex items-center gap-1' to="/forecast">
                                    Forecast
                                 </Link>
@@ -92,8 +92,8 @@ const Footer = () => {
                     </Link>
                 </div>
             </div> */}
-            <div className='mt-4 text-white flex justify-center text-md lg:text-xl xl:text-md'>
-                Copyright <FaRegCopyright className="ml-2 mr-1 mt-1" /> {currentYear} AgroTech AI
+            <div className='mt-4 text-white flex justify-center space-x-2 text-md lg:text-md xl:text-md'>
+                Copyright <FaRegCopyright className="mx-0.5 my-1.5" /> {currentYear} <span className="font-bold">AgroTech AI</span>
             </div>
         </div>
     )
