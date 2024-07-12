@@ -92,16 +92,16 @@ const TestimonialSlider = () => {
   return (
 
     <section className=""style={{ backgroundImage: `url(${bgHero})`}}>
-      <div  className="max-w-7xl pb-10 pt-5 mx-auto px-4 sm:px-6 lg:px-8 " >
+      <div  className="max-w-7xl pb-10 pt-5 mx-auto px-1   sm:px-2 lg:px-8 " >
         <div
           className="testimonial-slider-container w-full flex flex-col text-center py-6"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <h2 className="text-3xl md:text-4xl text-green-500 font-extrabold mb-8">{testimonialsData.title}</h2>
+          <h2 className="text-xl md:text-4x sm:text-2xl lg:text-4xl text-green-500 font-extrabold mb-8">{testimonialsData.title}</h2>
           <div className="testimonial-slider flex items-center justify-center w-full my-auto mx-auto ">
             <button
-              className="prev-arrow text-5xl cursor-pointer transform  hover:scale-125 transition-transform duration-300 mx-2 md:mx-4 lg:mx-6 text-green-500"
+              className="prev-arrow text-3xl cursor-pointer transform  hover:scale-125 transition-transform duration-300 mx-1 md:mx-4 lg:mx-6 text-green-500"
               onClick={goToPrevious}
             >
             <BiChevronLeft /> 
@@ -121,7 +121,7 @@ const TestimonialSlider = () => {
               ))}
             </div>
             <button
-              className="next-arrow text-5xl cursor-pointer transform hover:scale-125 transition-transform duration-300 mx-2 md:mx-4 lg:mx-6 text-green-500"
+              className="next-arrow text-3xl cursor-pointer transform hover:scale-125 transition-transform duration-300 mx-2 md:mx-4 lg:mx-6 text-green-500"
               onClick={goToNext}
             >
               {/* &#9654; */}

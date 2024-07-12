@@ -12,7 +12,7 @@ const Footer = () => {
                 <div className="md:w-1/2  lg:-mt-20  md:-mt-40 sm:mt-1 sm:w-full content-center">
                     <div className="flex flex-col md:items-start">
                         <div className="flex items-center sm:w-full">
-                            <Link to="/app" className="flex items-center gap-1">
+                            <Link to="/" className="flex items-center gap-1">
                                 <img src={playstore} className="h-8" alt="AgroTech AI Logo" />
                                 <span className="ml-4 text-2xl font-semibold whitespace-nowrap text-white">
                                     AgroTech AI
@@ -39,16 +39,16 @@ const Footer = () => {
                     <div className='md:w-1/3'>
                         <p className='text-white font-bold'>Quick Links</p>
                         <ul className='text-white py-4 cursor-pointer'>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            {/* <li className='py-1 cursor-pointer hover:text-green-800'>
                                 <Link className='flex items-center gap-1' to='/crop'>
                                     Crop Recommendation 
                                 </Link>
-                            </li>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            </li> */}
+                            {/* <li className='py-1 cursor-pointer hover:text-green-800'>
                                 <Link className='flex items-center gap-1' to='/fertilizer'>
                                     Fertilizer Recommendation
                                 </Link>
-                            </li>
+                            </li> */}
                             <li className='py-1 cursor-pointer hover:text-green-800'>
                                 <Link className='flex items-center gap-1' to='/soil'>
                                     Soil Quality 
@@ -66,7 +66,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className='md:w-1/3'>
+                    {/* <div className='md:w-1/3'>
                         <p className='text-white font-bold'>Legal Pages</p>
                         <ul className='text-white py-4 cursor-pointer'>
                             <li className='py-1 cursor-pointer hover:text-green-800'>
@@ -79,7 +79,7 @@ const Footer = () => {
                                 <Link to='/'>Cookie Policy</Link>
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {/* <div className='block items-center m-auto mt-2'>
