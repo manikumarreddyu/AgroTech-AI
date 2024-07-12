@@ -237,6 +237,38 @@ const CropRecommendation = () => {
     return (
         <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8 " style={{ backgroundImage: `url(${bgHero})` }}>
             <h1 className="text-2xl text-center text-green-500 font-bold mb-4">Crop Recommendation</h1>
+
+            <div className="flex flex-col sm:flex-row items-center justify-between mb-8  ">
+                <div className="sm:w-2/3 p-4  items-center">
+                    <p className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text text-4xl font-bold py-1">
+                        About Crop Recommendation
+                    </p>
+                    <h1 className="md:text-3xl sm:text-2xl font-bold py-4 text-green-700">
+                        Empowering Farmers with AI-Driven Crop Insights
+                    </h1>
+                    <p className="text-lg text-[#000435]  text-justify">
+                        🌱 The Crop Recommendation System revolutionizes how farmers choose crops. It takes into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall
+                    </p>
+                    <p className='md:text-3xl sm:text-3xl text-2xl font-bold py-4 text-[#000435] '>
+                        🤔 How it Works!
+                    </p>
+                    <p className="text-lg text-[#000435] ">
+                        <span> ☑ Analyze soil and environmental parameters.</span><br />
+                        <span> ☑ Get precise crop recommendations based on data.</span><br />
+                        <span> ☑ Make informed decisions on crop management.</span><br />
+                    </p>
+                </div>
+                <div className="sm:w-1/3 flex flex-wrap items-center md:pl-10 ">
+                    <div className="grid grid-flow-col alignitems-center  grid-cols-2 grid-rows-2 gap-3">
+                        <div className="  "><img src={img1} alt="Crop 1" style={{ borderRadius: '50%' }} className="float-right w-40 h-40 p-2 rounded-lg border border-green-500 mb-4" /></div>
+                        <div className="   text-center"><img src={img3} alt="Crop 1" style={{ borderRadius: '50%' }} className="float-right w-40 h-40 p-2 rounded-lg border border-green-500 mb-4" /></div>
+
+                        <div className="   row-span-2 "><img src={img2} style={{ borderRadius: '100%' }} alt="Crop 1" className=" w-40 h-40 p-2 rounded-lg border border-green-500 mb-4 my-20" /></div>
+
+                    </div>
+                </div>
+            </div>
+
             <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2 text-green-900 border-green-500 shadow-2xl shadow-green-200 rounded-md">
                 <form method="post" acceptCharset="utf-8" name="Modelform" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -363,44 +395,54 @@ const CropRecommendation = () => {
                     </div>
                 )}
             </div>
-            <div className="mt-12">
-                <div className="flex flex-col sm:flex-row items-center justify-between mb-8">
-                    <div className="sm:w-1/2 p-4">
-                        <h2 className="text-xl font-semibold text-green-600">About Crop Recommendation</h2>
-                        <p className="mt-2 text-green-900">
-                            The Crop Recommendation System is revolutionizing how farmers choose crops. By taking into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall, this data-driven project is empowering farmers with precise recommendations.
-                        </p>
+            <div className="">
+                <div className="flex flex-col sm:flex-row items-center mt-20 justify-between  ">
+                    <div className="sm:w-1/2 flex flex-wrap px-10  rounded-md justify-center ">
+                        <img src={img1} alt="Crop 1" style={{ borderRadius: '100%' }} className="w-full px-2 " />
+
                     </div>
-                    <div className="sm:w-1/2 flex flex-wrap justify-center">
-                        <img src={img1} alt="Crop 1" className="w-1/3 p-2" />
-                        <img src={img2} alt="Crop 2" className="w-1/3 p-2" />
-                        <img src={img3} alt="Crop 3" className="w-1/3 p-2" />
+                    <div className="sm:w-1/2 p-4  items-center  ">
+                        <p className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text text-4xl font-bold py-1">
+                            About Crop Recommendation
+                        </p>
+                        <h1 className="md:text-3xl sm:text-2xl font-bold py-4 text-green-700">
+                            Empowering Farmers with AI-Driven Crop Insights
+                        </h1>
+                        <p className="text-lg text-[#000435]  text-justify">
+                            🌱 The Crop Recommendation System revolutionizes how farmers choose crops. It takes into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall
+                        </p>
+                        <p className='md:text-3xl sm:text-3xl text-2xl font-bold py-4 text-[#000435] '>
+                            🤔 How it Works!
+                        </p>
+                        <p className="text-lg text-[#000435] ">
+                            <span> ☑ Analyze soil and environmental parameters.</span><br />
+                            <span> ☑ Get precise crop recommendations based on data.</span><br />
+                            <span> ☑ Make informed decisions on crop management.</span><br />
+                        </p>
                     </div>
                 </div>
-                <div className="flex flex-col sm:flex-row items-center justify-between mb-8">
-                    <div className="sm:w-1/2 flex flex-wrap justify-center order-2 sm:order-1">
-                        <img src={img1} alt="Crop 1" className="w-1/3 p-2" />
-                        <img src={img2} alt="Crop 2" className="w-1/3 p-2" />
-                        <img src={img3} alt="Crop 3" className="w-1/3 p-2" />
-                    </div>
-                    <div className="sm:w-1/2 p-4 order-1 sm:order-2">
-                        <h2 className="text-xl font-semibold text-green-600">Why Crop Recommendation Matters</h2>
-                        <p className="mt-2 text-green-900">
-                            Effective crop recommendation helps in optimizing the use of resources, increasing yield, and ensuring sustainable farming practices. It assists farmers in making informed decisions based on scientific data, leading to better crop management and increased profitability.
+                <div className="flex flex-col sm:flex-row items-center justify-between ">
+                    <div className="sm:w-1/2 p-4  items-center ">
+                        <p className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text text-4xl font-bold py-1">
+                            About Crop Recommendation
+                        </p>
+                        <h1 className="md:text-3xl sm:text-2xl font-bold py-4 text-green-700">
+                            Empowering Farmers with AI-Driven Crop Insights
+                        </h1>
+                        <p className="text-lg text-[#000435]  text-justify">
+                            🌱 The Crop Recommendation System revolutionizes how farmers choose crops. It takes into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall
+                        </p>
+                        <p className='md:text-3xl sm:text-3xl text-2xl font-bold py-4 text-[#000435] '>
+                            🤔 How it Works!
+                        </p>
+                        <p className="text-lg text-[#000435] ">
+                            <span> ☑ Analyze soil and environmental parameters.</span><br />
+                            <span> ☑ Get precise crop recommendations based on data.</span><br />
+                            <span> ☑ Make informed decisions on crop management.</span><br />
                         </p>
                     </div>
-                </div>
-                <div className="flex flex-col sm:flex-row items-center justify-between mb-8">
-                    <div className="sm:w-1/2 p-4">
-                        <h2 className="text-xl font-semibold text-green-600">How It Works</h2>
-                        <p className="mt-2 text-green-900">
-                            The system analyzes soil and environmental parameters provided by the farmer. Using advanced machine learning algorithms, it predicts the most suitable crops for the given conditions. This ensures that the recommendations are tailored to the specific needs of each farm.
-                        </p>
-                    </div>
-                    <div className="sm:w-1/2 flex flex-wrap justify-center">
-                        <img src={img1} alt="Crop 1" className="w-1/3 p-2" />
-                        <img src={img2} alt="Crop 2" className="w-1/3 p-2" />
-                        <img src={img3} alt="Crop 3" className="w-1/3 p-2" />
+                    <div className="sm:w-1/2 flex flex-wrap px-10 my-10 rounded-md justify-center">
+                        <img src={img1} alt="Crop 1" style={{ borderRadius: '100%' }} className="w-full p-2" />
                     </div>
                 </div>
             </div>
