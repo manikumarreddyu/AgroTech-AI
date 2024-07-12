@@ -189,7 +189,9 @@ import { useState } from "react";
 import bgHero from "../assets/bgHero.png";
 import img1 from "../assets/img1.jpg";
 import img2 from "../assets/img2.jpg";
-import img3 from "../assets/img3.jpg";
+import img3 from "../assets/116.jpg";
+import img4 from "../assets/112.jpg";
+import img5 from "../assets/111.jpeg";
 
 const CropRecommendation = () => {
     const [isLoading, setIsloading] = useState(false);
@@ -398,7 +400,7 @@ const CropRecommendation = () => {
             <div className="">
                 <div className="flex flex-col sm:flex-row items-center mt-20 justify-between  ">
                     <div className="sm:w-1/2 flex flex-wrap px-10  rounded-md justify-center ">
-                        <img src={img1} alt="Crop 1" style={{ borderRadius: '100%' }} className="w-full px-2 " />
+                        <img src={img5} alt="Crop 1" style={{ borderRadius: '100%' }} className="w-2/3 px-2 " />
 
                     </div>
                     <div className="sm:w-1/2 p-4  items-center  ">
@@ -442,7 +444,7 @@ const CropRecommendation = () => {
                         </p>
                     </div>
                     <div className="sm:w-1/2 flex flex-wrap px-10 my-10 rounded-md justify-center">
-                        <img src={img1} alt="Crop 1" style={{ borderRadius: '100%' }} className="w-full p-2" />
+                        <img src={img4} alt="Crop 1" style={{ borderRadius: '100%' }} className="w-2/3 p-2" />
                     </div>
                 </div>
             </div>
