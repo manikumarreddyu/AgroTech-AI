@@ -47,12 +47,12 @@ const WeatherCard = ({
     <div className='w-[22rem] min-w-[22rem] h-[30rem] glassCard p-4'>
       <div className='flex w-full just-center, items-center gap-4 mt-12 mb-4'>
         <img src={icon} alt="weather_icon" />
-        <p className='font-bold text-5xl flex justify-center text-white items-center' >{temperature} &deg;C</p>
+        <p className='font-bold text-5xl flex justify-center text-green-500 items-center' >{temperature} &deg;C</p>
       </div>
-      <div className='font-bold text-center text-xl text-white'>
+      <div className='font-bold text-center text-xl text-green-500'>
         {place}
       </div>
-      <div className='w-full flex text-white justify-between items-center mt-4'>
+      <div className='w-full flex text-green-500 justify-between items-center mt-4'>
         <p className='flex-1 text-center p-2'>{new Date().toDateString()}</p>
         <p className='flex-1 text-center p-2'>{time}</p>
       </div>
@@ -60,7 +60,7 @@ const WeatherCard = ({
         <p className='flex-1 text-center p-2 font-bold bg-blue-600 shadow rounded-lg'>Wind Speed <p className='font-normal'>{windspeed} km/h</p></p>
         <p className='flex-1 text-center p-2 font-bold rounded-lg bg-green-600'>Humidity <p className='font-normal'>{humidity} gm/m&#179;</p></p>
       </div>
-      <div className='w-full p-3 mt-4 flex justify-between text-white items-center'>
+      <div className='w-full p-3 mt-4 flex justify-between text-green-500 items-center'>
         <p className='font-semibold text-lg'>Heat Index</p>
         <p className='text-lg'>{heatIndex ? heatIndex : 'N/A'}</p>
       </div>

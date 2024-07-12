@@ -1,7 +1,7 @@
 import  { useEffect, useState } from 'react'
 import { useStateContext } from '../../context/StateContextProvider'
 //images
-import Clear from '../../assets/images/Clear.jpg'
+import Clear from '../../assets/images/bgHero.png'
 import Fog from '../../assets/images/fog.png'
 import Cloudy from '../../assets/images/Cloudy.jpg'
 import Rainy from '../../assets/images/Rainy.jpg'
@@ -34,7 +34,7 @@ const BackgroundLayout = () => {
   }, [weather])
 
   return (
-    <img src={image} alt="weather_image" className='h-screen w-full fixed left-0 top-0 -z-[10]' />
+    <img src={image} alt="weather_image" className='min-h-screen w-full fixed left-0 top-0 -z-[10]' />
   )
 }
 

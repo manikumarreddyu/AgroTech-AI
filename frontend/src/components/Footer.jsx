@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <div className='bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10]  p-6'>
             <div className='md:flex'>
-                <div className="md:w-1/2  lg:-mt-20  md:-mt-40 sm:mt-1 sm:w-full content-center">
+                <div className="md:w-1/2 2xl:-mt-7 xl:-mt-10 lg:-mt-5  md:-mt-10 sm:mt-1 sm:w-full content-center">
                     <div className="flex flex-col md:items-start">
                         <div className="flex items-center sm:w-full">
                             <Link to="/" className="flex items-center gap-1">
@@ -28,10 +28,10 @@ const Footer = () => {
                     <div className='md:w-1/3'>
                         <p className='text-white font-bold mt-8 md:mt-0'>Company</p>
                         <ul className='text-white py-4'>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            <li className='py-1 cursor-pointer hover:text-green-600'>
                                 <Link to='/'>About Us</Link>
                             </li>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            <li className='py-1 cursor-pointer hover:text-green-600'>
                                 <Link to='/'>Contact Us</Link>
                             </li>
                         </ul>
@@ -49,17 +49,17 @@ const Footer = () => {
                                     Fertilizer Recommendation
                                 </Link>
                             </li> */}
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            <li className='py-1 cursor-pointer hover:text-green-600'>
                                 <Link className='flex items-center gap-1' to='/soil'>
                                     Soil Quality 
                                 </Link>
                             </li>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            <li className='py-1 cursor-pointer hover:text-green-600'>
                                 <Link className='flex items-center gap-1' to='/prices'>
                                     Price Prediction
                                 </Link>
                             </li>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            <li className='py-1 cursor-pointer hover:text-green-600'>
                                 <Link className='flex items-center gap-1' to="/forecast">
                                    Forecast
                                 </Link>
