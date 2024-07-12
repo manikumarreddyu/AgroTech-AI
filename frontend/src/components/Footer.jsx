@@ -9,8 +9,8 @@ const Footer = () => {
     return (
         <div className='bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10]  p-6'>
             <div className='md:flex'>
-                <div className="md:w-1/2 2xl:-mt-7 xl:-mt-10 lg:-mt-5  md:-mt-10 sm:mt-1 sm:w-full content-center">
-                    <div className="flex flex-col md:items-start">
+                <div className="md:w-1/2 md:-mt-10 sm:mt-1 sm:w-full content-center">
+                    <div className="mt-1 sm:mt-2 md:mt-10 flex flex-col md:items-start">
                         <div className="flex items-center sm:w-full">
                             <Link to="/" className="flex items-center gap-1">
                                 <img src={playstore} className="h-8" alt="AgroTech AI Logo" />
