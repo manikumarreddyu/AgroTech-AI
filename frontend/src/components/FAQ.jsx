@@ -35,7 +35,7 @@ const FAQ = () => {
   return (
     <section className=""style={{ backgroundImage: `url(${bgHero})`}}>
       <div className="max-w-7xl pb-10 pt-5 mx-auto px-4 sm:px-6 lg:px-8 " >
-        <h2 className="text-4xl md:text-4xl  sm:text-2xl  lg:text-4xl mb-7 font-extrabold text-center text-green-500 ">🤔 Frequently Asked Questions 🤔</h2>
+        <h2 className="text-xl md:text-4xl  sm:text-2xl  lg:text-4xl mb-7 font-extrabold text-center text-green-500 ">🤔 Frequently Asked Questions 🤔</h2>
         <dl className="space-y-2">
           {faqQuestions.map((faq, index) => (
             <div key={index} className="space-y-2">

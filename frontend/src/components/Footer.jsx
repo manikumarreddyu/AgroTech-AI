@@ -9,10 +9,10 @@ const Footer = () => {
     return (
         <div className='bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10]  p-6'>
             <div className='md:flex'>
-                <div className="md:w-1/2  lg:-mt-20  md:-mt-40 sm:mt-1 sm:w-full content-center">
+                <div className="md:w-1/2 2xl:-mt-7 xl:-mt-10 lg:-mt-5  md:-mt-10 sm:mt-1 sm:w-full content-center">
                     <div className="flex flex-col md:items-start">
                         <div className="flex items-center sm:w-full">
-                            <Link to="/app" className="flex items-center gap-1">
+                            <Link to="/" className="flex items-center gap-1">
                                 <img src={playstore} className="h-8" alt="AgroTech AI Logo" />
                                 <span className="ml-4 text-2xl font-semibold whitespace-nowrap text-white">
                                     AgroTech AI
@@ -27,46 +27,46 @@ const Footer = () => {
                 <div className='md:w-3/4 md:flex'>
                     <div className='md:w-1/3'>
                         <p className='text-white font-bold mt-8 md:mt-0'>Company</p>
-                        <ul className='text-white py-4'>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                        <ul className='text-white py-1'>
+                            <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link to='/'>About Us</Link>
                             </li>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link to='/'>Contact Us</Link>
                             </li>
                         </ul>
                     </div>
                     <div className='md:w-1/3'>
-                        <p className='text-white font-bold'>Quick Links</p>
-                        <ul className='text-white py-4 cursor-pointer'>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                        <p className='text-white font-bold text-md'>Quick Links</p>
+                        <ul className='text-white py-1 cursor-pointer'>
+                            {/* <li className='py-1 cursor-pointer hover:text-green-800'>
                                 <Link className='flex items-center gap-1' to='/crop'>
                                     Crop Recommendation 
                                 </Link>
-                            </li>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            </li> */}
+                            {/* <li className='py-1 cursor-pointer hover:text-green-800'>
                                 <Link className='flex items-center gap-1' to='/fertilizer'>
                                     Fertilizer Recommendation
                                 </Link>
-                            </li>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            </li> */}
+                            {/* <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link className='flex items-center gap-1' to='/soil'>
                                     Soil Quality 
                                 </Link>
-                            </li>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            </li> */}
+                            <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link className='flex items-center gap-1' to='/prices'>
                                     Price Prediction
                                 </Link>
                             </li>
-                            <li className='py-1 cursor-pointer hover:text-green-800'>
+                            <li className='py-0.5 cursor-pointer hover:text-green-600'>
                                 <Link className='flex items-center gap-1' to="/forecast">
                                    Forecast
                                 </Link>
                             </li>
                         </ul>
                     </div>
-                    <div className='md:w-1/3'>
+                    {/* <div className='md:w-1/3'>
                         <p className='text-white font-bold'>Legal Pages</p>
                         <ul className='text-white py-4 cursor-pointer'>
                             <li className='py-1 cursor-pointer hover:text-green-800'>
@@ -79,7 +79,7 @@ const Footer = () => {
                                 <Link to='/'>Cookie Policy</Link>
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {/* <div className='block items-center m-auto mt-2'>
@@ -92,8 +92,8 @@ const Footer = () => {
                     </Link>
                 </div>
             </div> */}
-            <div className='mt-4 text-white flex justify-center text-md lg:text-xl xl:text-md'>
-                Copyright <FaRegCopyright className="ml-2 mr-1 mt-1" /> {currentYear} AgroTech AI
+            <div className='mt-4 text-white flex justify-center space-x-2 text-md lg:text-md xl:text-md'>
+                Copyright <FaRegCopyright className="mx-0.5 my-1.5" /> {currentYear} <span className="font-bold">AgroTech AI</span>
             </div>
         </div>
     )

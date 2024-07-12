@@ -48,7 +48,7 @@ const CropRecommendation = () => {
         <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8 " style={{ backgroundImage: `url(${bgHero})` }}>
             <h1 className="text-2xl text-center text-green-500 font-bold mb-4">Crop Recommendation</h1>
             <div className="mx-auto px-3 md:ml-10">
-                <p> In the realm of agriculture, where traditional knowledge meets cutting-edge technology, the Crop Recommendation System is revolutionizing how farmers choose crops. By taking into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall, this data-driven project is empowering farmers with precise recommendations. In this blog, we will delve deeper into how these critical factors play a pivotal role in the decision-making process.</p>
+                <p> The Crop Recommendation System is revolutionizing how farmers choose crops. By taking into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall, this data-driven project is empowering farmers with precise recommendations</p>
             </div>
             <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2  text-green-900 border-green-500 shadow-md rounded-md">
                 <form method="post" acceptCharset="utf-8" name="Modelform" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>

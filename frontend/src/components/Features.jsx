@@ -40,7 +40,7 @@ const Features = () => {
             {featureData.map((feature, index) => (
               <div key={index} className="xl:w-1/4 md:w-1/2 p-4">
                 <div className="border border-green-700 border-opacity-75 p-6 rounded-lg   hover:bg-green-300  hover:border-green-200  cursor-pointer transition-transform duration-300 hover:-translate-y-1">
-                  <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-500 hover:bg-white text-white mb-4">
+                  <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-green-500  text-white mb-4">
                     {feature.icon}
                   </div>
                   <h2 className="text-lg text-green-600  font-medium title-font mb-2">{feature.title}</h2>
