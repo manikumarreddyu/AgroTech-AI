@@ -31,7 +31,8 @@ const Fertilizer = () => {
 
     const handlePredictClick = (e) => {
         e.preventDefault();
-        const url = "https://agro-ai-1.onrender.com/fertilizer_predict";
+        // const url = "https://agro-ai-1.onrender.com/fertilizer_predict";
+         const url = "http://127.0.0.1:5000/fertilizer_predict";
         setIsLoading(true);
         const jsonData = JSON.stringify(formData);
         console.log("Sending data:", jsonData); // Log the data being sent
@@ -233,7 +234,7 @@ const Fertilizer = () => {
                     <div className="mt-4">
                         <h4 className="text-lg font-semibold">
                             {result && result.length ? (
-                                <p>The Predicted Fertilizer is {result} </p>
+                                <p>The Predicted Fertilizer is <br></br><span className="text-xl text-sky-600">{result}</span> </p>
                             ) : (
                                 <p>Please fill out each field in the form completely</p>
                             )}
