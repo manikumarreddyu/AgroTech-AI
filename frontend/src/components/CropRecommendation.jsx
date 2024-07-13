@@ -217,7 +217,8 @@ const CropRecommendation = () => {
 
     const handlePredictClick = (e) => {
         e.preventDefault();
-        const url = "https://agro-ai-1.onrender.com/crop_predict";
+        // const url = "https://agro-ai-1.onrender.com/crop_predict";
+        const url = "http://127.0.0.1:5000/crop_predict";
         setIsloading(true);
         const jsonData = JSON.stringify(formData);
         fetch(url, {
@@ -249,16 +250,17 @@ const CropRecommendation = () => {
                         Empowering Farmers with AI-Driven Crop Insights
                     </h1>
                     <p className="text-lg text-[#000435]  text-justify">
-                        🌱 The Crop Recommendation System revolutionizes how farmers choose crops. It takes into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall
+                        🌱 The Crop Recommendation System 🚜 revolutionizes how farmers 🌾 choose crops. It takes into account the mineral composition of the soil 🌍, including potassium 🪨, nitrogen 🧪, and phosphorous 🌿, as well as factors like humidity 💧, temperature 🌡️, and rainfall 🌧️. By analyzing these factors, farmers can ensure optimal 🌟 crop selection, leading to higher yields 📈 and sustainable farming practices 🌻.
                     </p>
                     <p className='md:text-3xl sm:text-3xl text-2xl font-bold py-4 text-[#000435] '>
                         🤔 How it Works!
                     </p>
-                    <p className="text-lg text-[#000435] ">
-                        <span> ☑ Analyze soil and environmental parameters.</span><br />
-                        <span> ☑ Get precise crop recommendations based on data.</span><br />
-                        <span> ☑ Make informed decisions on crop management.</span><br />
+                    <p className="text-lg text-[#000435]">
+                        <span>✅ 🌍 Analyze soil 🌿 and environmental parameters 🌞.</span><br />
+                        <span>✅ 📊 Get precise 🎯 crop recommendations 🌽 based on data 📉.</span><br />
+                        <span>✅ 🌾 Make informed decisions 🧠 on crop management 🚜.</span><br />
                     </p>
+
                 </div>
                 <div className="sm:w-1/3 flex flex-wrap items-center md:pl-10 ">
                     <div className="grid grid-flow-col alignitems-center  grid-cols-2 grid-rows-2 gap-3">
@@ -271,7 +273,9 @@ const CropRecommendation = () => {
                 </div>
             </div>
 
+
             <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2 text-green-900 border-green-500 shadow-2xl shadow-green-200 rounded-md">
+                <h1 className="text-2xl text-center text-green-500 font-bold mb-4">Crop Recommendation</h1>
                 <form method="post" acceptCharset="utf-8" name="Modelform" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <div className="flex justify-between items-center">
@@ -373,7 +377,7 @@ const CropRecommendation = () => {
                     <div className="mt-4">
                         <h4 className="text-lg font-semibold">
                             {result && Object.keys(result).length !== 0 ? (
-                                <p>The Predicted crop is <span className="text-2xl">{result}</span></p>
+                                <p>The Predicted crop is <br></br><span className="text-2xl text-red-600">{result}</span></p>
                             ) : (
                                 <p>Please fill out each field in the form completely</p>
                             )}
@@ -381,8 +385,8 @@ const CropRecommendation = () => {
                     </div>
                 )}
                 {showSpan && result && (
-                    <div className="mt-6">
-                        <h4 className="text-lg font-semibold">Next Steps:</h4>
+                    <div className="mt-2 text-left">
+                        <h4 className="text-lg font-semibold text-green-500">Next Steps:</h4>
                         <ul className="list-disc list-inside">
                             <li>
                                 Learn more about <span className="font-bold">{result}</span> crop cultivation techniques <a href="https://example.com" className="text-blue-500">here</a>.
@@ -400,51 +404,54 @@ const CropRecommendation = () => {
             <div className="">
                 <div className="flex flex-col sm:flex-row items-center mt-20 justify-between  ">
                     <div className="sm:w-1/2 flex flex-wrap px-10  rounded-md justify-center ">
-                        <img src={img5} alt="Crop 1" style={{ borderRadius: '100%' }} className="w-2/3 px-2 " />
+                        <img src={img5} alt="Crop 1" style={{ borderRadius: '10%' }} className="w-full px-2 " />
 
                     </div>
-                    <div className="sm:w-1/2 p-4  items-center  ">
-                        <p className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text text-4xl font-bold py-1">
-                            About Crop Recommendation
+                    <div className="sm:w-1/2 p-4 items-center">
+                        <p className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text text-4xl font-bold py-1 text-justify">
+                            Need for Crop Recommendation
                         </p>
                         <h1 className="md:text-3xl sm:text-2xl font-bold py-4 text-green-700">
-                            Empowering Farmers with AI-Driven Crop Insights
+
                         </h1>
-                        <p className="text-lg text-[#000435]  text-justify">
-                            🌱 The Crop Recommendation System revolutionizes how farmers choose crops. It takes into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall
+                        <p className="text-lg text-[#000435] text-justify">
+                            🌱 The Crop Recommendation System 🚜 revolutionizes how farmers 🌾 choose crops. It takes into account the mineral composition of the soil 🌍, including potassium 🪨, nitrogen 🧪, and phosphorous 🌿, as well as factors like humidity 💧, temperature 🌡️, and rainfall 🌧️.
                         </p>
-                        <p className='md:text-3xl sm:text-3xl text-2xl font-bold py-4 text-[#000435] '>
+                        <p className='md:text-3xl sm:text-3xl text-2xl font-bold py-4 text-[#000435]'>
                             🤔 How it Works!
                         </p>
-                        <p className="text-lg text-[#000435] ">
-                            <span> ☑ Analyze soil and environmental parameters.</span><br />
-                            <span> ☑ Get precise crop recommendations based on data.</span><br />
-                            <span> ☑ Make informed decisions on crop management.</span><br />
+                        <p className="text-lg text-[#000435] text-justify">
+                            <span>✅ 🌍 Analyze soil 🌿 and environmental parameters 🌞.</span><br />
+                            <span>✅ 📊 Get precise 🎯 crop recommendations 🌽 based on data 📉.</span><br />
+                            <span>✅ 🌾 Make informed decisions 🧠 on crop management 🚜.</span><br />
                         </p>
                     </div>
+
+
                 </div>
                 <div className="flex flex-col sm:flex-row items-center justify-between ">
-                    <div className="sm:w-1/2 p-4  items-center ">
-                        <p className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text text-4xl font-bold py-1">
-                            About Crop Recommendation
-                        </p>
-                        <h1 className="md:text-3xl sm:text-2xl font-bold py-4 text-green-700">
-                            Empowering Farmers with AI-Driven Crop Insights
-                        </h1>
-                        <p className="text-lg text-[#000435]  text-justify">
-                            🌱 The Crop Recommendation System revolutionizes how farmers choose crops. It takes into account the mineral composition of the soil, including potassium, nitrogen, and phosphorous, as well as factors like humidity, temperature, and rainfall
-                        </p>
-                        <p className='md:text-3xl sm:text-3xl text-2xl font-bold py-4 text-[#000435] '>
-                            🤔 How it Works!
+                    <div className="sm:w-1/2 p-4 items-center">
+
+                        <p className='  text-2xl font-bold py-4 text-[#000435] '>
+                            🚀<span className="bg-gradient-to-r from-green-600 via-green-500 to-green-600 inline-block text-transparent bg-clip-text    md:text-3xl sm:text-3xl">Advantages and</span>📉<span className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text    md:text-3xl sm:text-3xl">Disadvantages</span>
                         </p>
                         <p className="text-lg text-[#000435] ">
-                            <span> ☑ Analyze soil and environmental parameters.</span><br />
-                            <span> ☑ Get precise crop recommendations based on data.</span><br />
-                            <span> ☑ Make informed decisions on crop management.</span><br />
+                            <span> ✅ <strong>Advantages:</strong></span><br />
+                            <span> 🌟 Helps farmers make data-driven decisions.</span><br />
+                            <span> 🌟 Increases crop yield by selecting the most suitable crops.</span><br />
+                            <span> 🌟 Reduces the risk of crop failure by considering environmental factors.</span><br />
+                            <span> 🌟 Optimizes resource use like water and fertilizers.</span><br />
+                            <br />
+                            <span> ❌ <strong>Disadvantages:</strong></span><br />
+                            <span> ⚠️ Requires accurate and up-to-date data for best results.</span><br />
+                            <span> ⚠️ May involve initial costs for data collection and analysis tools.</span><br />
+                            <span> ⚠️ Dependent on technology, which can be a barrier for some farmers.</span><br />
+                            <span> ⚠️ May need ongoing support and updates to stay effective.</span><br />
                         </p>
                     </div>
+
                     <div className="sm:w-1/2 flex flex-wrap px-10 my-10 rounded-md justify-center">
-                        <img src={img4} alt="Crop 1" style={{ borderRadius: '100%' }} className="w-2/3 p-2" />
+                        <img src={img4} alt="Crop 1" style={{ borderRadius: '10%' }} className="w-full p-2" />
                     </div>
                 </div>
             </div>
