@@ -1,11 +1,21 @@
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from 'react';
+import Spinner from './Spinner';
 import { Link } from "react-router-dom";
 import ChartComponent from "./Chart";
 import CropImages from './CropImages';
- 
+
 
 const Reports = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const cropName = searchParams.get('crop');
@@ -98,80 +108,84 @@ const Reports = () => {
   console.log(receivedData);
 
   return (
-    <div className="container mx-auto px-4 py-6 mt-5">
-      <div className="text-center my-8">
-        <h1 className="text-3xl font-bold">Report of crop</h1>
-      </div>
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold capitalize mb-4">{receivedData.name}</h2>
-        <div className="flex flex-wrap">
-          <div className="w-full md:w-1/2 lg:w-1/3 p-4">
-            <div className="border rounded-lg overflow-hidden">
-              <img
-                src={cropimg.crop_image}
-                alt="Crop"
-                className="w-full h-64 object-cover"
-              />
+    <>
+      {loading ? <Spinner /> : <div className="container mx-auto px-4 py-6 mt-5">
+        <div className="text-center my-8">
+          <h1 className="text-3xl font-bold text-green-500">Report of crop</h1>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold capitalize mb-4 text-center text-green-600">{receivedData.name}</h2>
+          <div className="flex flex-wrap">
+            <div className="w-full md:w-1/2 lg:w-1/3 p-4">
+              <div className="border rounded-lg overflow-hidden">
+                <img
+                  src={cropimg.crop_image}
+                  alt="Crop"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+            </div>
+            <div className="w-full md:w-1/2 lg:w-2/3 p-4">
+              <table className="table-auto w-full">
+                <tbody>
+                  <tr className="border-b">
+                    <td className="py-2">Current Price</td>
+                    <td className="py-2"><b>₹ {receivedData.current_price} / ql</b></td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2">Prime Location</td>
+                    <td className="py-2"><b>{receivedData.prime_loc}</b></td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2">Crop Type</td>
+                    <td className="py-2"><b>{receivedData.type_c}</b></td>
+                  </tr>
+                  <tr className="border-b">
+                    <td className="py-2">Export</td>
+                    <td className="py-2"><b>{receivedData.export}</b></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-          <div className="w-full md:w-1/2 lg:w-2/3 p-4">
-            <table className="table-auto w-full">
+          <div className="bg-gray-100 p-4 rounded-lg mt-4">
+            <h3 className="text-xl font-semibold">Brief Forecast</h3>
+            <table className="table-auto w-full mt-2">
               <tbody>
                 <tr className="border-b">
-                  <td className="py-2">Current Price</td>
-                  <td className="py-2"><b>₹ {receivedData.current_price} / ql</b></td>
+                  <td className="py-2">Min. crop price time</td>
+                  <td className="py-2">{receivedData.min_crop[0]}</td>
+                  <td className="py-2">₹{receivedData.min_crop[1]}</td>
                 </tr>
                 <tr className="border-b">
-                  <td className="py-2">Prime Location</td>
-                  <td className="py-2"><b>{receivedData.prime_loc}</b></td>
-                </tr>
-                <tr className="border-b">
-                  <td className="py-2">Crop Type</td>
-                  <td className="py-2"><b>{receivedData.type_c}</b></td>
-                </tr>
-                <tr className="border-b">
-                  <td className="py-2">Export</td>
-                  <td className="py-2"><b>{receivedData.export}</b></td>
+                  <td className="py-2">Max. crop price time</td>
+                  <td className="py-2">{receivedData.max_crop[0]}</td>
+                  <td className="py-2">₹{receivedData.max_crop[1]}</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <div className="mt-6">
+            <ChartComponent
+              forecastX={receivedData.forecast_x}
+              forecastY={receivedData.forecast_y}
+              previousX={receivedData.previous_x}
+              previousY={receivedData.previous_y}
+            />
+          </div>
+          <div className="mt-6">
+            <Link to="/prices">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+                Go Back
+              </button>
+            </Link>
+          </div>
+          {/* <div><img src={CropImages.}  /></div> */}
         </div>
-        <div className="bg-gray-100 p-4 rounded-lg mt-4">
-          <h3 className="text-xl font-semibold">Brief Forecast</h3>
-          <table className="table-auto w-full mt-2">
-            <tbody>
-              <tr className="border-b">
-                <td className="py-2">Min. crop price time</td>
-                <td className="py-2">{receivedData.min_crop[0]}</td>
-                <td className="py-2">₹{receivedData.min_crop[1]}</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-2">Max. crop price time</td>
-                <td className="py-2">{receivedData.max_crop[0]}</td>
-                <td className="py-2">₹{receivedData.max_crop[1]}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="mt-6">
-          <ChartComponent
-            forecastX={receivedData.forecast_x}
-            forecastY={receivedData.forecast_y}
-            previousX={receivedData.previous_x}
-            previousY={receivedData.previous_y}
-          />
-        </div>
-        <div className="mt-6">
-          <Link to="/prices">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
-              Go Back
-            </button>
-          </Link>
-        </div>
-        {/* <div><img src={CropImages.}  /></div> */}
-      </div>
-    </div>
+      </div>}
+    </>
+
+
   );
 }
 
