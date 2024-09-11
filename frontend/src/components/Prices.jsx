@@ -39,7 +39,9 @@ const Prices = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://agro-ai-1.onrender.com/price_predict');
+                // const response = await fetch('https://agro-ai-1.onrender.com/price_predict');
+                // https://agro-kdxo.onrender.com/
+                const response = await fetch('https://agro-kdxo.onrender.com/price_predict');
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
