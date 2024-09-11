@@ -46,7 +46,7 @@ const SoilQuality = () => {
 
     const handlePredictClick = (e) => {
         e.preventDefault();
-        const url = "https://agro-ai-1.onrender.com/soil_quality_predict";
+        const url = "https://agro-kdxo.onrender.com/soil_quality_predict";
         // const url = "http://127.0.0.1:5000/soil_quality_predict";
         setIsLoading(true);
 
