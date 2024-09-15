@@ -78,7 +78,7 @@ AgroTech AI platform is a comprehensive web-based tool where users can access va
 
 <hr>
 
-<details>
+<!-- <details>
     <summary><h2>📷 Screenshots: </h2></summary>
     
 ![alt text](./screenshots/Screenshot_home.png)
@@ -94,12 +94,12 @@ AgroTech AI platform is a comprehensive web-based tool where users can access va
 ![alt text](./screenshots/Screenshot_favourites.png)
 ![alt text](./screenshots/Screenshot_footer.png)
 
-</details>
+</details> -->
 
 
-## Video
+<!-- ## Video
 
-https://github.com/VaibhavArora314/StyleShare/assets/142779809/bb8969a2-90b2-431a-b95a-a87df61bb39a
+https://github.com/VaibhavArora314/StyleShare/assets/142779809/bb8969a2-90b2-431a-b95a-a87df61bb39a -->
 
 <!-- Code of conduct -->
 <div>
@@ -110,7 +110,7 @@ Please note that this project is released with a [Code of Conduct](CODE_OF_CONDU
 
 ## Setting Up on your machine
 
-1. Go to the backend folder and create a .env file similar to [.env.example](https://github.com/VaibhavArora314/StyleShare/blob/main/backend/.env.example)
+<!-- 1. Go to the backend folder and create a .env file similar to [.env.example](https://github.com/VaibhavArora314/StyleShare/blob/main/backend/.env.example)
 
  <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setup .env file</h4>
 
@@ -156,7 +156,7 @@ Please note that this project is released with a [Code of Conduct](CODE_OF_CONDU
    Also, set the default base URL of the backend (don't push this to GitHub) or simply uncomment the following:
    [App.tsx lines 17-18](https://github.com/VaibhavArora314/StyleShare/blob/ffb31d5bd3f68fbd76b300a736d56c2a0f1f77ac/frontend/src/App.tsx#L17-L18)
 
-<hr>
+<hr> -->
 
 <details>
  <summary><h2>:sparkles:How to Contribute</h2></summary>
@@ -200,8 +200,8 @@ If you would like to contribute to the project then kindly go through [Contribut
 <div align = "center">
  <h3>Thank you for contributing to our repository</h3>
 
-<p><a href="https://github.com/VaibhavArora314/StyleShare/contributors">
-  <img src="https://contributors-img.web.app/image?repo=VaibhavArora314/StyleShare" />
+<p><a href="https://github.com/manikumarreddyu/AgroTech-AI/contributors">
+  <img src="https://contributors-img.web.app/image?repo=manikumarreddyu/AgroTech-AI" />
 </a></p>
 
 </div>
@@ -212,7 +212,7 @@ If you would like to contribute to the project then kindly go through [Contribut
 <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" width="35" height="35"> License:</h2>
 </div>
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/VaibhavArora314/StyleShare/blob/main/LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/manikumarreddyu/AgroTech-AI/blob/main/LICENSE) file for more details.
 
 <hr>
 <div>
