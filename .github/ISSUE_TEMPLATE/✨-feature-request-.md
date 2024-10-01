@@ -7,14 +7,41 @@ assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+---
+name: ✨ Feature Request
+about: Suggest a new feature or enhancement
+title: "[Feature Request]: "
+labels: enhancement
+assignees: "@manikumarreddyu"
+---
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+### **Is there an existing issue for this?**
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+- [ ] I have searched the existing issues.
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+### **Feature Description**
+Please provide a detailed description of the feature you are requesting.
+
+### **Use Case**
+Describe a specific use case or scenario where this feature would be beneficial. How would this feature enhance your use of the project?
+
+### **Benefits**
+What benefits would this feature bring to the project or the community? Explain the advantages of implementing this feature.
+
+### **Screenshots**
+If applicable, add any relevant screenshots to help explain the feature.
+
+### **Priority**
+How important is this feature to you?
+- [ ] High
+- [ ] Medium
+- [ ] Low
+
+### **I have read the Contributing Guidelines**
+- [ ] Yes, I have read the Contributing Guidelines.
+
+### **I'm a GSSOC'24 contributor**
+- [ ] Yes
+
+### **I have starred the repository**
+- [ ] Yes
