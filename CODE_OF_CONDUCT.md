@@ -1,6 +1,6 @@
-# Style Share Project Code of Conduct
+# AgroTech AI Project Code of Conduct
 
-Style Share is dedicated to providing a positive, respectful, and inclusive environment for all contributors and users. We have established this Code of Conduct to outline our expectations for behavior within our community. This code applies to all interactions within the project, including discussions, contributions, and events.
+AgroTech AI  is dedicated to providing a positive, respectful, and inclusive environment for all contributors and users. We have established this Code of Conduct to outline our expectations for behavior within our community. This code applies to all interactions within the project, including discussions, contributions, and events.
 
 ## Our Values
 
@@ -19,7 +19,7 @@ representative at an online or offline event.
 
 ## Expected Behavior
 
-When participating in the Style Share community, we expect all contributors and users to:
+When participating in the AgroTech AI community, we expect all contributors and users to:
 
 - Be respectful and considerate towards others.
 - Use welcoming and inclusive language.
@@ -47,4 +47,4 @@ If you experience or witness any behavior that violates this Code of Conduct, pl
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may result in corrective actions, including warnings, temporary bans, or permanent bans, as deemed appropriate by the project maintainers. 
 
-By participating in Style Share, you are expected to uphold this Code of Conduct. We aim to cultivate a community where everyone feels safe and valued.
+By participating in AgroTech AI , you are expected to uphold this Code of Conduct. We aim to cultivate a community where everyone feels safe and valued.
