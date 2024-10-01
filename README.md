@@ -78,28 +78,22 @@ AgroTech AI platform is a comprehensive web-based tool where users can access va
 
 <hr>
 
-<!-- <details>
-    <summary><h2>📷 Screenshots: </h2></summary>
-    
-![alt text](./screenshots/Screenshot_home.png)
-![alt text](./screenshots/Screenshot_aboutus.png)
-![alt text](./screenshots/Screenshot_signup.png)
-![alt text](./screenshots/Screenshot_signin.png)
-![alt text](./screenshots/Screenshot_posts.png)
-![alt text](./screenshots/Screenshot_codeeditor.png)
-![alt text](./screenshots/Screenshot_newpost.png)
-![alt text](./screenshots/Screenshot_leaderboard.png)
-![alt text](./screenshots/Screenshot_profile.png)
-![alt text](./screenshots/Screenshot_faqs.png)
-![alt text](./screenshots/Screenshot_favourites.png)
-![alt text](./screenshots/Screenshot_footer.png)
+## ⚙️ Getting Started / 📥 Installation
 
-</details> -->
+Ready to contribute to this fun project? Here's how to set up your development environment:
+<br>
+Make sure you follow our contributing guidlines:-  [here](https://github.com/RamakrushnaBiswal/PlayCafe/blob/main/CONTRIBUTING.md) 
 
-
-<!-- ## Video
-
-https://github.com/VaibhavArora314/StyleShare/assets/142779809/bb8969a2-90b2-431a-b95a-a87df61bb39a -->
+1. **Fork this repository** 🍴 and clone it to your local machine:
+   ```bash
+   git clone https://github.com/manikumarreddyu/AgroTech-AI.git
+2. **Install dependencies 🧩:**
+   ```bash
+   npm install
+3. **Run the development server ⚡:**
+   ```bash
+   npm run dev
+4. Open your browser at `http://localhost:3000` to see the project running! 🌟
 
 <!-- Code of conduct -->
 <div>
@@ -108,85 +102,6 @@ https://github.com/VaibhavArora314/StyleShare/assets/142779809/bb8969a2-90b2-431
 
 Please note that this project is released with a [Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-## Setting Up on your machine
-
-<!-- 1. Go to the backend folder and create a .env file similar to [.env.example](https://github.com/VaibhavArora314/StyleShare/blob/main/backend/.env.example)
-
- <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setup .env file</h4>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I. `DATABASE_URL="mongodb+srv://<username>:<password>@<cluster-name>/syleshare"` (replace `<username>`, `<password>`, and `<cluster-name>` with your actual MongoDB credentials)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; II. `JWT_SECRET="secret"`
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; III. `PORT=3001`
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IV. `EMAIL_USER=example@gmail.com` (replace with your actual email address)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V. `EMAIL_PASS=lmkgpafolrjudvpc` (16-digit password generated in Google, change this with yours)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VI. `SEND_EMAIL=true` (If you set it true ,you can able to send email otherwise it wont send)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VII. `API_KEY="your google gemini api key"` (replace with your actual Google Gemini API key)
-
- <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For getting EMAIL_PASS</h4>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I.[EMAIL_PASS Generation video link](https://www.youtube.com/watch?v=MkLX85XU5rU&t=116s&ab_channel=HarishBhathee)
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; II.Remove spaces and add the password
-
-2. Run the following commands in the backend folder
-
-   ```sh
-   npm install
-   npm run build
-   npm run dev
-   ```
-
-   The npm run build cmd will handle the Prisma migrations, and also build the frontend folder which will be served by the express server.
-
-   Possible Problems:
-
-   - Prisma may give error for MongoDB replica set, in such case use Mongodb atlas for the database instead of the local database or start a Mongo docker container with the replica set.
-
-3. In case you are modifying the frontend and you want hot module reloading, then run the following commands in the frontend directory
-   ```sh
-   npm install
-   npm run dev
-   ```
-   Also, set the default base URL of the backend (don't push this to GitHub) or simply uncomment the following:
-   [App.tsx lines 17-18](https://github.com/VaibhavArora314/StyleShare/blob/ffb31d5bd3f68fbd76b300a736d56c2a0f1f77ac/frontend/src/App.tsx#L17-L18)
-
-<hr> -->
-
-<details>
- <summary><h2>:sparkles:How to Contribute</h2></summary>
-    
-
-We welcome contributions from the community! To contribute:
-
-1. Fork the repository.
-2. Clone the repository.
-   ```sh
-   git clone https://github.com/VaibhavArora314/StyleShare.git
-   ```
-3. Create a new branch.
-   ```sh
-   git checkout -b your-branch-name
-   ```
-4. Make your changes.
-5. Commit your changes.
-   ```sh
-   git commit -m 'Add some feature'
-   ```
-6. Push to the branch.
-   ```sh
-   git push origin your-branch-name
-   ```
-7. Open a pull request.
-
-</details>
-
-<hr>
 
 
 <div>
