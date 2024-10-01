@@ -16,33 +16,38 @@
 
 
 ## Introduction 🖥️
-Welcome to Style Share, a simple web-based platform where users can easily create, explore, and share Tailwind CSS components and designs with fellow users.
+AgroTech AI platform is a comprehensive web-based tool where users can access various machine learning models for making accurate predictions related to agriculture. It offers solutions for crop management, soil health assessment, pest control, and more.
+
 
 ## Tech Stack 🗃️
 The project is built using the following technologies:
 
-- TypeScript
-- Express
 - React
-- Recoil
-- Prisma + MongoDB
-- Tailwind CSS
+- Tailwind
+- python - Flask
+- Node
+- MongoDB
+- Express
+- Machine Learning
+- Deep Learning
 
 ## Contributing 📝
 Raise and issue; Get assigned and then work on fixing the issue.
-We welcome contributions to College.ai! Follow these steps to contribute:
+We welcome contributions to AgroTech AI! Follow these steps to contribute:
 
 1. **Fork the Repository**: Create your own copy of the repository on your GitHub account.
-![image](https://github.com/debangi29/StyleShare/assets/117537653/b33a38b0-ea03-4adf-88ac-b1ea8f177b84)
+![image](<img width="923" alt="image" src="https://github.com/user-attachments/assets/ffe4f7fc-5645-486d-9e3e-5322518fb4a4">
+)
 
 
 2. **Clone the Repository** : Clone the repository for making commits.
    ```bash
-   git clone https://github.com/VaibhavArora314/StyleShare.git
+   git clone https://github.com/manikumarreddyu/AgroTech-AI.git
    ```
       <br>
    
-![image](https://github.com/debangi29/StyleShare/assets/117537653/162abab4-04eb-4e41-99f2-da702bac656b)
+![image](<img width="293" alt="image" src="https://github.com/user-attachments/assets/fbb33407-766b-46dc-b583-6d86263f6bec">
+)
 
 
 3. **Create a New Branch** for your feature or bug fix: Make a separate branch to work on specific features or fixes and switch to the correct branch.
@@ -61,7 +66,8 @@ git commit -m "Describe your changes"
 6. **Create a Pull Request ✅**: Propose your changes to be merged into the original repository.
    <br>
    
-![image](https://github.com/debangi29/StyleShare/assets/117537653/5ff97d14-0145-45fe-ac44-9cb187624815)
+![image](<img width="935" alt="image" src="https://github.com/user-attachments/assets/3e7cb6f7-6898-4440-9ce5-b8feaafb0aa5">
+)
 
 ### Development Workflow
 - Always work on a new branch for each issue or feature.
