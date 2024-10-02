@@ -16,10 +16,11 @@ function Forecast() {
   }
 
   return (
-    <div className='w-full mt-12 max-h-screen  px-8 '>
-      <nav className='w-full p-3 flex justify-between items-center'>
-        <h1 className='font-bold tracking-wide text-green-500 text-3xl mt-5'>Forecast</h1>
-        <div className='bg-white w-[15rem] border border-green-500 overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2 mt-5'>
+    <>
+    <div className='w-full mt-12 min-h-screen px-4 sm:px-6 lg:px-8 '>
+      <nav className='w-full p-3 flex flex-col md:flex-row justify-between items-center'>
+        <h1 className='font-bold tracking-wide text-green-500 text-2xl sm:text-3xl mt-5'>Forecast</h1>
+        <div className='bg-white w-[15rem] border border-green-500 overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2 mt-3 sm:mt-5'>
           <img src={search} alt="search" className='w-[1.5rem] h-[1.5rem]' />
           <input onKeyUp={(e) => {
             if (e.key === 'Enter') {
@@ -57,6 +58,7 @@ function Forecast() {
         </div>
       </main>
     </div>
+    </>
   )
 }
 
