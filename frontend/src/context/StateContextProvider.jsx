@@ -1,67 +1,96 @@
 import { useContext, createContext, useState, useEffect } from "react";
-import axios from 'axios'
+import axios from 'axios';
 
-
-const StateContext = createContext()
+const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-    const [weather, setWeather] = useState({})
-    const [values, setValues] = useState([])
-    const [place, setPlace] = useState('Chittoor')
-    const [thisLocation, setLocation] = useState('')
+    const [weather, setWeather] = useState({});
+    const [forecast, setForecast] = useState([]);
+    const [place, setPlace] = useState('Chittoor'); 
+    const [thisLocation, setLocation] = useState('');
 
-    // fetch api
-    const fetchWeather = async () => {
+    // Fetch Lat and Lon from OpenWeatherMap Geocoding API
+    const fetchLatLon = async () => {
+        try {
+            const response = await axios.get('http://api.openweathermap.org/geo/1.0/direct', {
+                params: {
+                    q: place, // Place can include city, state, country (e.g., 'Chittoor,AP,IN')
+                    appid: import.meta.env.VITE_OPENWEATHERMAP_API_KEY, 
+                    limit: 1 // Limit to 1 result
+                },
+            });
+
+            // Extract lat and lon from response
+            if (response.data.length > 0) {
+                const { lat, lon } = response.data[0]; // Get lat and lon from the first result
+                console.log(`Coordinates for ${place}:`, lat, lon);
+                return { lat, lon };
+            } else {
+                alert('Location not found.');
+                return null;
+            }
+        } catch (e) {
+            console.error('Error fetching coordinates:', e);
+            alert('Error fetching coordinates. Please try again.');
+            return null;
+        }
+    };
+
+    // Fetch weather data from OpenWeatherMap using the latitude and longitude
+    const fetchWeather = async (lat, lon) => {
         const options = {
             method: 'GET',
-            url: 'https://visual-crossing-weather.p.rapidapi.com/forecast',
+            url: 'https://api.openweathermap.org/data/2.5/weather',
             params: {
-                aggregateHours: '24',
-                location: place,
-                contentType: 'json',
-                unitGroup: 'metric',
-                shortColumnNames: 0,
+                lat: lat,    // Pass the latitude
+                lon: lon,    // Pass the longitude
+                units: 'metric',
+                appid: import.meta.env.VITE_OPENWEATHERMAP_API_KEY, 
             },
-            headers: {
-                // 'X-RapidAPI-Key': import.meta.env.VITE_API_KEY,
-               // 'X-RapidAPI-Key': '3e80f9cba0mshb23d5515029b67cp143a90jsnc12e97b5a918',
-                'X-RapidAPI-Host': 'visual-crossing-weather.p.rapidapi.com'
-            }
-        }
+        };
 
         try {
             const response = await axios.request(options);
-            console.log(response.data)
-            const thisData = Object.values(response.data.locations)[0]
-            setLocation(thisData.address)
-            setValues(thisData.values)
-            setWeather(thisData.values[0])
+            console.log(response.data);
+            setLocation(response.data.name); // Set location name from the weather API response
+
+            // Set current weather
+            setWeather({
+                temp: response.data.main.temp,
+                humidity: response.data.main.humidity,
+                icon: response.data.weather[0].icon,
+                description: response.data.weather[0].description,
+                wind: response.data.wind.speed,
+                heatindex: response.data.main.feels_like, // heat index (feels like temp)
+            });
         } catch (e) {
             console.error(e);
-            // if the api throws error.
-            // alert('This place does not exist')
+            alert('Error fetching weather data. Please try again.');
         }
-    }
+    };
 
     useEffect(() => {
-        fetchWeather()
-    }, [place])
+        const getWeather = async () => {
+            const coords = await fetchLatLon(); // Get lat and lon
+            if (coords) {
+                fetchWeather(coords.lat, coords.lon); // Pass lat/lon to weather API
+            }
+        };
 
-    useEffect(() => {
-        console.log(values)
-    }, [values])
+        getWeather();
+    }, [place]);
 
     return (
         <StateContext.Provider value={{
             weather,
             setPlace,
-            values,
+            forecast,
             thisLocation,
             place
         }}>
             {children}
         </StateContext.Provider>
-    )
-}
+    );
+};
 
-export const useStateContext = () => useContext(StateContext)
+export const useStateContext = () => useContext(StateContext);

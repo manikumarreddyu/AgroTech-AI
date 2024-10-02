@@ -33,7 +33,7 @@ function Forecast() {
       <main className='w-full flex flex-wrap gap-8 py-4 px-[10%] text-white items-center justify-center'>
         <WeatherCard
           place={thisLocation}
-          windspeed={weather.wspd}
+          windspeed={weather.wind}
           humidity={weather.humidity}
           temperature={weather.temp}
           heatIndex={weather.heatindex}
