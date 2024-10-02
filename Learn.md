@@ -16,11 +16,14 @@
 
 
 ## Introduction 🖥️
+
 AgroTech AI platform is a comprehensive web-based tool where users can access various machine learning models for making accurate predictions related to agriculture. It offers solutions for crop management, soil health assessment, pest control, and more.
+
 
 
 ## Tech Stack 🗃️
 The project is built using the following technologies:
+
 
 - React
 - Tailwind
@@ -40,14 +43,17 @@ We welcome contributions to AgroTech AI! Follow these steps to contribute:
 )
 
 
+
 2. **Clone the Repository** : Clone the repository for making commits.
    ```bash
+
    git clone https://github.com/manikumarreddyu/AgroTech-AI.git
    ```
       <br>
    
 ![image](<img width="293" alt="image" src="https://github.com/user-attachments/assets/fbb33407-766b-46dc-b583-6d86263f6bec">
 )
+
 
 
 3. **Create a New Branch** for your feature or bug fix: Make a separate branch to work on specific features or fixes and switch to the correct branch.
@@ -66,8 +72,10 @@ git commit -m "Describe your changes"
 6. **Create a Pull Request ✅**: Propose your changes to be merged into the original repository.
    <br>
    
+
 ![image](<img width="935" alt="image" src="https://github.com/user-attachments/assets/3e7cb6f7-6898-4440-9ce5-b8feaafb0aa5">
 )
+
 
 ### Development Workflow
 - Always work on a new branch for each issue or feature.
