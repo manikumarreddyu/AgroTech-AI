@@ -29,8 +29,8 @@ function Forecast() {
           }} type="text" placeholder='Search city' className='focus:outline-none w-full  text-green-500 text-lg' value={input} onChange={e => setInput(e.target.value)} />
         </div>
       </nav>
-      <BackgroundLayout></BackgroundLayout>
-      <main className='w-full flex flex-wrap gap-8 py-4 px-[10%] text-white items-center justify-center'>
+      {/* <BackgroundLayout></BackgroundLayout> */}
+      <main className='w-full flex flex-wrap gap-8 py-4 px-[10%] text-green-500 items-center justify-center'>
         <WeatherCard
           place={thisLocation}
           windspeed={weather.wspd}
