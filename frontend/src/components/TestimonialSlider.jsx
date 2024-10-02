@@ -1,4 +1,4 @@
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import bgHero from '../assets/bgHero.png';
 import { BiChevronRight } from 'react-icons/bi';
 import { BiChevronLeft } from 'react-icons/bi';
@@ -105,11 +105,13 @@ const TestimonialSlider = () => {
               onClick={goToPrevious}
             >
             <BiChevronLeft /> 
-              {/* &#9664; */}
             </button>
             <div className="flex overflow-hidden max-w-full">
               {testimonialsData.users.slice(currentIndex, currentIndex + slidesToShow).map((testimonial, index) => (
-                <div key={index} className="testimonial mx-2 p-6 md:p-10 rounded-lg drop-shadow-xl border border-green-600   flex flex-col items-center justify-center min-w-[260px] md:min-w-[350px] lg:min-w-[400px]">
+                <div
+                  key={index}
+                  className="testimonial mx-2 p-6 md:p-10 rounded-lg drop-shadow-xl border border-green-700   flex flex-col items-center justify-center min-w-[260px] md:min-w-[350px] lg:min-w-[400px] transition-transform transform hover:scale-110"
+                >
                   <img
                     src={testimonial.image}
                     alt={`${testimonial.author}'s picture`}
@@ -124,7 +126,6 @@ const TestimonialSlider = () => {
               className="next-arrow text-3xl cursor-pointer transform hover:scale-125 transition-transform duration-300 mx-2 md:mx-4 lg:mx-6 text-green-500"
               onClick={goToNext}
             >
-              {/* &#9654; */}
               <BiChevronRight />
             </button>
           </div>
