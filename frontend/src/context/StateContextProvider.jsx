@@ -27,6 +27,9 @@ export const StateContextProvider = ({ children }) => {
                'X-RapidAPI-Key': '3e80f9cba0mshb23d5515029b67cp143a90jsnc12e97b5a918',
                 'X-RapidAPI-Host': 'visual-crossing-weather.p.rapidapi.com'
             }
+
+            //Backup API Key:
+            //'X-RapidAPI-Key': '45ff3cba5emsh9f12c14f7b87e3ep17fcabjsn2b22835b4513'
         }
 
         try {
