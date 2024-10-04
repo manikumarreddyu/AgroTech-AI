@@ -73,7 +73,7 @@ const Footer = () => {
                                 { Icon: FaGithub, link: 'https://github.com/manikumarreddyu/AgroTech-AI', color: '#333' },
                                 { Icon: FaDiscord, link: 'https://discord.gg/yRPQDDP6', color: '#7289DA' },
                                 { Icon: FaTwitter, link: '/', color: '#1DA1F2' },
-                                { Icon: FaLinkedinIn, link: 'www.linkedin.com/in/manikumarreddyu', color: '#0077B5' },
+                                { Icon: FaLinkedinIn, link: 'https://www.linkedin.com/in/manikumarreddyu', color: '#0077B5' },
                             ].map(({ Icon, link, color }, index) => (
                                 <a
                                     key={index}
