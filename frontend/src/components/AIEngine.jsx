@@ -25,7 +25,8 @@ const AIEngine = () => {
     formData.append('image', selectedFile);
 
     try {
-      const response = await fetch('http://127.0.0.1:5000/submit', {
+     // const response = await fetch('http://127.0.0.1:5000/submit', {
+       const response = await fetch('https://disease-prediction-api-2.onrender.com/submit', {
         method: 'POST',
         body: formData,
       });
