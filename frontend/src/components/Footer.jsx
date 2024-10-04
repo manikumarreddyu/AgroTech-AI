@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { FaHome, FaGithub, FaRegCopyright } from 'react-icons/fa';
+import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+
 import playstore from "../assets/favicon2.png";
 // import bgHero from "../assets/bgHero.png";
 
@@ -80,6 +81,24 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div> */}
+                    {/* Connect with us section */}
+                    <div className='md:w-1/3'>
+                        <p className='text-white font-bold mb-2'>Connect with us</p>
+                        <div className='flex space-x-4 mt-4'>
+                            <a href="/" className='social text-white hover:text-green-600 hover:border-green-600 transition-transform duration-300'>
+                                <FaGithub size={15} />
+                            </a>
+                            <a href="/" className='social text-white hover:text-green-600 hover:border-green-600 transition-transform duration-300'>
+                                <FaDiscord size={15} />
+                            </a>
+                            <a href="/" className='social text-white hover:text-green-600 hover:border-green-600 transition-transform duration-300'>
+                                <FaTwitter size={15} />
+                            </a>
+                            <a href="/" className='social text-white hover:text-green-600 hover:border-green-600 transition-transform duration-300'>
+                                <FaLinkedinIn size={15} />
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* <div className='block items-center m-auto mt-2'>
