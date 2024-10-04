@@ -70,10 +70,10 @@ const Footer = () => {
                         <h3 className='text-lg font-semibold mb-4 relative inline-block after:content-[""] after:absolute after:w-0 after:h-0.5 after:bg-lime-200 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full'>Connect with us</h3>
                         <div className='flex space-x-4 mt-4'>
                             {[
-                                { Icon: FaGithub, link: '/', color: '#333' },
-                                { Icon: FaDiscord, link: '/', color: '#7289DA' },
+                                { Icon: FaGithub, link: 'https://github.com/manikumarreddyu/AgroTech-AI', color: '#333' },
+                                { Icon: FaDiscord, link: 'https://discord.gg/yRPQDDP6', color: '#7289DA' },
                                 { Icon: FaTwitter, link: '/', color: '#1DA1F2' },
-                                { Icon: FaLinkedinIn, link: '/', color: '#0077B5' },
+                                { Icon: FaLinkedinIn, link: 'www.linkedin.com/in/manikumarreddyu', color: '#0077B5' },
                             ].map(({ Icon, link, color }, index) => (
                                 <a
                                     key={index}
