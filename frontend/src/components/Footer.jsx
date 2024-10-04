@@ -39,8 +39,10 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div>
-                        <h3 className='text-lg font-semibold mb-4 relative inline-block after:content-[""] after:absolute after:w-0 after:h-0.5 after:bg-lime-200 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full'>Quick Links</h3>
+                    <div className="flex flex-col">
+                        <h3 className='text-lg font-semibold mb-4 relative inline-block after:content-[""] after:absolute after:w-0 after:h-0.5 after:bg-lime-200 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full'>
+                            Quick Links
+                        </h3>
                         <ul className='space-y-2'>
                             {[
                                 { name: 'Crop Recommendation', path: '/crop' },
@@ -48,11 +50,11 @@ const Footer = () => {
                                 { name: 'Soil Quality', path: '/soil' },
                                 { name: 'Price Prediction', path: '/prices' },
                                 { name: 'Forecast', path: '/forecast' },
-                                { name: 'Disease ', path: '/disease' },
+                                { name: 'Disease', path: '/disease' },
                             ].map((link) => (
-                                <li key={link.name}>
+                                <li key={link.name} className="w-full">
                                     <Link to={link.path} className='flex items-center group'>
-                                        <span className="mr-2 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">›</span>
+                                        <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">›</span>
                                         <span className="relative overflow-hidden">
                                             <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">{link.name}</span>
                                             <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-lime-200">{link.name}</span>
@@ -63,10 +65,11 @@ const Footer = () => {
                         </ul>
                     </div>
 
+
                     <div>
                         <h3 className='text-lg font-semibold mb-4 relative inline-block after:content-[""] after:absolute after:w-0 after:h-0.5 after:bg-lime-200 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full'>Connect with us</h3>
                         <div className='flex space-x-4 mt-4'>
-                            {[ 
+                            {[
                                 { Icon: FaGithub, link: '/', color: '#333' },
                                 { Icon: FaDiscord, link: '/', color: '#7289DA' },
                                 { Icon: FaTwitter, link: '/', color: '#1DA1F2' },
@@ -76,7 +79,7 @@ const Footer = () => {
                                     key={index}
                                     href={link}
                                     className="p-2 rounded-full transition-all duration-300 transform hover:scale-110 hover:rotate-12"
-                                    style={{ 
+                                    style={{
                                         backgroundColor: 'white',
                                         color: color,
                                         boxShadow: '0 0 0 0 rgba(255,255,255,0.7)'
