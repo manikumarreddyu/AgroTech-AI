@@ -207,8 +207,6 @@ If you would like to contribute to the project then kindly go through [Contribut
 </a></p>
 
 </div>
-
-<hr>
 <!-- License -->
 <div>
 <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" width="35" height="35"> License:</h2>
