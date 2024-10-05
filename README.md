@@ -204,6 +204,7 @@ If you would like to contribute to the project then kindly go through [Contribut
 
 <p><a href="https://github.com/manikumarreddyu/AgroTech-AI/contributors">
   <img src="https://contributors-img.web.app/image?repo=manikumarreddyu/AgroTech-AI" />
+  
 </a></p>
 
 </div>
