@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import playstore from "../assets/favicon2.png";
-import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaXTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { FaHome, FaGithub, FaRegCopyright, FaDiscord,  FaLinkedinIn } from 'react-icons/fa';
+import {FaXTwitter} from 'react-icons/fa6';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
