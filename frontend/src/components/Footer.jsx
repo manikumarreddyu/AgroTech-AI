@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import playstore from "../assets/favicon2.png";
-import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaXTwitter, FaLinkedinIn } from 'react-icons/fa';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -72,7 +72,7 @@ const Footer = () => {
                             {[
                                 { Icon: FaGithub, link: 'https://github.com/manikumarreddyu/AgroTech-AI', color: '#333' },
                                 { Icon: FaDiscord, link: 'https://discord.gg/yRPQDDP6', color: '#7289DA' },
-                                { Icon: FaTwitter, link: '/', color: '#1DA1F2' },
+                                { Icon: FaXTwitter, link: '/', color: '#1DA1F2' },
                                 { Icon: FaLinkedinIn, link: 'https://www.linkedin.com/in/manikumarreddyu', color: '#0077B5' },
                             ].map(({ Icon, link, color }, index) => (
                                 <a
