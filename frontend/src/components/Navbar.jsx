@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons from react-icons
-import { FaSeedling, FaBacteria, FaFertilizer, FaSoil,FaMoneyBillWave ,FaCloudSun } from 'react-icons/fa';
-//import icon from '../assets/favicon2.png';
-import {FaHome} from 'react-icons/fa';
+// import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons from react-icons
+import icon from '../assets/favicon2.png';
 
 // import useTheme from '../hooks/useTheme'; // Import useTheme hook
 
@@ -14,11 +12,11 @@ const Navbar = () => {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
-    
+
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
-    
+
     return (
         <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] fixed w-full  z-20 top-0 start-0  `}>
             <div className="max-w-screen-xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
@@ -42,26 +40,26 @@ const Navbar = () => {
                 </button>
                 <div className={`${isMenuOpen ? "block" : "hidden"} w-full lg:block lg:w-auto transition-all duration-300 ease-in-out`} id="navbar-default">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-4">
-                        <Link to="/" className="block py-2 px-5 text-white hover:text-black-200 text-center" onClick={closeMenu}>
-                           <FaHome className="navbar-icon mr-2" /> Home
+                        <Link to="/" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Home
                         </Link>
-                        <Link to="/crop" className="block py-2 px-5 text-white hover:text-black-200 text-center" onClick={closeMenu}>
-                           <FaSeedling className=" navbar-icon mr-2" /> Crop
+                        <Link to="/crop" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Crop
                         </Link>
-                        <Link to="/disease" className="block py-2 px-5 text-white hover:text-black-200 text-center" onClick={closeMenu}>
-                            <FaBacteria className="navbar-icon mr-2" />Disease
+                        <Link to="/disease" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Disease
                         </Link>
-                        <Link to="/fertilizer" className="block py-2 px-5 text-white hover:text-black-200 text-center" onClick={closeMenu}>
-                        <FaFertilizer className="navbar-icon mr-2" />    Fertilizer
+                        <Link to="/fertilizer" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Fertilizer
                         </Link>
-                        <Link to="/soil" className="block py-2 px-5 text-white hover:text-black-200 text-center" onClick={closeMenu}>
-                        <FaSoil className="navbar-icon mr-2" /> Soil Quality
+                        <Link to="/soil" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Soil Quality
                         </Link>
-                        <Link to="/prices" className="block py-2 px-5 text-white hover:text-black-200 text-center" onClick={closeMenu}>
-                           <FaMoneyBillWave className="navbar-icon mr-2"/>Price
+                        <Link to="/prices" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Price
                         </Link>
-                        <Link to="/forecast" className="block py-2 px-5 text-white hover:text-black-200 text-center" onClick={closeMenu}>
-                        <FaCloudSun className="navbar-icon mr-2" /> Forecast
+                        <Link to="/forecast" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Forecast
                         </Link>
                     </div>
                 </div>
@@ -74,7 +72,7 @@ const Navbar = () => {
             </div>
         </nav>
     );
-} 
-export default Navbar;
+};
 
+export default Navbar;
 
