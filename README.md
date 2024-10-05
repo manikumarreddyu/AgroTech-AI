@@ -1,7 +1,7 @@
 <a id="top"></a>
 <div style="display:none;" align="center">
 <h1><font size="10"> AgroTech AI </font></h1>
-
+    
 <!-- repo intro -->
 
 </div>
@@ -174,13 +174,19 @@ Make sure you follow our contributing guidlines:-  [here](https://github.com/Ram
 1. **Fork this repository** 🍴 and clone it to your local machine:
    ```bash
    git clone https://github.com/manikumarreddyu/AgroTech-AI.git
-2. **Install dependencies 🧩:**
+2. **Install the required Python packages for Flask backend 🐍:**
+   ```bash
+   pip install -r requirements.txt
+3. **Start the Flask server ⚡:**
+   ```bash
+   python app.py
+4. **Install the dependencies for React frontend 🧩:**
    ```bash
    npm install
-3. **Run the development server ⚡:**
+5. **Run the development server ⚡:**
    ```bash
    npm run dev
-4. Open your browser at `http://localhost:3000` to see the project running! 🌟
+6. Open your browser at `http://localhost:3000` to see the project running! 🌟
 
 <!-- Code of conduct -->
 <div>
