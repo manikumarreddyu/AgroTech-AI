@@ -15,7 +15,7 @@ function Home() {
   document.title = 'AgroTech AI';
 
   return (      
-    <div className="mt-10 min-h-screen ">
+    <div className="mt-10 min-h-screen dark:bg-green-500">
       <div className="w-full py-16 px-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
           <div className="flex flex-col justify-center">
