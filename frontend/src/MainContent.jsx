@@ -7,6 +7,7 @@ import AIEngine from './components/AIEngine';
 import Submit from './components/Submit';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
+import About from './pages/About';
 import Fertilizer from './components/Fertilizer';
 import SoilQuality from './components/SoilQuality';
 import Footer from './components/Footer';
@@ -27,6 +28,7 @@ const MainContent = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/crop" element={<Crop />} />
           <Route path="/disease" element={<Disease />} />
           <Route path="/engine" element={<AIEngine/>} />

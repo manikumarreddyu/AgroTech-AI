@@ -1,16 +1,48 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import playstore from "../assets/favicon2.png";
-import { FaHome, FaGithub, FaRegCopyright, FaDiscord,  FaLinkedinIn } from 'react-icons/fa';
-import {FaXTwitter} from 'react-icons/fa6';
+import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaLinkedinIn } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa6'; // Corrected import for Twitter icon
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+
+    // Define company links with distinct paths
+    const companyLinks = [
+        { name: 'About Us', path: '/about' },
+        { name: 'Contact Us', path: '/contact' },
+    ];
+
+    // Define quick links
+    const quickLinks = [
+        { name: 'Crop Recommendation', path: '/crop' },
+        { name: 'Fertilizer Recommendation', path: '/fertilizer' },
+        { name: 'Soil Quality', path: '/soil' },
+        { name: 'Price Prediction', path: '/prices' },
+        { name: 'Forecast', path: '/forecast' },
+        { name: 'Disease', path: '/disease' },
+    ];
+
+    // Define social media links
+    const socialMedia = [
+        { Icon: FaGithub, link: 'https://github.com/manikumarreddyu/AgroTech-AI', color: '#333' },
+        { Icon: FaDiscord, link: 'https://discord.gg/yRPQDDP6', color: '#7289DA' },
+        { Icon: FaTwitter, link: 'https://twitter.com/YourTwitterHandle', color: '#1DA1F2' }, // Updated to FaTwitter
+        { Icon: FaLinkedinIn, link: 'https://www.linkedin.com/in/manikumarreddyu', color: '#0077B5' },
+    ];
+
+    // Define legal links with their paths if available
+    const legalLinks = [
+        { name: 'Privacy Policy', path: '/privacy-policy' },
+        { name: 'Terms and Conditions', path: '/terms-and-conditions' },
+        { name: 'Cookie Policy', path: '/cookie-policy' },
+    ];
 
     return (
         <footer className='bg-gradient-to-r from-emerald-500 via-green-500 to-lime-500 p-8 text-white'>
             <div className='container mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+                    {/* Company Section */}
                     <div className="space-y-4">
                         <Link to="/" className="flex items-center gap-2 group transition-all duration-300 ease-in-out transform hover:scale-105">
                             <img src={playstore} className="h-10 w-10 transition-transform duration-300 group-hover:rotate-12" alt="AgroTech AI Logo" />
@@ -23,16 +55,17 @@ const Footer = () => {
                         </p>
                     </div>
 
+                    {/* Company Links */}
                     <div>
                         <h3 className='text-lg font-semibold mb-4 relative inline-block after:content-[""] after:absolute after:w-0 after:h-0.5 after:bg-lime-200 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full'>Company</h3>
                         <ul className='space-y-2'>
-                            {['About Us', 'Contact Us'].map((item) => (
-                                <li key={item}>
-                                    <Link to='/contact' className='flex items-center group'>
+                            {companyLinks.map((link) => (
+                                <li key={link.name}>
+                                    <Link to={link.path} className='flex items-center group'>
                                         <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">›</span>
                                         <span className="relative overflow-hidden">
-                                            <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">{item}</span>
-                                            <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-lime-200">{item}</span>
+                                            <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">{link.name}</span>
+                                            <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-lime-200">{link.name}</span>
                                         </span>
                                     </Link>
                                 </li>
@@ -40,19 +73,13 @@ const Footer = () => {
                         </ul>
                     </div>
 
+                    {/* Quick Links */}
                     <div className="flex flex-col">
                         <h3 className='text-lg font-semibold mb-4 relative inline-block after:content-[""] after:absolute after:w-0 after:h-0.5 after:bg-lime-200 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full'>
                             Quick Links
                         </h3>
                         <ul className='space-y-2'>
-                            {[
-                                { name: 'Crop Recommendation', path: '/crop' },
-                                { name: 'Fertilizer Recommendation', path: '/fertilizer' },
-                                { name: 'Soil Quality', path: '/soil' },
-                                { name: 'Price Prediction', path: '/prices' },
-                                { name: 'Forecast', path: '/forecast' },
-                                { name: 'Disease', path: '/disease' },
-                            ].map((link) => (
+                            {quickLinks.map((link) => (
                                 <li key={link.name} className="w-full">
                                     <Link to={link.path} className='flex items-center group'>
                                         <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">›</span>
@@ -66,19 +93,17 @@ const Footer = () => {
                         </ul>
                     </div>
 
-
+                    {/* Connect with Us and Legal */}
                     <div>
+                        {/* Social Media Links */}
                         <h3 className='text-lg font-semibold mb-4 relative inline-block after:content-[""] after:absolute after:w-0 after:h-0.5 after:bg-lime-200 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full'>Connect with us</h3>
                         <div className='flex space-x-4 mt-4'>
-                            {[
-                                { Icon: FaGithub, link: 'https://github.com/manikumarreddyu/AgroTech-AI', color: '#333' },
-                                { Icon: FaDiscord, link: 'https://discord.gg/yRPQDDP6', color: '#7289DA' },
-                                { Icon: FaXTwitter, link: '/', color: '#1DA1F2' },
-                                { Icon: FaLinkedinIn, link: 'https://www.linkedin.com/in/manikumarreddyu', color: '#0077B5' },
-                            ].map(({ Icon, link, color }, index) => (
+                            {socialMedia.map(({ Icon, link, color }, index) => (
                                 <a
                                     key={index}
                                     href={link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="p-2 rounded-full transition-all duration-300 transform hover:scale-110 hover:rotate-12"
                                     style={{
                                         backgroundColor: 'white',
@@ -102,15 +127,16 @@ const Footer = () => {
                             ))}
                         </div>
 
+                        {/* Legal Links */}
                         <h3 className='text-lg font-semibold mt-6 mb-4 relative inline-block after:content-[""] after:absolute after:w-0 after:h-0.5 after:bg-lime-200 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full'>Legal</h3>
                         <ul className='space-y-2'>
-                            {['Privacy Policy', 'Terms and Conditions', 'Cookie Policy'].map((item) => (
-                                <li key={item}>
-                                    <Link to='/' className='flex items-center group'>
+                            {legalLinks.map((item) => (
+                                <li key={item.name}>
+                                    <Link to={item.path} className='flex items-center group'>
                                         <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">›</span>
                                         <span className="relative overflow-hidden">
-                                            <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">{item}</span>
-                                            <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-lime-200">{item}</span>
+                                            <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">{item.name}</span>
+                                            <span className="absolute top-0 left-0 inline-block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-lime-200">{item.name}</span>
                                         </span>
                                     </Link>
                                 </li>

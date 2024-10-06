@@ -1,4 +1,5 @@
 import React from 'react';
+import bgHero from "../assets/bgHero.png";
 
 const Contact = () => {
   const handleSubmit = (e) => {
@@ -7,7 +8,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-[1240px] mx-auto p-6 bg-gray-50 rounded-lg shadow-md">
+    <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8"  style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-8">Get in Touch</h2>
 
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-lg mb-10">
