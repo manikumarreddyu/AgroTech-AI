@@ -192,13 +192,13 @@ const CropRecommendation = () => {
                                 </div>
                             </div>
                             <div className="mb-4 mt-5">
-                                <button
-                                    className="w-full px-3 py-2 bg-rose-500 text-white rounded disabled:bg-blue-300"
-                                    disabled={isLoading}
-                                    onClick={!isLoading ? handlePredictClick : null}
-                                >
-                                    {isLoading ? "Predicting..." : "Predict Crop that is suitable"}
-                                </button>
+                                <button className="w-full px-3 py-2 relative rounded group overflow-hidden font-medium bg-rose-50 text-rose-500 border border-rose-500 inline-block"
+                                        disabled={isLoading}
+                                        onClick={!isLoading ? handlePredictClick : null}
+                                > 
+                                    <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-500 ease-out transform translate-y-0 bg-rose-500 group-hover:h-full opacity-90"></span>
+                                    <span className="relative group-hover:text-white">{isLoading ? "Predicting..." : "Predict Crop that is suitable"}</span>
+                               </button>
                             </div>
                         </form>
                         {showSpan && (
