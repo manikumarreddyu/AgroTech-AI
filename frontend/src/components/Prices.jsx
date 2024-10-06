@@ -70,7 +70,7 @@ const Prices = () => {
                         />
                     </h4>
                     <p className="text-xl font-bold">₹{ele[1]}</p>
-                    <p className={`text-lg ${isGainer ? 'text-green-700' : 'text-red-700'}`}>
+                    <p className={`text-lg ${isGainer ? 'text-white' : 'text-white'}`}>
                         {ele[2]}%
                     </p>
                 </div>
