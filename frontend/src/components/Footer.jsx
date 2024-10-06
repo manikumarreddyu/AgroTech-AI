@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import playstore from "../assets/favicon2.png";
 import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaLinkedinIn } from 'react-icons/fa';
@@ -6,6 +6,9 @@ import { FaXTwitter } from 'react-icons/fa6'; // Corrected import for Twitter ic
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [rating, setRating] = useState(0);
+    const [comment, setComment] = useState('');
 
     // Define company links with distinct paths
     const companyLinks = [
@@ -37,6 +40,17 @@ const Footer = () => {
         { name: 'Terms and Conditions', path: '/terms-and-conditions' },
         { name: 'Cookie Policy', path: '/cookie-policy' },
     ];
+
+    const handleRating = (value) => {
+        setRating(value);
+    };
+
+    const submitRating = () => {
+        alert(`Thank you for rating us ${rating} out of 5! Comment: ${comment}`);
+        setIsModalOpen(false);
+        setRating(0);
+        setComment('');
+    };
 
     return (
         <footer className='bg-gradient-to-r from-emerald-500 via-green-500 to-lime-500 p-8 text-white'>
@@ -146,11 +160,58 @@ const Footer = () => {
                 </div>
                 <div className='mt-8 pt-8 border-t border-white/30 text-center'>
                     <p className='flex items-center justify-center text-sm'>
-                        Copyright <FaRegCopyright className="mx-2" /> {currentYear}
-                        <span className="font-bold ml-2 bg-white text-emerald-600 px-2 py-1 rounded transition-all duration-300 hover:bg-emerald-600 hover:text-white">AgroTech AI</span>
+                        Copyright <FaRegCopyright className='mx-1' /> {currentYear} AgroTech AI. All rights reserved.
                     </p>
+                    <button
+                        className="mt-4 px-4 py-2 bg-lime-200 text-black rounded shadow-lg hover:bg-lime-300 transition-all duration-300"
+                        onClick={() => setIsModalOpen(true)}
+                    >
+                        Rate Us
+                    </button>
                 </div>
             </div>
+
+            {/* Rating Modal */}
+            {isModalOpen && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white p-8 rounded shadow-lg text-center">
+                        <h2 className="text-xl font-semibold mb-4">Rate Us</h2>
+                        <div className="mb-4">
+                            <h3 className="font-semibold">Feedback</h3>
+                            {[1, 2, 3, 4, 5].map((star) => (
+                                <span
+                                    key={star}
+                                    className={`cursor-pointer ${star <= rating ? 'text-lime-500' : 'text-gray-400'}`}
+                                    onClick={() => handleRating(star)}
+                                >
+                                    ★
+                                </span>
+                            ))}
+                        </div>
+                        <textarea
+                            className="w-full p-2 border rounded"
+                            rows="4"
+                            placeholder="Leave your comment here..."
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                        />
+                        <div className="mt-4">
+                            <button
+                                className="px-4 py-2 bg-lime-500 text-white rounded hover:bg-lime-600"
+                                onClick={submitRating}
+                            >
+                                Submit
+                            </button>
+                            <button
+                                className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400 ml-2"
+                                onClick={() => setIsModalOpen(false)}
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </footer>
     );
 };
