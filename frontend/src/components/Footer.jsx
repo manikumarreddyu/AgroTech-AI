@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import playstore from "../assets/favicon2.png";
 import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaLinkedinIn } from 'react-icons/fa';
-import { FaTwitter } from 'react-icons/fa6'; // Corrected import for Twitter icon
+import { FaXTwitter } from 'react-icons/fa6'; // Corrected import for Twitter icon
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -27,7 +27,7 @@ const Footer = () => {
     const socialMedia = [
         { Icon: FaGithub, link: 'https://github.com/manikumarreddyu/AgroTech-AI', color: '#333' },
         { Icon: FaDiscord, link: 'https://discord.gg/yRPQDDP6', color: '#7289DA' },
-        { Icon: FaTwitter, link: 'https://twitter.com/YourTwitterHandle', color: '#1DA1F2' }, // Updated to FaTwitter
+        { Icon: FaXTwitter, link: 'https://twitter.com/YourTwitterHandle', color: '#1DA1F2' }, // Updated to FaTwitter
         { Icon: FaLinkedinIn, link: 'https://www.linkedin.com/in/manikumarreddyu', color: '#0077B5' },
     ];
 
