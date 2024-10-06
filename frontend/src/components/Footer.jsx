@@ -28,7 +28,7 @@ const Footer = () => {
                         <ul className='space-y-2'>
                             {['About Us', 'Contact Us'].map((item) => (
                                 <li key={item}>
-                                    <Link to='/' className='flex items-center group'>
+                                    <Link to='/contact' className='flex items-center group'>
                                         <span className="mr-2 transition-transform duration-300 group-hover:translate-x-1">›</span>
                                         <span className="relative overflow-hidden">
                                             <span className="inline-block transition-transform duration-300 group-hover:-translate-y-full">{item}</span>
