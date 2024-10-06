@@ -160,11 +160,15 @@ const Footer = () => {
                 </div>
                 <div className='mt-8 pt-8 border-t border-white/30 text-center'>
                     <p className='flex items-center justify-center text-sm'>
-                        Copyright <FaRegCopyright className='mx-1' /> {currentYear} AgroTech AI. All rights reserved.
+                        Copyright <FaRegCopyright className='mx-1' /> {currentYear} All Rights Reserved <span className="text-lime-200 font-semibold mx-1">AgroTech AI</span>
                     </p>
+                </div>
+
+                {/* Rate Us Button */}
+                <div className="text-center mt-4">
                     <button
-                        className="mt-4 px-4 py-2 bg-lime-200 text-black rounded shadow-lg hover:bg-lime-300 transition-all duration-300"
                         onClick={() => setIsModalOpen(true)}
+                        className="bg-lime-200 text-gray-800 font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-lime-300"
                     >
                         Rate Us
                     </button>
@@ -173,38 +177,33 @@ const Footer = () => {
 
             {/* Rating Modal */}
             {isModalOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="bg-white p-8 rounded shadow-lg text-center">
-                        <h2 className="text-xl font-semibold mb-4">Rate Us</h2>
-                        <div className="mb-4">
-                            <h3 className="font-semibold">Feedback</h3>
-                            {[1, 2, 3, 4, 5].map((star) => (
-                                <span
-                                    key={star}
-                                    className={`cursor-pointer ${star <= rating ? 'text-lime-500' : 'text-gray-400'}`}
-                                    onClick={() => handleRating(star)}
-                                >
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                    <div className="bg-white p-8 rounded-lg shadow-lg">
+                        <h2 className="text-lg font-bold mb-4">Rate Us</h2>
+                        <div className="flex justify-center mb-4">
+                            {[1, 2, 3, 4, 5].map((value) => (
+                                <span key={value} className={`cursor-pointer text-2xl ${rating >= value ? 'text-lime-500' : 'text-gray-300'}`} onClick={() => handleRating(value)}>
                                     ★
                                 </span>
                             ))}
                         </div>
                         <textarea
-                            className="w-full p-2 border rounded"
+                            className="w-full border border-gray-300 rounded p-2 mb-4"
                             rows="4"
-                            placeholder="Leave your comment here..."
+                            placeholder="Write your comments here..."
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
-                        />
-                        <div className="mt-4">
+                        ></textarea>
+                        <div className="flex justify-end">
                             <button
-                                className="px-4 py-2 bg-lime-500 text-white rounded hover:bg-lime-600"
                                 onClick={submitRating}
+                                className="bg-lime-500 text-white font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-lime-600"
                             >
                                 Submit
                             </button>
                             <button
-                                className="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400 ml-2"
                                 onClick={() => setIsModalOpen(false)}
+                                className="ml-2 text-gray-600 underline"
                             >
                                 Cancel
                             </button>
