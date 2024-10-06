@@ -10,13 +10,13 @@ import img5 from "../assets/113.png";
 const Fertilizer = () => {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1000);
     return () => clearTimeout(timer);
   }, []);
+  
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     Temparature: "",
