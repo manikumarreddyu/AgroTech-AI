@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import playstore from "../assets/favicon2.png";
 import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaLinkedinIn } from 'react-icons/fa';
@@ -6,6 +6,9 @@ import { FaXTwitter } from 'react-icons/fa6'; // Corrected import for Twitter ic
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [rating, setRating] = useState(0);
+    const [comment, setComment] = useState('');
 
     // Define company links with distinct paths
     const companyLinks = [
@@ -37,6 +40,17 @@ const Footer = () => {
         { name: 'Terms and Conditions', path: '/terms-and-conditions' },
         { name: 'Cookie Policy', path: '/cookie-policy' },
     ];
+
+    const handleRating = (value) => {
+        setRating(value);
+    };
+
+    const submitRating = () => {
+        alert(`Thank you for rating us ${rating} out of 5! Comment: ${comment}`);
+        setIsModalOpen(false);
+        setRating(0);
+        setComment('');
+    };
 
     return (
         <footer className='bg-gradient-to-r from-emerald-500 via-green-500 to-lime-500 p-8 text-white'>
@@ -146,11 +160,57 @@ const Footer = () => {
                 </div>
                 <div className='mt-8 pt-8 border-t border-white/30 text-center'>
                     <p className='flex items-center justify-center text-sm'>
-                        Copyright <FaRegCopyright className="mx-2" /> {currentYear}
-                        <span className="font-bold ml-2 bg-white text-emerald-600 px-2 py-1 rounded transition-all duration-300 hover:bg-emerald-600 hover:text-white">AgroTech AI</span>
+                        Copyright <FaRegCopyright className='mx-1' /> {currentYear} All Rights Reserved <span className="text-lime-200 font-semibold mx-1">AgroTech AI</span>
                     </p>
                 </div>
+
+                {/* Rate Us Button */}
+                <div className="text-center mt-4">
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="bg-lime-200 text-gray-800 font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-lime-300"
+                    >
+                        Rate Us
+                    </button>
+                </div>
             </div>
+
+            {/* Rating Modal */}
+            {isModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                    <div className="bg-white p-8 rounded-lg shadow-lg">
+                        <h2 className="text-lg font-bold mb-4">Rate Us</h2>
+                        <div className="flex justify-center mb-4">
+                            {[1, 2, 3, 4, 5].map((value) => (
+                                <span key={value} className={`cursor-pointer text-2xl ${rating >= value ? 'text-lime-500' : 'text-gray-300'}`} onClick={() => handleRating(value)}>
+                                    ★
+                                </span>
+                            ))}
+                        </div>
+                        <textarea
+                            className="w-full border border-gray-300 rounded p-2 mb-4"
+                            rows="4"
+                            placeholder="Write your comments here..."
+                            value={comment}
+                            onChange={(e) => setComment(e.target.value)}
+                        ></textarea>
+                        <div className="flex justify-end">
+                            <button
+                                onClick={submitRating}
+                                className="bg-lime-500 text-white font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-lime-600"
+                            >
+                                Submit
+                            </button>
+                            <button
+                                onClick={() => setIsModalOpen(false)}
+                                className="ml-2 text-gray-600 underline"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </footer>
     );
 };
