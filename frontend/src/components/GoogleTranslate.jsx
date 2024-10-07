@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import { useState } from "react";
 
 const GoogleTranslate = () => {
+  const [isVisible,setIsVisible] = useState(true);
+
   useEffect(() => {
     window.googleTranslateInit = () => {
       if (!window.google?.translate?.TranslateElement) {
@@ -32,31 +35,74 @@ const GoogleTranslate = () => {
     if (window.google && window.google.translate) {
       window.googleTranslateInit();
     }
+
+    const handleScroll = () => {
+      setIsVisible(window.scrollY < 100); // Adjust the scroll amount as needed
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
-    <div className="google-translate-container p-1 w-44">
-      {/* Google translate element */}
-      <div id="google_element" className="inline-block"></div>
+    <div id="google_element" className={`google-translate-container ${isVisible ? '' : 'hidden'}`}>
+  <style jsx>{`
+    .goog-te-combo {
+      background-color: #d1fae5; /* Light green background */
+      border: 2px solid #10b981; /* Green border */
+      border-radius: 0.375rem; /* Rounded edges */
+      padding: 0.5rem;
+      font-size: 0.75rem;
+      transition: all 0.2s;
+      outline: none;
+      z-index: 1; /* Ensure the dropdown doesn't overlap navbar */
+    }
 
-      {/* Custom select styling */}
-      <style jsx>{`
-        .goog-te-combo {
-          background-color: #d1fae5; /* Light green background */
-          border: 2px solid #10b981; /* Green border */
-          border-radius: 0.375rem; /* Rounded edges */
-          padding: 0.5rem;
-          font-size: 1rem;
-          transition: all 0.2s;
-          outline: none;
-        }
+    .goog-te-combo:hover {
+      background-color: #86efac; /* Hover effect: lighter green */
+      border-color: #047857; /* Darker green border on hover */
+    }
 
-        .goog-te-combo:hover {
-          background-color: #86efac; /* Hover effect: lighter green */
-          border-color: #047857; /* Darker green border on hover */
-        }
-      `}</style>
-    </div>
+    /* Hide the Google Translate logo link and branding */
+    .goog-logo-link {
+      display: none !important;
+    }
+
+    /* Hide any extra branding text or elements */
+    .goog-te-gadget > span > a {
+      display: none !important;
+    }
+
+    /* Custom Google Translate styling */
+    #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:first-child {
+      display: none;
+    }
+
+    #google_translate_element .goog-te-gadget-simple .goog-te-menu-value:before {
+      content: 'Translate';
+    }
+
+    /* Control the pop-up behavior */
+    .goog-te-banner-frame {
+      display: none !important; /* Hide the banner */
+    }
+
+    /* Optional: Contain the dropdown within specific boundaries */
+    .goog-te-menu-frame {
+      max-height: 400px !important; /* Limit height of the dropdown */
+      overflow-y: auto !important; /* Enable scrolling if too large */
+    }
+
+    .skiptranslate > iframe { 
+      height: 0 !important;
+      border-style: none;
+      box-shadow: none;
+    }
+  `}</style>
+</div>
   );
 };
 
