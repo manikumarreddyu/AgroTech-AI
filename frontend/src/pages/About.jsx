@@ -10,6 +10,7 @@ function About() {
        <div className="Translator absolute right-2 pt-2">
           <GoogleTranslate/>
     </div>
+
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 gap-8 items-center">
         <img className="w-[550px] mx-auto md:my-4" src={about} alt="About Us" />
         <div className="flex flex-col justify-center">
