@@ -5,7 +5,7 @@ import bgHero from "../assets/bgHero.png";
 
 function About() {
   return (
-    <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="w-full  py-16 px-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 gap-8 items-center">
         <img className="w-[550px] mx-auto md:my-4" src={about} alt="About Us" />
         <div className="flex flex-col justify-center">

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons from react-icons
 import icon from '../assets/favicon2.png';
+import GoogleTranslate from './GoogleTranslate';
 
 // import useTheme from '../hooks/useTheme'; // Import useTheme hook
 
@@ -18,7 +19,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] fixed w-full  z-20 top-0 start-0  `}>
+        <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] w-full  z-20 top-0 start-0 fixed`}>
             <div className="max-w-screen-xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
                 <div className="text-white font-bold flex items-center">
                     <img className="float-left" src={icon} alt="icon" style={{ height: '30px', width: '30px' }} />
@@ -61,6 +62,9 @@ const Navbar = () => {
                         <Link to="/forecast" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Forecast
                         </Link>
+                        <div className="Translator max-h-24">
+                            <GoogleTranslate/>
+                        </div>
                     </div>
                 </div>
                 {/* <button
