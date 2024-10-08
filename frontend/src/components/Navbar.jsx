@@ -61,6 +61,12 @@ const Navbar = () => {
                         <Link to="/forecast" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Forecast
                         </Link>
+<<<<<<< Updated upstream
+=======
+                        <Link to="/Irrigation" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Irrigation System
+                        </Link>
+>>>>>>> Stashed changes
                     </div>
                 </div>
                 {/* <button
