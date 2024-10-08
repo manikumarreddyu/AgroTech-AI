@@ -43,6 +43,9 @@ const Navbar = () => {
                         <Link to="/" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Home
                         </Link>
+                        <Link to="/aboutus" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            About Us
+                        </Link>
                         <Link to="/crop" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Crop
                         </Link>

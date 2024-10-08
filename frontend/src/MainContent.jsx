@@ -13,7 +13,9 @@ import GoTop from './components/GoTop';
 import Forecast from './pages/Forecast';
 import Prices from './components/Prices';
 import Reports from './components/Reports';
+import AboutUs from "./components/AboutUs";
 import UseScrollToTop from './components/UseScrollToTop';
+
 
 const MainContent = () => {
   UseScrollToTop();
@@ -34,6 +36,7 @@ const MainContent = () => {
           <Route path="/forecast" element={<Forecast />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
         <Footer />
       </div>
