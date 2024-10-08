@@ -22,7 +22,7 @@ const IrrigationSystem = () => {
     const [formData, setFormData] = useState({
         Soil_Type: '',
         Crop_Type: '',
-        Average_Temperature: '',
+        Avg_Temperature: '',
         Geographical_Location: '',
         Moisture_Level: ''
     });
@@ -46,7 +46,7 @@ const IrrigationSystem = () => {
 
     const handlePredictClick = async (e) => {
       e.preventDefault();
-      const url = `${process.env.REACT_APP_API_URL}/irrigation`;
+      const url = `http://127.0.0.1:5000/irrigation`;
       setIsLoading(true); // Set loading state to true
       const jsonData = JSON.stringify(formData);
       console.log("Sending data:", jsonData); 
@@ -164,8 +164,8 @@ const IrrigationSystem = () => {
                             <input
                                 type="text"
                                 className="w-full px-3 py-2 border border-green-500 rounded text-sm"
-                                id="Average_Temperature"
-                                name="Average_Temperature"
+                                id="Avg_Temperature"
+                                name="Avg_Temperature"
                                 value={formData.Average_Temperature}
                                 onChange={handleChange}
                                 placeholder="Enter Average Temperature"
