@@ -1,0 +1,1001 @@
+Soil Type,Crop Type,Avg Temperature,Geographical Location,Moisture Level,Irrigation Requirement,Irrigation Type
+Sandy,Maize,37.71642021881179,Jaipur,91.04372437063981,230,Surface Irrigation
+Black,Groundnuts,30.095788846776777,Lucknow,91.89556814647514,150,Drip Irrigation
+Clayey,Cotton,31.352025479946807,Mumbai,65.2919610651362,170,Subsurface Drip Irrigation
+Black,Millets,18.58125226640569,Kolkata,59.68933350932002,150,Drip Irrigation
+Black,Sugarcane,17.102607954336953,Pune,16.655457747543274,300,Surface Irrigation
+Sandy,Barley,34.26181164014395,Pune,75.08322377501024,200,Pivot Irrigation
+Clayey,Maize,24.10605672341102,Lucknow,18.4477191614678,170,Sprinkler Irrigation
+Black,Maize,29.121501252889882,Ahmedabad,76.69330265588415,150,Drip Irrigation
+Red,Cotton,29.532130286198182,Jaipur,34.46929081965673,200,Drip Irrigation
+Black,Wheat,36.72756065563081,Bengaluru,18.88435119410967,230,Surface Irrigation
+Sandy,Oil Seeds,21.156930219503405,Chennai,23.942710074714167,250,Pivot Irrigation
+Clayey,Wheat,30.267284221352405,Chennai,62.130177088399904,170,Surface Irrigation
+Clayey,Pulses,31.443949601502528,Jaipur,82.00940391388043,100,Surface Irrigation
+Red,Barley,26.641091820843712,Hyderabad,83.63137545176033,150,Drip Irrigation
+Clayey,Cotton,18.67337067549383,Chennai,55.1676298302027,170,Subsurface Drip Irrigation
+Loamy,Oil Seeds,19.449370911863912,Bengaluru,28.40931926543297,200,Subsurface Drip Irrigation
+Loamy,Tobacco,29.82448004253842,Ahmedabad,26.411057081155022,300,Drip Irrigation
+Clayey,Pulses,34.595075166190306,Kolkata,13.513420395310675,120,Sprinkler Irrigation
+Black,Sugarcane,32.52309558547428,Bengaluru,88.31348976970597,250,Sprinkler Irrigation
+Red,Barley,25.37082554519599,Kolkata,92.21059133044116,150,Surface Irrigation
+Clayey,Groundnuts,30.233429395633724,Delhi,40.69825918849271,170,Subsurface Drip Irrigation
+Sandy,Sugarcane,25.80532687622052,Pune,58.97615202297663,350,Sprinkler Irrigation
+Sandy,Groundnuts,22.496067932051904,Mumbai,35.80343677893107,250,Sprinkler Irrigation
+Clayey,Pulses,25.795524394183417,Lucknow,11.294065947820469,120,Subsurface Drip Irrigation
+Clayey,Cotton,20.8849418500184,Hyderabad,77.1921011191061,120,Subsurface Drip Irrigation
+Red,Paddy,30.969461294790854,Jaipur,62.98727555049219,200,Subsurface Drip Irrigation
+Clayey,Pulses,37.71272482181478,Pune,67.46812469271052,150,Subsurface Drip Irrigation
+Red,Sugarcane,25.166897424910232,Bengaluru,85.1728901761644,250,Drip Irrigation
+Clayey,Groundnuts,33.787642856244275,Jaipur,28.88801799088428,170,Surface Irrigation
+Red,Tobacco,22.719237323083362,Lucknow,70.12525715927961,250,Subsurface Drip Irrigation
+Sandy,Tobacco,39.23176978379036,Chennai,28.614241130317875,380,Surface Irrigation
+Red,Sugarcane,36.07260353772427,Chennai,27.65999330956695,330,Sprinkler Irrigation
+Red,Wheat,38.800163842124405,Kolkata,73.96353580132504,180,Pivot Irrigation
+Loamy,Oil Seeds,15.582268821636353,Kolkata,15.267959127629762,200,Pivot Irrigation
+Black,Millets,36.08529315131392,Ahmedabad,48.47493471216648,180,Pivot Irrigation
+Loamy,Barley,28.615052976351265,Ahmedabad,10.70113601732408,200,Sprinkler Irrigation
+Red,Sugarcane,38.44282411458709,Ahmedabad,70.94068568299056,280,Pivot Irrigation
+Red,Paddy,20.660108722341885,Hyderabad,62.7168178300791,200,Pivot Irrigation
+Red,Millets,38.345807241286685,Chennai,41.70288218514777,180,Subsurface Drip Irrigation
+Sandy,Millets,30.3658500226001,Delhi,46.572060060755014,200,Pivot Irrigation
+Black,Groundnuts,29.46649035712307,Hyderabad,76.97864578286674,150,Drip Irrigation
+Red,Groundnuts,21.03842324612782,Chennai,28.855731462720414,200,Pivot Irrigation
+Clayey,Pulses,22.78811135181906,Chennai,76.33667846349128,100,Subsurface Drip Irrigation
+Sandy,Groundnuts,37.740842594639915,Bengaluru,20.93112240641674,280,Pivot Irrigation
+Clayey,Groundnuts,31.185646460862458,Chennai,49.28564876368788,170,Sprinkler Irrigation
+Loamy,Pulses,28.387347955861102,Bengaluru,84.38437768486222,100,Subsurface Drip Irrigation
+Sandy,Sugarcane,29.11406489378311,Pune,75.01311770355218,300,Sprinkler Irrigation
+Sandy,Groundnuts,16.51109013577746,Hyderabad,27.866602411123214,250,Surface Irrigation
+Loamy,Millets,37.955007055155576,Jaipur,21.343361736185976,180,Drip Irrigation
+Sandy,Maize,39.644863532750165,Jaipur,34.25738618866238,280,Surface Irrigation
+Sandy,Groundnuts,39.35107308393232,Mumbai,40.133361496342665,280,Surface Irrigation
+Clayey,Groundnuts,18.906782545797142,Ahmedabad,80.3679746349036,120,Drip Irrigation
+Red,Barley,27.814548781101266,Pune,50.430231360522356,200,Sprinkler Irrigation
+Loamy,Sugarcane,34.84383043229782,Kolkata,31.26201486913147,300,Subsurface Drip Irrigation
+Black,Barley,17.828735784767208,Kolkata,11.053675093767373,200,Pivot Irrigation
+Loamy,Maize,21.55161923478306,Ahmedabad,16.614366246080117,200,Pivot Irrigation
+Clayey,Tobacco,30.213714214655585,Pune,22.554236387274823,270,Surface Irrigation
+Black,Paddy,17.900161609403195,Hyderabad,50.86842178126828,200,Surface Irrigation
+Sandy,Groundnuts,22.25149664727291,Jaipur,34.657610767426334,250,Drip Irrigation
+Sandy,Tobacco,33.61297071022498,Mumbai,23.045774372316078,350,Pivot Irrigation
+Sandy,Millets,17.818915301106067,Delhi,43.89693808055563,200,Subsurface Drip Irrigation
+Loamy,Cotton,20.82633767218784,Chennai,29.66582946017325,200,Subsurface Drip Irrigation
+Red,Paddy,27.357458483384583,Lucknow,28.808493118879415,200,Subsurface Drip Irrigation
+Loamy,Groundnuts,15.199345612575208,Lucknow,22.604754754003164,200,Sprinkler Irrigation
+Black,Groundnuts,27.27397978001494,Mumbai,40.883975714109965,200,Pivot Irrigation
+Red,Maize,16.899809544651152,Pune,36.75327172924999,200,Pivot Irrigation
+Clayey,Sugarcane,18.10048090657246,Mumbai,70.96676310930123,220,Sprinkler Irrigation
+Clayey,Wheat,32.2798786711578,Lucknow,55.584850978985045,170,Subsurface Drip Irrigation
+Loamy,Groundnuts,26.068552493506196,Mumbai,66.7547251132792,200,Surface Irrigation
+Red,Oil Seeds,28.220896545490888,Chennai,75.01959338033785,150,Subsurface Drip Irrigation
+Clayey,Paddy,23.07458947206132,Lucknow,76.72108194209534,120,Drip Irrigation
+Loamy,Oil Seeds,27.62262820941193,Kolkata,97.01405381446608,150,Subsurface Drip Irrigation
+Black,Groundnuts,35.90635531591768,Jaipur,64.83694313152608,230,Sprinkler Irrigation
+Sandy,Barley,22.67945542871213,Chennai,82.29537033672722,200,Surface Irrigation
+Sandy,Barley,24.194628092587894,Jaipur,43.055568762053646,250,Subsurface Drip Irrigation
+Loamy,Tobacco,34.088810561828595,Pune,34.549947286304274,300,Drip Irrigation
+Sandy,Groundnuts,25.11366895331415,Hyderabad,18.508249082204895,250,Sprinkler Irrigation
+Loamy,Groundnuts,31.337463693689745,Bengaluru,61.24761335006999,200,Subsurface Drip Irrigation
+Clayey,Groundnuts,24.077477805829226,Lucknow,22.685096134579016,170,Sprinkler Irrigation
+Red,Oil Seeds,15.874969347840393,Bengaluru,59.80307641043073,200,Sprinkler Irrigation
+Sandy,Tobacco,17.5524198327573,Ahmedabad,16.970630509070354,350,Drip Irrigation
+Red,Sugarcane,23.92361417494861,Jaipur,64.17513480563662,300,Sprinkler Irrigation
+Black,Pulses,21.902057429145938,Pune,96.25295382456015,100,Subsurface Drip Irrigation
+Sandy,Groundnuts,34.50374199776684,Hyderabad,44.73814751266227,250,Sprinkler Irrigation
+Red,Wheat,20.67479854645005,Hyderabad,85.46804171538422,150,Sprinkler Irrigation
+Loamy,Pulses,25.751250735504215,Chennai,20.43594647681676,150,Sprinkler Irrigation
+Black,Paddy,25.996705597496742,Delhi,95.69713153201347,150,Surface Irrigation
+Red,Maize,33.73459162893384,Jaipur,66.31517821275214,200,Sprinkler Irrigation
+Loamy,Wheat,17.82424093299261,Kolkata,33.84407920364743,200,Pivot Irrigation
+Sandy,Maize,17.177322146314538,Jaipur,35.94738746827413,250,Surface Irrigation
+Red,Cotton,22.7681950656103,Hyderabad,52.8546032977677,200,Pivot Irrigation
+Sandy,Sugarcane,27.215509953272836,Jaipur,35.298257715685466,350,Surface Irrigation
+Red,Millets,25.721404199727445,Chennai,80.4934057714983,100,Subsurface Drip Irrigation
+Red,Groundnuts,35.27014323515125,Delhi,70.12882132487097,180,Pivot Irrigation
+Black,Oil Seeds,35.26688849760943,Pune,29.175374849314597,230,Drip Irrigation
+Red,Barley,21.09147481790891,Mumbai,98.82165724163279,150,Pivot Irrigation
+Sandy,Sugarcane,33.60497902562526,Lucknow,32.0348393433387,350,Drip Irrigation
+Red,Cotton,19.829092068223847,Delhi,12.526178725329828,200,Pivot Irrigation
+Black,Groundnuts,18.99864283014143,Ahmedabad,85.78607694714549,150,Drip Irrigation
+Sandy,Pulses,28.921065352807513,Mumbai,49.58533154051041,200,Sprinkler Irrigation
+Red,Oil Seeds,22.03365321846222,Delhi,75.71344848132077,150,Surface Irrigation
+Clayey,Maize,38.44310093648211,Chennai,70.51336094991964,150,Sprinkler Irrigation
+Red,Millets,16.333451559814193,Chennai,74.48215730939059,100,Sprinkler Irrigation
+Loamy,Sugarcane,18.18013642488351,Jaipur,27.447488527300504,300,Drip Irrigation
+Loamy,Sugarcane,27.928895106513966,Jaipur,95.6591465635819,250,Pivot Irrigation
+Loamy,Paddy,22.74235909904161,Ahmedabad,38.96100482853244,200,Surface Irrigation
+Red,Paddy,21.11796325972878,Hyderabad,15.595986531792441,200,Sprinkler Irrigation
+Red,Paddy,33.3617457501383,Delhi,56.57141053073546,200,Surface Irrigation
+Black,Maize,18.475688512919746,Chennai,36.775253128618246,200,Drip Irrigation
+Red,Oil Seeds,33.80586500519504,Ahmedabad,66.9106388453036,200,Pivot Irrigation
+Loamy,Wheat,20.94924276135614,Ahmedabad,69.69274930199066,200,Subsurface Drip Irrigation
+Loamy,Barley,29.936660491171736,Lucknow,16.253272228306237,200,Pivot Irrigation
+Sandy,Tobacco,27.088558625314203,Bengaluru,91.63489777769233,300,Surface Irrigation
+Sandy,Barley,20.46274526334762,Jaipur,22.780857222847565,250,Pivot Irrigation
+Red,Groundnuts,22.099754655781908,Hyderabad,34.42766316683546,200,Subsurface Drip Irrigation
+Clayey,Barley,37.20411681471717,Kolkata,37.71038932611019,200,Sprinkler Irrigation
+Clayey,Oil Seeds,31.669672995222303,Chennai,80.29051832147414,120,Pivot Irrigation
+Clayey,Millets,31.02043708587395,Jaipur,51.033662835778046,120,Surface Irrigation
+Loamy,Sugarcane,38.91963896895665,Lucknow,54.51210347851873,330,Surface Irrigation
+Loamy,Barley,18.140949628905517,Lucknow,10.167531609616642,200,Surface Irrigation
+Loamy,Pulses,27.514526549032922,Mumbai,27.243010334999568,150,Surface Irrigation
+Clayey,Millets,23.72393685423228,Lucknow,79.18520079826732,100,Sprinkler Irrigation
+Loamy,Sugarcane,16.1595198473912,Delhi,29.191548856769987,300,Sprinkler Irrigation
+Loamy,Wheat,31.30861155049929,Kolkata,98.73413346110196,150,Pivot Irrigation
+Clayey,Sugarcane,33.45050435417428,Mumbai,10.276145140107372,270,Subsurface Drip Irrigation
+Black,Millets,31.085495798554312,Delhi,46.07187942867334,150,Surface Irrigation
+Clayey,Tobacco,34.29179088871825,Hyderabad,49.69668802908899,270,Sprinkler Irrigation
+Loamy,Millets,39.46439709780077,Ahmedabad,23.936353625028218,180,Pivot Irrigation
+Clayey,Sugarcane,30.291451009410775,Delhi,42.968795976936704,270,Pivot Irrigation
+Sandy,Maize,30.67987141922434,Kolkata,25.26381149984804,250,Surface Irrigation
+Loamy,Wheat,28.910202353036865,Pune,70.40336507202963,150,Sprinkler Irrigation
+Loamy,Millets,23.482219698016646,Lucknow,13.685940427666011,150,Subsurface Drip Irrigation
+Clayey,Groundnuts,26.828424406613202,Kolkata,70.25342640551976,120,Pivot Irrigation
+Red,Maize,18.182968776912382,Lucknow,67.05042206425952,200,Subsurface Drip Irrigation
+Loamy,Wheat,23.058442538140795,Pune,40.66135444627025,200,Drip Irrigation
+Black,Groundnuts,27.441953565979,Delhi,93.66221895566005,150,Surface Irrigation
+Red,Maize,30.689955330108027,Bengaluru,94.49547350262722,150,Surface Irrigation
+Red,Maize,32.78274473412023,Lucknow,91.17401088443168,150,Surface Irrigation
+Black,Wheat,24.528423802348748,Delhi,26.78933321968416,200,Pivot Irrigation
+Sandy,Millets,17.880887817004584,Kolkata,22.92901134034917,200,Subsurface Drip Irrigation
+Black,Sugarcane,31.919446160252043,Jaipur,86.66573559230224,250,Drip Irrigation
+Black,Cotton,35.36895824685344,Hyderabad,67.4043096201581,230,Drip Irrigation
+Clayey,Sugarcane,32.13416402705673,Bengaluru,89.09514981055365,220,Subsurface Drip Irrigation
+Loamy,Cotton,32.57850949663785,Mumbai,82.20684651445006,150,Surface Irrigation
+Red,Barley,24.9103341914542,Ahmedabad,46.54305537589538,200,Subsurface Drip Irrigation
+Loamy,Tobacco,33.116157943047156,Mumbai,58.25168362338125,300,Drip Irrigation
+Black,Paddy,27.58309468549148,Chennai,34.57929657131113,200,Subsurface Drip Irrigation
+Red,Maize,36.298372825074566,Chennai,14.782237849043923,230,Sprinkler Irrigation
+Clayey,Pulses,23.47881315775001,Mumbai,73.15080695260843,100,Subsurface Drip Irrigation
+Sandy,Sugarcane,38.89526193552547,Bengaluru,13.592504731816543,380,Sprinkler Irrigation
+Black,Oil Seeds,38.33982130649925,Jaipur,92.95748563556275,180,Sprinkler Irrigation
+Clayey,Sugarcane,23.192535613423757,Hyderabad,48.48753365034667,270,Subsurface Drip Irrigation
+Black,Maize,35.007289442699744,Pune,24.20364479380575,230,Drip Irrigation
+Clayey,Groundnuts,24.07742568856006,Delhi,84.28638074399967,120,Sprinkler Irrigation
+Black,Pulses,20.20456913751401,Chennai,95.82027735231398,100,Surface Irrigation
+Loamy,Tobacco,28.928120493226075,Kolkata,49.200861829536215,300,Drip Irrigation
+Sandy,Sugarcane,37.56794797706708,Lucknow,14.979981616939508,380,Pivot Irrigation
+Black,Tobacco,31.50080445911686,Pune,50.91312708582337,300,Surface Irrigation
+Sandy,Maize,33.994831850163806,Chennai,68.16032312697115,250,Subsurface Drip Irrigation
+Red,Wheat,30.05707119997226,Ahmedabad,79.0236764270446,150,Surface Irrigation
+Sandy,Millets,25.027598216451487,Mumbai,22.07177600260453,200,Surface Irrigation
+Clayey,Barley,30.126701352828537,Chennai,98.39795818875734,120,Subsurface Drip Irrigation
+Loamy,Maize,22.854331245055143,Lucknow,69.14956590435325,200,Subsurface Drip Irrigation
+Clayey,Barley,36.89022827080389,Hyderabad,31.466370724360992,200,Surface Irrigation
+Clayey,Sugarcane,23.2516789232669,Mumbai,93.14477469522654,220,Pivot Irrigation
+Sandy,Barley,15.565883179505391,Chennai,19.457794212870006,250,Sprinkler Irrigation
+Clayey,Pulses,22.738386948579812,Chennai,17.930569396734136,120,Surface Irrigation
+Red,Tobacco,24.50947240981261,Kolkata,87.37240820973003,250,Subsurface Drip Irrigation
+Black,Groundnuts,36.081757134499384,Jaipur,20.512244218283637,230,Sprinkler Irrigation
+Clayey,Oil Seeds,23.352472831599012,Hyderabad,76.544823852884,120,Subsurface Drip Irrigation
+Loamy,Tobacco,31.101810800845282,Delhi,33.0606620898033,300,Sprinkler Irrigation
+Loamy,Cotton,22.204451382466253,Pune,25.93440799500679,200,Subsurface Drip Irrigation
+Clayey,Paddy,29.39144853472775,Chennai,69.68059733067616,170,Pivot Irrigation
+Sandy,Barley,33.13443366520059,Lucknow,82.55378532888878,200,Surface Irrigation
+Loamy,Oil Seeds,24.188881026926413,Bengaluru,40.292980490265656,200,Sprinkler Irrigation
+Black,Sugarcane,33.25391721022869,Kolkata,86.79970821729664,250,Surface Irrigation
+Black,Sugarcane,20.292606463263404,Bengaluru,98.26149556874518,250,Pivot Irrigation
+Black,Groundnuts,27.02198898150172,Bengaluru,65.90256202327217,200,Subsurface Drip Irrigation
+Clayey,Maize,21.814941018749714,Hyderabad,61.02507328914178,170,Drip Irrigation
+Loamy,Oil Seeds,37.13489570444784,Hyderabad,47.714263485494016,230,Subsurface Drip Irrigation
+Loamy,Wheat,17.02310640233078,Delhi,98.30533745221558,150,Pivot Irrigation
+Loamy,Pulses,28.522171420500495,Kolkata,68.36001964076432,150,Pivot Irrigation
+Sandy,Sugarcane,37.701184166263715,Lucknow,34.53807070388973,380,Subsurface Drip Irrigation
+Loamy,Groundnuts,20.25121898648001,Mumbai,66.89798264824992,200,Sprinkler Irrigation
+Loamy,Sugarcane,25.59696585779246,Hyderabad,36.51290172168932,300,Subsurface Drip Irrigation
+Black,Sugarcane,25.33870909521596,Jaipur,57.96632583189377,300,Sprinkler Irrigation
+Red,Wheat,20.197295088593442,Delhi,92.19068682303907,150,Sprinkler Irrigation
+Clayey,Millets,37.579806244542226,Ahmedabad,83.16864385976542,100,Pivot Irrigation
+Red,Groundnuts,27.9049859381064,Jaipur,49.33530062664937,200,Pivot Irrigation
+Loamy,Oil Seeds,24.308379808253136,Hyderabad,47.70284563331524,200,Sprinkler Irrigation
+Red,Pulses,22.737418098327964,Pune,52.43160581197292,150,Drip Irrigation
+Sandy,Oil Seeds,38.59788618763578,Mumbai,69.04236014963323,280,Subsurface Drip Irrigation
+Sandy,Groundnuts,19.47099191269061,Kolkata,32.02004211659088,250,Surface Irrigation
+Loamy,Pulses,38.05617972636108,Delhi,49.6510930408969,180,Drip Irrigation
+Black,Wheat,21.040626171938463,Mumbai,52.65168300332577,200,Surface Irrigation
+Sandy,Barley,35.43594745694172,Kolkata,74.71171455680074,230,Drip Irrigation
+Clayey,Pulses,17.865740632852983,Lucknow,82.6473111095942,100,Drip Irrigation
+Sandy,Oil Seeds,16.512000030079776,Ahmedabad,56.142751012010706,250,Sprinkler Irrigation
+Sandy,Barley,16.449749481653157,Mumbai,76.25007948392484,200,Drip Irrigation
+Loamy,Tobacco,19.060690642832004,Jaipur,27.193550058340822,300,Surface Irrigation
+Loamy,Wheat,17.478124680776432,Ahmedabad,26.615525528200294,200,Subsurface Drip Irrigation
+Clayey,Wheat,33.95233549372327,Kolkata,50.57543079763644,170,Pivot Irrigation
+Black,Oil Seeds,24.255594168185198,Delhi,74.19220781860705,150,Sprinkler Irrigation
+Loamy,Tobacco,28.921073372106335,Hyderabad,44.469049296715774,300,Sprinkler Irrigation
+Sandy,Groundnuts,17.095008558199225,Mumbai,27.421887925611745,250,Subsurface Drip Irrigation
+Black,Oil Seeds,36.931918447214244,Chennai,58.7241842912981,230,Sprinkler Irrigation
+Sandy,Millets,36.34518284110885,Chennai,42.73270908947681,230,Sprinkler Irrigation
+Black,Barley,19.222641598448774,Pune,63.88939050669397,200,Sprinkler Irrigation
+Red,Tobacco,32.729239284249374,Hyderabad,68.11276139080442,300,Subsurface Drip Irrigation
+Loamy,Pulses,24.445166552841293,Chennai,35.10864633988071,150,Pivot Irrigation
+Black,Barley,27.34214061093367,Pune,70.94070243695285,150,Drip Irrigation
+Black,Paddy,27.412068708581458,Delhi,97.94144043441474,150,Sprinkler Irrigation
+Sandy,Wheat,28.081934037857728,Delhi,80.09603591923926,200,Subsurface Drip Irrigation
+Loamy,Barley,19.02070118478535,Bengaluru,94.28059043587201,150,Subsurface Drip Irrigation
+Black,Barley,19.36035322813313,Pune,92.31524982008513,150,Pivot Irrigation
+Red,Maize,27.026163869962993,Bengaluru,44.553965649298945,200,Subsurface Drip Irrigation
+Loamy,Sugarcane,38.01482320999252,Jaipur,39.189923139133256,330,Sprinkler Irrigation
+Red,Tobacco,38.45428270708288,Chennai,93.11304958758141,280,Surface Irrigation
+Black,Tobacco,15.9412186575687,Ahmedabad,97.34125307361143,250,Subsurface Drip Irrigation
+Loamy,Pulses,26.099654295360587,Lucknow,19.461442955179965,150,Surface Irrigation
+Red,Paddy,25.663042406047833,Ahmedabad,35.92945205946526,200,Sprinkler Irrigation
+Sandy,Millets,33.978429413529526,Jaipur,40.66988088073121,200,Pivot Irrigation
+Clayey,Cotton,38.02639307220139,Pune,25.60612819861691,200,Drip Irrigation
+Black,Groundnuts,30.290975024489253,Mumbai,32.73846713447635,200,Drip Irrigation
+Black,Tobacco,33.35655923259229,Delhi,13.434334728288661,300,Surface Irrigation
+Clayey,Tobacco,37.13050456593514,Chennai,86.00553385426032,250,Drip Irrigation
+Clayey,Barley,21.724151993638962,Ahmedabad,16.662630757332504,170,Pivot Irrigation
+Loamy,Tobacco,29.837025988642303,Ahmedabad,65.08319080386732,300,Subsurface Drip Irrigation
+Red,Tobacco,17.854068211128663,Bengaluru,45.46074073004813,300,Subsurface Drip Irrigation
+Clayey,Maize,30.49133132366711,Delhi,67.53711371964184,170,Pivot Irrigation
+Red,Barley,23.206092876963304,Lucknow,34.73823131125654,200,Sprinkler Irrigation
+Loamy,Oil Seeds,28.6417188421548,Jaipur,35.78585713100601,200,Surface Irrigation
+Black,Wheat,29.102232235879534,Hyderabad,32.41377249622892,200,Drip Irrigation
+Loamy,Tobacco,35.64199287497546,Delhi,56.9919618515908,330,Pivot Irrigation
+Sandy,Groundnuts,16.188802502135616,Mumbai,79.11981246795034,200,Surface Irrigation
+Sandy,Wheat,30.97276674357538,Jaipur,83.31306999512755,200,Surface Irrigation
+Loamy,Tobacco,16.286610575461385,Hyderabad,86.33212870572973,250,Pivot Irrigation
+Clayey,Paddy,35.46661469516589,Lucknow,81.08871712269249,150,Sprinkler Irrigation
+Red,Groundnuts,30.57778142816771,Ahmedabad,32.708344550834894,200,Surface Irrigation
+Clayey,Cotton,31.292847097738022,Lucknow,61.78418822114587,170,Surface Irrigation
+Clayey,Wheat,24.24362407619916,Chennai,30.390347504624632,170,Subsurface Drip Irrigation
+Loamy,Sugarcane,26.676145510161707,Bengaluru,92.53075631026336,250,Drip Irrigation
+Clayey,Sugarcane,37.16436069781032,Bengaluru,49.68421475293377,300,Subsurface Drip Irrigation
+Loamy,Barley,18.05568007545437,Pune,44.745254985568614,200,Surface Irrigation
+Clayey,Sugarcane,34.01902998013808,Delhi,61.77947409145656,270,Pivot Irrigation
+Loamy,Cotton,26.335352071164447,Kolkata,64.70346245805334,200,Sprinkler Irrigation
+Red,Oil Seeds,19.892277208869004,Lucknow,98.45160423590484,150,Drip Irrigation
+Clayey,Sugarcane,23.070346524935232,Pune,89.20666167536143,220,Subsurface Drip Irrigation
+Sandy,Cotton,36.552394506875586,Ahmedabad,81.66296118695945,230,Pivot Irrigation
+Sandy,Wheat,37.33208415889882,Kolkata,88.50832928208744,230,Drip Irrigation
+Red,Tobacco,24.731777796998294,Jaipur,34.83865620295202,300,Subsurface Drip Irrigation
+Clayey,Maize,17.09747259250251,Lucknow,88.65938473656465,120,Sprinkler Irrigation
+Clayey,Pulses,36.612637150886414,Kolkata,13.543237560632075,150,Drip Irrigation
+Black,Tobacco,29.390702469107186,Bengaluru,25.0274897138722,300,Drip Irrigation
+Loamy,Oil Seeds,29.12160727395174,Jaipur,97.2530938381251,150,Surface Irrigation
+Clayey,Sugarcane,19.337421592725697,Jaipur,32.115474255875654,270,Surface Irrigation
+Sandy,Barley,37.52751187303767,Mumbai,27.085022106780933,280,Subsurface Drip Irrigation
+Black,Groundnuts,29.537414013619642,Kolkata,11.79897419801168,200,Subsurface Drip Irrigation
+Black,Tobacco,28.842448124205678,Delhi,57.13695244732896,300,Sprinkler Irrigation
+Red,Groundnuts,18.426850101025764,Delhi,24.97966235081215,200,Surface Irrigation
+Loamy,Tobacco,22.422534077743226,Ahmedabad,21.41044401439565,300,Surface Irrigation
+Black,Pulses,15.118234097114225,Lucknow,89.25203998949638,100,Surface Irrigation
+Loamy,Barley,38.96316699804187,Mumbai,54.9110924295442,230,Pivot Irrigation
+Loamy,Millets,27.229644424697398,Pune,17.238273001258914,150,Drip Irrigation
+Red,Cotton,18.034164759819987,Pune,14.866957522922485,200,Drip Irrigation
+Black,Maize,29.348847767012813,Chennai,52.318343044069614,200,Subsurface Drip Irrigation
+Red,Millets,31.655198546535452,Mumbai,29.004291825701532,150,Subsurface Drip Irrigation
+Sandy,Barley,20.98082876422159,Pune,31.46251697928278,250,Drip Irrigation
+Red,Cotton,15.192691571452693,Bengaluru,58.43186834874238,200,Pivot Irrigation
+Loamy,Barley,37.385234477771974,Kolkata,87.86900036343957,180,Surface Irrigation
+Sandy,Groundnuts,29.473085829861958,Ahmedabad,23.76123908535367,250,Pivot Irrigation
+Red,Millets,39.371886224717144,Pune,33.72107370692293,180,Drip Irrigation
+Sandy,Paddy,23.133428679865332,Ahmedabad,44.99362703280253,250,Drip Irrigation
+Clayey,Cotton,32.07304413528779,Jaipur,55.90796710011314,170,Surface Irrigation
+Loamy,Barley,15.045619497821683,Bengaluru,16.23740090428702,200,Drip Irrigation
+Red,Sugarcane,16.193188365063417,Kolkata,59.18948405832263,300,Pivot Irrigation
+Black,Sugarcane,19.578135775069512,Hyderabad,22.04652650074758,300,Subsurface Drip Irrigation
+Black,Tobacco,39.73750221167958,Mumbai,46.87377072087079,330,Subsurface Drip Irrigation
+Clayey,Maize,36.95092380346459,Kolkata,30.257064765128415,200,Sprinkler Irrigation
+Clayey,Barley,32.99383086036384,Jaipur,24.31114004624498,170,Drip Irrigation
+Loamy,Groundnuts,31.28950745726166,Delhi,82.64771082562821,150,Pivot Irrigation
+Red,Groundnuts,19.575690482485577,Kolkata,75.00974332921388,150,Pivot Irrigation
+Loamy,Tobacco,36.45494910885195,Mumbai,43.89227386707315,330,Surface Irrigation
+Red,Barley,27.050635759861706,Hyderabad,12.952885858989838,200,Surface Irrigation
+Red,Sugarcane,15.552494558228444,Delhi,59.49826094318902,300,Surface Irrigation
+Sandy,Groundnuts,38.196288154371445,Hyderabad,33.868292924458885,280,Subsurface Drip Irrigation
+Clayey,Groundnuts,25.80138064530636,Ahmedabad,46.179131060965865,170,Surface Irrigation
+Sandy,Paddy,39.334391646514106,Delhi,81.51113701282657,230,Surface Irrigation
+Black,Tobacco,17.9477336202001,Delhi,32.53815465086766,300,Surface Irrigation
+Sandy,Groundnuts,29.669387164795346,Mumbai,34.752048019203784,250,Pivot Irrigation
+Red,Oil Seeds,22.92443335965484,Hyderabad,93.06766901205756,150,Sprinkler Irrigation
+Red,Tobacco,34.12200116959201,Ahmedabad,41.67890458764863,300,Drip Irrigation
+Black,Oil Seeds,29.215071548219584,Mumbai,12.319385847109327,200,Surface Irrigation
+Red,Groundnuts,32.56120048024917,Chennai,70.23924820889495,150,Sprinkler Irrigation
+Clayey,Wheat,19.490072632931337,Lucknow,32.04209424930974,170,Surface Irrigation
+Black,Millets,31.856506703332943,Kolkata,19.4609303592309,150,Subsurface Drip Irrigation
+Clayey,Cotton,30.743017015949903,Delhi,76.83802824332426,120,Sprinkler Irrigation
+Clayey,Sugarcane,29.74476137211985,Pune,23.95503660135987,270,Sprinkler Irrigation
+Loamy,Tobacco,30.4415676960918,Lucknow,48.46839590333427,300,Drip Irrigation
+Loamy,Maize,34.831891128805495,Delhi,54.331864973615374,200,Drip Irrigation
+Red,Pulses,31.929910168848743,Chennai,19.012247309834116,150,Drip Irrigation
+Loamy,Pulses,34.18287529165515,Mumbai,91.47607702381426,100,Surface Irrigation
+Clayey,Tobacco,30.722364896049072,Lucknow,82.29512946814425,220,Surface Irrigation
+Loamy,Millets,29.416776630959262,Ahmedabad,91.91050730951117,100,Drip Irrigation
+Red,Wheat,15.675570437837846,Ahmedabad,69.93427840768373,200,Drip Irrigation
+Black,Barley,28.968218013241255,Chennai,72.560417687511,150,Surface Irrigation
+Loamy,Groundnuts,20.467634419543025,Kolkata,20.766478475825906,200,Surface Irrigation
+Clayey,Cotton,21.251442822122364,Jaipur,51.80850646161959,170,Subsurface Drip Irrigation
+Red,Millets,25.588768289207906,Jaipur,93.60842094975658,100,Surface Irrigation
+Red,Pulses,35.374596133175025,Pune,83.46857718070869,130,Sprinkler Irrigation
+Black,Wheat,25.61846180971365,Hyderabad,98.2373299016734,150,Drip Irrigation
+Loamy,Oil Seeds,30.177814454696602,Jaipur,46.368240599918515,200,Pivot Irrigation
+Loamy,Wheat,15.797816817147146,Hyderabad,91.21711927735339,150,Drip Irrigation
+Black,Pulses,36.47455108119219,Bengaluru,91.37962008117232,130,Sprinkler Irrigation
+Sandy,Paddy,30.252125580076648,Mumbai,52.20413188754122,250,Surface Irrigation
+Clayey,Wheat,22.58216687776931,Hyderabad,38.98487116728977,170,Pivot Irrigation
+Black,Barley,16.421811017647258,Kolkata,79.94425363802914,150,Subsurface Drip Irrigation
+Sandy,Wheat,38.31568043065839,Jaipur,23.229750072284837,280,Subsurface Drip Irrigation
+Black,Paddy,37.293493758185434,Hyderabad,39.51024103422286,230,Drip Irrigation
+Sandy,Groundnuts,18.86315898047151,Hyderabad,56.92637677918102,250,Sprinkler Irrigation
+Clayey,Cotton,26.587304548875526,Chennai,78.15161469372525,120,Drip Irrigation
+Clayey,Cotton,33.19420191506997,Chennai,16.984278351939267,170,Drip Irrigation
+Loamy,Cotton,15.315148787914257,Hyderabad,56.465346713076656,200,Pivot Irrigation
+Clayey,Cotton,27.94898602131002,Pune,59.682841656986064,170,Subsurface Drip Irrigation
+Red,Paddy,36.50297029575041,Mumbai,96.38812267623538,180,Surface Irrigation
+Red,Sugarcane,29.720394424247324,Delhi,48.619700181523854,300,Pivot Irrigation
+Loamy,Pulses,22.42284062093012,Pune,19.587637446933144,150,Drip Irrigation
+Clayey,Cotton,18.775013137570227,Kolkata,85.85451319973116,120,Subsurface Drip Irrigation
+Red,Cotton,23.86230023797996,Pune,32.66268878578967,200,Pivot Irrigation
+Black,Tobacco,19.454914469114684,Kolkata,59.821159423690126,300,Surface Irrigation
+Red,Cotton,21.783293399515784,Ahmedabad,28.405437599102946,200,Drip Irrigation
+Clayey,Oil Seeds,29.33541792851749,Bengaluru,97.7327824290742,120,Drip Irrigation
+Red,Oil Seeds,15.857831309868592,Chennai,67.32879899290865,200,Subsurface Drip Irrigation
+Clayey,Barley,30.10769825378471,Kolkata,55.1132680220423,170,Subsurface Drip Irrigation
+Black,Groundnuts,16.888633126424676,Mumbai,63.34995378634924,200,Sprinkler Irrigation
+Red,Wheat,39.36314089025261,Bengaluru,97.51120782690195,180,Surface Irrigation
+Sandy,Paddy,19.88099486068332,Hyderabad,28.771469971611438,250,Drip Irrigation
+Loamy,Maize,31.446683074622996,Delhi,74.75058156686768,150,Surface Irrigation
+Sandy,Maize,35.981313504916244,Ahmedabad,36.537032130105025,280,Sprinkler Irrigation
+Loamy,Millets,18.35438618697531,Pune,20.847176724308685,150,Drip Irrigation
+Clayey,Tobacco,24.646418059716385,Lucknow,68.16067714227705,270,Sprinkler Irrigation
+Red,Tobacco,32.92617378170097,Pune,64.18326958585513,300,Pivot Irrigation
+Clayey,Millets,24.60144498441368,Mumbai,65.92296182890527,120,Sprinkler Irrigation
+Sandy,Wheat,20.695360312519885,Kolkata,83.13691989479797,200,Pivot Irrigation
+Red,Tobacco,37.175528036800536,Ahmedabad,98.46449903467975,280,Drip Irrigation
+Black,Barley,32.07429804208784,Kolkata,72.36224396187873,150,Subsurface Drip Irrigation
+Black,Sugarcane,21.403436119681686,Pune,39.54260616142449,300,Surface Irrigation
+Clayey,Maize,27.64016146601794,Chennai,75.31642538263468,120,Subsurface Drip Irrigation
+Clayey,Cotton,31.816229881738387,Lucknow,49.52646082441858,170,Subsurface Drip Irrigation
+Sandy,Tobacco,32.0867812298134,Kolkata,71.33065490063734,300,Subsurface Drip Irrigation
+Loamy,Maize,30.907244948294572,Mumbai,70.11177483960189,150,Subsurface Drip Irrigation
+Sandy,Wheat,27.873105799270213,Pune,95.85833910141315,200,Surface Irrigation
+Clayey,Groundnuts,23.775929540950965,Pune,26.492800694837673,170,Drip Irrigation
+Clayey,Barley,28.347727182166473,Jaipur,28.76200203942732,170,Subsurface Drip Irrigation
+Red,Wheat,29.583600893498296,Kolkata,43.61972078333298,200,Sprinkler Irrigation
+Clayey,Sugarcane,31.347421075304545,Jaipur,40.51394073969773,270,Drip Irrigation
+Red,Barley,28.65037327118489,Bengaluru,49.230944399798666,200,Subsurface Drip Irrigation
+Red,Oil Seeds,33.803694265672036,Chennai,30.87639235127789,200,Pivot Irrigation
+Sandy,Cotton,31.590514417063655,Bengaluru,30.230662144487226,250,Pivot Irrigation
+Sandy,Tobacco,17.69597369271646,Mumbai,29.710690249121807,350,Sprinkler Irrigation
+Red,Sugarcane,37.06480299045658,Mumbai,24.268550211796292,330,Sprinkler Irrigation
+Black,Barley,32.3738783396323,Lucknow,38.66761073944732,200,Drip Irrigation
+Red,Wheat,32.69202173461379,Delhi,82.55365220024471,150,Pivot Irrigation
+Loamy,Maize,29.695098939836022,Chennai,81.53421503055213,150,Subsurface Drip Irrigation
+Black,Millets,18.885767356878517,Jaipur,28.86708353622337,150,Subsurface Drip Irrigation
+Loamy,Tobacco,25.843967188148504,Pune,40.844833853907716,300,Sprinkler Irrigation
+Loamy,Cotton,21.703077240319107,Pune,20.165964251369466,200,Surface Irrigation
+Black,Wheat,21.35482175716634,Lucknow,18.92512171368969,200,Surface Irrigation
+Black,Wheat,27.899322861628697,Mumbai,93.92559765784134,150,Pivot Irrigation
+Loamy,Maize,21.00609035015936,Lucknow,87.07942325772567,150,Pivot Irrigation
+Clayey,Pulses,27.864322633686278,Chennai,33.266099610057054,120,Pivot Irrigation
+Black,Groundnuts,28.391620260170946,Hyderabad,54.809117985257615,200,Drip Irrigation
+Red,Barley,26.66461326195093,Delhi,66.97173767297221,200,Sprinkler Irrigation
+Black,Barley,35.527424429860375,Pune,89.48682398870018,180,Pivot Irrigation
+Red,Maize,33.667220210931944,Ahmedabad,58.64173191565111,200,Drip Irrigation
+Loamy,Cotton,22.983155396378027,Mumbai,12.814451905180686,200,Pivot Irrigation
+Loamy,Tobacco,24.277780570343687,Chennai,12.432203138398798,300,Surface Irrigation
+Sandy,Groundnuts,15.143959202336019,Lucknow,29.878679598721895,250,Surface Irrigation
+Clayey,Maize,36.083466679154526,Pune,41.59224065121983,200,Sprinkler Irrigation
+Black,Oil Seeds,28.15732172764647,Ahmedabad,42.04865929765682,200,Pivot Irrigation
+Black,Tobacco,35.180272522749654,Ahmedabad,25.340588832060067,330,Surface Irrigation
+Clayey,Millets,31.282718129968497,Ahmedabad,86.77091260921266,100,Drip Irrigation
+Black,Sugarcane,39.13971466985372,Delhi,37.56160577912286,330,Sprinkler Irrigation
+Clayey,Millets,23.976657646376307,Jaipur,19.83156219406019,120,Drip Irrigation
+Sandy,Paddy,39.587423111677055,Hyderabad,66.85623570031777,280,Pivot Irrigation
+Red,Millets,24.451280792308836,Kolkata,62.38319313308357,150,Subsurface Drip Irrigation
+Loamy,Groundnuts,19.035823421659863,Jaipur,99.07523874306324,150,Subsurface Drip Irrigation
+Red,Sugarcane,38.3803335735506,Jaipur,97.44712103783736,280,Drip Irrigation
+Black,Tobacco,24.728087937085995,Chennai,86.96740091226418,250,Surface Irrigation
+Black,Paddy,21.628496896976745,Chennai,59.535903508794206,200,Pivot Irrigation
+Sandy,Maize,19.389000039511767,Mumbai,54.15296375845141,250,Sprinkler Irrigation
+Clayey,Millets,21.1371104586132,Lucknow,99.0822877152054,100,Subsurface Drip Irrigation
+Red,Millets,38.12126823876904,Kolkata,99.53459248168669,130,Drip Irrigation
+Black,Wheat,22.436832439293596,Ahmedabad,77.766860577164,150,Drip Irrigation
+Red,Sugarcane,28.087444485626378,Kolkata,69.44128996339269,300,Surface Irrigation
+Red,Oil Seeds,19.72712191284381,Mumbai,52.154154188702975,200,Pivot Irrigation
+Loamy,Barley,36.78044641292334,Pune,17.560209816896535,230,Sprinkler Irrigation
+Clayey,Barley,27.60793896362358,Chennai,51.40711038055318,170,Subsurface Drip Irrigation
+Black,Wheat,30.324314111982257,Ahmedabad,49.64058416490964,200,Sprinkler Irrigation
+Loamy,Pulses,17.077152842419963,Chennai,95.58783027797476,100,Sprinkler Irrigation
+Black,Wheat,30.267037909226627,Pune,29.73638256380854,200,Surface Irrigation
+Sandy,Tobacco,34.25905388554777,Ahmedabad,65.17868704660826,350,Pivot Irrigation
+Red,Tobacco,34.79314666346979,Ahmedabad,34.488825541463505,300,Pivot Irrigation
+Loamy,Groundnuts,23.19112770079602,Pune,53.96186204399464,200,Surface Irrigation
+Red,Tobacco,29.649803919757893,Lucknow,79.73487011491646,250,Sprinkler Irrigation
+Sandy,Sugarcane,25.96703563299823,Kolkata,96.84372484134951,300,Drip Irrigation
+Sandy,Groundnuts,38.449205708817146,Mumbai,89.35788660249837,230,Surface Irrigation
+Black,Cotton,36.194978764347454,Bengaluru,58.852630099687424,230,Surface Irrigation
+Clayey,Maize,23.098969629950105,Mumbai,54.6680983597575,170,Subsurface Drip Irrigation
+Black,Sugarcane,18.599832079884965,Pune,35.912540904820425,300,Surface Irrigation
+Sandy,Sugarcane,24.828622632315778,Kolkata,85.5556826754481,300,Subsurface Drip Irrigation
+Sandy,Groundnuts,28.7897673219112,Bengaluru,13.770015456756033,250,Sprinkler Irrigation
+Clayey,Pulses,25.662423796701397,Jaipur,78.54928929549773,100,Drip Irrigation
+Sandy,Maize,36.90893586639171,Jaipur,53.316461225600634,280,Drip Irrigation
+Loamy,Millets,25.50551393948696,Mumbai,42.265816820819396,150,Sprinkler Irrigation
+Sandy,Oil Seeds,39.88226992007217,Bengaluru,20.59701182596204,280,Drip Irrigation
+Clayey,Oil Seeds,29.672358953926498,Kolkata,50.41363016816045,170,Drip Irrigation
+Sandy,Sugarcane,19.387137463824164,Chennai,63.33978715440773,350,Surface Irrigation
+Black,Oil Seeds,30.300611508240017,Ahmedabad,42.861966026869936,200,Pivot Irrigation
+Black,Wheat,31.65426694535282,Delhi,11.063660222423032,200,Surface Irrigation
+Sandy,Maize,34.63297046935433,Hyderabad,57.21264043749522,250,Surface Irrigation
+Clayey,Barley,19.224504728766913,Delhi,21.41453702454238,170,Drip Irrigation
+Sandy,Millets,38.210453187424775,Chennai,79.61136242821716,180,Subsurface Drip Irrigation
+Clayey,Tobacco,28.23503303331269,Pune,61.67885940348345,270,Subsurface Drip Irrigation
+Loamy,Pulses,24.33746433883995,Lucknow,72.75428808964767,100,Surface Irrigation
+Black,Barley,39.31645343943596,Jaipur,12.25115523317703,230,Surface Irrigation
+Loamy,Cotton,35.14094065314485,Ahmedabad,97.85266382605447,180,Surface Irrigation
+Sandy,Barley,28.490741458821013,Lucknow,60.32070179429413,250,Pivot Irrigation
+Sandy,Barley,27.235993149222274,Jaipur,39.376568214724585,250,Surface Irrigation
+Sandy,Cotton,36.9432820952951,Jaipur,55.25072611328365,280,Pivot Irrigation
+Clayey,Pulses,20.433923564215547,Delhi,38.09771538961928,120,Drip Irrigation
+Clayey,Sugarcane,29.406264988875613,Pune,95.06420858865258,220,Pivot Irrigation
+Black,Maize,23.52620983618423,Jaipur,13.762071818480639,200,Surface Irrigation
+Loamy,Oil Seeds,33.02987587890908,Kolkata,27.537493933898382,200,Drip Irrigation
+Loamy,Cotton,30.1881848600015,Jaipur,25.587235940669057,200,Surface Irrigation
+Sandy,Millets,35.57366340584616,Chennai,36.57010555710667,230,Surface Irrigation
+Black,Pulses,30.064922808783727,Chennai,74.97081162089843,100,Pivot Irrigation
+Red,Cotton,19.192853302296733,Hyderabad,91.5089847858941,150,Drip Irrigation
+Sandy,Oil Seeds,16.303434517173134,Pune,59.54674027330239,250,Subsurface Drip Irrigation
+Sandy,Groundnuts,19.948796622737323,Pune,43.88360804882685,250,Sprinkler Irrigation
+Red,Pulses,26.15719291813797,Bengaluru,92.11516842354489,100,Sprinkler Irrigation
+Sandy,Groundnuts,25.782617950197007,Pune,74.98920952515172,200,Subsurface Drip Irrigation
+Red,Barley,31.332185534991275,Ahmedabad,54.18037925071313,200,Drip Irrigation
+Sandy,Wheat,27.183015185150957,Bengaluru,20.87031012852351,250,Pivot Irrigation
+Sandy,Wheat,24.385186392819982,Mumbai,91.92203027710417,200,Sprinkler Irrigation
+Red,Wheat,31.07458143310846,Lucknow,73.20203378089272,150,Surface Irrigation
+Clayey,Groundnuts,25.83284742608779,Ahmedabad,57.92469627930742,170,Surface Irrigation
+Black,Wheat,21.123062557338304,Jaipur,73.1777264919559,150,Sprinkler Irrigation
+Loamy,Sugarcane,38.96043527430522,Lucknow,55.59669923593869,330,Sprinkler Irrigation
+Sandy,Oil Seeds,19.69062784249364,Delhi,16.153764217847897,250,Pivot Irrigation
+Clayey,Oil Seeds,20.660091713121695,Lucknow,57.972447019932964,170,Subsurface Drip Irrigation
+Black,Maize,39.4564037036325,Mumbai,63.69029986927171,230,Subsurface Drip Irrigation
+Clayey,Tobacco,33.328704902849125,Mumbai,43.498682864359836,270,Sprinkler Irrigation
+Black,Groundnuts,35.83889993193574,Hyderabad,76.65258553230457,180,Sprinkler Irrigation
+Clayey,Wheat,36.36966682889421,Lucknow,77.58232169849869,150,Pivot Irrigation
+Sandy,Wheat,31.459554002684257,Lucknow,91.9646689196075,200,Sprinkler Irrigation
+Black,Paddy,32.79764217053058,Lucknow,19.115639117361418,200,Subsurface Drip Irrigation
+Clayey,Barley,32.129519663224514,Kolkata,27.752985606885446,170,Subsurface Drip Irrigation
+Red,Groundnuts,29.31789038871328,Ahmedabad,37.80610107038728,200,Sprinkler Irrigation
+Clayey,Wheat,39.936872919737354,Chennai,13.433071295564421,200,Pivot Irrigation
+Loamy,Pulses,26.088158623481135,Chennai,31.689867162676148,150,Subsurface Drip Irrigation
+Red,Groundnuts,38.678834825215546,Mumbai,83.62166826580456,180,Sprinkler Irrigation
+Clayey,Millets,31.963589860621784,Hyderabad,53.30706674450007,120,Drip Irrigation
+Red,Cotton,29.404798405758537,Jaipur,34.55188118291399,200,Sprinkler Irrigation
+Black,Maize,22.565977250030343,Mumbai,38.324680651788874,200,Pivot Irrigation
+Red,Pulses,26.979632144734886,Hyderabad,26.51858610159012,150,Drip Irrigation
+Black,Sugarcane,29.64844533329606,Hyderabad,29.977837654832005,300,Drip Irrigation
+Red,Wheat,21.713426767577662,Bengaluru,30.40463195555957,200,Drip Irrigation
+Loamy,Maize,37.7249053424283,Delhi,36.43020985149508,230,Subsurface Drip Irrigation
+Red,Millets,19.545205046973376,Lucknow,43.67788339431074,150,Pivot Irrigation
+Red,Oil Seeds,15.975950354321158,Bengaluru,36.88596539558553,200,Surface Irrigation
+Red,Pulses,15.107899759616762,Bengaluru,16.46230518837691,150,Subsurface Drip Irrigation
+Clayey,Groundnuts,16.69333765026125,Lucknow,63.847517257753104,170,Surface Irrigation
+Clayey,Oil Seeds,17.503439843183767,Lucknow,55.909661609899146,170,Surface Irrigation
+Loamy,Millets,32.71140819573598,Bengaluru,74.95659170003384,100,Pivot Irrigation
+Black,Paddy,22.459114260725386,Lucknow,53.30818126463663,200,Surface Irrigation
+Clayey,Tobacco,30.625079231704184,Lucknow,75.51800344982536,220,Surface Irrigation
+Red,Barley,27.181382304614907,Chennai,74.02653742994809,150,Subsurface Drip Irrigation
+Loamy,Oil Seeds,16.40421378128173,Ahmedabad,36.49719681874156,200,Drip Irrigation
+Clayey,Groundnuts,16.622173343356934,Mumbai,27.27954175958824,170,Surface Irrigation
+Red,Oil Seeds,37.77989532115991,Pune,81.96604971842811,180,Pivot Irrigation
+Loamy,Oil Seeds,16.53301513877131,Mumbai,86.21132199668735,150,Subsurface Drip Irrigation
+Loamy,Cotton,33.43042976734725,Bengaluru,41.30930603361067,200,Drip Irrigation
+Black,Maize,31.711503820408364,Hyderabad,42.990507875260775,200,Sprinkler Irrigation
+Red,Sugarcane,29.255715903088262,Mumbai,70.98109779635102,250,Sprinkler Irrigation
+Sandy,Oil Seeds,17.19292224026929,Chennai,55.276257940459644,250,Drip Irrigation
+Sandy,Groundnuts,23.58061517808265,Mumbai,63.98536584580962,250,Pivot Irrigation
+Clayey,Sugarcane,19.004187757469303,Hyderabad,93.04198386766878,220,Sprinkler Irrigation
+Red,Millets,20.143660141532543,Jaipur,55.35834081618468,150,Surface Irrigation
+Black,Tobacco,16.809672302428524,Bengaluru,90.74485739223461,250,Drip Irrigation
+Black,Groundnuts,18.737257392058822,Ahmedabad,95.32526496218716,150,Surface Irrigation
+Red,Tobacco,24.30509392140152,Chennai,45.98555066896499,300,Sprinkler Irrigation
+Clayey,Barley,22.4631796916096,Jaipur,60.705794719832085,170,Sprinkler Irrigation
+Red,Sugarcane,24.390365737204988,Kolkata,39.04057937407219,300,Pivot Irrigation
+Clayey,Tobacco,17.395696663985,Kolkata,13.463576907500457,270,Drip Irrigation
+Black,Maize,28.192737670756646,Chennai,50.039726640202424,200,Subsurface Drip Irrigation
+Loamy,Groundnuts,39.36517188271952,Delhi,58.06266217573303,230,Surface Irrigation
+Clayey,Sugarcane,24.477828379498114,Lucknow,74.6034929127987,220,Surface Irrigation
+Black,Wheat,20.627226790065702,Lucknow,66.30591607041993,200,Drip Irrigation
+Sandy,Barley,25.661958455216396,Ahmedabad,46.74931005521093,250,Subsurface Drip Irrigation
+Sandy,Pulses,17.95030029467194,Jaipur,57.69206338588284,200,Sprinkler Irrigation
+Loamy,Barley,38.06640991053354,Ahmedabad,67.49209287164476,230,Sprinkler Irrigation
+Clayey,Pulses,19.9702401220655,Ahmedabad,86.7972643163041,100,Pivot Irrigation
+Sandy,Tobacco,29.581860037682404,Pune,94.74877309764373,300,Sprinkler Irrigation
+Black,Sugarcane,22.057432120282495,Delhi,44.80955560244281,300,Subsurface Drip Irrigation
+Black,Groundnuts,39.66330960829494,Ahmedabad,21.6439826008792,230,Drip Irrigation
+Red,Millets,15.753160180857988,Mumbai,21.218377377255614,150,Drip Irrigation
+Clayey,Wheat,19.921363953762192,Ahmedabad,78.99530010871587,120,Sprinkler Irrigation
+Loamy,Oil Seeds,16.655820689516176,Lucknow,79.34486719588413,150,Drip Irrigation
+Sandy,Tobacco,18.685771669522296,Mumbai,73.3009215889522,300,Drip Irrigation
+Clayey,Wheat,23.51315197192857,Pune,93.02906969103155,120,Surface Irrigation
+Clayey,Paddy,26.244901686398208,Delhi,46.382968644793365,170,Surface Irrigation
+Loamy,Maize,21.339518509716534,Bengaluru,31.539742954758523,200,Pivot Irrigation
+Black,Sugarcane,31.36116515128245,Delhi,96.99527862340679,250,Surface Irrigation
+Sandy,Barley,29.924457390322996,Ahmedabad,30.277375090357587,250,Sprinkler Irrigation
+Sandy,Tobacco,23.17905706528108,Lucknow,66.955525732355,350,Surface Irrigation
+Black,Paddy,23.31206188379252,Chennai,68.67850628666054,200,Surface Irrigation
+Red,Maize,23.23127801710858,Ahmedabad,90.28593679471828,150,Pivot Irrigation
+Clayey,Millets,37.238738591619,Kolkata,88.55091602429259,100,Sprinkler Irrigation
+Red,Groundnuts,24.652880836467695,Jaipur,57.07178080890005,200,Drip Irrigation
+Loamy,Wheat,19.350861878191708,Delhi,34.7266446592683,200,Drip Irrigation
+Red,Sugarcane,24.55165968173348,Jaipur,13.44212768472719,300,Subsurface Drip Irrigation
+Clayey,Wheat,34.21529688747253,Kolkata,56.94450116518225,170,Drip Irrigation
+Red,Sugarcane,19.045916209324723,Hyderabad,38.2957633469632,300,Surface Irrigation
+Clayey,Sugarcane,35.70383914103354,Ahmedabad,40.44264029167361,300,Surface Irrigation
+Black,Paddy,37.988858105506,Delhi,89.50948023635398,180,Pivot Irrigation
+Black,Pulses,34.26559020173285,Chennai,43.25789608257387,150,Surface Irrigation
+Sandy,Groundnuts,28.129520095180204,Pune,62.78141342641165,250,Subsurface Drip Irrigation
+Loamy,Pulses,29.228995324060968,Lucknow,40.767916471443854,150,Subsurface Drip Irrigation
+Red,Paddy,18.313854056373856,Delhi,94.10169775007068,150,Sprinkler Irrigation
+Red,Groundnuts,29.537433358855615,Jaipur,84.38881974990504,150,Subsurface Drip Irrigation
+Black,Sugarcane,22.117483277885118,Ahmedabad,72.44351950120318,250,Drip Irrigation
+Black,Maize,17.460912028058544,Ahmedabad,88.84374889419587,150,Sprinkler Irrigation
+Red,Oil Seeds,19.07265212152222,Delhi,40.44681906045497,200,Sprinkler Irrigation
+Sandy,Paddy,22.993226701195294,Pune,54.042626000809406,250,Subsurface Drip Irrigation
+Clayey,Sugarcane,23.226997378211237,Chennai,76.686138532541,220,Drip Irrigation
+Clayey,Millets,22.00863317988169,Lucknow,87.26725243078083,100,Subsurface Drip Irrigation
+Sandy,Barley,36.516587008074765,Lucknow,11.612994627125081,280,Subsurface Drip Irrigation
+Black,Barley,34.86029357629683,Mumbai,95.27689480774933,150,Drip Irrigation
+Red,Cotton,38.60129400743212,Lucknow,82.67909550172689,180,Subsurface Drip Irrigation
+Red,Millets,16.47590035529243,Kolkata,10.740877307334461,150,Pivot Irrigation
+Loamy,Wheat,33.06397087118817,Ahmedabad,37.088898861253185,200,Surface Irrigation
+Clayey,Oil Seeds,30.799641597548373,Jaipur,29.855148775506112,170,Sprinkler Irrigation
+Loamy,Cotton,38.40817636623704,Delhi,53.08210234166454,230,Sprinkler Irrigation
+Sandy,Millets,31.547213313460677,Jaipur,82.6066387208309,150,Sprinkler Irrigation
+Sandy,Barley,19.759394727614612,Mumbai,66.79763886429944,250,Sprinkler Irrigation
+Clayey,Groundnuts,19.857516300023793,Ahmedabad,45.72467762770526,170,Pivot Irrigation
+Loamy,Millets,19.08456570773899,Lucknow,60.62109850899581,150,Drip Irrigation
+Clayey,Sugarcane,30.732834385638267,Chennai,60.77322759664884,270,Subsurface Drip Irrigation
+Sandy,Sugarcane,27.61202041896717,Ahmedabad,34.808201722346524,350,Drip Irrigation
+Red,Barley,18.69939388771003,Ahmedabad,65.24271994405778,200,Surface Irrigation
+Loamy,Cotton,25.982940020927053,Hyderabad,94.1547157376354,150,Surface Irrigation
+Loamy,Oil Seeds,16.282629228917067,Lucknow,28.4073663565884,200,Sprinkler Irrigation
+Clayey,Tobacco,36.02309891984149,Chennai,84.42694935325848,250,Sprinkler Irrigation
+Sandy,Paddy,16.379434408378742,Mumbai,73.0138538308507,200,Subsurface Drip Irrigation
+Sandy,Paddy,31.863534643061044,Pune,44.37854703287005,250,Surface Irrigation
+Black,Groundnuts,29.084282717868568,Delhi,97.01860313006122,150,Subsurface Drip Irrigation
+Red,Pulses,19.348181414773887,Ahmedabad,61.974539406475344,150,Sprinkler Irrigation
+Sandy,Paddy,16.977018130062746,Bengaluru,63.060690019346424,250,Surface Irrigation
+Loamy,Barley,35.9097050061453,Hyderabad,36.93991129523451,230,Subsurface Drip Irrigation
+Black,Tobacco,33.41396585515379,Bengaluru,12.480507842814792,300,Pivot Irrigation
+Loamy,Groundnuts,21.810040677947967,Hyderabad,66.41700028412599,200,Drip Irrigation
+Loamy,Barley,17.157730070893006,Bengaluru,80.14466201376267,150,Subsurface Drip Irrigation
+Clayey,Tobacco,25.30459821959788,Lucknow,10.59133336802394,270,Drip Irrigation
+Loamy,Oil Seeds,22.659665821113055,Chennai,82.17239294454676,150,Sprinkler Irrigation
+Red,Cotton,23.650891052167374,Jaipur,85.50945304216475,150,Pivot Irrigation
+Loamy,Groundnuts,23.444634037778087,Kolkata,15.350396703559888,200,Pivot Irrigation
+Black,Sugarcane,38.93354731026275,Kolkata,69.77815996783957,330,Sprinkler Irrigation
+Red,Millets,20.325804919872056,Pune,31.094110665803452,150,Drip Irrigation
+Clayey,Cotton,33.34897691496502,Chennai,95.23329377719104,120,Drip Irrigation
+Red,Pulses,29.227074037045877,Pune,10.15326305194459,150,Surface Irrigation
+Loamy,Sugarcane,35.86530961321544,Kolkata,71.51498507916074,280,Pivot Irrigation
+Clayey,Maize,17.95507057260129,Kolkata,56.15433011307553,170,Pivot Irrigation
+Loamy,Barley,18.66554041412597,Jaipur,98.97092947268979,150,Subsurface Drip Irrigation
+Loamy,Paddy,34.86709479566634,Jaipur,45.130698838014375,200,Subsurface Drip Irrigation
+Clayey,Cotton,29.14649575545205,Chennai,48.257274723669795,170,Surface Irrigation
+Sandy,Oil Seeds,35.504914931273284,Mumbai,52.91968912140065,280,Surface Irrigation
+Clayey,Groundnuts,17.569917218512877,Mumbai,43.445988785265804,170,Surface Irrigation
+Black,Groundnuts,16.053946115723345,Jaipur,26.266235893610062,200,Sprinkler Irrigation
+Red,Paddy,37.07672639998856,Ahmedabad,58.37747220173065,230,Drip Irrigation
+Black,Millets,32.469816664746986,Pune,81.93979620105696,100,Sprinkler Irrigation
+Sandy,Oil Seeds,29.285017596126995,Kolkata,32.92466476234647,250,Drip Irrigation
+Red,Oil Seeds,38.98719678615468,Mumbai,11.755328050107774,230,Sprinkler Irrigation
+Black,Sugarcane,26.616671194915902,Jaipur,46.387234372226274,300,Subsurface Drip Irrigation
+Sandy,Paddy,37.90812994494932,Jaipur,65.39162715346606,280,Pivot Irrigation
+Sandy,Barley,20.702076268932196,Delhi,63.92929543515038,250,Pivot Irrigation
+Red,Cotton,33.167001686320745,Kolkata,42.5758235436352,200,Drip Irrigation
+Sandy,Barley,23.225358059355152,Pune,51.89288833746602,250,Drip Irrigation
+Sandy,Pulses,28.558305530446717,Bengaluru,48.19339415953831,200,Subsurface Drip Irrigation
+Sandy,Oil Seeds,34.07764327243909,Chennai,88.65801236945029,200,Sprinkler Irrigation
+Black,Groundnuts,19.08432100191088,Kolkata,14.15509814421016,200,Drip Irrigation
+Loamy,Oil Seeds,21.264639046870272,Jaipur,31.89630607275298,200,Pivot Irrigation
+Black,Pulses,18.879568126394858,Kolkata,71.90988862308397,100,Subsurface Drip Irrigation
+Sandy,Tobacco,36.79932084096171,Ahmedabad,39.585479566477744,380,Subsurface Drip Irrigation
+Loamy,Wheat,16.530305178821116,Lucknow,93.20200538705546,150,Drip Irrigation
+Loamy,Millets,30.855036442002454,Chennai,16.662987373433282,150,Drip Irrigation
+Black,Millets,16.51421722724291,Pune,46.37399562108128,150,Surface Irrigation
+Sandy,Tobacco,20.457534678201426,Hyderabad,66.7238342209024,350,Drip Irrigation
+Red,Groundnuts,28.948646060204023,Hyderabad,43.43287098525595,200,Pivot Irrigation
+Sandy,Oil Seeds,17.556593416870413,Jaipur,80.76635510149084,200,Pivot Irrigation
+Loamy,Millets,20.423519121332966,Pune,78.17004712351172,100,Drip Irrigation
+Red,Wheat,20.33714969536107,Delhi,46.72956447678779,200,Pivot Irrigation
+Sandy,Cotton,39.96002810639893,Hyderabad,48.599096248554986,280,Pivot Irrigation
+Clayey,Wheat,28.57753511353777,Pune,49.01713561242264,170,Sprinkler Irrigation
+Clayey,Groundnuts,22.97387866031263,Chennai,15.786934166269665,170,Subsurface Drip Irrigation
+Black,Barley,16.965137738513448,Ahmedabad,86.80457619782419,150,Pivot Irrigation
+Clayey,Cotton,28.26139870966027,Lucknow,66.81580499233009,170,Pivot Irrigation
+Black,Cotton,31.18476196576691,Lucknow,67.07075585327826,200,Sprinkler Irrigation
+Loamy,Tobacco,35.158336813496476,Jaipur,90.30616762889888,280,Sprinkler Irrigation
+Black,Barley,37.5272612040727,Delhi,19.270065513441438,230,Drip Irrigation
+Red,Cotton,22.9205580703308,Chennai,85.13370312371684,150,Sprinkler Irrigation
+Sandy,Maize,37.82087046504681,Kolkata,41.84023942552983,280,Drip Irrigation
+Sandy,Millets,19.72463140887682,Lucknow,34.54953646837209,200,Subsurface Drip Irrigation
+Black,Pulses,23.214208929555923,Lucknow,15.06157931627908,150,Sprinkler Irrigation
+Clayey,Oil Seeds,35.285126022514824,Ahmedabad,71.31065560529066,150,Surface Irrigation
+Sandy,Millets,32.60680408302905,Delhi,97.98367874368057,150,Pivot Irrigation
+Clayey,Cotton,19.941810176753435,Chennai,49.731863510826244,170,Pivot Irrigation
+Black,Tobacco,39.77942300469742,Jaipur,11.870031707490014,330,Sprinkler Irrigation
+Red,Cotton,39.257688167701986,Delhi,85.13588762306668,180,Subsurface Drip Irrigation
+Loamy,Groundnuts,21.15823318891173,Bengaluru,31.612343459156094,200,Subsurface Drip Irrigation
+Red,Wheat,33.92925623967929,Pune,92.82067230170593,150,Subsurface Drip Irrigation
+Sandy,Groundnuts,26.85197366808609,Hyderabad,68.78599358918925,250,Drip Irrigation
+Red,Cotton,20.976044682054678,Pune,29.27904534062017,200,Pivot Irrigation
+Black,Paddy,30.431382134405574,Lucknow,44.203480270345835,200,Subsurface Drip Irrigation
+Clayey,Barley,30.153328270407705,Hyderabad,25.422217448691967,170,Surface Irrigation
+Sandy,Maize,32.29077084072891,Kolkata,36.66905833562963,250,Sprinkler Irrigation
+Loamy,Pulses,35.40592373674387,Kolkata,69.42756285788695,180,Sprinkler Irrigation
+Red,Paddy,17.87574488615353,Delhi,41.116226554350945,200,Surface Irrigation
+Loamy,Tobacco,36.078162490198665,Kolkata,33.768279761923054,330,Sprinkler Irrigation
+Red,Millets,16.146754296155837,Hyderabad,90.57215360440598,100,Subsurface Drip Irrigation
+Red,Oil Seeds,24.226121194548224,Delhi,44.6115759344357,200,Sprinkler Irrigation
+Sandy,Oil Seeds,38.91316812451857,Jaipur,44.397257702244,280,Sprinkler Irrigation
+Clayey,Maize,26.76714987095099,Kolkata,49.62498748117899,170,Sprinkler Irrigation
+Clayey,Millets,29.292039531745253,Jaipur,45.13898713596529,120,Pivot Irrigation
+Loamy,Maize,31.738810263453903,Kolkata,21.455052545811384,200,Sprinkler Irrigation
+Black,Barley,32.32497843072228,Pune,49.04826514305662,200,Drip Irrigation
+Sandy,Millets,17.477142986832302,Hyderabad,23.244162683987344,200,Pivot Irrigation
+Black,Groundnuts,17.921317121651438,Pune,62.360303256712605,200,Pivot Irrigation
+Black,Maize,34.90159951535125,Jaipur,46.68532625752263,200,Sprinkler Irrigation
+Loamy,Wheat,36.0737655776031,Delhi,24.58170386148027,230,Drip Irrigation
+Red,Barley,22.879095351281382,Chennai,98.89955906526066,150,Subsurface Drip Irrigation
+Clayey,Oil Seeds,37.58198288597143,Hyderabad,54.90295376117146,200,Surface Irrigation
+Red,Barley,20.692510416338852,Hyderabad,31.878344481690654,200,Surface Irrigation
+Clayey,Sugarcane,26.321588209075042,Delhi,62.84908749908308,270,Drip Irrigation
+Sandy,Barley,35.114571069226784,Bengaluru,99.52901816566879,230,Subsurface Drip Irrigation
+Red,Millets,34.125576889258156,Ahmedabad,94.43947592127493,100,Subsurface Drip Irrigation
+Black,Wheat,35.36907765860229,Lucknow,31.118584965565976,230,Sprinkler Irrigation
+Clayey,Paddy,34.02306205386483,Lucknow,91.22255164213969,120,Subsurface Drip Irrigation
+Clayey,Tobacco,35.921006683568265,Bengaluru,76.04506963072264,250,Sprinkler Irrigation
+Loamy,Millets,19.124559145080262,Mumbai,11.664834280289242,150,Sprinkler Irrigation
+Clayey,Millets,24.592026234637643,Hyderabad,37.57209611709582,120,Drip Irrigation
+Sandy,Sugarcane,36.339789467271984,Chennai,41.16426211240561,380,Subsurface Drip Irrigation
+Sandy,Wheat,25.20785201301944,Lucknow,40.919840826309155,250,Sprinkler Irrigation
+Sandy,Wheat,19.39224356674029,Mumbai,99.263820601412,200,Subsurface Drip Irrigation
+Red,Cotton,17.409304338886596,Chennai,35.96424871303911,200,Subsurface Drip Irrigation
+Sandy,Tobacco,38.51188302887664,Ahmedabad,34.47294369189355,380,Sprinkler Irrigation
+Loamy,Maize,39.22913262274699,Mumbai,94.50391453166628,180,Drip Irrigation
+Clayey,Maize,35.56952269644688,Hyderabad,32.999312342162916,200,Pivot Irrigation
+Black,Wheat,29.65486718414371,Delhi,50.81673221183331,200,Surface Irrigation
+Sandy,Cotton,37.59477561328289,Delhi,64.71353791835986,280,Pivot Irrigation
+Black,Oil Seeds,28.306502970228273,Hyderabad,67.7119911839934,200,Subsurface Drip Irrigation
+Sandy,Oil Seeds,39.447536704938344,Kolkata,53.46212858538388,280,Pivot Irrigation
+Clayey,Cotton,30.39470022842377,Bengaluru,63.28299802201363,170,Drip Irrigation
+Red,Pulses,22.4664403085996,Ahmedabad,49.99110389804041,150,Pivot Irrigation
+Clayey,Millets,38.16043492339175,Delhi,76.60122987480568,100,Surface Irrigation
+Sandy,Groundnuts,32.34529996120405,Jaipur,39.18430048149665,250,Surface Irrigation
+Sandy,Wheat,37.240144184685086,Pune,77.01417596433909,230,Drip Irrigation
+Clayey,Barley,28.147557224168366,Bengaluru,77.90908858043841,120,Sprinkler Irrigation
+Clayey,Paddy,22.872819141843692,Bengaluru,21.043639194336283,170,Pivot Irrigation
+Loamy,Oil Seeds,38.95382495234925,Kolkata,28.942779884319854,230,Subsurface Drip Irrigation
+Clayey,Maize,28.50773624035783,Mumbai,54.03428880495479,170,Pivot Irrigation
+Black,Groundnuts,20.1464356766256,Bengaluru,77.36052973119243,150,Pivot Irrigation
+Loamy,Pulses,35.96185517330794,Chennai,21.913598621274037,180,Drip Irrigation
+Loamy,Wheat,25.357986099977275,Mumbai,11.738630116218587,200,Surface Irrigation
+Loamy,Paddy,24.88564663828231,Hyderabad,94.76730280648778,150,Pivot Irrigation
+Red,Pulses,19.418993378556713,Bengaluru,75.23272628316829,100,Sprinkler Irrigation
+Clayey,Oil Seeds,19.14718478383,Chennai,82.30238070941809,120,Drip Irrigation
+Clayey,Groundnuts,22.72842747168219,Hyderabad,81.83470040218337,120,Pivot Irrigation
+Loamy,Paddy,34.82678979324247,Ahmedabad,44.481961395694206,200,Drip Irrigation
+Clayey,Millets,17.605934516474544,Delhi,80.47631040361135,100,Sprinkler Irrigation
+Loamy,Paddy,39.17790696067017,Mumbai,32.935415861549544,230,Surface Irrigation
+Black,Cotton,23.04195762001458,Chennai,61.1898650198454,200,Surface Irrigation
+Black,Oil Seeds,25.942356598217813,Mumbai,72.17557327307465,150,Pivot Irrigation
+Sandy,Pulses,21.109041745927705,Mumbai,12.461791847991243,200,Surface Irrigation
+Clayey,Maize,15.155816578047773,Hyderabad,64.17109742881541,170,Pivot Irrigation
+Sandy,Tobacco,30.400077882245903,Ahmedabad,12.249624780930297,350,Surface Irrigation
+Clayey,Wheat,37.21563669262031,Hyderabad,71.66473121000547,150,Surface Irrigation
+Black,Pulses,22.88072735160527,Kolkata,29.95186341166645,150,Sprinkler Irrigation
+Clayey,Barley,36.95457441718491,Pune,96.00719463390247,150,Surface Irrigation
+Loamy,Pulses,35.66492229678722,Lucknow,63.57119859665558,180,Subsurface Drip Irrigation
+Red,Pulses,18.608624693500875,Delhi,14.458587671447594,150,Drip Irrigation
+Sandy,Sugarcane,39.26282890632689,Pune,51.724304482817374,380,Surface Irrigation
+Black,Paddy,18.600998928096697,Mumbai,24.321321904670747,200,Sprinkler Irrigation
+Sandy,Sugarcane,37.83612161428442,Kolkata,67.6309438503513,380,Surface Irrigation
+Loamy,Millets,31.051851738588358,Bengaluru,75.49457604530323,100,Surface Irrigation
+Loamy,Barley,25.412451474042648,Hyderabad,98.04644837935206,150,Pivot Irrigation
+Clayey,Millets,36.28132155302535,Mumbai,82.6478068492941,100,Sprinkler Irrigation
+Clayey,Barley,24.51869806356656,Pune,52.128606996152904,170,Drip Irrigation
+Loamy,Tobacco,36.09545348654686,Ahmedabad,83.74265239963837,280,Subsurface Drip Irrigation
+Loamy,Tobacco,32.614241301483936,Lucknow,62.94942707466732,300,Drip Irrigation
+Clayey,Millets,19.15561902540915,Hyderabad,13.27879262674592,120,Surface Irrigation
+Clayey,Groundnuts,24.816247086632156,Jaipur,40.18865218543001,170,Sprinkler Irrigation
+Loamy,Barley,27.017045815659696,Hyderabad,75.60088225751316,150,Surface Irrigation
+Clayey,Millets,16.551650387538164,Kolkata,80.76592224276342,100,Subsurface Drip Irrigation
+Red,Wheat,38.61716238165094,Lucknow,56.9739137667607,230,Pivot Irrigation
+Clayey,Sugarcane,16.103932654821417,Pune,65.00819195331229,270,Surface Irrigation
+Loamy,Pulses,29.62855986589787,Bengaluru,91.34947467240455,100,Subsurface Drip Irrigation
+Loamy,Pulses,32.48307311190746,Kolkata,93.31233461502569,100,Subsurface Drip Irrigation
+Red,Paddy,26.636704836151093,Mumbai,31.421509805310592,200,Subsurface Drip Irrigation
+Red,Pulses,22.336364444652805,Chennai,56.862378046432625,150,Subsurface Drip Irrigation
+Loamy,Maize,16.68927172904823,Mumbai,44.94892842772751,200,Surface Irrigation
+Loamy,Tobacco,23.273283199060103,Ahmedabad,67.51308521045193,300,Pivot Irrigation
+Clayey,Oil Seeds,19.63383635485613,Mumbai,96.54023354665362,120,Sprinkler Irrigation
+Sandy,Cotton,21.524688953768475,Kolkata,15.778975695623608,250,Surface Irrigation
+Sandy,Oil Seeds,24.582100394104625,Mumbai,55.351314805502625,250,Drip Irrigation
+Sandy,Paddy,29.975133472261668,Bengaluru,81.07043335317289,200,Sprinkler Irrigation
+Black,Paddy,31.054872766058747,Ahmedabad,38.66973447023574,200,Surface Irrigation
+Clayey,Sugarcane,15.781374229142997,Jaipur,17.90939392027795,270,Surface Irrigation
+Sandy,Paddy,19.483866812448717,Hyderabad,52.35917788196274,250,Subsurface Drip Irrigation
+Red,Wheat,25.496800769526935,Mumbai,77.295090957252,150,Surface Irrigation
+Red,Maize,22.98151979194096,Mumbai,78.28324386894803,150,Pivot Irrigation
+Sandy,Maize,30.621064488120282,Kolkata,88.76304467305344,200,Sprinkler Irrigation
+Black,Barley,20.344636930571667,Ahmedabad,83.84544139143829,150,Drip Irrigation
+Clayey,Paddy,19.587936188218293,Mumbai,77.41882309754686,120,Sprinkler Irrigation
+Loamy,Paddy,16.823407784274465,Delhi,39.287083363566225,200,Surface Irrigation
+Loamy,Millets,27.959961117726323,Chennai,89.68024064304744,100,Pivot Irrigation
+Clayey,Sugarcane,26.377526571565827,Kolkata,29.99013966004783,270,Sprinkler Irrigation
+Sandy,Tobacco,35.00853676379252,Delhi,82.01201123515402,330,Drip Irrigation
+Sandy,Millets,29.49318240500172,Delhi,74.66891641541292,150,Drip Irrigation
+Sandy,Tobacco,37.44329300352152,Delhi,67.98532401235647,380,Pivot Irrigation
+Sandy,Maize,26.188286772277834,Pune,14.506459593314819,250,Drip Irrigation
+Sandy,Cotton,21.49566147351634,Mumbai,29.304695569738662,250,Subsurface Drip Irrigation
+Clayey,Paddy,38.26162367455144,Chennai,90.29046546522812,150,Sprinkler Irrigation
+Black,Millets,25.506874135014172,Kolkata,25.424227246553613,150,Subsurface Drip Irrigation
+Red,Wheat,19.19065435785241,Hyderabad,94.8709575208907,150,Pivot Irrigation
+Loamy,Paddy,24.574273540814765,Kolkata,14.116545325464152,200,Surface Irrigation
+Sandy,Pulses,24.215003022746238,Bengaluru,66.52531077368334,200,Subsurface Drip Irrigation
+Black,Groundnuts,27.148328400291888,Jaipur,22.857482832416906,200,Sprinkler Irrigation
+Loamy,Cotton,23.54248109638097,Bengaluru,97.61214115119758,150,Sprinkler Irrigation
+Loamy,Pulses,19.997802114914144,Chennai,40.76818105671751,150,Surface Irrigation
+Black,Maize,30.59450666197271,Bengaluru,25.134578913187383,200,Subsurface Drip Irrigation
+Black,Cotton,34.86284189197763,Mumbai,54.26212105832432,200,Surface Irrigation
+Red,Barley,28.030089906042324,Delhi,72.54812276674659,150,Surface Irrigation
+Sandy,Pulses,17.636242073234587,Ahmedabad,36.38129571963566,200,Subsurface Drip Irrigation
+Sandy,Maize,23.292076158562566,Jaipur,72.8752626965479,200,Sprinkler Irrigation
+Red,Groundnuts,22.511836530415717,Chennai,82.53762220323584,150,Pivot Irrigation
+Red,Oil Seeds,25.911139075157653,Delhi,73.96697750930953,150,Drip Irrigation
+Sandy,Paddy,22.41962186335523,Pune,77.76257799247695,200,Surface Irrigation
+Sandy,Tobacco,35.21043460662832,Delhi,82.06072825785802,330,Drip Irrigation
+Red,Cotton,33.599347903808734,Mumbai,95.83328347011106,150,Surface Irrigation
+Red,Maize,28.477751325440252,Chennai,75.23297347367622,150,Surface Irrigation
+Loamy,Millets,24.496174937369137,Kolkata,82.11524965957128,100,Drip Irrigation
+Loamy,Tobacco,25.92579568488909,Delhi,12.55003438824546,300,Sprinkler Irrigation
+Loamy,Oil Seeds,36.919207047763706,Bengaluru,63.7493971327834,230,Sprinkler Irrigation
+Clayey,Groundnuts,15.834884530667523,Hyderabad,37.94517054854014,170,Pivot Irrigation
+Black,Barley,35.5826530074518,Delhi,12.740078279814934,230,Subsurface Drip Irrigation
+Loamy,Barley,23.638253928707314,Pune,77.51402422985917,150,Pivot Irrigation
+Sandy,Cotton,31.073765190689784,Bengaluru,45.24273049175271,250,Surface Irrigation
+Loamy,Barley,17.137497589501216,Ahmedabad,10.025259515202421,200,Subsurface Drip Irrigation
+Sandy,Millets,17.952213888820115,Chennai,10.673994374613272,200,Drip Irrigation
+Sandy,Wheat,29.43074272143984,Pune,34.94688735537514,250,Sprinkler Irrigation
+Loamy,Oil Seeds,24.790688923957294,Chennai,97.58747389602816,150,Surface Irrigation
+Red,Maize,39.64862329383259,Jaipur,80.44300114174652,180,Pivot Irrigation
+Sandy,Tobacco,34.48697155454532,Lucknow,70.41645650821488,300,Subsurface Drip Irrigation
+Loamy,Wheat,26.75034893472305,Mumbai,84.20059492818187,150,Pivot Irrigation
+Clayey,Barley,33.046682048195045,Kolkata,38.96134341463046,170,Surface Irrigation
+Clayey,Barley,38.70967423238989,Chennai,53.66165550382343,200,Drip Irrigation
+Red,Groundnuts,16.61805108769963,Jaipur,66.01707058684252,200,Surface Irrigation
+Black,Wheat,30.907284574858757,Jaipur,38.457490429376385,200,Subsurface Drip Irrigation
+Sandy,Paddy,26.57447342671313,Kolkata,43.539849178163166,250,Pivot Irrigation
+Loamy,Wheat,22.367885992421062,Bengaluru,18.182051407294338,200,Surface Irrigation
+Sandy,Millets,20.815825327359317,Mumbai,19.44316643359337,200,Drip Irrigation
+Clayey,Pulses,27.07513330244059,Delhi,75.71339324774175,100,Drip Irrigation
+Red,Pulses,23.75260976482201,Bengaluru,40.69183934596431,150,Drip Irrigation
+Red,Maize,35.129535657171544,Ahmedabad,29.10772178108781,230,Drip Irrigation
+Sandy,Wheat,17.9278080445281,Delhi,61.002820347796515,250,Subsurface Drip Irrigation
+Red,Millets,16.71451103886826,Lucknow,71.30769900960517,100,Drip Irrigation
+Clayey,Tobacco,34.339241074939395,Jaipur,43.86569193314191,270,Subsurface Drip Irrigation
+Black,Tobacco,34.16893724328189,Bengaluru,24.04279245188023,300,Surface Irrigation
+Clayey,Paddy,22.66804888829034,Delhi,27.010795538647923,170,Surface Irrigation
+Sandy,Barley,31.24981786961164,Kolkata,57.5681452376935,250,Drip Irrigation
+Black,Cotton,39.26144175256725,Bengaluru,57.36508182643663,230,Subsurface Drip Irrigation
+Sandy,Paddy,37.360811861022235,Ahmedabad,80.88301508601867,230,Surface Irrigation
+Black,Barley,33.55431407634257,Mumbai,43.29149759620912,200,Sprinkler Irrigation
+Black,Tobacco,19.299450639413642,Jaipur,77.35401613532301,250,Pivot Irrigation
+Clayey,Cotton,19.55747087788239,Mumbai,93.59239686088875,120,Drip Irrigation
+Sandy,Millets,35.354657991251784,Bengaluru,62.140521922382234,230,Sprinkler Irrigation
+Loamy,Tobacco,23.054828762794166,Bengaluru,59.04074315417054,300,Surface Irrigation
+Loamy,Wheat,32.098719053721894,Chennai,60.22211774905839,200,Subsurface Drip Irrigation
+Red,Tobacco,17.488618238586778,Pune,58.6157578634076,300,Pivot Irrigation
+Loamy,Groundnuts,32.22860020201381,Bengaluru,54.05719484119403,200,Sprinkler Irrigation
+Red,Barley,37.797721659665896,Hyderabad,39.29260842931606,230,Drip Irrigation
+Sandy,Groundnuts,38.532839212676045,Delhi,81.47123243288456,230,Drip Irrigation
+Loamy,Wheat,26.378893091743315,Jaipur,53.93800780939154,200,Drip Irrigation
+Red,Paddy,28.456527167047305,Delhi,54.75388328207528,200,Sprinkler Irrigation
+Clayey,Wheat,23.217923719515174,Bengaluru,85.38147182529937,120,Surface Irrigation
+Loamy,Maize,22.73456218973447,Bengaluru,82.52315249590869,150,Surface Irrigation
+Black,Tobacco,29.81149588378981,Mumbai,36.2305152481815,300,Drip Irrigation
+Loamy,Pulses,35.99128440364774,Pune,34.75290910588411,180,Drip Irrigation
+Red,Maize,18.52705215053117,Chennai,12.090563180691484,200,Drip Irrigation
+Clayey,Sugarcane,39.52874980366065,Ahmedabad,78.95217609788673,250,Sprinkler Irrigation
+Red,Paddy,22.80169409809842,Lucknow,86.40046399783375,150,Drip Irrigation
+Clayey,Barley,38.22386558061059,Mumbai,13.46392782224455,200,Surface Irrigation
+Loamy,Cotton,26.89768467637315,Mumbai,85.6369937393173,150,Sprinkler Irrigation
+Sandy,Millets,38.65423218387808,Pune,58.70870639856295,230,Pivot Irrigation
+Black,Tobacco,30.679928612099097,Delhi,67.69335711211184,300,Sprinkler Irrigation
+Red,Oil Seeds,37.28950297641569,Bengaluru,27.32091872777944,230,Drip Irrigation
+Black,Millets,17.235340441392303,Mumbai,89.88874731627473,100,Subsurface Drip Irrigation
+Loamy,Pulses,36.298780313799604,Hyderabad,17.939454206196356,180,Surface Irrigation
+Sandy,Pulses,16.502452266538604,Mumbai,29.050480713291023,200,Pivot Irrigation
+Clayey,Paddy,21.7090946751566,Jaipur,67.16780929038976,170,Pivot Irrigation
+Loamy,Maize,24.50163630523097,Lucknow,23.453026030562967,200,Surface Irrigation
+Clayey,Paddy,39.64521131267195,Kolkata,82.84402564036661,150,Surface Irrigation
+Sandy,Oil Seeds,35.30447733270805,Pune,30.531830694869562,280,Surface Irrigation
+Clayey,Sugarcane,27.26616014612372,Lucknow,15.796097858459728,270,Drip Irrigation
+Sandy,Cotton,21.152498910795384,Ahmedabad,48.43048551405063,250,Surface Irrigation
+Black,Maize,34.456818824520425,Chennai,96.71902669203891,150,Drip Irrigation
+Loamy,Oil Seeds,37.64296527395782,Kolkata,64.8466240997007,230,Pivot Irrigation
+Red,Groundnuts,17.993786938203947,Chennai,34.09266946645053,200,Drip Irrigation
+Red,Maize,29.212417769936337,Lucknow,23.863380238101538,200,Sprinkler Irrigation
+Sandy,Wheat,24.98258011741409,Kolkata,42.313928519412215,250,Sprinkler Irrigation
+Black,Maize,29.199794333652083,Ahmedabad,42.89590698923018,200,Surface Irrigation
+Black,Oil Seeds,35.69977832516799,Kolkata,15.45399952349898,230,Sprinkler Irrigation
+Sandy,Maize,35.51809847638475,Pune,67.61448328930553,280,Sprinkler Irrigation
+Red,Groundnuts,26.451855903390953,Pune,29.237824365138668,200,Drip Irrigation
+Black,Cotton,32.81237042210694,Kolkata,87.31279662066184,150,Surface Irrigation
+Red,Tobacco,37.77539552438951,Pune,29.078369534972087,330,Sprinkler Irrigation
+Red,Wheat,38.26039624116103,Mumbai,66.4583736081222,230,Pivot Irrigation
+Red,Groundnuts,18.99130243728152,Delhi,11.493178667539482,200,Surface Irrigation
+Black,Sugarcane,32.43536659195744,Hyderabad,96.01544587247403,250,Sprinkler Irrigation
+Sandy,Pulses,31.632006152219915,Pune,15.881599549645308,200,Subsurface Drip Irrigation
+Sandy,Tobacco,18.92152672792571,Kolkata,59.99599502072385,350,Surface Irrigation
+Sandy,Paddy,28.682687571475668,Chennai,28.606012917832164,250,Pivot Irrigation
+Red,Wheat,29.890788426673485,Kolkata,71.48674901729305,150,Sprinkler Irrigation
+Clayey,Tobacco,38.170393459027,Kolkata,24.639852491898544,300,Surface Irrigation
+Clayey,Cotton,25.117293153183986,Chennai,48.13314595020102,170,Subsurface Drip Irrigation
+Black,Oil Seeds,21.493168890506883,Delhi,86.79741381045142,150,Surface Irrigation
+Black,Millets,32.908332014424055,Kolkata,56.20129929309568,150,Sprinkler Irrigation
+Clayey,Pulses,23.347901031093738,Mumbai,77.42529688072597,100,Surface Irrigation
+Loamy,Tobacco,22.13470525134221,Lucknow,48.157225180247245,300,Sprinkler Irrigation
+Loamy,Wheat,38.06738158708569,Ahmedabad,53.409309871959024,230,Subsurface Drip Irrigation
+Sandy,Oil Seeds,30.53754653508728,Hyderabad,84.0822552753717,200,Subsurface Drip Irrigation
+Clayey,Oil Seeds,32.15352736918637,Delhi,45.52129610976079,170,Surface Irrigation
+Clayey,Maize,18.499530247779315,Jaipur,88.25926140053788,120,Drip Irrigation
+Clayey,Paddy,38.46355177002478,Hyderabad,89.43305190999703,150,Sprinkler Irrigation
+Black,Sugarcane,39.54550393791472,Delhi,99.96410401078738,280,Pivot Irrigation
+Red,Groundnuts,27.852952005462065,Delhi,10.81862244808357,200,Pivot Irrigation
+Clayey,Millets,36.82155916345671,Chennai,49.91176883043355,150,Drip Irrigation
+Sandy,Groundnuts,16.269784794719605,Kolkata,90.74034707253986,200,Subsurface Drip Irrigation
+Red,Maize,20.27231681960275,Ahmedabad,39.07536986812063,200,Pivot Irrigation
+Sandy,Groundnuts,36.318930631515286,Delhi,55.35158642602605,280,Surface Irrigation
+Black,Tobacco,35.312470028830994,Lucknow,63.441891800568946,330,Subsurface Drip Irrigation
+Loamy,Wheat,20.234255677965375,Chennai,35.22112822947899,200,Sprinkler Irrigation
+Sandy,Tobacco,29.27072505019318,Jaipur,38.89206978970021,350,Pivot Irrigation
+Black,Sugarcane,30.867717515792126,Lucknow,92.14586456610178,250,Surface Irrigation
+Red,Tobacco,19.388296209846935,Pune,71.04073711407204,250,Surface Irrigation
+Red,Millets,26.730463434482846,Ahmedabad,75.41951623719979,100,Subsurface Drip Irrigation
+Sandy,Oil Seeds,33.03960681790474,Lucknow,92.49685114506673,200,Subsurface Drip Irrigation
+Sandy,Tobacco,35.08249770926125,Lucknow,99.70054490719977,330,Subsurface Drip Irrigation
+Loamy,Groundnuts,17.8849115999122,Bengaluru,17.499745214282868,200,Sprinkler Irrigation
+Red,Wheat,34.56789820460364,Hyderabad,33.52829110726799,200,Drip Irrigation
+Red,Groundnuts,28.73503032043712,Kolkata,31.469233036564457,200,Pivot Irrigation
+Black,Cotton,27.744297857933915,Pune,27.71143744320388,200,Drip Irrigation
+Red,Millets,22.558015354683793,Ahmedabad,13.46159151820326,150,Pivot Irrigation
+Red,Wheat,31.007006449903074,Chennai,14.953270880387056,200,Pivot Irrigation
+Black,Tobacco,34.47769872071837,Ahmedabad,68.28693002698108,300,Surface Irrigation
+Black,Sugarcane,32.89937574404562,Kolkata,31.686057778677185,300,Subsurface Drip Irrigation
+Loamy,Cotton,25.095310056899024,Bengaluru,35.30302352419109,200,Surface Irrigation
+Sandy,Paddy,18.370706491572193,Jaipur,73.21748018696476,200,Subsurface Drip Irrigation
+Loamy,Cotton,19.681051634834148,Lucknow,66.83465615692887,200,Subsurface Drip Irrigation
+Clayey,Millets,31.267006223305454,Pune,96.63029856740714,100,Sprinkler Irrigation
+Red,Paddy,39.97184706361786,Delhi,56.2406410498991,230,Pivot Irrigation
+Red,Maize,27.588913999435622,Bengaluru,20.81525150929037,200,Subsurface Drip Irrigation
+Clayey,Wheat,33.76089465731242,Pune,19.47197367966261,170,Surface Irrigation
+Red,Paddy,29.604501547378565,Chennai,30.111493827185452,200,Sprinkler Irrigation
+Black,Maize,19.830354934198965,Bengaluru,15.239436607870566,200,Surface Irrigation
+Clayey,Oil Seeds,30.7326396118617,Pune,16.671066190625748,170,Drip Irrigation
+Loamy,Wheat,22.100628793199874,Bengaluru,55.747264154731326,200,Surface Irrigation
+Sandy,Groundnuts,24.467854425377944,Mumbai,47.20402489690761,250,Pivot Irrigation
+Black,Barley,36.91054655041073,Bengaluru,93.2277987101326,180,Drip Irrigation
+Red,Pulses,25.772989365115052,Lucknow,46.5092537835803,150,Subsurface Drip Irrigation
+Loamy,Sugarcane,23.479746687250255,Delhi,53.56506133010142,300,Subsurface Drip Irrigation
+Red,Pulses,37.76761557392624,Chennai,32.23971257412602,180,Subsurface Drip Irrigation
+Black,Groundnuts,15.906334353642487,Ahmedabad,70.11807549962782,150,Subsurface Drip Irrigation
+Black,Pulses,24.21295518056559,Bengaluru,48.63425505781344,150,Pivot Irrigation
+Loamy,Sugarcane,26.805091890749658,Delhi,62.684109875572354,300,Surface Irrigation
+Loamy,Cotton,19.962608136406857,Kolkata,58.97225343922349,200,Sprinkler Irrigation
+Clayey,Barley,32.95065105189417,Ahmedabad,85.72150133282645,120,Surface Irrigation
+Red,Paddy,17.275559163269573,Mumbai,75.81176317653164,150,Sprinkler Irrigation
+Red,Sugarcane,37.06945901070179,Ahmedabad,13.253883478942441,330,Subsurface Drip Irrigation
+Sandy,Pulses,15.43972661219749,Kolkata,50.0740749438385,200,Surface Irrigation
+Loamy,Paddy,23.140508572584245,Lucknow,57.65122503387587,200,Pivot Irrigation
+Sandy,Paddy,34.35578376186717,Jaipur,96.68126546006758,200,Subsurface Drip Irrigation
+Sandy,Barley,39.76136169964941,Kolkata,90.72714499285733,230,Pivot Irrigation
+Sandy,Groundnuts,26.75683880176241,Mumbai,33.81761666447153,250,Sprinkler Irrigation
+Black,Sugarcane,21.279114802696828,Ahmedabad,40.13249253016257,300,Drip Irrigation
+Red,Millets,31.944162239800058,Pune,62.49103779402279,150,Pivot Irrigation
+Clayey,Oil Seeds,36.46629670209159,Bengaluru,53.200461421702656,200,Surface Irrigation
+Red,Maize,30.229613903332066,Delhi,93.2043098890833,150,Surface Irrigation
+Sandy,Groundnuts,35.36194966579899,Hyderabad,54.031280139038934,280,Drip Irrigation
+Red,Paddy,18.981485755752807,Bengaluru,48.30390166615613,200,Surface Irrigation
+Loamy,Barley,34.51173104328196,Kolkata,87.04461330591523,150,Surface Irrigation
+Sandy,Barley,34.28186140543807,Hyderabad,76.08653040418562,200,Sprinkler Irrigation
+Black,Barley,39.257454286813584,Delhi,23.915993422638664,230,Pivot Irrigation
+Red,Oil Seeds,16.373118833649865,Bengaluru,29.5264485044032,200,Drip Irrigation
+Loamy,Oil Seeds,23.79856202826239,Ahmedabad,47.35466765172998,200,Pivot Irrigation
+Sandy,Barley,23.633757266017412,Lucknow,34.86099740822671,250,Sprinkler Irrigation
+Loamy,Paddy,24.08942809408769,Pune,51.03995191816414,200,Drip Irrigation
+Black,Paddy,24.989086557914206,Bengaluru,65.68933037886124,200,Sprinkler Irrigation
+Black,Tobacco,15.893405788645682,Hyderabad,70.80909091984793,250,Subsurface Drip Irrigation
+Loamy,Pulses,24.93354919195098,Lucknow,84.74452461788242,100,Subsurface Drip Irrigation
+Loamy,Paddy,31.178084795139068,Kolkata,51.33803668467248,200,Subsurface Drip Irrigation
+Sandy,Oil Seeds,29.12197531769974,Kolkata,24.7994160867569,250,Subsurface Drip Irrigation
+Loamy,Pulses,24.04192955924688,Hyderabad,17.261375647957905,150,Subsurface Drip Irrigation
+Sandy,Sugarcane,29.800730784581027,Ahmedabad,33.070736399891146,350,Pivot Irrigation
+Loamy,Paddy,36.78873627168221,Lucknow,73.14411926971763,180,Drip Irrigation
+Clayey,Groundnuts,18.547534498174134,Jaipur,89.34441888939227,120,Drip Irrigation
+Clayey,Oil Seeds,36.22016566990024,Hyderabad,15.819772017580796,200,Subsurface Drip Irrigation
+Red,Millets,24.543352119220547,Lucknow,10.498822307424598,150,Sprinkler Irrigation
+Red,Oil Seeds,25.59599929225835,Mumbai,35.653467090497394,200,Drip Irrigation
+Red,Tobacco,29.201011774643142,Delhi,72.32763738093188,250,Subsurface Drip Irrigation
+Loamy,Paddy,19.522516921349354,Pune,28.641179476515028,200,Surface Irrigation
+Clayey,Sugarcane,24.24719705295263,Bengaluru,81.87740561580374,220,Pivot Irrigation
+Loamy,Wheat,23.631112530774843,Ahmedabad,24.96749610480198,200,Surface Irrigation
+Clayey,Cotton,22.70349275257381,Jaipur,58.864766699020834,170,Pivot Irrigation
+Loamy,Groundnuts,17.05481955513042,Bengaluru,33.803165254847315,200,Pivot Irrigation
+Sandy,Barley,24.48822119244712,Mumbai,88.88412236207768,200,Pivot Irrigation
+Red,Barley,17.7925974362266,Lucknow,61.88735019350685,200,Subsurface Drip Irrigation
+Clayey,Oil Seeds,18.864127230538735,Kolkata,70.48125935486362,120,Drip Irrigation
+Black,Sugarcane,31.750319687088748,Lucknow,10.949644558009638,300,Pivot Irrigation
+Red,Tobacco,27.2315880923868,Ahmedabad,30.926865124516183,300,Drip Irrigation
+Sandy,Millets,27.987183893494645,Jaipur,45.39185158710951,200,Drip Irrigation
+Loamy,Barley,30.671834088816503,Jaipur,34.473424767411885,200,Drip Irrigation
+Black,Maize,22.551857460701935,Jaipur,92.34190878572286,150,Surface Irrigation
+Sandy,Sugarcane,22.02923330233088,Lucknow,38.173346350274315,350,Pivot Irrigation
+Loamy,Wheat,38.433924722793094,Ahmedabad,13.829145507210086,230,Drip Irrigation
+Clayey,Maize,18.979477403646822,Kolkata,95.01073354778072,120,Pivot Irrigation
+Loamy,Groundnuts,35.06931732018536,Mumbai,75.64231016349511,180,Surface Irrigation
+Loamy,Wheat,19.020248254052664,Kolkata,97.252368673044,150,Pivot Irrigation
+Loamy,Oil Seeds,24.112358559980045,Kolkata,71.31461228981635,150,Drip Irrigation
+Sandy,Sugarcane,27.257046403639976,Hyderabad,19.8022968860381,350,Drip Irrigation
+Loamy,Maize,26.342701250267233,Pune,31.305859746144453,200,Sprinkler Irrigation
+Loamy,Oil Seeds,28.695132913935943,Hyderabad,56.16344292825277,200,Subsurface Drip Irrigation
+Loamy,Paddy,25.21943310621735,Kolkata,62.29962122566007,200,Pivot Irrigation
+Clayey,Groundnuts,38.31101301028278,Jaipur,76.87109654550909,150,Sprinkler Irrigation
+Black,Maize,39.363742067304344,Delhi,76.4016025382214,180,Subsurface Drip Irrigation
+Red,Pulses,27.44407020734179,Kolkata,58.39119577692936,150,Subsurface Drip Irrigation
+Sandy,Pulses,17.028546142013617,Mumbai,31.160716407555224,200,Subsurface Drip Irrigation
+Black,Barley,32.64026892827607,Lucknow,54.049270956492286,200,Drip Irrigation
+Black,Barley,20.471379918556764,Ahmedabad,90.24966952320672,150,Surface Irrigation
+Black,Oil Seeds,37.74051751835014,Mumbai,18.752404053117004,230,Surface Irrigation
+Red,Sugarcane,39.03572289721126,Pune,87.85263378251214,280,Sprinkler Irrigation
+Loamy,Oil Seeds,26.287361893604036,Chennai,69.25719659123135,200,Surface Irrigation
+Red,Wheat,16.32099382919181,Jaipur,58.057350974186676,200,Pivot Irrigation
+Sandy,Maize,26.27709134899434,Chennai,60.646696787941835,250,Pivot Irrigation
+Black,Sugarcane,32.82052802544578,Pune,23.03302967285895,300,Sprinkler Irrigation
+Sandy,Cotton,25.50874167160423,Lucknow,10.104739405758492,250,Pivot Irrigation
+Loamy,Barley,33.19064709834475,Ahmedabad,36.7269987176754,200,Surface Irrigation
+Loamy,Pulses,19.337900683314373,Pune,35.15263133379297,150,Sprinkler Irrigation
+Loamy,Oil Seeds,29.997305733133864,Delhi,96.48940556341243,150,Pivot Irrigation
+Loamy,Oil Seeds,24.295888206580408,Kolkata,46.10523424327788,200,Pivot Irrigation
+Clayey,Tobacco,18.85254963855342,Chennai,96.34163616563977,220,Surface Irrigation
+Sandy,Maize,17.587140735436314,Pune,53.010286147719754,250,Surface Irrigation
+Red,Barley,34.09692945379581,Pune,93.25367525930669,150,Sprinkler Irrigation
+Black,Paddy,18.26556287295309,Lucknow,33.72523115070714,200,Surface Irrigation
+Loamy,Maize,20.355849712314438,Jaipur,11.809003334080412,200,Pivot Irrigation
+Clayey,Sugarcane,16.33866627595157,Delhi,36.93554933748955,270,Subsurface Drip Irrigation
+Sandy,Oil Seeds,29.136370506411026,Mumbai,84.34738124481342,200,Drip Irrigation
+Sandy,Oil Seeds,37.28677301497778,Bengaluru,77.28759659810122,230,Drip Irrigation
+Loamy,Maize,21.261146574025993,Mumbai,74.49440850385693,150,Drip Irrigation
+Black,Wheat,35.2247203572705,Mumbai,97.17272385991076,180,Drip Irrigation
+Clayey,Sugarcane,28.935395787241617,Chennai,44.03256926585249,270,Subsurface Drip Irrigation
+Loamy,Maize,33.245822531318886,Jaipur,58.878311402045945,200,Sprinkler Irrigation
+Clayey,Wheat,26.134404690507097,Bengaluru,10.457107125688847,170,Surface Irrigation
+Red,Groundnuts,22.777674566243874,Delhi,65.87151581926318,200,Surface Irrigation
+Clayey,Groundnuts,36.641481150059036,Ahmedabad,83.83325648569095,150,Pivot Irrigation
+Loamy,Cotton,35.53023099043939,Jaipur,59.98232093342413,230,Pivot Irrigation
+Loamy,Millets,39.96331660198569,Delhi,20.197487663327827,180,Surface Irrigation
+Red,Oil Seeds,30.11494442258914,Ahmedabad,85.48957193334275,150,Drip Irrigation
+Clayey,Tobacco,15.797439305269677,Lucknow,76.55372136746207,220,Drip Irrigation
+Red,Wheat,30.89896027113799,Mumbai,18.110343669346143,200,Sprinkler Irrigation
+Loamy,Oil Seeds,31.138947017396664,Ahmedabad,38.66689695689092,200,Pivot Irrigation
+Black,Pulses,38.69190253227006,Chennai,30.680534132192005,180,Surface Irrigation
+Black,Millets,33.01871395288208,Delhi,80.01211459815138,100,Pivot Irrigation
+Red,Tobacco,32.6172574219192,Hyderabad,80.73955400336573,250,Sprinkler Irrigation
+Black,Millets,17.964776913231287,Mumbai,98.43385214120845,100,Surface Irrigation
+Loamy,Groundnuts,16.155053753217675,Hyderabad,67.186449220241,200,Pivot Irrigation
+Black,Sugarcane,18.93699097845672,Kolkata,29.69163274331104,300,Surface Irrigation
+Loamy,Cotton,28.042163868907636,Lucknow,10.900756451285012,200,Drip Irrigation
+Loamy,Barley,22.798440191969735,Jaipur,54.04169056556373,200,Pivot Irrigation
+Black,Barley,26.65074923304795,Hyderabad,42.01736801820721,200,Subsurface Drip Irrigation
+Sandy,Sugarcane,16.40746382199183,Lucknow,49.31089515168567,350,Subsurface Drip Irrigation
+Loamy,Wheat,30.555536971333574,Bengaluru,52.957053291133164,200,Pivot Irrigation
+Sandy,Groundnuts,28.62871163023471,Chennai,64.07083127618728,250,Surface Irrigation
+Sandy,Tobacco,31.76452630490151,Bengaluru,26.10275660359426,350,Pivot Irrigation
+Loamy,Sugarcane,33.53461172365988,Chennai,32.62300332136289,300,Drip Irrigation
+Loamy,Groundnuts,24.78379251839017,Chennai,55.57260267851111,200,Pivot Irrigation
+Red,Barley,26.38767249993743,Lucknow,67.69588206540456,200,Drip Irrigation
+Black,Groundnuts,16.06954866457501,Pune,87.41612188755299,150,Subsurface Drip Irrigation
+Sandy,Tobacco,23.875642767584644,Bengaluru,97.75529147649094,300,Pivot Irrigation

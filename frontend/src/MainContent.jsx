@@ -15,6 +15,7 @@ import GoTop from './components/GoTop';
 import Forecast from './pages/Forecast';
 import Prices from './components/Prices';
 import Reports from './components/Reports';
+import Irrigation from './components/Irrigation';
 import UseScrollToTop from './components/UseScrollToTop';
 import Article from './pages/Article';
 import ChatBot from './pages/ChatBot';
@@ -37,6 +38,7 @@ const MainContent = () => {
           <Route path="/submit" element={<Submit/>} />
           <Route path="/fertilizer" element={<Fertilizer />} />
           <Route path="/soil" element={<SoilQuality />} />
+          <Route path="/Irrigation" element={<Irrigation />} />
           <Route path="/forecast" element={<Forecast />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/reports" element={<Reports />} />
