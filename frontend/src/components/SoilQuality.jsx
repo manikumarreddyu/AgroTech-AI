@@ -110,6 +110,25 @@ const SoilQuality = () => {
                                 <span>✅ Check for copper, manganese, and boron.</span><br />
                                 <span>✅Provide actionable insights for soil management and crop planning.</span><br />
                             </p>
+                            <h2>Click the button below to view the map of soil testing centers in India:</h2>
+<a 
+    href="maps.html" 
+    className="button" 
+    style={{
+        display: 'inline-block',
+        margin: '10px 0',
+        padding: '10px 20px', 
+        backgroundColor: '#007bff', 
+        color: 'white', 
+        textDecoration: 'none', 
+        borderRadius: '5px', 
+        fontSize: '16px', 
+        transition: 'background-color 0.3s'
+    }}
+>
+    View Soil Testing Centers Map
+</a>
+
                         </div>
 
                         <div className="sm:w-1/3 flex flex-wrap items-center md:pl-10 ">
