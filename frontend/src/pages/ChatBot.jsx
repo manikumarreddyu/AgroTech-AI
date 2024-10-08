@@ -11,7 +11,7 @@ function ChatBot() {
 
     setChatHistory((prevHistory) => [...prevHistory, { role: 'user', content: userPrompt }]);
 
-    const response = await fetch('http://localhost:5000/chat', {
+    const response = await fetch('http://localhost:5000/AgroTech-AI_Bot', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: userPrompt }),
@@ -61,9 +61,9 @@ function ChatBot() {
   }, [chatHistory]);
 
   return (
-    <div className='flex flex-col h-screen bg-gray-900 p-5 mt-10'>
+    <div className='flex flex-col h-screen bg-green-600 p-5 mt-10'>
       <div
-        className='flex-1 overflow-y-auto p-2 border border-gray-700 rounded-lg mb-2'
+        className='flex-1 overflow-y-auto p-2 border border-green-700 rounded-lg mb-2'
         ref={chatHistoryRef}
       >
         {chatHistory.map((message, index) => (
@@ -71,8 +71,8 @@ function ChatBot() {
             key={index}
             className={`p-2 m-1 rounded-xl w-fit max-w-[80%] text-white ${
               message.role === 'user'
-                ? 'bg-blue-600 self-end rounded-tr-none'
-                : 'bg-gray-800 self-start rounded-tl-none'
+                ? 'bg-green-600 self-end rounded-tr-none'
+                : 'bg-green-800 self-start rounded-tl-none'
             }`}
             dangerouslySetInnerHTML={{
               __html: `<strong>${message.role === 'user' ? 'You' : 'Assistant'}:</strong> ${message.content}`,
@@ -82,23 +82,23 @@ function ChatBot() {
       </div>
       {showScrollToTop && (
         <button
-          className='absolute bottom-5 right-5 bg-blue-600 text-white rounded-lg p-2 cursor-pointer hover:bg-blue-500 z-10'
+          className='absolute bottom-5 right-5 bg-green-600 text-white rounded-lg p-2 cursor-pointer hover:bg-green-500 z-10'
           onClick={scrollToTop}
         >
           ↑
         </button>
       )}
-      <div className='flex items-center bg-gray-800 p-2 rounded-lg'>
+      <div className='flex items-center bg-green-800 p-2 rounded-lg'>
         <input
           type='text'
           value={userPrompt}
           onChange={(e) => setUserPrompt(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder='ASK AGRIBOT...'
-          className='flex-1 p-2 bg-transparent border-none outline-none text-white'
+          className='flex-1 p-2 bg-green-700 text-white border border-green-600 rounded-lg outline-none'
         />
         <button
-          className='bg-blue-600 text-white p-2 rounded-lg ml-2 cursor-pointer hover:bg-blue-500'
+          className='bg-green-600 text-white p-2 rounded-lg ml-2 cursor-pointer hover:bg-green-500'
           onClick={sendMessage}
         >
           Send

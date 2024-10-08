@@ -15,7 +15,7 @@ os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
 client = Groq()
 
-@app.route('/chat', methods=['POST'])
+@app.route('/AgroTech-AI_Bot', methods=['POST'])
 def chat():
     data = request.json
     user_prompt = data.get('prompt')
