@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] w-full  z-20 top-0 start-0 fixed`}>
-            <div className="max-w-screen-xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
+            <div className="max-w-screen-2xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
                 <div className="text-white font-bold flex items-center">
                     <img className="float-left" src={icon} alt="icon" style={{ height: '30px', width: '30px' }} />
                     <span className="px-2 text-xl">AgroTech AI</span>
@@ -62,11 +62,9 @@ const Navbar = () => {
                         <Link to="/forecast" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Forecast
                         </Link>
-
                         <Link to="/Irrigation" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Irrigation System
                         </Link>
-
                         <div className="Translator max-h-24">
                             <GoogleTranslate/>
                         </div>
