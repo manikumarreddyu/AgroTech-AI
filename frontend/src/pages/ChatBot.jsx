@@ -11,7 +11,9 @@ function ChatBot() {
 
     setChatHistory((prevHistory) => [...prevHistory, { role: 'user', content: userPrompt }]);
 
-    const response = await fetch('http://localhost:5000/AgroTech-ChatBot', {
+    // const response = await fetch('http://localhost:5000/AgroTech-ChatBot', {
+      const response = await fetch('https://agrotech-chatbot.onrender.com/AgroTech-ChatBot', {
+      
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: userPrompt }),
