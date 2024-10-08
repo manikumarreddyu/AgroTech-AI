@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Testing Centers in India</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin: 0; padding: 0; }
+        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYW5hbmRoYSIsImEiOiJjbTIwN29haWEwYzVrMmpzZ25yeTF4MmN4In0.3fHnwKMxxXNy9pM-Vcn9gw'; // Replace with your Mapbox Access Token
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [78.9629, 20.5937], // Centered on India
+        zoom: 5
+    });
+
+    const soilTestingCenters = [
+        // Andhra Pradesh
+        { name: "Visakhapatnam Soil Testing Laboratory", coordinates: [83.3182, 17.6868], contact: "0891-2700400", services: "Soil Testing, Nutrient Analysis" },
+        { name: "Vijayawada Soil Testing Center", coordinates: [80.6456, 16.5062], contact: "0866-2573401", services: "Soil Testing, pH Testing" },
+        { name: "Guntur Soil Testing Laboratory", coordinates: [80.4545, 16.3064], contact: "0863-2225555", services: "Soil Testing, Fertilizer Recommendation" },
+        
+        // Arunachal Pradesh
+        { name: "Itanagar Soil Testing Laboratory", coordinates: [93.6162, 27.1027], contact: "0360-2212437", services: "Soil Testing, Nutrient Analysis" },
+        
+        // Assam
+        { name: "Assam Agricultural University Soil Testing Lab", coordinates: [91.5868, 26.1445], contact: "0361-2360512", services: "Soil Testing, Fertilizer Recommendation" },
+        
+        // Bihar
+        { name: "Bihar Soil Testing Laboratory", coordinates: [85.324, 25.5948], contact: "0612-2540994", services: "Soil Testing, Nutrient Analysis" },
+        { name: "Bhagalpur Soil Testing Center", coordinates: [87.0054, 25.2500], contact: "0641-2403903", services: "Soil Testing, pH Testing" },
+        
+        // Chhattisgarh
+        { name: "Raipur Soil Testing Laboratory", coordinates: [81.6337, 21.2514], contact: "0771-2239208", services: "Soil Testing, Fertilizer Recommendation" },
+        
+        // Goa
+        { name: "Goa Soil Testing Laboratory", coordinates: [73.8143, 15.4909], contact: "0832-2422051", services: "Soil Testing, Nutrient Analysis" },
+        
+        // Gujarat
+        { name: "Gujarat Agricultural University Soil Testing Laboratory", coordinates: [72.5714, 23.0225], contact: "079-26301347", services: "Soil Testing, Fertilizer Recommendation" },
+        { name: "Surat Soil Testing Center", coordinates: [72.8311, 21.1702], contact: "0261-2412170", services: "Soil Testing, Micro Nutrient Analysis" },
+        { name: "Rajkot Soil Testing Laboratory", coordinates: [70.7483, 22.3039], contact: "0281-2463073", services: "Soil Testing, pH Testing" },
+        
+        // Haryana
+        { name: "Chandigarh Soil Testing Laboratory", coordinates: [76.8324, 30.7333], contact: "0172-2742002", services: "Soil Testing, Nutrient Analysis" },
+        { name: "Hisar Soil Testing Center", coordinates: [75.5705, 29.1498], contact: "01662-263588", services: "Soil Testing, Fertilizer Recommendation" },
+        
+        // Jharkhand
+        { name: "Ranchi Soil Testing Laboratory", coordinates: [85.3380, 23.3441], contact: "0651-2481582", services: "Soil Testing, Micro Nutrient Analysis" },
+        
+        // Karnataka
+        { name: "Karnataka Soil Testing Laboratory", coordinates: [77.5946, 12.9716], contact: "080-23346053", services: "Soil Testing, Nutrient Analysis" },
+        { name: "Mysore Soil Testing Laboratory", coordinates: [76.6383, 12.2958], contact: "0821-2412990", services: "Soil Testing, pH Testing" },
+        { name: "Hubli Soil Testing Laboratory", coordinates: [75.1299, 15.3644], contact: "0836-2264468", services: "Soil Testing, Fertilizer Recommendation" },
+        
+        // Kerala
+        { name: "Kerala Agricultural University Soil Testing Lab", coordinates: [76.9493, 8.5241], contact: "0471-2301605", services: "Soil Testing, Nutrient Analysis" },
+        { name: "Kochi Soil Testing Laboratory", coordinates: [76.2673, 9.9816], contact: "0484-2368447", services: "Soil Testing, pH Testing" },
+        
+        // Madhya Pradesh
+        { name: "Bhopal Soil Testing Laboratory", coordinates: [77.4126, 23.2599], contact: "0755-2451640", services: "Soil Testing, Fertilizer Recommendation" },
+        { name: "Indore Soil Testing Center", coordinates: [75.8760, 22.7196], contact: "0731-2438020", services: "Soil Testing, Micro Nutrient Analysis" },
+        
+        // Maharashtra
+        { name: "Mumbai Soil Testing Center", coordinates: [72.8777, 19.0760], contact: "022-22164278", services: "Soil Testing, Organic Matter Analysis" },
+        { name: "Pune Soil Testing Laboratory", coordinates: [73.8567, 18.5204], contact: "020-25512023", services: "Soil Testing, Micro Nutrient Analysis" },
+        
+        // Manipur
+        { name: "Imphal Soil Testing Laboratory", coordinates: [93.6151, 24.8170], contact: "0385-2454466", services: "Soil Testing, Nutrient Analysis" },
+        
+        // Meghalaya
+        { name: "Shillong Soil Testing Laboratory", coordinates: [91.5822, 25.5788], contact: "0364-2225714", services: "Soil Testing, pH Testing" },
+        
+        // Mizoram
+        { name: "Aizawl Soil Testing Laboratory", coordinates: [92.7274, 23.1645], contact: "0389-2315554", services: "Soil Testing, Nutrient Analysis" },
+        
+        // Nagaland
+        { name: "Kohima Soil Testing Laboratory", coordinates: [94.1126, 25.6742], contact: "0370-2270678", services: "Soil Testing, Fertilizer Recommendation" },
+        
+        // Odisha
+        { name: "Odisha Soil Testing Laboratory", coordinates: [85.8314, 20.2961], contact: "0674-2391653", services: "Soil Testing, Nutrient Analysis" },
+        { name: "Cuttack Soil Testing Center", coordinates: [86.9987, 20.4625], contact: "0671-2410418", services: "Soil Testing, pH Testing" },
+        
+        // Punjab
+        { name: "Amritsar Soil Testing Laboratory", coordinates: [74.9438, 31.6340], contact: "0183-2251236", services: "Soil Testing, Nutrient Analysis" },
+        { name: "Ludhiana Soil Testing Center", coordinates: [75.7804, 30.9009], contact: "0161-2405590", services: "Soil Testing, Fertilizer Recommendation" },
+        
+        // Rajasthan
+        { name: "Jaipur Soil Testing Laboratory", coordinates: [75.7885, 26.9124], contact: "0141-2202731", services: "Soil Testing, Nutrient Analysis" },
+        { name: "Jodhpur Soil Testing Center", coordinates: [73.0243, 26.2389], contact: "0291-2632300", services: "Soil Testing, pH Testing" },
+        
+        // Tamil Nadu
+        { name: "Chennai Soil Testing Laboratory", coordinates: [80.2785, 13.0827], contact: "044-25384111", services: "Soil Testing, Organic Matter Analysis" },
+        { name: "Coimbatore Soil Testing Laboratory", coordinates: [77.0073, 11.0168], contact: "0422-2555514", services: "Soil Testing, Micro Nutrient Analysis" },
+        
+        // Telangana
+        { name: "Hyderabad Soil Testing Laboratory", coordinates: [78.4744, 17.3850], contact: "040-24511544", services: "Soil Testing, Nutrient Analysis" },
+        { name: "Warangal Soil Testing Center", coordinates: [79.5941, 17.9784], contact: "0870-2564892", services: "Soil Testing, Fertilizer Recommendation" },
+        
+        // Tripura
+        { name: "Agartala Soil Testing Laboratory", coordinates: [91.2863, 23.8315], contact: "0381-2321028", services: "Soil Testing, Nutrient Analysis" },
+        
+        // Uttar Pradesh
+        { name: "Lucknow Soil Testing Laboratory", coordinates: [80.9462, 26.8468], contact: "0522-2622100", services: "Soil Testing, pH Testing" },
+        { name: "Agra Soil Testing Center", coordinates: [78.0081, 27.1767], contact: "0562-2288893", services: "Soil Testing, Fertilizer Recommendation" },
+        
+        // Uttarakhand
+        { name: "Dehradun Soil Testing Laboratory", coordinates: [78.0480, 30.3165], contact: "0135-2652447", services: "Soil Testing, Nutrient Analysis" },
+        
+        // West Bengal
+        { name: "Kolkata Soil Testing Laboratory", coordinates: [88.3639, 22.5726], contact: "033-22412894", services: "Soil Testing, Organic Matter Analysis" },
+        { name: "Darjeeling Soil Testing Center", coordinates: [88.2622, 27.0369], contact: "0354-2255000", services: "Soil Testing, pH Testing" },
+        
+        // Jammu and Kashmir
+        { name: "Srinagar Soil Testing Laboratory", coordinates: [74.7794, 34.0837], contact: "0194-2452715", services: "Soil Testing, Nutrient Analysis" },
+        
+        // Ladakh
+        { name: "Leh Soil Testing Laboratory", coordinates: [77.5828, 34.1526], contact: "01982-252234", services: "Soil Testing, Fertilizer Recommendation" }
+    ];
+
+    // Function to add markers for soil testing centers
+    function addMarkers() {
+        soilTestingCenters.forEach(center => {
+            new mapboxgl.Marker()
+                .setLngLat(center.coordinates)
+                .setPopup(new mapboxgl.Popup().setHTML(`<strong>${center.name}</strong><p>Contact: ${center.contact}</p><p>Services: ${center.services}</p>`))
+                .addTo(map);
+        });
+    }
+
+    // Call the function to add markers to the map
+    addMarkers();
+</script>
+
+</body>
+</html>
