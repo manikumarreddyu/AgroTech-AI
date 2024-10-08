@@ -12,7 +12,7 @@ const Footer = () => {
 
     // Define company links with distinct paths
     const companyLinks = [
-        { name: 'About Us', path: '/about' },
+        { name: 'About Us', path: '/aboutus' },
         { name: 'Contact Us', path: '/contact' },
     ];
 
