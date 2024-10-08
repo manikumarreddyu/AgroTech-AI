@@ -15,8 +15,10 @@ import GoTop from './components/GoTop';
 import Forecast from './pages/Forecast';
 import Prices from './components/Prices';
 import Reports from './components/Reports';
+import Irrigation from './components/Irrigation';
 import UseScrollToTop from './components/UseScrollToTop';
-
+import Article from './pages/Article';
+import ChatBot from './pages/ChatBot';
 const MainContent = () => {
   UseScrollToTop();
 
@@ -27,6 +29,7 @@ const MainContent = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/chatbot" element={<ChatBot />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/crop" element={<Crop />} />
@@ -35,9 +38,11 @@ const MainContent = () => {
           <Route path="/submit" element={<Submit/>} />
           <Route path="/fertilizer" element={<Fertilizer />} />
           <Route path="/soil" element={<SoilQuality />} />
+          <Route path="/Irrigation" element={<Irrigation />} />
           <Route path="/forecast" element={<Forecast />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/article" element={<Article/>} />
         </Routes>
         <Footer />
       </div>

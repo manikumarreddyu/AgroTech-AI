@@ -37,6 +37,11 @@ function Home() {
               className='mt-9'>
               <MagicButton title="Explore Now" />
             </Link>
+            {/* <Link
+              to="/chatbot"
+              className='mt-9'>
+              <MagicButton title="💬Try Our AgriBot🤖"/>
+            </Link>  */}
           </div>
           <img className="w-[600px] imgAnimate" src={hero} alt="About Us" />
         </div>
