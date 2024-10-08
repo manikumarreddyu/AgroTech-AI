@@ -17,6 +17,7 @@ import Prices from './components/Prices';
 import Reports from './components/Reports';
 import UseScrollToTop from './components/UseScrollToTop';
 import Article from './pages/Article';
+import ChatBot from './pages/ChatBot';
 const MainContent = () => {
   UseScrollToTop();
 
@@ -27,6 +28,7 @@ const MainContent = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/chatbot" element={<ChatBot />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/crop" element={<Crop />} />
