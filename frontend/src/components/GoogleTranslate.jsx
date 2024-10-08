@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 
 const GoogleTranslate = () => {
-  const [isVisible,setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     window.googleTranslateInit = () => {
@@ -48,61 +48,67 @@ const GoogleTranslate = () => {
   }, []);
 
   return (
-    <div id="google_element" className={`google-translate-container ${isVisible ? '' : 'hidden'}`}>
-  <style jsx>{`
-    .goog-te-combo {
-      background-color: #d1fae5; /* Light green background */
-      border: 2px solid #10b981; /* Green border */
-      border-radius: 0.375rem; /* Rounded edges */
-      padding: 0.5rem;
-      font-size: 0.75rem;
-      transition: all 0.2s;
-      outline: none;
-      z-index: 1; /* Ensure the dropdown doesn't overlap navbar */
-    }
+    <div id="google_element" className={`google-translate-container pl-20 md:pl-0 ${isVisible ? '' : 'hidden'}`}>
+      <style jsx>{`
+        .goog-te-combo {
+          background-color: #f0fdf4; /* Light green background (Tailwind equivalent: bg-green-50) */
+          border: 2px solid #10b981; /* Tailwind green-500 border */
+          border-radius: 0.5rem; /* Slightly more rounded (rounded-md in Tailwind) */
+          padding: 0.5rem 1rem; /* Tailwind: p-2 */
+          font-size: 0.875rem; /* Tailwind: text-sm */
+          transition: all 0.3s ease; /* Smooth transition */
+          outline: none;
+          color: #065f46; /* Dark green text (Tailwind: text-green-800) */
+          font-weight: 500; /* Tailwind: font-medium */
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow */
+        }
 
-    .goog-te-combo:hover {
-      background-color: #86efac; /* Hover effect: lighter green */
-      border-color: #047857; /* Darker green border on hover */
-    }
+        .goog-te-combo:hover {
+          background-color: #d1fae5; /* Hover effect: Tailwind equivalent of bg-green-100 */
+          border-color: #047857; /* Darker border (Tailwind: border-green-700) */
+          box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+        }
 
-    /* Hide the Google Translate logo link and branding */
-    .goog-logo-link {
-      display: none !important;
-    }
+        .goog-logo-link {
+          display: none !important;
+        }
 
-    /* Hide any extra branding text or elements */
-    .goog-te-gadget > span > a {
-      display: none !important;
-    }
+        .goog-te-gadget {
+          color: transparent !important;
+        }
 
-    /* Custom Google Translate styling */
-    #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:first-child {
-      display: none;
-    }
+        .goog-te-gadget > span > a {
+          display: none !important;
+        }
 
-    #google_translate_element .goog-te-gadget-simple .goog-te-menu-value:before {
-      content: 'Translate';
-    }
+        .goog-te-gadget .goog-te-combo {
+          color: green !important;
+        }
 
-    /* Control the pop-up behavior */
-    .goog-te-banner-frame {
-      display: none !important; /* Hide the banner */
-    }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value span:first-child {
+          display: none;
+        }
 
-    /* Optional: Contain the dropdown within specific boundaries */
-    .goog-te-menu-frame {
-      max-height: 400px !important; /* Limit height of the dropdown */
-      overflow-y: auto !important; /* Enable scrolling if too large */
-    }
+        #google_translate_element .goog-te-gadget-simple .goog-te-menu-value:before {
+          content: 'Translate';
+        }
 
-    .skiptranslate > iframe { 
-      height: 0 !important;
-      border-style: none;
-      box-shadow: none;
-    }
-  `}</style>
-</div>
+        .goog-te-banner-frame {
+          display: none !important;
+        }
+
+        .goog-te-menu-frame {
+          max-height: 400px !important;
+          overflow-y: auto !important;
+        }
+
+        .skiptranslate > iframe { 
+          height: 0 !important;
+          border-style: none;
+          box-shadow: none;
+        }
+      `}</style>
+    </div>
   );
 };
 
