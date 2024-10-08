@@ -156,24 +156,24 @@ const Prices = () => {
                             <tbody>
                                 <tr>
                                     <td className="px-4 py-2 border border-gray-300">
-                                        <h5>{receivedData.six_months_forecast[0][1]}</h5>
+                                    <h5>{receivedData?.six_months_forecast?.[0]?.[1] || 'N/A'}</h5>
                                     </td>
                                     <td className="px-4 py-2 border border-gray-300">
-                                        <h4>₹{receivedData.six_months_forecast[0][2]}</h4>
+                                    <h4>₹{receivedData?.six_months_forecast?.[0]?.[2] || 'N/A'}</h4>
                                         <p className="flex items-center">
-                                            {receivedData.six_months_forecast[0][3]}%
+                                        {receivedData?.six_months_forecast?.[0]?.[3] || 'N/A'}%
                                             <img src={gain} alt="Gain Icon" className="ml-2 h-4 w-4" />
                                         </p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td className="px-4 py-2 border border-gray-300">
-                                        <h5>{receivedData.six_months_forecast[0][4]}</h5>
+                                        <h5>{receivedData.six_months_forecast?.[0]?.[4] || 'N/A'}</h5>
                                     </td>
                                     <td className="px-4 py-2 border border-gray-300">
-                                        <h4>₹{receivedData.six_months_forecast[0][5]}</h4>
+                                        <h4>₹{receivedData.six_months_forecast?.[0]?.[5] || 'N/A'}</h4>
                                         <p className="flex items-center">
-                                            {receivedData.six_months_forecast[0][6]}%
+                                            {receivedData.six_months_forecast?.[0]?.[6] || 'N/A'}%
                                             <img src={loss} alt="Loss Icon" className="ml-2 h-4 w-4" />
                                         </p>
                                     </td>
