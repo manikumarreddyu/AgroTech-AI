@@ -178,8 +178,8 @@ const Footer = () => {
             {/* Rating Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="bg-white p-8 rounded-lg shadow-lg" style={{ width: '500px', height: '310px' }}>
-                        <h2 className="text-black font-bold mb-4 text-center text-2xl">Rate Us !</h2>
+                    <div className="bg-white p-8 rounded-lg shadow-lg">
+                        <h2 className="text-lg font-bold mb-4 text-center text-black">Rate Us</h2>
                         <div className="flex justify-center mb-4">
                             {[1, 2, 3, 4, 5].map((value) => (
                                 <span key={value} className={`cursor-pointer text-2xl ${rating >= value ? 'text-lime-500' : 'text-gray-300'}`} onClick={() => handleRating(value)}>
@@ -188,7 +188,7 @@ const Footer = () => {
                             ))}
                         </div>
                         <textarea
-                            className="w-full text-black border border-gray-300 rounded p-2 mb-4"
+                            className="w-full border text-black border-gray-300 rounded p-2 mb-4"
                             rows="4"
                             placeholder="Write your comments here..."
                             value={comment}
