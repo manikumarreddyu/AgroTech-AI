@@ -17,8 +17,7 @@ previous_crop_mapping = {
     'Maize': 4,
     'Cotton': 5,
     'Sorghum': 6,
-    'Barley': 7,
-    # Add more previous crops as necessary
+    'Barley': 7
 }
 
 soil_type_mapping = {
