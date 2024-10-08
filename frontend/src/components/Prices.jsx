@@ -7,7 +7,9 @@ import CropImages from "./CropImages";
 
 const Prices = () => {
     const [loading, setLoading] = useState(true);
-    const [viewCount, setViewCount] = useState(3); // Default to show 3 items for both gainers and losers
+    const [viewCount, setViewCount] = useState(3);
+    const [sortOrder, setSortOrder] = useState('desc');
+    const [error, setError] = useState(null); 
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -42,15 +44,23 @@ const Prices = () => {
                 const responseData = await response.json();
                 setReceivedData(responseData);
             } catch (error) {
+                setError('Failed to fetch data. Please try again later.'); 
                 console.log('Error:', error);
+            } finally {
+                setLoading(false); 
             }
         };
         fetchData();
     }, []);
 
+    const sortData = (data) => {
+        return [...data].sort((a, b) => {
+            return sortOrder === 'desc' ? b[2] - a[2] : a[2] - b[2];
+        });
+    };
+
     const renderCards = (data, isGainer) => {
         return data.slice(0, viewCount).map((ele, index) => {
-            // Generate dynamic shades of green/red based on the percentage change
             const bgColor = isGainer
                 ? `rgba(0, 255, 0, ${0.2 + Math.min(ele[2] / 10, 0.8)})`
                 : `rgba(255, 0, 0, ${0.2 + Math.min(Math.abs(ele[2]) / 10, 0.8)})`;
@@ -58,11 +68,11 @@ const Prices = () => {
             return (
                 <div
                     key={index}
-                    className="p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                    className="p-4 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-xl duration-300 ease-in-out"
                     style={{ backgroundColor: bgColor }}
                 >
                     <h4 className="text-lg font-semibold">
-                        {ele[0]} 
+                        {ele[0]}
                         <img
                             src={isGainer ? gain : loss}
                             alt={isGainer ? "Gain Icon" : "Loss Icon"}
@@ -80,7 +90,11 @@ const Prices = () => {
 
     return (
         <>
-            {loading ? <Spinner /> : (
+            {loading ? <Spinner /> : error ? ( 
+                <div className="text-red-500 text-center mt-4">
+                    {error}
+                </div>
+            ) : (
                 <div className="container mx-auto px-4 py-6 mt-12">
                     <h1 className="text-3xl font-bold text-green-500 text-center mb-6">Price Prediction</h1>
 
@@ -88,14 +102,14 @@ const Prices = () => {
                         <div>
                             <h2 className="text-xl text-green-600 text-center font-bold mb-4">Top Gainers</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {renderCards(receivedData.top_gainers, true)}
+                                {renderCards(sortData(receivedData.top_gainers), true)}
                             </div>
                         </div>
 
                         <div>
                             <h2 className="text-xl text-red-600 text-center font-bold mb-4">Top Losers</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {renderCards(receivedData.top_losers, false)}
+                                {renderCards(sortData(receivedData.top_losers), false)}
                             </div>
                         </div>
                     </div>
@@ -121,7 +135,21 @@ const Prices = () => {
                         </button>
                     </div>
 
-                    {/* Star crop prediction table */}
+                    <div className="flex justify-center space-x-4 mb-6">
+                        <button
+                            onClick={() => setSortOrder('asc')}
+                            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                        >
+                            Sort Ascending
+                        </button>
+                        <button
+                            onClick={() => setSortOrder('desc')}
+                            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                        >
+                            Sort Descending
+                        </button>
+                    </div>
+
                     <div className="mb-6">
                         <h2 className="text-xl font-bold text-green-500 text-center mb-4">Star Crop Prediction</h2>
                         <table className="min-w-full border-collapse border border-gray-300">
