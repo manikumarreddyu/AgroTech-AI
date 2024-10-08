@@ -1,0 +1,4 @@
+Flask
+Flask-CORS
+pandas
+joblib

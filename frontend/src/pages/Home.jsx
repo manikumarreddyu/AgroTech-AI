@@ -8,6 +8,7 @@ import TestimonialSlider from "../components/TestimonialSlider";
 import FAQ from "../components/FAQ";
 import Showcase from "../components/Showcase";
 import Features from "../components/Features";
+import GoogleTranslate from "../components/GoogleTranslate";
 
 function Home() {
   console.log("Home page rerendered");
@@ -16,6 +17,9 @@ function Home() {
 
   return (      
     <div className="mt-10 min-h-screen   dark:bbg-green-500" >
+      <div className="Translator absolute right-2 pt-2">
+          <GoogleTranslate/>
+      </div>
       <div className="w-full  py-16 px-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
         <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
           <div className="flex flex-col justify-center">
@@ -33,6 +37,11 @@ function Home() {
               className='mt-9'>
               <MagicButton title="Explore Now" />
             </Link>
+            {/* <Link
+              to="/chatbot"
+              className='mt-9'>
+              <MagicButton title="💬Try Our AgriBot🤖"/>
+            </Link>  */}
           </div>
           <img className="w-[600px] imgAnimate" src={hero} alt="About Us" />
         </div>

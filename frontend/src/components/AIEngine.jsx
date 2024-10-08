@@ -115,7 +115,7 @@ const AIEngine = () => {
             <li>Remove Diseased Stems and Foliage</li>
           </ol>
           <a
-            href="https://www.thespruce.com/prevent-plant-diseases-in-your-garden-2539511"
+            href="/article"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons from react-icons
 import icon from '../assets/favicon2.png';
+import GoogleTranslate from './GoogleTranslate';
 
 // import useTheme from '../hooks/useTheme'; // Import useTheme hook
 
@@ -16,10 +17,11 @@ const Navbar = () => {
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
+    //via-[#3ff132] -->from-[#11cb46] via-[#3ff132] to-[#04ba10] 
 
     return (
-        <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] fixed w-full  z-20 top-0 start-0  `}>
-            <div className="max-w-screen-xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
+        <nav className={`bg-gradient-to-r from-[#11cb46] via-green-600 to-[#04ba10] w-full  z-20 top-0 start-0 fixed`}>
+            <div className="max-w-screen-2xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
                 <div className="text-white font-bold flex items-center">
                     <img className="float-left" src={icon} alt="icon" style={{ height: '30px', width: '30px' }} />
                     <span className="px-2 text-xl">AgroTech AI</span>
@@ -56,7 +58,7 @@ const Navbar = () => {
                             Fertilizer
                         </Link>
                         <Link to="/soil" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
-                            Soil Quality
+                            Soil
                         </Link>
                         <Link to="/prices" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Price
@@ -64,6 +66,13 @@ const Navbar = () => {
                         <Link to="/forecast" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Forecast
                         </Link>
+                        <Link to="/crop_recommendation" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Rotation
+                        </Link>
+                        <Link to="/Irrigation" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Irrigation
+                        </Link>
+                        <GoogleTranslate/>
                     </div>
                 </div>
                 {/* <button
