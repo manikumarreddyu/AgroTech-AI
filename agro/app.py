@@ -8,11 +8,23 @@ import random
 from datetime import datetime
 from flask import Blueprint
 from math import ceil
+from sklearn.preprocessing import LabelEncoder
+import logging
+
 
 # Create a Flask application instance
 app = Flask(__name__)
 application=app
  
+ # Load the trained irrigation model
+with open('irrigation_model.pkl', 'rb') as file:
+    irrigation_model = pickle.load(file)
+
+# Load the label encoder
+with open('label_encoder.pkl', 'rb') as file:
+    label_encoder = pickle.load(file)
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Enable CORS for all routes, allowing requests from any origin
 CORS(app,resources={r"/*":{"origins":"*"}})
@@ -22,6 +34,7 @@ crop_model = pickle.load(open('crop_recommendation.pkl', 'rb'))
 fertilizer_model = pickle.load(open('fertilizer.pkl', 'rb'))
 classifier_model = pickle.load(open('classifier.pkl', 'rb'))
 soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
+irrigation_model = pickle.load(open('irrigation_model.pkl', 'rb'))
 
  
 
@@ -55,6 +68,67 @@ def fertilizer_predict():
         return jsonify({'Prediction': str(prediction)})
     except Exception as e:
         return jsonify({'error': str(e)})
+    
+    # Define your predefined categories
+soil_types = ['Clayey', 'Sandy', 'Black', 'Loamy', 'Red']
+crop_types = ['Barley', 'Groundnuts', 'Wheat', 'Tobacco', 'Sugarcane', 
+              'Pulses', 'Paddy', 'Oil Seeds', 'Maize', 'Millets', 'Cotton']
+
+# Initialize label encoders
+label_encoder_soil = LabelEncoder()
+label_encoder_crop = LabelEncoder()
+
+# Fit the label encoders with the predefined categories
+label_encoder_soil.fit(soil_types)
+label_encoder_crop.fit(crop_types)
+    
+@app.route('/irrigation', methods=['POST'])
+def irrigation():
+    logging.basicConfig(level=logging.INFO)
+    logger = logging.getLogger(__name__)
+    try:
+        data = request.get_json()
+        print("Received data:", data)  # Debug log for received data
+
+        # Check if all required fields are present
+        required_fields = ['soil_type', 'crop_type', 'avg_temperature', 'geographical_location', 'moisture_level']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({'error': f'Missing field: {field}'}), 400
+
+        # Extract input data from the request
+        soil_type = data['soil_type']                    # Expected to be one of the predefined soil types
+        crop_type = data['crop_type']                    # Expected to be one of the predefined crop types
+        avg_temperature = data['avg_temperature']        # Numeric value between 15 and 40
+        geographical_location = data['geographical_location']  # City or state name
+        moisture_level = data['moisture_level']          # Numeric value between 10 and 100
+
+        # Prepare the input data for prediction
+        # If you are using Label Encoding for categorical variables, make sure to encode them here
+        encoded_soil_type = label_encoder_soil.transform([soil_type])[0]
+        encoded_crop_type = label_encoder_crop.transform([crop_type])[0]
+
+        # Construct input data for the model
+        input_data = [[encoded_soil_type, encoded_crop_type, avg_temperature, moisture_level]]
+
+        # Get the irrigation recommendation from the model
+        irrigation_recommendation = irrigation_model.predict(input_data)
+
+        # Return the result as a JSON response
+        return jsonify({
+            'irrigation_recommendation': irrigation_recommendation[0],  # Ensure this is indexed correctly
+        })
+
+    except KeyError as e:
+        # Handle missing data fields
+        return jsonify({'error': f'Missing field: {e}'}), 400
+
+    except Exception as e:
+        # Handle any other errors
+        return jsonify({'error': str(e)}), 500
+
+
+
     
 @app.route('/soil_quality_predict', methods=['POST'])
 def soil_quality_predict():
