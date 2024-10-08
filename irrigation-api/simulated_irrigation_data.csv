@@ -1,4 +1,4 @@
-Soil Type,Crop Type,Avg Temperature,Geographical Location,Moisture Level,Irrigation Requirement,Irrigation Type
+Soil_Type,Crop_Type,Avg_Temperature,Geographical_Location,Moisture_Level,Irrigation_Requirement,Irrigation_Type
 Sandy,Maize,37.71642021881179,Jaipur,91.04372437063981,230,Surface Irrigation
 Black,Groundnuts,30.095788846776777,Lucknow,91.89556814647514,150,Drip Irrigation
 Clayey,Cotton,31.352025479946807,Mumbai,65.2919610651362,170,Subsurface Drip Irrigation
