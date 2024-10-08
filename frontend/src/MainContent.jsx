@@ -6,6 +6,8 @@ import Disease from './components/Disease';
 import AIEngine from './components/AIEngine';
 import Submit from './components/Submit';
 import Home from './pages/Home';
+import Contact from './pages/Contact';
+import About from './pages/About';
 import Fertilizer from './components/Fertilizer';
 import SoilQuality from './components/SoilQuality';
 import Footer from './components/Footer';
@@ -15,7 +17,8 @@ import Prices from './components/Prices';
 import Reports from './components/Reports';
 import Irrigation from './components/Irrigation';
 import UseScrollToTop from './components/UseScrollToTop';
-
+import Article from './pages/Article';
+import ChatBot from './pages/ChatBot';
 const MainContent = () => {
   UseScrollToTop();
 
@@ -26,6 +29,9 @@ const MainContent = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/chatbot" element={<ChatBot />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
           <Route path="/crop" element={<Crop />} />
           <Route path="/disease" element={<Disease />} />
           <Route path="/engine" element={<AIEngine/>} />
@@ -36,6 +42,7 @@ const MainContent = () => {
           <Route path="/forecast" element={<Forecast />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/article" element={<Article/>} />
         </Routes>
         <Footer />
       </div>
