@@ -62,13 +62,15 @@ const Navbar = () => {
                         <Link to="/forecast" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Forecast
                         </Link>
+                        <Link to="/crop_recommendation" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                            Rotation
+                        </Link>
                         <Link to="/Irrigation" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Irrigation System
                         </Link>
                         <div className="Translator max-h-24">
                             <GoogleTranslate/>
                         </div>
-
                     </div>
                 </div>
                 {/* <button

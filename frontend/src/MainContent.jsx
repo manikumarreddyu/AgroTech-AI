@@ -19,6 +19,8 @@ import Irrigation from './components/Irrigation';
 import UseScrollToTop from './components/UseScrollToTop';
 import Article from './pages/Article';
 import ChatBot from './pages/ChatBot';
+import CropRotationRecommendation from './components/CropRotationRecommendation';
+
 const MainContent = () => {
   UseScrollToTop();
 
@@ -39,6 +41,7 @@ const MainContent = () => {
           <Route path="/fertilizer" element={<Fertilizer />} />
           <Route path="/soil" element={<SoilQuality />} />
           <Route path="/Irrigation" element={<Irrigation />} />
+          <Route path="/crop_recommendation" element={<CropRotationRecommendation/>}/>
           <Route path="/forecast" element={<Forecast />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/reports" element={<Reports />} />
