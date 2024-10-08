@@ -17,9 +17,10 @@ const Navbar = () => {
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
+    //via-[#3ff132] -->from-[#11cb46] via-[#3ff132] to-[#04ba10] 
 
     return (
-        <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] w-full  z-20 top-0 start-0 fixed`}>
+        <nav className={`bg-gradient-to-r from-[#11cb46] via-green-600 to-[#04ba10] w-full  z-20 top-0 start-0 fixed`}>
             <div className="max-w-screen-2xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
                 <div className="text-white font-bold flex items-center">
                     <img className="float-left" src={icon} alt="icon" style={{ height: '30px', width: '30px' }} />

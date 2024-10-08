@@ -53,7 +53,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className='bg-gradient-to-r from-emerald-500 via-green-500 to-lime-500 p-8 text-white'>
+        <footer className='bg-gradient-to-r from-[#11cb46] via-green-600 to-[#04ba10]  p-8 text-white'>
             <div className='container mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
                     {/* Company Section */}
@@ -160,7 +160,7 @@ const Footer = () => {
                 </div>
                 <div className='mt-8 pt-8 border-t border-white/30 text-center'>
                     <p className='flex items-center justify-center text-sm'>
-                        Copyright <FaRegCopyright className='mx-1' /> {currentYear} All Rights Reserved <span className="text-lime-200 font-semibold mx-1">AgroTech AI</span>
+                        Copyright <FaRegCopyright className='mx-1' /> {currentYear} All Rights Reserved <span className="font-bold ml-2 bg-white text-emerald-600 px-2 py-1 rounded transition-all duration-300 hover:bg-emerald-600 hover:text-white">AgroTech AI</span>
                     </p>
                 </div>
 
