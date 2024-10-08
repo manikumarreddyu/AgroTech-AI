@@ -40,8 +40,9 @@ const CropRotationRecommendation = () => {
 
     const handlePredictClick = (e) => {
         e.preventDefault();
-        const url = "http://127.0.0.1:5000/crop_recommendation";
-    
+        // const url = "http://127.0.0.1:5000/crop_recommendation";
+    // https://crop-rotation-api.onrender.com
+        const url = "https://crop-rotation-api.onrender.com/crop_recommendation";
         setIsLoading(true);
     
         const numericData = {
