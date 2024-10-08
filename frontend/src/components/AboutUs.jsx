@@ -27,7 +27,7 @@ function AboutUs() {
               <img className="w-[550px] mx-auto md:my-4" src={aboutus} alt="About Us" />
             </div>
             <p className="bg-gradient-to-r from-green-900 via-green-000 to-green-900 inline-block text-transparent bg-clip-text text-4xl font-bold py-1">
-               Our Mission
+               Our Mission 
             </p>
             <div className="flex">
               <img className="w-[550px] mx-auto md:my-4" src={editor} alt="About Us" />
