@@ -150,6 +150,7 @@ const AIEngine = () => {
         </div>
 
         <div className="bg-white shadow rounded-lg p-6">
+
           {!previewUrl && (<img
             src="https://static.vecteezy.com/system/resources/previews/023/527/362/non_2x/upload-icon-sign-symbol-green-design-transparent-background-free-png.png"
             alt="Upload Crop"
