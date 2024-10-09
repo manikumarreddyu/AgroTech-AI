@@ -6,6 +6,8 @@ import img2 from "../assets/img2.jpg";
 import img3 from "../assets/116.jpg";
 import img4 from "../assets/112.jpg";
 import img5 from "../assets/111.jpeg";
+import img6 from "../assets/AdvDisadv.png"
+import AdvantagesDisadvantages from './AdvantagesDisadvantages';
 
 const CropRecommendation = () => {
     const [loading, setLoading] = useState(true);
@@ -255,27 +257,10 @@ const CropRecommendation = () => {
 
                         </div>
                         <div className="flex flex-col sm:flex-row items-center justify-between ">
-                            <div className="sm:w-1/2 p-4 items-center">
-
-                                <p className='  text-2xl font-bold py-2 text-[#000435] '>
-                                    🚀<span className="bg-gradient-to-r from-green-600 via-green-500 to-green-600 inline-block text-transparent bg-clip-text    md:text-3xl sm:text-3xl">Advantages and</span>📉<span className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text    md:text-3xl sm:text-3xl">Disadvantages</span>
-                                </p>
+                            <div className="items-center mx-auto">
                                 <p className="text-lg text-[#000435] ">
-                                    <span> ✅ <strong>Advantages:</strong></span><br />
-                                    <span> 🌟 Helps farmers make data-driven decisions.</span><br />
-                                    <span> 🌟 Increases crop yield by selecting the most suitable crops.</span><br />
-                                    <span> 🌟 Reduces the risk of crop failure by considering environmental factors.</span><br />
-                                    <span> 🌟 Optimizes resource use like water and fertilizers.</span><br />
-                                    <span> ❌ <strong>Disadvantages:</strong></span><br />
-                                    <span> ⚠️ Requires accurate and up-to-date data for best results.</span><br />
-                                    <span> ⚠️ May involve initial costs for data collection and analysis tools.</span><br />
-                                    <span> ⚠️ Dependent on technology, which can be a barrier for some farmers.</span><br />
-                                    <span> ⚠️ May need ongoing support and updates to stay effective.</span><br />
+                                    <AdvantagesDisadvantages/>
                                 </p>
-                            </div>
-
-                            <div className="sm:w-1/2 flex flex-wrap px-10 my-10 rounded-md justify-center">
-                                <img src={img4} alt="Crop 1" style={{ borderRadius: '10%' }} className="w-full p-2" />
                             </div>
                         </div>
                     </div>
