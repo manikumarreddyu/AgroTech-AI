@@ -80,30 +80,17 @@ function ChatBot() {
   }, []);
 
   return (
-<<<<<<< HEAD
-    <div className='flex flex-col h-screen p-5' style={{ backgroundImage: `url(${bgHero})`}}>
+    <div className='flex flex-col h-screen p-5' style={{ backgroundImage: `url(${bgHero})` }}>
+      <h1 className="text-2xl text-center text-green-500 font-bold mb-6">AgroTech AI ChatBot</h1>
       <div
         className='flex-1 overflow-y-auto p-2 border border-green-700 rounded-lg mb-2 mt-16'
-=======
-    <div className='max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8'>
-      <h1 className="text-2xl text-center text-green-500 font-bold ">AgroTech AI ChatBot</h1>
-      <div
-        className='flex flex-col overflow-y-auto p-2 border-2 border-green-500 rounded-lg mt-6 mb-2'
->>>>>>> 7c81e0d42720e7ed1517c231a49dcfd496ccdc01
         ref={chatHistoryRef}
       >
         {chatHistory.map((message, index) => (
           <div
             key={index}
-<<<<<<< HEAD
             className={`flex items-start mb-2 ${
               message.role === 'user' ? 'flex-row-reverse' : 'flex-row'
-=======
-            className={`p-2 m-1 rounded-xl w-fit max-w-[80%] text-white ${
-              message.role === 'user'
-                ? 'bg-green-600 self-start rounded-tr-none'
-                : 'bg-green-600 self-end rounded-tl-none'
->>>>>>> 7c81e0d42720e7ed1517c231a49dcfd496ccdc01
             }`}
           >
             {/* Adding user and assistant icons without text */}
@@ -132,13 +119,8 @@ function ChatBot() {
           value={userPrompt}
           onChange={(e) => setUserPrompt(e.target.value)}
           onKeyDown={handleKeyDown}
-<<<<<<< HEAD
-          placeholder='ASK AGRIBOT...'
-          className='flex-1 p-2 text-white border border-green-600 rounded-lg outline-none'
-=======
           placeholder='Ask AgroTech-AI ChatBot...'
           className='flex-1 p-2 bg-white text-black border-2 border-green-600 rounded-lg outline-none'
->>>>>>> 7c81e0d42720e7ed1517c231a49dcfd496ccdc01
         />
         <button
           className='bg-green-600 text-white p-2 rounded-lg ml-2 cursor-pointer hover:bg-green-700'
@@ -152,5 +134,3 @@ function ChatBot() {
 }
 
 export default ChatBot;
-
-
