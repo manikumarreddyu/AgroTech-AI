@@ -55,7 +55,7 @@ const Navbar = () => {
                             Fertilizer
                         </Link>
                         <Link to="/soil" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
-                            Soil Quality
+                            Soil
                         </Link>
                         <Link to="/prices" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
                             Price
@@ -67,11 +67,9 @@ const Navbar = () => {
                             Rotation
                         </Link>
                         <Link to="/Irrigation" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
-                            Irrigation System
+                            Irrigation
                         </Link>
-                        <div className="Translator max-h-24">
-                            <GoogleTranslate/>
-                        </div>
+                        <GoogleTranslate/>
                     </div>
                 </div>
                 {/* <button

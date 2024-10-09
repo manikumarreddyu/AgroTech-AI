@@ -15,11 +15,13 @@ import GoTop from './components/GoTop';
 import Forecast from './pages/Forecast';
 import Prices from './components/Prices';
 import Reports from './components/Reports';
+import AboutUs from "./components/AboutUs";
 import Irrigation from './components/Irrigation';
 import UseScrollToTop from './components/UseScrollToTop';
 import Article from './pages/Article';
 import ChatBot from './pages/ChatBot';
 import CropRotationRecommendation from './components/CropRotationRecommendation';
+
 
 const MainContent = () => {
   UseScrollToTop();
@@ -45,6 +47,7 @@ const MainContent = () => {
           <Route path="/forecast" element={<Forecast />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/article" element={<Article/>} />
         </Routes>
         <Footer />
