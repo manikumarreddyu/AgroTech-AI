@@ -29,6 +29,7 @@ function ChatBot() {
     saveChatHistory(updatedHistory);  // Save updated history to localStorage
 
     const response = await fetch('https://agrotech-chatbot.onrender.com/AgroTech-ChatBot', {
+    const response = await fetch('https://agrotech-chatbot.onrender.com/AgroTech-ChatBot', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt: userPrompt }),
@@ -69,12 +70,6 @@ function ChatBot() {
   useEffect(() => {
     scrollToBottom();
   }, [chatHistory]);
-
-  const scrollToTop = () => {
-    if (chatHistoryRef.current) {
-      chatHistoryRef.current.scrollTop = 0;
-    }
-  };
 
   useEffect(() => {
     setShowScrollToTop(chatHistory.length > 0);
@@ -117,15 +112,8 @@ function ChatBot() {
           </div>
         ))}
       </div>
-      {showScrollToTop && (
-        <button
-          className='absolute bottom-5 right-5 bg-green-600 text-white rounded-lg p-2 cursor-pointer hover:bg-green-500 z-10'
-          onClick={scrollToTop}
-        >
-          ↑
-        </button>
-      )}
-      <div className='flex items-center bg-green-800 p-2 rounded-lg'>
+
+      <div className='flex items-center bg-green-500 p-2 rounded-lg'>
         <input
           type='text'
           value={userPrompt}
@@ -135,7 +123,7 @@ function ChatBot() {
           className='flex-1 p-2 text-white border border-green-600 rounded-lg outline-none'
         />
         <button
-          className='bg-green-600 text-white p-2 rounded-lg ml-2 cursor-pointer hover:bg-green-500'
+          className='bg-green-600 text-white p-2 rounded-lg ml-2 cursor-pointer hover:bg-green-700'
           onClick={sendMessage}
         >
           Send
@@ -146,3 +134,5 @@ function ChatBot() {
 }
 
 export default ChatBot;
+
+

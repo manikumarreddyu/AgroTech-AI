@@ -9,7 +9,7 @@ function App() {
   return (
     <>
     <h1 className="text-3xl font-bold underline">
-      AgroTech AI ecommerce
+      AgroTech AI Rental Market Place
     </h1>
     </>
   )
