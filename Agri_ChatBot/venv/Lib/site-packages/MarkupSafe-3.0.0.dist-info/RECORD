@@ -1,0 +1,14 @@
+MarkupSafe-3.0.0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+MarkupSafe-3.0.0.dist-info/LICENSE.txt,sha256=RjHsDbX9kKVH4zaBcmTGeYIUM4FG-KyUtKV_lu6MnsQ,1503
+MarkupSafe-3.0.0.dist-info/METADATA,sha256=NMbGYP2bGbU3eGK8126PEWLc_zQBDe7FZL7vHKp_uME,4067
+MarkupSafe-3.0.0.dist-info/RECORD,,
+MarkupSafe-3.0.0.dist-info/WHEEL,sha256=3vidnDuZ-QSnHIxLhNbI1gIM-KgyEcMHuZuv1mWPd_Q,101
+MarkupSafe-3.0.0.dist-info/top_level.txt,sha256=qy0Plje5IJuvsCBjejJyhDCjEAdcDLK_2agVcex8Z6U,11
+markupsafe/__init__.py,sha256=YvSuddFJXkoaq4tB-1za0c-rrwLLj9UiNpbuBx2_OrU,13488
+markupsafe/__pycache__/__init__.cpython-312.pyc,,
+markupsafe/__pycache__/_native.cpython-312.pyc,,
+markupsafe/_native.py,sha256=2ptkJ40yCcp9kq3L1NqpgjfpZB-obniYKFFKUOkHh4Q,218
+markupsafe/_speedups.c,sha256=KsOd8jxGo8Je7sBrnS9-qAys4TCgQQf8XlMTqetFZII,4301
+markupsafe/_speedups.cp312-win_amd64.pyd,sha256=XkLDKtEjB2JuJgTjQ-9BFTsbkm3jtiS4gY8_RvEzYhw,13312
+markupsafe/_speedups.pyi,sha256=LSDmXYOefH4HVpAXuL8sl7AttLw0oXh1njVoVZp2wqQ,42
+markupsafe/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
