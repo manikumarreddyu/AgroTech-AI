@@ -69,12 +69,6 @@ const AIEngine = () => {
         </div>
 
         <div className="bg-white shadow rounded-lg p-6">
-          <img
-            src="https://www.pngjoy.com/pngl/250/4840262_plants-png-indoors-tropical-plant-png-hd-png.png"
-            alt="Plant"
-            className="w-48 h-48 object-cover rounded-full mx-auto mb-6"
-          />
-
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Image preview */}
             {previewUrl && (
