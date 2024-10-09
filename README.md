@@ -2,6 +2,12 @@
 <div style="display:none;" align="center">
 <h1><font size="10"> AgroTech AI </font></h1>
 
+![image](https://github.com/user-attachments/assets/4c4855a7-3256-4878-8cbf-7ef4ecefa058)
+
+![image](https://github.com/user-attachments/assets/bb2da5d2-fe19-4cfd-a410-0efa8c02366e)
+
+![image](https://github.com/user-attachments/assets/5b57a69a-d450-4530-bd76-88b02a85a4de)
+    
 <!-- repo intro -->
 
 </div>
@@ -174,13 +180,19 @@ Make sure you follow our contributing guidlines:-  [here](https://github.com/Ram
 1. **Fork this repository** 🍴 and clone it to your local machine:
    ```bash
    git clone https://github.com/manikumarreddyu/AgroTech-AI.git
-2. **Install dependencies 🧩:**
+2. **Install the required Python packages for Flask backend 🐍:**
+   ```bash
+   pip install -r requirements.txt
+3. **Start the Flask server ⚡:**
+   ```bash
+   python app.py
+4. **Install the dependencies for React frontend 🧩:**
    ```bash
    npm install
-3. **Run the development server ⚡:**
+5. **Run the development server ⚡:**
    ```bash
    npm run dev
-4. Open your browser at `http://localhost:3000` to see the project running! 🌟
+6. Open your browser at `http://localhost:3000` to see the project running! 🌟
 
 <!-- Code of conduct -->
 <div>
@@ -204,11 +216,10 @@ If you would like to contribute to the project then kindly go through [Contribut
 
 <p><a href="https://github.com/manikumarreddyu/AgroTech-AI/contributors">
   <img src="https://contributors-img.web.app/image?repo=manikumarreddyu/AgroTech-AI" />
+  
 </a></p>
 
 </div>
-
-<hr>
 <!-- License -->
 <div>
 <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" width="35" height="35"> License:</h2>

@@ -1,13 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-// import { FaSun, FaMoon } from 'react-icons/fa'; // Import icons from react-icons
+import { NavLink } from 'react-router-dom';
 import icon from '../assets/favicon2.png';
-
-// import useTheme from '../hooks/useTheme'; // Import useTheme hook
+import GoogleTranslate from './GoogleTranslate';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    // const { theme, toggleTheme } = useTheme(); // Use useTheme hook
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -18,8 +15,8 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`bg-gradient-to-r from-[#11cb46] via-[#3ff132] to-[#04ba10] fixed w-full  z-20 top-0 start-0  `}>
-            <div className="max-w-screen-xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
+        <nav className="bg-gradient-to-r from-[#11cb46] via-green-600 to-[#04ba10] w-full z-20 top-0 start-0 fixed">
+            <div className="max-w-screen-2xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
                 <div className="text-white font-bold flex items-center">
                     <img className="float-left" src={icon} alt="icon" style={{ height: '30px', width: '30px' }} />
                     <span className="px-2 text-xl">AgroTech AI</span>
@@ -40,39 +37,93 @@ const Navbar = () => {
                 </button>
                 <div className={`${isMenuOpen ? "block" : "hidden"} w-full lg:block lg:w-auto transition-all duration-300 ease-in-out`} id="navbar-default">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-4">
-                        <Link to="/" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <NavLink 
+                            exact to="/" 
+                            className={({ isActive }) => 
+                                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`
+                            }
+                            onClick={closeMenu}
+                        >
                             Home
-                        </Link>
-                        <Link to="/crop" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        </NavLink>
+                        <NavLink 
+                            to="/crop" 
+                            className={({ isActive }) => 
+                                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`
+                            }
+                            onClick={closeMenu}
+                        >
                             Crop
-                        </Link>
-                        <Link to="/disease" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        </NavLink>
+                        <NavLink 
+                            to="/disease" 
+                            className={({ isActive }) => 
+                                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`
+                            }
+                            onClick={closeMenu}
+                        >
                             Disease
-                        </Link>
-                        <Link to="/fertilizer" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        </NavLink>
+                        <NavLink 
+                            to="/fertilizer" 
+                            className={({ isActive }) => 
+                                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`
+                            }
+                            onClick={closeMenu}
+                        >
                             Fertilizer
-                        </Link>
-                        <Link to="/soil" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
-                            Soil Quality
-                        </Link>
-                        <Link to="/prices" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        </NavLink>
+                        <NavLink 
+                            to="/soil" 
+                            className={({ isActive }) => 
+                                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`
+                            }
+                            onClick={closeMenu}
+                        >
+                            Soil
+                        </NavLink>
+                        <NavLink 
+                            to="/prices" 
+                            className={({ isActive }) => 
+                                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`
+                            }
+                            onClick={closeMenu}
+                        >
                             Price
-                        </Link>
-                        <Link to="/forecast" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        </NavLink>
+                        <NavLink 
+                            to="/forecast" 
+                            className={({ isActive }) => 
+                                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`
+                            }
+                            onClick={closeMenu}
+                        >
                             Forecast
-                        </Link>
+                        </NavLink>
+                        <NavLink 
+                            to="/crop_recommendation" 
+                            className={({ isActive }) => 
+                                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`
+                            }
+                            onClick={closeMenu}
+                        >
+                            Rotation
+                        </NavLink>
+                        <NavLink 
+                            to="/Irrigation" 
+                            className={({ isActive }) => 
+                                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`
+                            }
+                            onClick={closeMenu}
+                        >
+                            Irrigation
+                        </NavLink>
+                        <GoogleTranslate/>
                     </div>
                 </div>
-                {/* <button
-                    className="inline-flex   items-center justify-center w-10 h-10 text-gray-100 rounded-lg hover:bg-green-400 focus:outline-none focus:ring-1 focus:ring-gray-200"
-                    onClick={toggleTheme}
-                >
-                    {theme === 'light' ? <FaMoon className="text-2xl p-1" /> : <FaSun className="text-2xl p-1" />}
-                </button> */}
             </div>
         </nav>
     );
 };
 
 export default Navbar;
-
