@@ -71,12 +71,6 @@ const Navbar = () => {
 
                     </div>
                 </div>
-                {/* <button
-                    className="inline-flex   items-center justify-center w-10 h-10 text-gray-100 rounded-lg hover:bg-green-400 focus:outline-none focus:ring-1 focus:ring-gray-200"
-                    onClick={toggleTheme}
-                >
-                    {theme === 'light' ? <FaMoon className="text-2xl p-1" /> : <FaSun className="text-2xl p-1" />}
-                </button> */}
             </div>
         </nav>
     );

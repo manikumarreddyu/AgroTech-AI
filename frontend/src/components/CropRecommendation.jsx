@@ -8,6 +8,7 @@ import img4 from "../assets/112.jpg";
 import img5 from "../assets/111.jpeg";
 import img6 from "../assets/AdvDisadv.png"
 import AdvantagesDisadvantages from './AdvantagesDisadvantages';
+import img7 from "../assets/cropinspection.png";
 
 const CropRecommendation = () => {
     const [loading, setLoading] = useState(true);
@@ -256,11 +257,14 @@ const CropRecommendation = () => {
 
 
                         </div>
-                        <div className="flex flex-col sm:flex-row items-center justify-between ">
-                            <div className="items-center mx-auto">
-                                <p className="text-lg text-[#000435] ">
+                        <div className="flex flex-row sm:flex-row items-center justify-between rounded-3xl">
+                            <div className="w-[850px] p-4 items-center rounded-3xl">
+                                <p className="text-lg text-[#000435] justify-center">
                                     <AdvantagesDisadvantages/>
                                 </p>
+                            </div>
+                            <div className='mx-auto'>
+                                <img src={img7} alt="" className='w-[512px] h-[450px] rounded-2xl' />
                             </div>
                         </div>
                     </div>
