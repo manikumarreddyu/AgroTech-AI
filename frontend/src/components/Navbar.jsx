@@ -42,31 +42,31 @@ const Navbar = () => {
                 </button>
                 <div className={`${isMenuOpen ? "block" : "hidden"} w-full lg:block lg:w-auto transition-all duration-300 ease-in-out`} id="navbar-default">
                     <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-4">
-                        <Link to="/" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <Link to="/" className="block py-2 px-3 text-white hover:text-gray-200 hover:bg-yellow-500 text-center" onClick={closeMenu}>
                             Home
                         </Link>
-                        <Link to="/crop" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <Link to="/crop" className="block py-2 px-3 text-white hover:text-gray-200 hover:bg-yellow-500 text-center" onClick={closeMenu}>
                             Crop
                         </Link>
-                        <Link to="/disease" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <Link to="/disease" className="block py-2 px-3 text-white hover:text-gray-200 hover:bg-yellow-500 text-center" onClick={closeMenu}>
                             Disease
                         </Link>
-                        <Link to="/fertilizer" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <Link to="/fertilizer" className="block py-2 px-3 text-white hover:text-gray-200 hover:bg-yellow-500 text-center" onClick={closeMenu}>
                             Fertilizer
                         </Link>
-                        <Link to="/soil" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <Link to="/soil" className="block py-2 px-3 text-white hover:text-gray-200 hover:bg-yellow-500 text-center" onClick={closeMenu}>
                             Soil
                         </Link>
-                        <Link to="/prices" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <Link to="/prices" className="block py-2 px-3 text-white hover:text-gray-200 hover:bg-yellow-500 text-center" onClick={closeMenu}>
                             Price
                         </Link>
-                        <Link to="/forecast" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <Link to="/forecast" className="block py-2 px-3 text-white hover:text-gray-200 hover:bg-yellow-500 text-center" onClick={closeMenu}>
                             Forecast
                         </Link>
-                        <Link to="/crop_recommendation" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <Link to="/crop_recommendation" className="block py-2 px-3 text-white hover:text-gray-200 hover:bg-yellow-500 text-center" onClick={closeMenu}>
                             Rotation
                         </Link>
-                        <Link to="/Irrigation" className="block py-2 px-3 text-white hover:text-gray-200 text-center" onClick={closeMenu}>
+                        <Link to="/Irrigation" className="block py-2 px-3 text-white hover:text-gray-200 hover:bg-yellow-500 text-center" onClick={closeMenu}>
                             Irrigation
                         </Link>
                         <GoogleTranslate/>
