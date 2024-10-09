@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
 import bgHero from "../assets/bgHero.png";
 
 const Contact = () => {
@@ -134,40 +136,40 @@ const Contact = () => {
 
       <div className="mb-10">
       <h3 className="text-2xl font-bold text-gray-800 mb-4">Follow Us</h3>
-        <div className="flex space-x-6">
-          <a 
-            href="https://facebook.com/agrotech" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600 hover:underline"
-          >
-            Facebook
-          </a>
-          <a 
-            href="https://twitter.com/agrotech" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:underline"
-          >
-            Twitter
-          </a>
-          <a 
-            href="https://linkedin.com/company/agrotech" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-700 hover:underline"
-          >
-            LinkedIn
-          </a>
-          <a 
-            href="https://instagram.com/agrotech" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-pink-600 hover:underline"
-          >
-            Instagram
-          </a>
-        </div>
+      <div className="flex space-x-6">
+        <a
+          href="https://facebook.com/agrotech"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800"
+        >
+          <FaFacebook size={24} />
+        </a>
+        <a
+          href="https://twitter.com/agrotech"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black hover:text-black"
+        >
+          <FaXTwitter size={24} />
+        </a>
+        <a
+          href="https://linkedin.com/company/agrotech"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-700 hover:text-blue-900"
+        >
+          <FaLinkedin size={24} />
+        </a>
+        <a
+          href="https://instagram.com/agrotech"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-pink-600 hover:text-pink-800"
+        >
+          <FaInstagram size={24} />
+        </a>
+      </div>
       </div>
 
       <div>
