@@ -264,7 +264,7 @@ const CropRecommendation = () => {
                                 </p>
                             </div>
                             <div className='mx-auto'>
-                                <img src={img7} alt="" className='w-[512px] h-[450px] rounded-2xl' />
+                                <img src={img7} alt="" className='w-[512px] h-[450px] rounded-2xl hidden md:inline' />
                             </div>
                         </div>
                     </div>
