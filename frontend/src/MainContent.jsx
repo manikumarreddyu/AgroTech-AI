@@ -47,7 +47,7 @@ const MainContent = () => {
           <Route path="/forecast" element={<Forecast />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/reports" element={<Reports />} />
-          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/aboutus" element={<AboutUs/>}/>
           <Route path="/article" element={<Article/>} />
         </Routes>
         <Footer />
