@@ -6,6 +6,18 @@ import img2 from "../assets/img11.jpg";
 import img3 from "../assets/img12.jpg";
 import img4 from "../assets/img13.jpg";
 import img5 from "../assets/img14.png";
+import AdvantagesDisadvantages from "../components/AdvantagesDisadvantages"
+
+const items = [
+    { type: 'advantage', text: 'Increases crop yield and quality.' },
+    { type: 'disadvantage', text: 'Can be costly for small-scale farmers.' },
+    { type: 'advantage', text: 'Optimizes water use and minimizes wastage.' },
+    { type: 'disadvantage', text: 'Risk of over-irrigation leading to environmental issues.' },
+    { type: 'advantage', text: 'Tailors Predictions to specific soil and crop needs.' },
+    { type: 'disadvantage', text: 'Dependence on Predictions may reduce traditional knowledge.' },
+    { type: 'advantage', text: 'Enhances farmer knowledge and decision-making.' },
+    { type: 'disadvantage', text: 'Requires ongoing monitoring and adjustments to be effective.' },
+];
 
 const IrrigationSystem = () => {
     const [loading, setLoading] = useState(true);
@@ -245,45 +257,14 @@ const IrrigationSystem = () => {
                         </div>
 
                     </div>
-                    <div className="flex flex-col sm:flex-row items-center justify-between ">
-                        <div className="sm:w-2/3 p-4 items-center">
-                            <h1 className="md:text-2xl sm:text-2xl text-2xl font-bold py-2 text-green-700">
-                                ⚖️ Advantages and Disadvantages of Irrigation System
-                            </h1>
-                            <p className="text-lg text-[#000435] text-justify">
-                                🌿 Irrigation Systems play a crucial role in enhancing agricultural productivity. However, they come with both benefits and drawbacks that farmers must consider for effective crop management.
-                            </p>
-                            <p className='md:text-xl sm:text-xl text-xl font-bold py-2 text-[#000435]'>
-                                🤔 Advantages:
-                            </p>
-                            <p className="text-lg text-[#000435]">
-                                <span>🌱 Increases crop yield and quality.</span><br />
-                                <span>📊 Optimizes water use and minimizes wastage.</span><br />
-                                <span>🌍 Promotes sustainable agricultural practices.</span><br />
-                                <span>🧑‍🌾 Tailors Predictions to specific soil and crop needs.</span><br />
-                                <span>💡 Enhances farmer knowledge and decision-making.</span><br />
-                            </p>
-                            <p className='md:text-xl sm:text-xl text-xl font-bold py-2 text-[#000435]'>
-                                ⚠️ Disadvantages:
-                            </p>
-                            <p className="text-lg text-[#000435]">
-                                <span>❌ Can be costly for small-scale farmers.</span><br />
-                                <span>❌ Risk of over-irrigation leading to environmental issues.</span><br />
-                                <span>❌ Dependence on Predictions may reduce traditional knowledge .</span><br />
-                                <span>❌ Inaccurate Predictions can harm crops instead of helping.</span><br />
-                                <span>❌ Requires ongoing monitoring and adjustments to be effective.</span><br />
-                            </p>
-                        </div>
-
-                        <div className="sm:w-1/2 flex flex-wrap px-10 my-10 rounded-md justify-center">
-                            <img src={img5} alt="Crop 1" style={{ borderRadius: '1%' }} className="w-full p-2" />
-                        </div>
+                    <div className="w-full p-4 items-center rounded-3xl">
+                                <p className="text-lg text-[#000435] justify-center">
+                                    <AdvantagesDisadvantages items={items} />
+                                </p>
                     </div>
                 </div>
                 </div>}
         </>
-
-
     );
 };
 
