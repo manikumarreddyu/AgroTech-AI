@@ -1,0 +1,69 @@
+/* Add your CSS styles here */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+/* Styles for specific sections */
+#top-winners, #top-losers {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#top-winners h2, #top-losers h2 {
+    margin-bottom: 10px;
+}
+
+#top-winners table, #top-losers table {
+    margin-top: 10px;
+}
+
+#six-months-forecast, #twelve-months-forecast {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#six-months-forecast ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#twelve-months-forecast div, #twelve-months-forecast table {
+    margin-top: 10px;
+}
+
+#twelve-months-forecast h3 {
+    margin: 0 0 5px;
+}

@@ -5,9 +5,63 @@
     <link rel="icon" type="image/svg+xml" href="/favicon1.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AGRO AI</title>
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .video-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        z-index: 9999; 
+      }
+
+      .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      #root {
+        display: none; 
+      }
+    </style>
   </head>
   <body>
+    <!-- Intro video section -->
+    <div class="video-container">
+      <video autoplay muted playsinline>
+        <source src="/intro.mp4" type="video/mp4" />
+
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- React root div -->
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      
+      const video = document.querySelector('video');
+      const videoContainer = document.querySelector('.video-container');
+      const root = document.getElementById('root');
+
+      video.onended = () => {
+        
+        videoContainer.style.display = 'none';
+
+        
+        root.style.display = 'block';
+      };
+    </script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Spinner from "./Spinner";
+import Spinner from "./Spinner.jsx";
 import bgHero from "../assets/bgHero.png";
 import img1 from "../assets/106.jpg";
 import img2 from "../assets/101.jpg";

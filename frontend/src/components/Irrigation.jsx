@@ -34,7 +34,7 @@ export default function IrrigationSystem() {
   const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -61,7 +61,7 @@ export default function IrrigationSystem() {
   }
 
   return (
-    <div className="min-h-screen bg-green-50 text-green-900 p-8">
+    <div className="min-h-screen bg-green-50 text-green-900 -mt-10 p-8">
       <motion.h1 
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
