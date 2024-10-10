@@ -1,0 +1,1 @@
+### Uploaded images stays here till the time of prediction and then gets deleted to clean up.

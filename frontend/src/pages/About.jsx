@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import about from '../assets/about.png';
 import bgHero from "../assets/bgHero.png";
-
+import { FaComment } from "react-icons/fa"; // Import the message icon
 
 function About() {
   return (
-    <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <div className="w-full py-16 px-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 gap-8 items-center">
         <img className="w-[550px] mx-auto md:my-4" src={about} alt="About Us" />
         <div className="flex flex-col justify-center">
@@ -32,6 +32,16 @@ function About() {
             Explore Now
           </Link>
         </div>
+      </div>
+
+      {/* Fixed message icon with tooltip */}
+      <div className="relative">
+        <Link to="/chatbot" className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110">
+          <FaComment className="text-white text-3xl" />
+          <span className="absolute -top-10 -right-4 bg-white text-green-500 text-sm rounded-md px-2 py-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            Try Our ChatBot
+          </span>
+        </Link>
       </div>
     </div>
   );

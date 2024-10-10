@@ -12,7 +12,7 @@ const Footer = () => {
 
     // Define company links with distinct paths
     const companyLinks = [
-        { name: 'About Us', path: '/about' },
+        { name: 'About Us', path: '/aboutus' },
         { name: 'Contact Us', path: '/contact' },
     ];
 
@@ -53,7 +53,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className='bg-gradient-to-r from-emerald-500 via-green-500 to-lime-500 p-8 text-white'>
+        <footer className='bg-gradient-to-r from-[#11cb46] via-green-600 to-[#04ba10]  p-8 text-white'>
             <div className='container mx-auto'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
                     {/* Company Section */}
@@ -160,7 +160,7 @@ const Footer = () => {
                 </div>
                 <div className='mt-8 pt-8 border-t border-white/30 text-center'>
                     <p className='flex items-center justify-center text-sm'>
-                        Copyright <FaRegCopyright className='mx-1' /> {currentYear} All Rights Reserved <span className="text-lime-200 font-semibold mx-1">AgroTech AI</span>
+                        Copyright <FaRegCopyright className='mx-1' /> {currentYear} All Rights Reserved <span className="font-bold ml-2 bg-white text-emerald-600 px-2 py-1 rounded transition-all duration-300 hover:bg-emerald-600 hover:text-white">AgroTech AI</span>
                     </p>
                 </div>
 
@@ -179,7 +179,7 @@ const Footer = () => {
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
                     <div className="bg-white p-8 rounded-lg shadow-lg">
-                        <h2 className="text-lg font-bold mb-4">Rate Us</h2>
+                        <h2 className="text-lg font-bold mb-4 text-center text-black">Rate Us</h2>
                         <div className="flex justify-center mb-4">
                             {[1, 2, 3, 4, 5].map((value) => (
                                 <span key={value} className={`cursor-pointer text-2xl ${rating >= value ? 'text-lime-500' : 'text-gray-300'}`} onClick={() => handleRating(value)}>
@@ -188,7 +188,7 @@ const Footer = () => {
                             ))}
                         </div>
                         <textarea
-                            className="w-full border border-gray-300 rounded p-2 mb-4"
+                            className="w-full border text-black border-gray-300 rounded p-2 mb-4"
                             rows="4"
                             placeholder="Write your comments here..."
                             value={comment}
