@@ -23,7 +23,7 @@
 @keyframes stroke {
     0% {
         fill: #fff;
-        stroke: #0afc06; 
+        stroke: #0afc06;
         stroke-dashoffset: 25%;
         stroke-dasharray: 0 50%;
         stroke-width: 2;
@@ -31,22 +31,23 @@
 
     70% {
         fill: #fff;
-        stroke: #04fb00; 
+        stroke: #04fb00;
     }
 
     80% {
         fill: #fff;
-        stroke: #04ff00; 
+        stroke: #04ff00;
         stroke-width: 3;
     }
 
     100% {
-        fill: #fff; 
-        stroke: #04ff00; 
+        fill: #fff;
+        stroke: #04ff00;
         stroke-dashoffset: -25%;
         stroke-dasharray: 50% 0;
         stroke-width: 0;
-        text-shadow: 0 0 10px #fff, 0 0 15px whitesmoke; /* Yellow shadow */
+        text-shadow: 0 0 10px #fff, 0 0 15px whitesmoke;
+        /* Yellow shadow */
     }
 }
 
@@ -82,3 +83,35 @@ body {
     pointer-events: none;
     z-index: 9999;
 }
+
+/* body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    color: #000000;
+}
+
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark p,
+body.dark a {
+    color: #ffffff;
+} */
