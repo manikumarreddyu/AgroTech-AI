@@ -33,22 +33,16 @@ const FAQ = () => {
   };
 
   return (
-    <section className=""style={{ backgroundImage: `url(${bgHero})`}}>
+    <section className="" style={{ backgroundImage: `url(${bgHero})` }}>
       <div className="max-w-7xl pb-10 pt-5 mx-auto px-4 sm:px-6 lg:px-8 " >
         <h2 className="text-xl md:text-4xl  sm:text-2xl  lg:text-4xl mb-7 font-extrabold text-center text-green-500 ">🤔 Frequently Asked Questions 🤔</h2>
         <dl className="space-y-2">
           {faqQuestions.map((faq, index) => (
             <div key={index} className="space-y-2">
-              <div className={`rounded-lg ${activeIndex === index ? 'border' : 'bg-green'} ${activeIndex === index ? 'bg-green-500 text-black' : ''} `}>
-                <button
-                  onMouseEnter={() => handleToggle(index)}
-                  onMouseLeave={() => handleToggle(index)}
-                  className={`animated-border-inner w-full focus:outline-none transition duration-100 ease-in-out `}
-                >
-                  <span className={`text-sm sm:text-sm md:text-xl lg:text-2xl leading-6 font-medium ${activeIndex === index ? 'text-black' : ''} `}>{faq.question}</span>
-                  {activeIndex === index ? <BiChevronUp className="h-5 w-5" /> : <BiChevronDown className="h-5 w-5" />}
-                </button>
-              </div>
+              <div class="w-[83%] mb-2 transition-transform duration-300  group">
+                <div class="rounded-lg border-2 border-transparent transition-all duration-300 border-[#000435]">
+                  <button class="rounded-lg bg-gradient-to-r from-[#8e2de2] to-[#4a00e0] w-full flex justify-between items-center p-4 text-[1.25rem] font-medium text-white border-none cursor-pointer text-left transition-shadow duration-300 hover:shadow-[1px_1px_2px_rgb(255,0,225),_0_0_1em_rgb(0,255,251),_0_0_0.2em_rgb(0,255,242)]"><span>{faq.question}</span>
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" class="w-5 h-5 group-hover:rotate-180 transition-all ease-in-out duration-500" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m6.293 13.293 1.414 1.414L12 10.414l4.293 4.293 1.414-1.414L12 7.586z"></path></svg></button></div><div class="overflow-hidden transition-max-height duration-1000 group-hover:max-h-[200px] max-h-0"><div class="mt-1 ml-1 rounded-lg text-[17px] text-white p-2 bg-gradient-to-r from-[#8d2de23d] to-[#b700e07f] hover:bg-gradient-to-r hover:from-[#8d2de257] hover:to-[#b700e0b3]">{faq.answer}</div></div></div>
               <div
                 className={`transition-all duration-1000  ease-in-out overflow-hidden ${activeIndex === index ? 'max-h-full' : 'max-h-0'}`}
                 style={{ maxHeight: activeIndex === index ? '200px' : '0px' }} // Adjust maxHeight as needed
