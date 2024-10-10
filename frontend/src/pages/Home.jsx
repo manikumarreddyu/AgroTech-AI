@@ -1,51 +1,115 @@
-import { Link } from "react-router-dom";
-import hero from "../assets/hero.png";
-import bgHero from "../assets/bgHero.png";
-import '../styles/hero.css'
-import About from "./About";
-import MagicButton from "../components/ui/MagicButton";
-import TestimonialSlider from "../components/TestimonialSlider";
-import FAQ from "../components/FAQ";
-import Showcase from "../components/Showcase";
-import Features from "../components/Features";
-import GoogleTranslate from "../components/GoogleTranslate";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import heroImage from '../assets/hero.png'; // Example image import for hero
+import Features from '../components/Features';
+import About from './About';
+import Showcase from '../components/Showcase';
+import TestimonialSlider from '../components/TestimonialSlider';
+import FAQ from '../components/FAQ';
 
-function Home() {
-  console.log("Home page rerendered");
+export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
-  document.title = 'AgroTech AI';
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  return (      
-    <div className="mt-10 min-h-screen   dark:bbg-green-500" >
-      <div className="Translator absolute right-2 pt-2">
-          <GoogleTranslate/>
-      </div>
-      <div className="w-full  py-16 px-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
-          <div className="flex flex-col justify-center">
-            <p className="text-4xl text-green-500 font-bold">
-              Welcome To AgroTech AI
-            </p>
-            <h1 className='md:text-3xl sm:text-3xl font-medium py-2 text-green-700'>A simple web-based platform where users can easily</h1>
-            <p className="text-lg text-[#000435]   font-semibold">
-              {/* <span> ☑️ Contribute -Share your knowledge and insights to improve our AI models. Join our community of farmers, researchers, and tech enthusiasts to drive innovation in agriculture.</span><br /> */}
-              <span> ✅ Explore - Discover a variety of AI models tailored to enhance farming practices. From crop prediction to soil analysis, explore solutions designed to optimize agricultural productivity.</span><br />
-            
-            </p>
-            <Link
-              to="/"
-              className='mt-9'>
-              <MagicButton title="Explore Now" />
-            </Link>
-            {/* <Link
-              to="/chatbot"
-              className='mt-9'>
-              <MagicButton title="💬Try Our AgriBot🤖"/>
-            </Link>  */}
+  return (
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-green-50 to-green-100">
+      {/* Main content */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h1 className="text-4xl font-extrabold tracking-tight text-green-900 sm:text-5xl md:text-6xl pt-48">
+            <span className="block">Welcome to AgroTech AI</span>
+            <span className="block text-green-600">Revolutionizing Agriculture</span>
+          </h1>
+          <p className="max-w-md mx-auto mt-3 text-base text-green-800 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+            Explore AI-powered solutions tailored to enhance farming practices. From crop prediction to soil analysis,
+            discover tools designed to optimize agricultural productivity.
+          </p>
+          <div className="mt-10 sm:flex sm:justify-center">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="rounded-md shadow"
+            >
+              <Link
+                to="/explore"
+                className="flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 md:py-4 md:text-lg md:px-10"
+              >
+                Explore Now
+              </Link>
+            </motion.div>
           </div>
-          <img className="w-[600px] imgAnimate" src={hero} alt="About Us" />
-        </div>
+        </motion.div>
+
+        {/* Hero Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-20"
+        >
+          <img
+            src={heroImage}
+            alt="AgroTech AI Hero"
+            width={600}
+            height={400}
+            className="object-cover rounded-lg shadow-2xl"
+          />
+        </motion.div>
       </div>
+
+      {/* How It Works Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-extrabold text-gray-900 text-center">How It Works</h2>
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-green-100 p-6 rounded-lg shadow-lg text-center"
+            >
+              <h3 className="text-xl font-semibold text-green-700">Step 1: Data Collection</h3>
+              <p className="mt-4 text-green-600">
+                We gather real-time data on soil conditions, weather, and crop health using cutting-edge sensors and AI.
+              </p>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-green-100 p-6 rounded-lg shadow-lg text-center"
+            >
+              <h3 className="text-xl font-semibold text-green-700">Step 2: Analysis</h3>
+              <p className="mt-4 text-green-600">
+                Our AI models analyze the data to provide actionable insights on crop growth and health.
+              </p>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-green-100 p-6 rounded-lg shadow-lg text-center"
+            >
+              <h3 className="text-xl font-semibold text-green-700">Step 3: Optimization</h3>
+              <p className="mt-4 text-green-600">
+                Based on the analysis, we recommend the best practices to improve crop yield and sustainability.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional Components */}
       <Features />
       <About />
       <Showcase />
@@ -54,5 +118,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
