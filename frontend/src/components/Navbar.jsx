@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import icon from '../assets/favicon2.png';
 import GoogleTranslate from './GoogleTranslate';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,8 +19,10 @@ const Navbar = () => {
         <nav className="bg-gradient-to-r from-[#11cb46] via-green-600 to-[#04ba10] w-full z-20 top-0 start-0 fixed">
             <div className="max-w-screen-2xl flex flex-wrap items-center font-semibold justify-between mx-auto p-3">
                 <div className="text-white font-bold flex items-center">
+                    <Link to="/" onClick={closeMenu}>
                     <img className="float-left" src={icon} alt="icon" style={{ height: '30px', width: '30px' }} />
                     <span className="px-2 text-xl">AgroTech AI</span>
+                    </Link>
                 </div>
                 <button
                     onClick={toggleMenu}
