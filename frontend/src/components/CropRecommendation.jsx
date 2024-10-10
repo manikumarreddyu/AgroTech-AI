@@ -9,6 +9,17 @@ import img5 from "../assets/111.jpeg";
 import img7 from "../assets/cropinspection.png";
 import AdvantagesDisadvantages from './AdvantagesDisadvantages';
 
+const items = [
+    { type: 'advantage', text: 'Helps farmers make data-driven decisions.' },
+    { type: 'disadvantage', text: 'Requires accurate and up-to-date data for best results.' },
+    { type: 'advantage', text: 'Increases crop yield by selecting the most suitable crops.' },
+    { type: 'disadvantage', text: 'May involve initial costs for data collection and analysis tools.' },
+    { type: 'advantage', text: 'Reduces the risk of crop failure by considering environmental factors.' },
+    { type: 'disadvantage', text: 'Dependent on technology, which can be a barrier for some farmers.' },
+    { type: 'advantage', text: 'Optimizes resource use like water and fertilizers.' },
+    { type: 'disadvantage', text: 'May need ongoing support and updates to stay effective.' },
+  ];
+
 const CropRecommendation = () => {
     const [loading, setLoading] = useState(true);
 
@@ -259,7 +270,7 @@ const CropRecommendation = () => {
                         <div className="flex flex-row sm:flex-row items-center justify-between rounded-3xl">
                             <div className="w-full p-4 items-center rounded-3xl">
                                 <p className="text-lg text-[#000435] justify-center">
-                                    <AdvantagesDisadvantages />
+                                    <AdvantagesDisadvantages items={items} />
                                 </p>
                             </div>
 

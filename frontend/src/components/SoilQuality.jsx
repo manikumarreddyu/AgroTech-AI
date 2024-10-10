@@ -8,6 +8,18 @@ import img2 from "../assets/104.jpg";
 import img3 from "../assets/img3.jpg";
 import img4 from "../assets/109.jpg";
 import img5 from "../assets/105.jpg";
+import AdvantagesDisadvantages from "../components/AdvantagesDisadvantages";
+
+const items = [
+    { type: 'advantage', text: 'Enhances crop productivity by informing soil management decisions.' },
+    { type: 'disadvantage', text: 'Requires access to technology and data for accurate predictions.' },
+    { type: 'advantage', text: 'Facilitates efficient resource allocation and planning.' },
+    { type: 'disadvantage', text: 'Initial costs for implementing soil testing and modeling can be high.' },
+    { type: 'advantage', text: 'Enables early detection of nutrient deficiencies and soil issues.' },
+    { type: 'disadvantage', text: 'Predictions may vary based on environmental changes and model accuracy.' },
+    { type: 'advantage', text: 'Supports better water management and conservation efforts.' },
+    { type: 'disadvantage', text: 'Complexity of soil science may lead to misinterpretations of data.' },
+];
 
 const SoilQuality = () => {
     const [loading, setLoading] = useState(true);
@@ -469,38 +481,23 @@ const SoilQuality = () => {
                             </div>
 
                         </div>
-                        <div className="flex flex-col sm:flex-row items-center justify-between ">
-                            <div className="sm:w-2/3 p-4 items-center">
-                                <h1 className="md:text-2xl sm:text-2xl text-2xl font-bold py-4 text-green-700">
-                                    🌱 Advantages and Disadvantages of Soil Quality Prediction
-                                </h1>
-
-                                <p className='md:text-xl sm:text-xl text-xl font-bold py-4 text-[#000435]'>
-                                    ✅ Advantages
-                                </p>
-                                <p className="text-lg text-[#000435]">
-                                    <span>🌾 Enhances crop productivity by informing soil management decisions.</span><br />
-                                    <span>📊 Facilitates efficient resource allocation and planning.</span><br />
-                                    <span>🌍 Promotes sustainable practices and environmental health.</span><br />
-                                    <span>🔍 Enables early detection of nutrient deficiencies and soil issues.</span><br />
-                                    <span>💧 Supports better water management and conservation efforts .</span><br />
-                                </p>
-
-                                <p className='md:text-xl sm:text-xl text-xl font-bold py-4 text-[#000435]'>
-                                    ❌ Disadvantages
-                                </p>
-                                <p className="text-lg text-[#000435]">
-                                    <span>⚙️ Requires access to technology and data for accurate predictions .</span><br />
-                                    <span>💰 Initial costs for implementing soil testing and modeling can be high.</span><br />
-                                    <span>🔄Predictions may vary based on environmental changes and model accuracy.</span><br />
-                                    <span>🧪 Complexity of soil science may lead to misinterpretations of data.</span><br />
-                                </p>
-                            </div>
-
-                            <div className="sm:w-1/2 flex flex-wrap px-10 my-10 rounded-md justify-center">
-                                <img src={img5} alt="Crop 1" style={{ borderRadius: '10%' }} className="w-full p-2" />
-                            </div>
+                        <div className="flex flex-col sm:flex-row items-center justify-between">
+                        <div className="w-full sm:w-2/3 p-4 flex items-center justify-center">
+                            <p className="text-lg text-[#000435]">
+                            <AdvantagesDisadvantages items={items} />
+                            </p>
                         </div>
+
+                        <div className="w-full sm:w-1/2 flex flex-wrap justify-center p-4">
+                            <img
+                            src={img5}
+                            alt="Crop 1"
+                            style={{ borderRadius: '10%' }}
+                            className="w-full h-auto max-w-full p-2"
+                            />
+                        </div>
+                        </div>
+
                     </div>
                 </div>
 
