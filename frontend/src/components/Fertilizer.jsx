@@ -387,28 +387,11 @@ const Fertilizer = () => {
                 </p>
               </div>
             </div>
-
-
-            <div className="flex flex-col sm:flex-row items-center justify-between ">
-              <div className="sm:w-2/3 p-4 items-center">
-                <h1 className="md:text-2xl sm:text-2xl text-2xl font-bold py-2 text-green-700 text-center">
-                  ⚖️ Advantages and Disadvantages of Fertilizer Prediction
-                </h1>
-                <p className="text-lg text-[#000435] text-justify">
-                  🌿 Fertilizer Predictions play a crucial role in enhancing
-                  agricultural productivity. However, they come with both
-                  benefits and drawbacks that farmers must consider for
-                  effective crop management.
+            <div className="w-full p-4 items-center rounded-3xl">
+                <p className="text-lg text-[#000435] justify-center">
+                    <AdvantagesDisadvantages items={items} />
                 </p>
-                
-
-                <div className="w-full p-4 items-center rounded-3xl">
-                                <p className="text-lg text-[#000435] justify-center">
-                                    <AdvantagesDisadvantages items={items} />
-                                </p>
-                  </div>
-              </div>
-
+            </div>
             </div>
           </div>
         </div>
