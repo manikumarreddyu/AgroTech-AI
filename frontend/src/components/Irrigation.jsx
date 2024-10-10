@@ -6,7 +6,7 @@ import img2 from "../assets/img11.jpg";
 import img3 from "../assets/img12.jpg";
 import img4 from "../assets/img13.jpg";
 import img5 from "../assets/img14.png";
-import AdvantagesDisadvantages from "../components/AdvantagesDisadvantages"
+import AdvantagesDisadvantages from "./AdvantagesDisadvantages"
 
 const items = [
     { type: 'advantage', text: 'Increases crop yield and quality.' },
