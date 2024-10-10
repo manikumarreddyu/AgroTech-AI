@@ -102,6 +102,7 @@ import ChatBot from './pages/ChatBot';
 import CropRotationRecommendation from './components/CropRotationRecommendation';
 import DiseaseRecognition from './components/DiseaseRecognition';
 import Preloader from "./components/PreLoader";
+import ProgressScrollDown from "./components/ProgressScrollDown";
 import React, { useState, useEffect } from "react";
 
 const MainContent = () => {
@@ -123,6 +124,7 @@ const MainContent = () => {
       ) : (
         <div>
           <GoTop />
+          <ProgressScrollDown />
           <div>
             <Navbar />
             <Routes>
