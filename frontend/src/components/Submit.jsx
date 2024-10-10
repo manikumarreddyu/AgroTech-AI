@@ -4,17 +4,11 @@ import { useLocation, Navigate } from 'react-router-dom';
 const Submit = () => {
   const location = useLocation();
   const result = location.state?.result;
-  const id = location.state?.id;
+
   if (!result) {
     return <Navigate to="/engine" />;
   }
-  if (id == 1)
-    return (<div class="bg-white p-10 rounded-lg shadow-lg text-center mt-8">
-      <h1 class="text-4xl font-bold text-green-600 mb-4">Sugarcane Disease Prediction</h1>
-      <p class="text-lg text-gray-700">
-        This page will display the results for the sugarcane disease prediction model.
-      </p>
-    </div>)
+
   const { title, desc, prevent, image_url, pred, sname, simage, buy_link } = result;
 
   return (
