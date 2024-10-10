@@ -8,7 +8,7 @@ import img2 from "../assets/104.jpg";
 import img3 from "../assets/img3.jpg";
 import img4 from "../assets/109.jpg";
 import img5 from "../assets/105.jpg";
-import AdvantagesDisadvantages from "../components/AdvantagesDisadvantages";
+import AdvantagesDisadvantages from "./AdvantagesDisadvantages";
 
 const items = [
     { type: 'advantage', text: 'Enhances crop productivity by informing soil management decisions.' },
