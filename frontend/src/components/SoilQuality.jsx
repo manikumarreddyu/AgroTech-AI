@@ -488,14 +488,6 @@ const SoilQuality = () => {
                             </p>
                         </div>
 
-                        <div className="w-full sm:w-1/2 flex flex-wrap justify-center p-4">
-                            <img
-                            src={img5}
-                            alt="Crop 1"
-                            style={{ borderRadius: '10%' }}
-                            className="w-full h-auto max-w-full p-2"
-                            />
-                        </div>
                         </div>
 
                     </div>
