@@ -21,6 +21,7 @@ import UseScrollToTop from './components/UseScrollToTop';
 import Article from './pages/Article';
 import ChatBot from './pages/ChatBot';
 import CropRotationRecommendation from './components/CropRotationRecommendation';
+import DiseaseRecognition from './components/DiseaseRecognition';
 
 
 const MainContent = () => {
@@ -49,6 +50,7 @@ const MainContent = () => {
           <Route path="/reports" element={<Reports />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/article" element={<Article/>} />
+          <Route path="/DiseaseRecognition" element={<DiseaseRecognition/>} />
         </Routes>
         <Footer />
       </div>
