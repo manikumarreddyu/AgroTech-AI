@@ -1,16 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
 
 const Disease = () => {
   const [loading, setLoading] = useState(true);
-  const [flipped, setFlipped] = useState(Array(14).fill(false)); // Create an array for each fruit's flip state
+  const [activeCard, setActiveCard] = useState(null);
+  const [readMore, setReadMore] = useState(Array(14).fill(false));
 
-  // Function to handle flipping individual cards
-  const handleFlip = (index) => {
-    const newFlipped = [...flipped];
-    newFlipped[index] = !newFlipped[index]; // Toggle the flip state of the card at index
-    setFlipped(newFlipped);
+  const handleMouseEnter = (index) => {
+    setActiveCard(index);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveCard(null);
+  };
+
+  const toggleReadMore = (index) => {
+    const newReadMore = [...readMore];
+    newReadMore[index] = !newReadMore[index];
+    setReadMore(newReadMore);
   };
 
   useEffect(() => {
@@ -51,7 +59,7 @@ const Disease = () => {
     {
       name: "Corn",
       image:
-        "https://m.media-amazon.com/images/I/41F62-VbHSL._AC_UF1000,1000_QL80_.jpg",
+        "https://m.media-amazon.com/images/I/41F62-VbHSL.AC_UF1000,1000_QL80.jpg",
       content: `Northern Corn Leaf Blight: Fungal disease causing large, tan lesions on leaves.
               Common Rust: Fungal disease causing pustules on leaves.
               Gray Leaf Spot: Causes rectangular gray-brown spots on leaves.
@@ -171,32 +179,53 @@ const Disease = () => {
               <span className="relative group-hover:text-white">AI Engine</span>
             </Link>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full [perspective:10000px]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
             {fruits.map((fruit, index) => (
               <div
                 key={index}
-                className={`w-full h-64 relative bg-white shadow rounded-lg p-4 transition-all duration-1000 [transform-style:preserve-3d] ${
-                  flipped[index] ? "[transform:rotateY(180deg)]" : ""
-                }`}
+                className="relative group w-full h-64 bg-white shadow rounded-lg p-4 [perspective:1000px]"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
               >
-                <div className="[backface-visibility:hidden]">
-                  <img
-                    src={fruit.image}
-                    alt={fruit.name}
-                    onMouseEnter={() => handleFlip(index)}
-                    onClick={() => handleFlip(index)}
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                  />
-                  <p className="text-center font-medium text-gray-800">
-                    {fruit.name}
-                  </p>
-                </div>
+                {/* Card Container with transform */}
                 <div
-                  onMouseLeave={() => handleFlip(index)}
-                  onClick={() => handleFlip(index)}
-                  className="w-full h-64 rounded-xl [transform:rotateY(180deg)] [backface-visibility:hidden] absolute inset-0 bg-green-200 flex justify-center items-center"
+                  className={`absolute inset-0 w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${
+                    activeCard === index ? "[transform:rotateY(180deg)]" : ""
+                  }`}
                 >
-                  <p className="text-lg text-gray-900 line-clamp-5 m-4">{`${fruit.content}`}</p>
+                  {/* Front Side */}
+                  <div className="[backface-visibility:hidden] absolute inset-0 w-full h-full bg-white rounded-lg p-4">
+                    <img
+                      src={fruit.image}
+                      alt={fruit.name}
+                      className="w-full h-48 object-cover rounded-lg mb-4 pointer-events-none"
+                    />
+                    <p className="text-center font-medium text-gray-800 pointer-events-none">
+                      {fruit.name}
+                    </p>
+                  </div>
+
+                  {/* Back Side */}
+                  <div className="[backface-visibility:hidden] absolute inset-0 w-full h-full rounded-xl [transform:rotateY(180deg)] bg-green-200 flex flex-col justify-between items-center p-4">
+                    <h2 className="text-xl font-bold text-gray-800">
+                      {fruit.name}
+                    </h2>
+                    <div className="overflow-hidden h-24">
+                      <p
+                        className={`text-sm text-gray-900 ${
+                          readMore[index] ? "overflow-auto h-24" : "line-clamp-3"
+                        }`}
+                      >
+                        {fruit.content}
+                      </p>
+                    </div>
+                    <button
+                      className="text-green-500 underline"
+                      onClick={() => toggleReadMore(index)}
+                    >
+                      {readMore[index] ? "Read Less" : "Read More"}
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
