@@ -39,12 +39,13 @@ const FAQ = () => {
         <dl className="space-y-2">
           {faqQuestions.map((faq, index) => (
             <div key={index} className="space-y-2">
-              <div className={`rounded-lg ${activeIndex === index ? 'border' : 'border border-green-500'}`}>
+              <div className={`rounded-lg ${activeIndex === index ? 'border' : 'bg-green'} ${activeIndex === index ? 'bg-green-500 text-black' : ''} `}>
                 <button
-                  onClick={() => handleToggle(index)}
+                  onMouseEnter={() => handleToggle(index)}
+                  onMouseLeave={() => handleToggle(index)}
                   className={`animated-border-inner w-full focus:outline-none transition duration-100 ease-in-out `}
                 >
-                  <span className="text-sm sm:text-sm md:text-xl lg:text-2xl leading-6 font-medium  hover:text-green-600 ">{faq.question}</span>
+                  <span className={`text-sm sm:text-sm md:text-xl lg:text-2xl leading-6 font-medium ${activeIndex === index ? 'text-black' : ''} `}>{faq.question}</span>
                   {activeIndex === index ? <BiChevronUp className="h-5 w-5" /> : <BiChevronDown className="h-5 w-5" />}
                 </button>
               </div>
