@@ -391,7 +391,7 @@ const Fertilizer = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-between ">
               <div className="sm:w-2/3 p-4 items-center">
-                <h1 className="md:text-2xl sm:text-2xl text-2xl font-bold py-2 text-green-700">
+                <h1 className="md:text-2xl sm:text-2xl text-2xl font-bold py-2 text-green-700 text-center">
                   ⚖️ Advantages and Disadvantages of Fertilizer Prediction
                 </h1>
                 <p className="text-lg text-[#000435] text-justify">
@@ -409,14 +409,6 @@ const Fertilizer = () => {
                   </div>
               </div>
 
-              <div className="sm:w-1/2 flex flex-wrap px-10 my-10 rounded-md justify-center">
-                <img
-                  src={img5}
-                  alt="Crop 1"
-                  style={{ borderRadius: "1%" }}
-                  className="w-full p-2"
-                />
-              </div>
             </div>
           </div>
         </div>
