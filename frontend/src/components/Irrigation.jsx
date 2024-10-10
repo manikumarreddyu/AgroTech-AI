@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Leaf, Droplet, Sun, MapPin, Thermometer } from 'lucide-react';
 
+// Import your images
 import img2 from '../assets/102.jpg'; // Update the path as necessary
 
 const soilTypes = ['Black', 'Clayey', 'Loamy', 'Red', 'Sandy'];
@@ -79,7 +80,7 @@ export default function IrrigationSystem() {
         {/* Card 1: About Irrigation System */}
         <div className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg p-6">
           <h2 className="text-2xl font-semibold mb-4 text-green-700">About Irrigation System</h2>
-          <img src={img2} alt="Irrigation Example 2" className="w-full h-48 object-cover mb-4 rounded-xl py-2" />
+          <img src={img2} alt="Irrigation Example 2" className="w-full h-48 object-cover mb-4 rounded" />
           <p className="text-green-800 mb-4">
             🌱 The Irrigation System transforms how farmers manage water application. It considers essential parameters like soil type, weather data, geographical location, and moisture levels.
           </p>

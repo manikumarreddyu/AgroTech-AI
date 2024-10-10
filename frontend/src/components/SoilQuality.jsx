@@ -481,21 +481,10 @@ const SoilQuality = () => {
                             </div>
 
                         </div>
-                        <div className="flex flex-col sm:flex-row items-center justify-between">
-                        <div className="w-full sm:w-2/3 p-4 flex items-center justify-center">
-                            <p className="text-lg text-[#000435]">
-                            <AdvantagesDisadvantages items={items} />
-                            </p>
-                        </div>
-
-                        <div className="w-full sm:w-1/2 flex flex-wrap justify-center p-4">
-                            <img
-                            src={img5}
-                            alt="Crop 1"
-                            style={{ borderRadius: '10%' }}
-                            className="w-full h-auto max-w-full p-2"
-                            />
-                        </div>
+                        <div className="w-full p-4 items-center rounded-3xl">
+                                        <p className="text-lg text-[#000435] justify-center">
+                                            <AdvantagesDisadvantages items={items} />
+                                        </p>
                         </div>
 
                     </div>
