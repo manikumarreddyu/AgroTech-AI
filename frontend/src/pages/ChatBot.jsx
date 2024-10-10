@@ -78,12 +78,12 @@ function ChatBot() {
   useEffect(() => {
     loadChatHistory();
   }, []);
-
+  
   return (
-    <div className='flex flex-col h-screen p-5' style={{ backgroundImage: `url(${bgHero})` }}>
-      <h1 className="text-2xl text-center text-green-500 font-bold mb-6">AgroTech AI ChatBot</h1>
+    <div className='flex flex-col h-screen p-6 mt-16 ' style={{ backgroundImage: `url(${bgHero})` }}>
+      <h1 className="text-2xl text-center text-green-500 font-bold mb-2">AgroTech AI ChatBot</h1>
       <div
-        className='flex-1 overflow-y-auto p-2 border border-green-700 rounded-lg mb-2 mt-16'
+        className='flex-1 overflow-y-auto p-2 border-4 border-green-500 rounded-lg mb-2 shadow-lg '
         ref={chatHistoryRef}
       >
         {chatHistory.map((message, index) => (
@@ -123,7 +123,7 @@ function ChatBot() {
           className='flex-1 p-2 bg-white text-black border-2 border-green-600 rounded-lg outline-none'
         />
         <button
-          className='bg-green-600 text-white p-2 rounded-lg ml-2 cursor-pointer hover:bg-green-700'
+          className='bg-red-600 text-white p-2 rounded-lg ml-2 cursor-pointer hover:bg-red-700'
           onClick={sendMessage}
         >
           Send
