@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import bgHero from "../assets/bgHero.png";
 import { BiChevronUp } from 'react-icons/bi';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [faqCount, setFaqCount] = useState(5); // Show 5 FAQs initially
 
   const faqs = [
     {
@@ -52,46 +52,46 @@ const FAQ = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
+  const loadMoreFAQs = () => {
+    setFaqCount(prevCount => Math.min(prevCount + 3, faqs.length)); // Load 3 more FAQs but not exceed total FAQs
+  };
+
   return (
-    <section className="text-center text-green-500">
-      <div
-        className="md:max-w-[70%] w-[90%] mx-auto md:p-8 p-0 text-green-600"
-        style={{
-          backgroundImage: `url(${bgHero})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <h2 className="text-2xl md:text-[37px] mb-14 font-bold text-green-500">
-          Frequently Asked Questions!
+    <section className="py-16 bg-white">
+      <div className="max-w-4xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl mb-10 font-bold text-green-600 text-center">
+          Frequently Asked Questions
         </h2>
-        <dl className="flex flex-col items-center">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="w-[83%] mb-2 transition-transform duration-300 group"
-            >
-              <div
-                className={`rounded-lg border-2 border-transparent transition-all duration-300 ${"border-green-600"}`}
-              >
+        <dl className="space-y-4">
+          {faqs.slice(0, faqCount).map((faq, index) => (
+            <div key={index} className="transition-transform duration-300 group">
+              <div className="rounded-lg border-2 border-green-200 bg-white shadow hover:shadow-lg transition-shadow duration-300">
                 <button
                   onClick={() => handleToggle(index)}
-                  className="rounded-lg bg-gradient-to-r from-green-500 to-green-700 w-full flex justify-between items-center p-4 text-[1.25rem] font-medium text-white border-none cursor-pointer text-left transition-shadow duration-300 hover:shadow-[1px_1px_2px_rgb(0,255,0),_0_0_1em_rgb(0,200,0),_0_0_0.2em_rgb(0,150,0)]"
+                  className="flex justify-between items-center w-full p-4 text-lg font-medium text-green-700 bg-gradient-to-r from-green-500 to-green-700 rounded-lg text-white transition-all duration-300 hover:bg-gradient-to-l"
                 >
                   <span>{faq.question}</span>
-                  <BiChevronUp className="w-5 h-5 group-hover:rotate-180 transition-all ease-in-out duration-500" />
+                  <BiChevronUp className={`w-5 h-5 transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`} />
                 </button>
               </div>
-              <div
-                className={`overflow-hidden transition-max-height duration-1000 group-hover:max-h-[200px] max-h-0`}
-              >
-                <div className="mt-1 ml-1 rounded-lg text-[17px] text-white p-2 bg-gradient-to-r from-green-500 to-green-600 hover:bg-gradient-to-r hover:from-green-400 hover:to-green-500">
+              {activeIndex === index && (
+                <div className="mt-2 p-2 rounded-lg bg-green-50 text-green-800">
                   {faq.answer}
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </dl>
+        {faqCount < faqs.length && (
+          <div className="text-center mt-8">
+            <button
+              onClick={loadMoreFAQs}
+              className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg transition-colors duration-300 hover:bg-green-700"
+            >
+              Load More FAQs
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

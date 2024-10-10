@@ -21,9 +21,9 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-green-50 to-green-100">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-r from-green-50 to-green-100">
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,13 +72,13 @@ export default function Home() {
       </div>
 
       {/* How It Works Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-r from-green-50 to-green-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-gray-900 text-center">How It Works</h2>
+          <h2 className="text-4xl font-extrabold text-gray-900 text-center">How It Works ?</h2>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-green-100 p-6 rounded-lg shadow-lg text-center"
+              className="bg-gradient-to-b from-green-100 to-green-200 p-6 rounded-lg text-center z-10 shadow-2xl"
             >
               <h3 className="text-xl font-semibold text-green-700">Step 1: Data Collection</h3>
               <p className="mt-4 text-green-600">
@@ -88,7 +88,7 @@ export default function Home() {
 
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-green-100 p-6 rounded-lg shadow-lg text-center"
+              className="bg-gradient-to-b from-green-100 to-green-200 p-6 rounded-lg text-center z-10 shadow-2xl"
             >
               <h3 className="text-xl font-semibold text-green-700">Step 2: Analysis</h3>
               <p className="mt-4 text-green-600">
@@ -98,7 +98,7 @@ export default function Home() {
 
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="bg-green-100 p-6 rounded-lg shadow-lg text-center"
+              className="bg-gradient-to-b from-green-100 to-green-200 p-6 rounded-lg text-center z-10 shadow-2xl"
             >
               <h3 className="text-xl font-semibold text-green-700">Step 3: Optimization</h3>
               <p className="mt-4 text-green-600">
