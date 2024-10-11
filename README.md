@@ -158,6 +158,23 @@ Score 0.09879301553673503
 
 The Random Forest Regressor was found to have the lowest MSE, making it the most suitable model for crop yield prediction. This model was selected for deployment and future predictions.
 
+# 5. Mushroom Edibility Prediction
+Develop a machine learning model that predicts whether a mushroom is edible or not, depending on it's physical features and environment. The model takes various inputs regarding the physical characteristics of the mushroom and outputs if the mushroom is edible or poisonous.
+
+# Dataset:
+mushrooms.csv
+
+# Model Training and Results
+Five different models were trained on the dataset to predict mushroom edibility. The accuracy of each model are as follows:
+
+1. Logistic Regression: 0.94
+2. Decision Tree Classifier: 1.0
+3. K Nearest Neighbors: 0.99
+4. Random Forest Classifier: 1.0
+5. XGB Classifier: 1.0
+
+The final model selected for deployment is the XGBoost Classifier as it can handle missing datas better than the other models.
+
 ## TechStack
 
 - React
