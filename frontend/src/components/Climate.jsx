@@ -18,7 +18,7 @@ const fetchData = async URL => {
   const response = await fetch(`${URL}&appid=${API_key}`)
   return response.json()
 }
-
+// OpenWeatherAPI Endpoints
 const url = {
   currentWeather: (lat, lon) =>
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`,
