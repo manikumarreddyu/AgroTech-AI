@@ -27,6 +27,7 @@ import DiseaseRecognition from './components/DiseaseRecognition';
 import Preloader from "./components/PreLoader";
 import ProgressScrollDown from "./components/ProgressScrollDown";
 import React, { useState, useEffect } from "react";
+import Climate from './components/Climate';
 import Products from "./pages/Products";
 import AuthPage from './components/AuthPage';
 
@@ -64,6 +65,7 @@ const MainContent = () => {
               <Route path="/fertilizer" element={<Fertilizer />} />
               <Route path="/soil" element={<SoilQuality />} />
               <Route path="/Irrigation" element={<Irrigation />} />
+              <Route path="/climate" element={<Climate/>} />
               <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
               <Route path="/forecast" element={<Forecast />} />
               <Route path="/prices" element={<Prices />} />
