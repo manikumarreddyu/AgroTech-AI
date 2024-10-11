@@ -1,0 +1,16 @@
+@keyframes movebtn {
+  0% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(12px);
+  }
+}
+
+.animate-movebtn {
+  animation: movebtn 1.7s ease-in-out infinite alternate;
+}
+
+.hover-stop:hover {
+  animation-play-state: paused;
+}

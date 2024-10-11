@@ -1,40 +1,41 @@
-::-webkit-scrollbar-track {
-  background-image: white
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-::-webkit-scrollbar {
-  width: 7px;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 50px;
-  background-color: #06ac06;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #32cd32;
-  cursor: pointer;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
 
-.scroll-margin-top {
-  scroll-margin-top: 100px;
+.card {
+  padding: 2em;
 }
 
-.animated-border-inner {
-  display: inline-flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 16px;
-  border-radius: 8px;
-  color: rgb(0, 191, 0);
-  text-align: left;
-}
-
-.emoji-button {
-  transition: transform 0.2s ease-in-out;
-}
-
-.emoji-button:hover {
-  transform: translateY(-5px);
+.read-the-docs {
+  color: #888;
 }
