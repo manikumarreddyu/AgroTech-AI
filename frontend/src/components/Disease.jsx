@@ -6,7 +6,7 @@ const Disease = () => {
   const [loading, setLoading] = useState(true);
   const [activeCard, setActiveCard] = useState(null);
   const [readMore, setReadMore] = useState(Array(14).fill(false));
-
+  const [showCropList, setshowCropList] = useState(false);
   const handleMouseEnter = (index) => {
     setActiveCard(index);
   };
@@ -19,6 +19,11 @@ const Disease = () => {
     const newReadMore = [...readMore];
     newReadMore[index] = !newReadMore[index];
     setReadMore(newReadMore);
+  };
+  const toggleshowCropList = (index) => {
+    const newshowCropList = [...showCropList];
+    newshowCropList[index] = !newshowCropList[index];
+    setshowCropList(newshowCropList);
   };
 
   useEffect(() => {
@@ -166,69 +171,152 @@ const Disease = () => {
               🍁Plant Disease Detection🍁
             </h1>
             <p className="text-xl text-gray-700 mt-2">
-              This AI Engine Will Help To Detect Disease From Following Fruits
-              And Veggies
+              Choose the AI engine based on the plant species you want to
+              diagnose for diseases.
             </p>
           </div>
-          <div className="text-center mb-8">
-            <Link
-              to="/engine"
-              className="py-2 px-4 relative rounded group overflow-hidden font-bold bg-green-50 text-green-500 border border-green-500 inline-block"
-            >
-              <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-500 ease-out transform translate-y-0 bg-green-500 group-hover:h-full opacity-90"></span>
-              <span className="relative group-hover:text-white">AI Engine</span>
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
-            {fruits.map((fruit, index) => (
-              <div
-                key={index}
-                className="relative group w-full h-64 bg-white shadow rounded-lg p-4 [perspective:1000px]"
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-              >
-                {/* Card Container with transform */}
-                <div
-                  className={`absolute inset-0 w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${
-                    activeCard === index ? "[transform:rotateY(180deg)]" : ""
-                  }`}
-                >
-                  {/* Front Side */}
-                  <div className="[backface-visibility:hidden] absolute inset-0 w-full h-full bg-white rounded-lg p-4">
-                    <img
-                      src={fruit.image}
-                      alt={fruit.name}
-                      className="w-full h-48 object-cover rounded-lg mb-4 pointer-events-none"
-                    />
-                    <p className="text-center font-medium text-gray-800 pointer-events-none">
-                      {fruit.name}
-                    </p>
-                  </div>
 
-                  {/* Back Side */}
-                  <div className="[backface-visibility:hidden] absolute inset-0 w-full h-full rounded-xl [transform:rotateY(180deg)] bg-green-200 flex flex-col justify-between items-center p-4">
-                    <h2 className="text-xl font-bold text-gray-800">
-                      {fruit.name}
-                    </h2>
-                    <div className="overflow-hidden h-24">
-                      <p
-                        className={`text-sm text-gray-900 ${
-                          readMore[index] ? "overflow-auto h-24" : "line-clamp-3"
-                        }`}
-                      >
-                        {fruit.content}
-                      </p>
-                    </div>
-                    <button
-                      className="text-green-500 underline"
-                      onClick={() => toggleReadMore(index)}
-                    >
-                      {readMore[index] ? "Read Less" : "Read More"}
-                    </button>
-                  </div>
+          <div className="text-center mb-8"></div>
+          <div class="container mx-auto p-4">
+            <h1 class="text-2xl font-bold text-center mb-6 bg-green-400 text-white">
+              Speacial AI Engine
+            </h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="max-w-sm rounded overflow-hidden shadow-lg py-4 px-4 h-64 m-auto  ">
+                <img
+                  class="w-full h-48 object-cover rounded-lg mb-2 pointer-events-none"
+                  src="https://cdn.pixabay.com/photo/2020/07/09/20/00/sugarcane-5388614_640.jpg"
+                  alt="Sugarcane Image"
+                />
+                <div class="px-6 py-0 flex justify-center">
+                  <Link class="font-bold underline  text-xl m-auto text-green-700 cursor-pointer hover:bg-green-400 hover:text-white w-fit p-1 rounded "
+                  to={'/engine/1'}>
+                    Sugarcane Engine
+                  </Link>
                 </div>
               </div>
-            ))}
+              <div class="max-w-sm rounded overflow-hidden shadow-lg py-4 px-4 h-64 m-auto">
+                <img
+                  class="w-full h-48 object-cover rounded-lg mb-2 pointer-events-none"
+                  src="https://m.media-amazon.com/images/I/51K+Xh2VIOL._AC_UF1000,1000_QL80_.jpg"
+                  alt="Rice Image"
+                />
+                <div class="px-6 py-0 flex justify-center ">
+                  <Link class="font-bold underline text-xl m-auto text-green-700 cursor-pointer hover:bg-green-400 hover:text-white w-fit p-1 rounded "
+                  to={'/engine/2'}>
+                    Rice Engine
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container mx-auto p-4">
+            <h1 class="text-2xl font-bold text-center mb-6 bg-green-400 text-white">
+              Combined AI Engine
+            </h1>
+            <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
+              <div
+                class={`rounded overflow-hidden shadow-lg py-4 px-4 h-fit m-auto transition-all duration-500 ease-in-out ${
+                  showCropList ? "w-full" : "w-80"
+                }`}
+              >
+                <img
+                  class="w-full h-48 object-cover rounded-lg mb-2 pointer-events-none"
+                  src="https://t3.ftcdn.net/jpg/07/64/36/88/360_F_764368886_OqU6lLecdIcypI3MAanVVpAJld6DnZoX.jpg"
+                  alt="Combined Image"
+                />
+                <div class="px-6 py-0 flex justify-center">
+                  <Link class="font-bold underline  text-xl m-auto text-green-700 cursor-pointer hover:bg-green-400 hover:text-white w-fit p-1 rounded" 
+                  to={'/engine/3'}>
+                    Crop Engine
+                  </Link>
+                </div>
+                <button
+                  className="text-green-500  block mx-auto hover:text-green-400"
+                  onClick={() => {
+                    setshowCropList(!showCropList);
+                  }}
+                >
+                  <img src="" alt="" />
+                  {showCropList ? "Show Less " : "Show Crops "}
+                  {showCropList ? (
+                    <img
+                      className="inline-block w-6 scale-y-[-1]"
+                      src="/show-more.png"
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      className="inline-block w-6"
+                      src="/show-more.png"
+                      alt=""
+                    />
+                  )}
+                </button>
+
+                {showCropList && (
+                  <div class="px-6 py-0 mt-4 ">
+                    <div className="overflow-hidden h-fit">
+                      <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 w-full">
+                        {fruits.map((fruit, index) => (
+                          <div
+                            key={index}
+                            className="relative group w-full h-64 bg-white shadow rounded-lg p-4 [perspective:1000px]"
+                            onMouseEnter={() => handleMouseEnter(index)}
+                            onMouseLeave={handleMouseLeave}
+                          >
+                            {/* Card Container with transform */}
+                            <div
+                              className={`absolute inset-0 w-full h-full transition-transform duration-500 [transform-style:preserve-3d] ${
+                                activeCard === index
+                                  ? "[transform:rotateY(180deg)]"
+                                  : ""
+                              }`}
+                            >
+                              {/* Front Side */}
+                              <div className="[backface-visibility:hidden] absolute inset-0 w-full h-full bg-white rounded-lg p-4">
+                                <img
+                                  src={fruit.image}
+                                  alt={fruit.name}
+                                  className="w-full h-48 object-cover rounded-lg mb-4 pointer-events-none"
+                                />
+                                <p className="text-center font-medium text-gray-800 pointer-events-none">
+                                  {fruit.name}
+                                </p>
+                              </div>
+
+                              {/* Back Side */}
+                              <div className="[backface-visibility:hidden] absolute inset-0 w-full h-full rounded-xl [transform:rotateY(180deg)] bg-green-200 flex flex-col justify-between items-center p-4">
+                                <h2 className="text-xl font-bold text-gray-800">
+                                  {fruit.name}
+                                </h2>
+                                <div className="overflow-hidden h-24">
+                                  <p
+                                    className={`text-sm text-gray-900 ${
+                                      readMore[index]
+                                        ? "overflow-auto h-24"
+                                        : "line-clamp-3"
+                                    }`}
+                                  >
+                                    {fruit.content}
+                                  </p>
+                                </div>
+                                <button
+                                  className="text-green-500 underline"
+                                  onClick={() => toggleReadMore(index)}
+                                >
+                                  {readMore[index] ? "Read Less" : "Read More"}
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       )}

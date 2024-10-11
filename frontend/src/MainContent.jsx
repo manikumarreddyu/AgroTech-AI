@@ -135,7 +135,7 @@ const MainContent = () => {
               <Route path="/about" element={<About />} />
               <Route path="/crop" element={<Crop />} />
               <Route path="/disease" element={<Disease />} />
-              <Route path="/engine" element={<AIEngine />} />
+              <Route path="/engine/:id" element={<AIEngine />} />
               <Route path="/submit" element={<Submit />} />
               <Route path="/fertilizer" element={<Fertilizer />} />
               <Route path="/soil" element={<SoilQuality />} />
@@ -154,6 +154,7 @@ const MainContent = () => {
         </div>
       )}
     </>
+
   );
 };
 
