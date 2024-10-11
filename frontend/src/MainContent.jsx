@@ -28,7 +28,6 @@ import Preloader from "./components/PreLoader";
 import ProgressScrollDown from "./components/ProgressScrollDown";
 import React, { useState, useEffect } from "react";
 import Products from "./pages/Products";
-import { useState, useEffect } from "react";
 import AuthPage from './components/AuthPage';
 
 const MainContent = () => {
