@@ -1,0 +1,188 @@
+###########html########
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Crop Calendar</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Calendar</h1>
+        <label for="season">Select a season:</label>
+        <select id="season" onchange="showCrops()">
+            <option value="">--Select--</option>
+            <option value="spring">Spring</option>
+            <option value="summer">Summer</option>
+            <option value="fall">Fall</option>
+            <option value="winter">Winter</option>
+        </select>
+        <div id="cropInfo" class="crop-info"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+########css######
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Make body full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* White background with a little transparency */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #00796b; /* Change header color for contrast */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #00796b; /* Change label color for contrast */
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #00796b;
+    border-radius: 4px;
+}
+
+.crop-info {
+    margin-top: 20px;
+}
+
+h2, h3 {
+    color: #004d40; /* Different colors for headings */
+}
+
+ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove padding */
+}
+
+li {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #004d40; /* Border around each crop */
+    border-radius: 4px; /* Rounded corners for each crop */
+    background-color: #f1f8e9; /* Light background for each crop */
+}
+
+
+####JS######
+const cropCalendar = {
+    "Spring": {
+        "March": {
+            "Early Potatoes": ["Plant", "N/A"],
+            "Peas": ["Plant", "N/A"],
+            "Lettuce": ["Sow indoors", "N/A"],
+            "Onions": ["Set out", "N/A"],
+        },
+        "April": {
+            "Carrots": ["Plant", "June - October"],
+            "Spinach": ["Sow", "May - June"],
+            "Beets": ["Sow", "June - September"],
+            "Cabbage": ["Transplant seedlings outdoors", "July - October"],
+        },
+        "May": {
+            "Tomatoes": ["Transplant outdoors", "July - September"],
+            "Cucumbers": ["Plant", "July - August"],
+            "Beans": ["Plant", "July - September"],
+            "Corn": ["Plant", "August - October"],
+        },
+    },
+    "Summer": {
+        "June": {
+            "Squash": ["Plant", "July - September"],
+            "Melons": ["Plant", "August - September"],
+            "Basil": ["Sow", "July - September"],
+            "Peppers": ["Transplant outdoors", "July - September"],
+        },
+        "July": {
+            "Late-season Carrots": ["Sow", "September - November"],
+            "Second crop of Beans": ["Sow", "September - October"],
+        },
+        "August": {
+            "Pumpkins": ["Plant", "September - October"],
+            "Spinach": ["Plant for fall harvest", "October - December"],
+            "Broccoli": ["Sow for fall harvest", "October - December"],
+        },
+    },
+    "Fall": {
+        "September": {
+            "Garlic": ["Plant", "July - August"],
+            "Onions": ["Sow seeds for overwintering", "May - June"],
+            "Cover crops": ["Sow", "N/A"],
+        },
+        "October": {
+            "Kale": ["Harvesting", "N/A"],
+            "Brussels Sprouts": ["Harvesting", "N/A"],
+            "Fall Lettuce": ["Harvesting", "N/A"],
+        },
+        "November": {
+            "Root crops": ["Harvest remaining", "N/A"],
+            "Mulching": ["Prepare for winter", "N/A"],
+        },
+    },
+    "Winter": {
+        "December & January": {
+            "Indoor Herbs": ["Plant indoors", "N/A"],
+        },
+        "February": {
+            "Early seeds": ["Starting indoors", "N/A"],
+        },
+    },
+};
+
+const seasonBackgrounds = {
+    "Spring": "url('https://thumbs.dreamstime.com/b/vineyard-cannonau-grapes-spring-new-shoots-young-leaves-branches-inflorescence-vine-traditional-agriculture-277846894.jpg')",
+    "Summer": "url('https://blog.machinefinder.com/wp-content/uploads/2013/07/r952i_trailed_sprayer.jpg')",
+    "Fall": "url('https://foodgardening.mequoda.com/wp-content/uploads/2021/01/autumn-sunlight.jpg')",
+    "Winter": "url('https://thumbs.dreamstime.com/z/agricultural-field-winter-wheat-under-snow-22126457.jpg')"
+};
+
+
+// Function to change body background and display crops for the selected season
+function showCrops() {
+    const seasonSelect = document.getElementById("season").value;
+    const selectedSeason = seasonSelect.charAt(0).toUpperCase() + seasonSelect.slice(1);
+    const cropInfoDiv = document.getElementById("cropInfo");
+    
+    cropInfoDiv.innerHTML = ""; // Clear previous information
+
+    if (cropCalendar[selectedSeason]) {
+        document.body.style.backgroundImage = seasonBackgrounds[selectedSeason];
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+
+        let output = `<h2>${selectedSeason}</h2>`;
+        for (const month in cropCalendar[selectedSeason]) {
+            output += `<h3>${month}:</h3><ul>`;
+            for (const crop in cropCalendar[selectedSeason][month]) {
+                const [action, harvest] = cropCalendar[selectedSeason][month][crop];
+                output += `<li>${crop}: ${action} (Harvest: ${harvest})</li>`;
+            }
+            output += `</ul>`;
+        }
+        cropInfoDiv.innerHTML = output;
+    } else {
+        cropInfoDiv.innerHTML = "<p>Invalid season, please select a valid option.</p>";
+    }
+}
