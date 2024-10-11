@@ -98,6 +98,8 @@ import AboutUs from "./components/AboutUs";
 import Irrigation from './components/Irrigation';
 import UseScrollToTop from './components/UseScrollToTop';
 import Article from './pages/Article';
+import CropCalender from './components/CropCalender';
+import TaskReminder from './components/TaskReminder';
 import ChatBot from './pages/ChatBot';
 import CropRotationRecommendation from './components/CropRotationRecommendation';
 import DiseaseRecognition from './components/DiseaseRecognition';
@@ -145,6 +147,8 @@ const MainContent = () => {
               <Route path="/reports" element={<Reports />} />
               <Route path="/aboutus" element={<AboutUs />} />
               <Route path="/article" element={<Article />} />
+              <Route path="/cropcalender" element={<CropCalender />} />
+              <Route path="/taskreminder" element={<TaskReminder />} />
               <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
             </Routes>
             <Footer />
