@@ -9,7 +9,7 @@ function ChatBot() {
   const chatHistoryRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [showLoadingModal, setShowLoadingModal] = useState(false);
-  const [firstMessageSent, setFirstMessageSent] = useState(false); // Track if first message is sent
+  const [firstMessageSent, setFirstMessageSent] = useState(false); // Tracking if the first message is sent
 
   const loadChatHistory = () => {
     const savedChatHistory = localStorage.getItem('chatHistory');
