@@ -24,7 +24,6 @@ const Footer = () => {
         { name: 'Price Prediction', path: '/prices' },
         { name: 'Forecast', path: '/forecast' },
         { name: 'Disease', path: '/disease' },
-        { name: 'Rental', path: '/rental' },
     ];
 
     // Define social media links
