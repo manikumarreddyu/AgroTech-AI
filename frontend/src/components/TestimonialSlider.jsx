@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react';
-import bgHero from '../assets/bgHero.png';
-import { BiChevronRight } from 'react-icons/bi';
-import { BiChevronLeft } from 'react-icons/bi';
+import React, { useState, useEffect } from 'react';
+import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
 
 const testimonialsData = {
   title: "⭐ What Our Users Say ⭐",
@@ -41,18 +39,12 @@ const testimonialsData = {
 
 const TestimonialSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(3);
+  const [slidesToShow, setSlidesToShow] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const updateSlidesToShow = () => {
-      if (window.innerWidth < 768) {
-        setSlidesToShow(1);
-      } else if (window.innerWidth < 1024) {
-        setSlidesToShow(1);
-      } else {
-        setSlidesToShow(1);
-      }
+      setSlidesToShow(window.innerWidth < 768 ? 1 : 1);
     };
 
     window.addEventListener('resize', updateSlidesToShow);
@@ -67,7 +59,7 @@ const TestimonialSlider = () => {
     if (!isHovered) {
       intervalId = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + slidesToShow) % testimonialsData.users.length);
-      }, 2000); // Change slide every 2 seconds
+      }, 2000);
     }
 
     return () => clearInterval(intervalId);
@@ -76,7 +68,7 @@ const TestimonialSlider = () => {
   const goToNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + slidesToShow) % testimonialsData.users.length);
   };
-  
+
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => (prevIndex - slidesToShow + testimonialsData.users.length) % testimonialsData.users.length);
   };
@@ -90,54 +82,51 @@ const TestimonialSlider = () => {
   };
 
   return (
-
-    <section className=""style={{ backgroundImage: `url(${bgHero})`}}>
-      <div  className="max-w-7xl pb-10 pt-5 mx-auto px-1   sm:px-2 lg:px-8 " >
-        <div
-          className="testimonial-slider-container w-full flex flex-col text-center py-6"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <h2 className="text-xl md:text-4x sm:text-2xl lg:text-4xl text-green-500 font-extrabold mb-8">{testimonialsData.title}</h2>
-          <div className="testimonial-slider flex items-center justify-center w-full my-auto mx-auto ">
-            <button
-              className="prev-arrow text-3xl cursor-pointer transform  hover:scale-125 transition-transform duration-300 mx-1 md:mx-4 lg:mx-6 text-green-500"
-              onClick={goToPrevious}
-            >
-            <BiChevronLeft /> 
-            </button>
-            <div className="flex overflow-hidden max-w-full">
-              {testimonialsData.users.slice(currentIndex, currentIndex + slidesToShow).map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="testimonial mx-2 p-6 md:p-10 rounded-lg drop-shadow-xl border border-green-700   flex flex-col items-center justify-center min-w-[260px] md:min-w-[350px] lg:min-w-[400px] transition-transform transform hover:scale-110"
-                >
-                  <img
-                    src={testimonial.image}
-                    alt={`${testimonial.author}'s picture`}
-                    className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-6 border  border-green-400 "
-                  />
-                  <p className="text-lg md:text-2xl italic mb-4 text-center">{testimonial.quote}</p>
-                  <h4 className="text-base md:text-xl text-green-500 font-semibold text-center">- {testimonial.author}</h4>
-                </div>
-              ))}
-            </div>
-            <button
-              className="next-arrow text-3xl cursor-pointer transform hover:scale-125 transition-transform duration-300 mx-2 md:mx-4 lg:mx-6 text-green-500"
-              onClick={goToNext}
-            >
-              <BiChevronRight />
-            </button>
-          </div>
-          <div className="dots flex justify-center mt-4">
-            {testimonialsData.users.map((_, index) => (
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-green-600 text-center mb-10">{testimonialsData.title}</h2>
+        <div className="testimonial-slider-container flex items-center justify-center" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <button
+            className="prev-arrow text-3xl text-green-600 hover:text-green-800 transition-transform duration-300"
+            onClick={goToPrevious}
+          >
+            <BiChevronLeft />
+          </button>
+          <div className="flex overflow-hidden max-w-full">
+            {testimonialsData.users.slice(currentIndex, currentIndex + slidesToShow).map((testimonial, index) => (
               <div
                 key={index}
-                className={`w-3 h-3 mx-1 rounded-full border border-green-700 cursor-pointer ${index === currentIndex ? 'bg-green-600' : 'bg-white'}`}
-                onClick={() => setCurrentIndex(index)}
-              />
+                className="testimonial mx-4 p-6 md:p-10 rounded-lg shadow-lg transition-transform duration-300 transform hover:shadow-2xl hover:scale-105"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(228, 240, 229, 1) 0%, rgba(255, 255, 255, 1) 100%)', // Light green gradient
+                  border: '1px solid rgba(207, 230, 207, 0.5)', // Light green border
+                }}
+              >
+                <img
+                  src={testimonial.image}
+                  alt={`${testimonial.author}'s picture`}
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 border-2 border-green-400 transition-all duration-300 transform hover:scale-105"
+                />
+                <p className="text-lg md:text-xl italic mb-4 text-center text-green-800">{testimonial.quote}</p>
+                <h4 className="text-base md:text-lg text-green-600 font-semibold text-center">- {testimonial.author}</h4>
+              </div>
             ))}
           </div>
+          <button
+            className="next-arrow text-3xl text-green-600 hover:text-green-800 transition-transform duration-300"
+            onClick={goToNext}
+          >
+            <BiChevronRight />
+          </button>
+        </div>
+        <div className="dots flex justify-center mt-4">
+          {testimonialsData.users.map((_, index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 mx-1 rounded-full border border-green-600 cursor-pointer ${index === currentIndex ? 'bg-green-600' : 'bg-white'}`}
+              onClick={() => setCurrentIndex(index)}
+            />
+          ))}
         </div>
       </div>
     </section>
