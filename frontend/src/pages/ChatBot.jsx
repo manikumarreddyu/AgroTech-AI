@@ -90,19 +90,16 @@ function ChatBot() {
       <h1 className="text-3xl text-center text-green-600 font-bold mb-4">AgroTech AI ChatBot</h1>
 
       {/* Modal for loading message */}
-      {showLoadingModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 transition-opacity duration-300 ease-in-out">
-  <div className="flex flex-col p-8 bg-gradient-to-r from-green-500 to-green-700 rounded-lg shadow-2xl max-w-md w-full transform transition-transform duration-300 ease-in-out scale-110">
-    <button className="self-end text-white hover:text-gray-300 transition-transform transform hover:scale-125" onClick={handleCloseModal}>
-      <FaTimes className="text-2xl" />
-    </button>
-    <h2 className="text-xl font-bold text-white mb-3 text-center">Your AI Agent is on the way...</h2>
-    <img src={loadingGif} alt="Loading..." className="mx-auto w-16 h-16 mb-3" />
-    <p className="text-white text-center">The model may take some <strong>1 - 2 minutes</strong> to load. Please be patient!</p>
-  </div>
-</div>
-
-
+      {showLoadingModal && (<div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50 transition-opacity duration-300 ease-in-out">
+      <div className="flex flex-col p-8 bg-gradient-to-r from-green-500 to-green-700 rounded-lg shadow-2xl max-w-md w-full transform transition-transform duration-300 ease-in-out scale-110">
+        <button className="self-end text-white hover:text-gray-300 transition-transform transform hover:scale-125" onClick={handleCloseModal}>
+          <FaTimes className="text-2xl" />
+        </button>
+        <h2 className="text-xl font-bold text-white mb-3 text-center">Your AI Agent is on the way...</h2>
+        <img src={loadingGif} alt="Loading..." className="mx-auto w-16 h-16 mb-3" />
+        <p className="text-white text-center">The model may take some <strong>1 - 2 minutes</strong> to load. Please be patient!</p>
+      </div>
+    </div>
     )}
 
 
