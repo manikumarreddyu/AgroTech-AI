@@ -1,7 +1,7 @@
 import React from "react";
-import backgroundImg from "../assets/rental.jpg";
+import backgroundImg from "../assets/images/rental.jpg";
 import toolImg from "../assets/images/tools.jpeg"
-const Rental = () => {
+const Home = () => {
   return (
     <div className="bg-green-600 text-white ">
       <div
@@ -193,7 +193,7 @@ const Rental = () => {
                 src="https://storage.googleapis.com/a1aa/image/oJAEQiuSEwpkN9jExQdVMx53fLkHSYfUiUFi6OO2VKK6ixlTA.jpg"
                 width="300"
               />
-              <h3 className="text-xl font-bold mb-2 text-">Drone Rentals</h3>
+              <h3 className="text-xl font-bold mb-2">Drone Rentals</h3>
               <p className="text-gray-400 mb-4">Precision Farming Drones</p>
               <ul className="space-y-2">
                 <li className="flex items-center space-x-2">
@@ -231,16 +231,15 @@ const Rental = () => {
             <h3 className="text-xl font-bold text-green-400 ml-2">
             Agricultural Tools
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 ">
               <li className="flex items-center space-x-2">
-                <span className="mt-0 fa-check text-gray-500 ml-2">Modern Agricultural Tools</span>
+                <span className="mt-0 fa-check text-gray-500 m-auto ">Modern Agricultural Tools</span>
               </li>
               <li className="flex items-center space-x-2">
-                <i className="fas fa-check" />
-                <span>Rent a variety of advanced agricultural tools to enhance your farming operations. Our selection includes precision seed drills for uniform sowing, heavy-duty plows for effective soil preparation, and automated sprayers for efficient pest and nutrient application.</span>
+                <span className="mt-0 fa-check ml-2">Rent a variety of advanced agricultural tools to enhance your farming operations. Our selection includes precision seed drills for uniform sowing, heavy-duty plows for effective soil preparation, and automated sprayers for efficient pest and nutrient application.</span>
               </li>
-              <li className="flex items-center space-x-2 ml-2">
-                <span className="fas fa-check text-gray-500">Starting from &#x20B9;50/day</span>
+              <li className="flex items-center space-x-2 ">
+                <span className="fas fa-check text-gray-500 m-auto">Starting from &#x20B9;50/day</span>
               </li>
             </ul>
           </div>
@@ -252,4 +251,4 @@ const Rental = () => {
   );
 };
 
-export default Rental;
+export default Home;
