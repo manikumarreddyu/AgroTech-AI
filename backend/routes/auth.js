@@ -7,11 +7,9 @@ const jwt = require('jsonwebtoken');
 // Signup Route
 router.post('/signup', async (req, res) => {
   try {
-    const { firstName, lastName, email, password, confirmPassword } = req.body;
+    const { firstName, lastName, email, password } = req.body;
     console.log(req.body);
-    if (password !== confirmPassword) {
-      return res.status(400).json({ message: 'Passwords do not match' });
-    }
+   
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {

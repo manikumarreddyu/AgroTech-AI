@@ -25,6 +25,8 @@ import DiseaseRecognition from './components/DiseaseRecognition';
 import Preloader from "./components/PreLoader";
 import ProgressScrollDown from "./components/ProgressScrollDown";
 import { useState, useEffect } from "react";
+import AuthPage from './components/AuthPage';
+
 
 const MainContent = () => {
   UseScrollToTop();
@@ -67,6 +69,8 @@ const MainContent = () => {
               <Route path="/aboutus" element={<AboutUs />} />
               <Route path="/article" element={<Article />} />
               <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
+              <Route path="/Auth-page" element={<AuthPage />} />
+              
             </Routes>
             <Footer />
           </div>

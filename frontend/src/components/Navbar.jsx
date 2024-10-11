@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme(); // Use useTheme hook
   const [openDropdown, setOpenDropdown] = useState(null); // Track which dropdown is open
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // State for login status
 
   const navbarRef = useRef(null);
 
@@ -41,6 +42,16 @@ const Navbar = () => {
 
   const handleDropdown = (dropdown) => {
     setOpenDropdown((prev) => (prev === dropdown ? null : dropdown));
+  };
+
+  // Function to simulate user login (for demonstration)
+  const handleLogin = () => {
+    setIsLoggedIn(true); // Simulate a successful login
+  };
+
+  // Function to simulate user logout (for demonstration)
+  const handleLogout = () => {
+    setIsLoggedIn(false); // Simulate a successful logout
   };
 
   return (
@@ -236,14 +247,16 @@ const Navbar = () => {
             </button>
 
             {/* Sign In Button for larger screens */}
-            <div className="hidden lg:flex items-center ml-4">
-              <NavLink
-                
-                className="py-2 px-4 text-white border border-white rounded-lg hover:bg-white hover:text-green-600 "
-              >
-                Sign In
-              </NavLink>
-            </div>
+            {isLoggedIn && ( // Conditional rendering based on login status
+              <div className="hidden lg:flex items-center ml-4">
+                <NavLink
+                  to={"/auth-page"}
+                  className="py-2 px-4 text-white border border-white rounded-lg hover:bg-white hover:text-green-600 "
+                >
+                  Sign In
+                </NavLink>
+              </div>
+            )}
           </div>
         </div>
       </div>
