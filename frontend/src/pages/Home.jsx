@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import heroImage from '../assets/hero.png'; // Example image import for hero
+import heroImage from '../assets/hero.png'; 
 import Features from '../components/Features';
 import About from './About';
 import Showcase from '../components/Showcase';
