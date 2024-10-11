@@ -59,7 +59,6 @@ const AIEngine = () => {
         <h1 className="text-4xl font-bold text-green-500">🍀AI Engine🍀</h1>
         <p className="text-xl text-gray-700 mt-2">Let AI Engine Help You To Detect Disease</p>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white shadow rounded-lg p-6">
           <h5 className="font-bold text-xl mb-4">Why is it necessary to detect disease in plants?</h5>
