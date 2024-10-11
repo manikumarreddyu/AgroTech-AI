@@ -91,10 +91,9 @@ A Random Forest model was trained using the training data.
 A grid search with cross-validation was applied to find the optimal parameters for the Random Forest model.
 
 # 2. Crop Prediction
-Implements a machine learning-based crop recommendation system using various classification algorithms to predict the best crop for farming based on the soil and environmental conditions. The model takes features such as Nitrogen (N), Phosphorus (P), Potassium (K), temperature, humidity, pH, and rainfall as inputs and predicts the most suitable crop for a particular set of conditions.
-
+Develop a machine learning-based crop recommendation system that uses various classification algorithms to predict the optimal crop for farming based on soil and environmental factors. The model takes inputs such as Nitrogen (N), Phosphorus (P), Potassium (K), temperature, humidity, pH level, and rainfall, and outputs the most suitable crop for specific conditions.
 # Dataset:
-Crop_recommendation.csv(Uploaded under notebooks)
+Crop_recommendation.csv
 
 # Model Training and Results
 Four different models were trained on the dataset to predict the crop:
