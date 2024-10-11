@@ -106,7 +106,7 @@ function ChatBot() {
             </button>
             <h2 className="text-xl font-bold text-white mb-3 text-center">Your AI Agent is on the way...</h2>
             <img src={loadingGif} alt="Loading..." className="mx-auto w-16 h-16 mb-3" />
-            <p className="text-white text-center">The model may take some <strong>1 - 2 minutes</strong> to load. Please be patient!</p>
+            <p className="text-white text-center">The model may take some <strong>1 - 2 minutes</strong> to load. Please be patient!!!</p>
           </div>
         </div>
       )}
