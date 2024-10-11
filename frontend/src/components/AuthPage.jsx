@@ -9,35 +9,28 @@ const AuthPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [message, setMessage] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State for login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
-  // Validation states for password
   const [isLowerUpper, setIsLowerUpper] = useState(false);
   const [isNumber, setIsNumber] = useState(false);
   const [isSpecialChar, setIsSpecialChar] = useState(false);
   const [isMinLength, setIsMinLength] = useState(false);
 
-  // Validate password as user types
   const validatePassword = (input) => {
     setPassword(input);
 
-    // Lowercase & Uppercase check
     const lowerUpper = /^(?=.*[a-z])(?=.*[A-Z])/;
     setIsLowerUpper(lowerUpper.test(input));
 
-    // Number check
     const numberCheck = /^(?=.*[0-9])/;
     setIsNumber(numberCheck.test(input));
 
-    // Special character check
     const specialCharCheck = /^(?=.*[!@#$%^&*])/;
     setIsSpecialChar(specialCharCheck.test(input));
 
-    // Minimum length check
     setIsMinLength(input.length >= 8);
   };
 
-  // Sign Up Handler
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
@@ -46,10 +39,10 @@ const AuthPage = () => {
         lastName,
         email,
         password,
-        confirmPassword: password, // Confirm password for matching
+        confirmPassword: password,
       });
       setMessage(response.data.message);
-      setIsSignUp(false); // Switch to Sign In after successful sign-up
+      setIsSignUp(false); 
     } catch (error) {
       setMessage(error.response?.data?.message || "Signup failed");
     }
@@ -64,13 +57,12 @@ const AuthPage = () => {
         password,
       });
       setMessage(response.data.message);
-      setIsLoggedIn(true); // Set logged in state to true
+      setIsLoggedIn(true);
     } catch (error) {
       setMessage(error.response?.data?.message || "Login failed");
     }
   };
 
-  // Redirect to home if logged in
   if (isLoggedIn) {
     return <Navigate to="/" />;
   }
@@ -78,7 +70,6 @@ const AuthPage = () => {
   return (
     <div className="min-h-screen bg-green-50 flex items-center justify-center">
       <div className="bg-white shadow-lg rounded-lg w-full max-w-md flex flex-col items-center">
-        {/* Top Navigation for Sign In / Sign Up */}
         <div className="w-full flex justify-center py-4 bg-green-100 rounded-t-lg">
           <button
             onClick={() => setIsSignUp(false)}
@@ -102,12 +93,10 @@ const AuthPage = () => {
           </button>
         </div>
 
-        {/* Message Display */}
         {message && (
           <div className="text-red-500 text-center p-2">{message}</div>
         )}
 
-        {/* Sign In Form */}
         {!isSignUp && (
           <form className="p-6 space-y-4 w-full" onSubmit={handleSignIn}>
             <h2 className="text-2xl font-bold text-center text-green-600">

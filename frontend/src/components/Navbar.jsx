@@ -2,18 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import icon from "../assets/favicon2.png";
 import GoogleTranslate from "./GoogleTranslate";
-import { FaSun, FaMoon, FaChevronDown } from "react-icons/fa"; // Added FaChevronDown for arrow
-import useTheme from "../hooks/useTheme"; // Imported useTheme hook
+import { FaSun, FaMoon, FaChevronDown } from "react-icons/fa"; 
+import useTheme from "../hooks/useTheme"; 
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme(); // Use useTheme hook
-  const [openDropdown, setOpenDropdown] = useState(null); // Track which dropdown is open
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // State for login status
+  const { theme, toggleTheme } = useTheme(); 
+  const [openDropdown, setOpenDropdown] = useState(null); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
   const navbarRef = useRef(null);
 
-  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
@@ -31,27 +30,25 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     if (isMenuOpen) {
-      setOpenDropdown(null); // Close any open dropdown when menu is closed
+      setOpenDropdown(null); 
     }
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-    setOpenDropdown(null); // Close any open dropdown when menu is closed
+    setOpenDropdown(null);
   };
 
   const handleDropdown = (dropdown) => {
     setOpenDropdown((prev) => (prev === dropdown ? null : dropdown));
   };
 
-  // Function to simulate user login (for demonstration)
   const handleLogin = () => {
-    setIsLoggedIn(true); // Simulate a successful login
+    setIsLoggedIn(true); 
   };
 
-  // Function to simulate user logout (for demonstration)
   const handleLogout = () => {
-    setIsLoggedIn(false); // Simulate a successful logout
+    setIsLoggedIn(false); 
   };
 
   return (
@@ -246,8 +243,8 @@ const Navbar = () => {
               )}
             </button>
 
-            {/* Sign In Button for larger screens */}
-            {isLoggedIn && ( // Conditional rendering based on login status
+            
+            {isLoggedIn && ( 
               <div className="hidden lg:flex items-center ml-4">
                 <NavLink
                   to={"/auth-page"}
