@@ -45,7 +45,7 @@ export default function Home() {
               className="rounded-md shadow"
             >
               <Link
-                to="/"
+                to="/products"
                 className="flex items-center justify-center w-full px-8 py-3 text-base font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 md:py-4 md:text-lg md:px-10"
               >
                 Explore Now

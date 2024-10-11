@@ -26,9 +26,10 @@ import CropRotationRecommendation from './components/CropRotationRecommendation'
 import DiseaseRecognition from './components/DiseaseRecognition';
 import Preloader from "./components/PreLoader";
 import ProgressScrollDown from "./components/ProgressScrollDown";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Climate from './components/Climate';
+import Products from "./pages/Products";
 import AuthPage from './components/AuthPage';
-
 
 const MainContent = () => {
   UseScrollToTop();
@@ -64,6 +65,7 @@ const MainContent = () => {
               <Route path="/fertilizer" element={<Fertilizer />} />
               <Route path="/soil" element={<SoilQuality />} />
               <Route path="/Irrigation" element={<Irrigation />} />
+              <Route path="/climate" element={<Climate/>} />
               <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
               <Route path="/forecast" element={<Forecast />} />
               <Route path="/prices" element={<Prices />} />
@@ -73,8 +75,8 @@ const MainContent = () => {
               <Route path="/cropcalender" element={<CropCalender />} />
               <Route path="/taskreminder" element={<TaskReminder />} />
               <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
+              <Route path="/products" element={<Products />} /> 
               <Route path="/Auth-page" element={<AuthPage />} />
-              
             </Routes>
             <Footer />
           </div>
