@@ -237,37 +237,36 @@ export default function PlantDiseaseDetection() {
               </div>
   
               {showCropList && (
-  <motion.div 
-    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
-    initial={{ opacity: 0, height: 0 }}
-    animate={{ opacity: 1, height: 'auto' }}
-    transition={{ duration: 0.5 }}
-  >
-    {fruits.map((fruit, index) => (
-      <div 
-        key={fruit.name}
-        className="overflow-hidden cursor-pointer transition-shadow duration-300 border rounded-md border-green-200 hover:shadow-lg hover:shadow-green-300" // Adjusted hover shadow effect
-        onMouseEnter={() => setActiveCard(index)}
-        onMouseLeave={() => setActiveCard(null)}
-      >
-        <div className="p-4">
-          <img 
-            src={fruit.image} 
-            alt={fruit.name}
-            className="w-full h-32 object-cover rounded-md mb-2"
-          />
-          <h3 className="text-lg font-medium text-green-700 mb-2">{fruit.name}</h3>
-          <motion.p 
-            className={`text-sm transition-opacity duration-300 ${activeCard === index ? 'opacity-100' : 'opacity-50'}`}
-          >
-            {fruit.content}
-          </motion.p>
-        </div>
-      </div>
-    ))}
-  </motion.div>
-)}
-
+                <motion.div 
+                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" // Adjusted grid columns for better responsiveness
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {fruits.map((fruit, index) => (
+                    <div 
+                      key={fruit.name}
+                      className="overflow-hidden cursor-pointer transition-shadow duration-300 border rounded-md border-green-200 hover:shadow-lg hover:shadow-green-300" 
+                      onMouseEnter={() => setActiveCard(index)}
+                      onMouseLeave={() => setActiveCard(null)}
+                    >
+                      <div className="p-4">
+                        <img 
+                          src={fruit.image} 
+                          alt={fruit.name}
+                          className="w-full h-32 object-cover rounded-md mb-2"
+                        />
+                        <h3 className="text-lg font-medium text-green-700 mb-2">{fruit.name}</h3>
+                        <motion.p 
+                          className={`text-sm transition-opacity duration-300 ${activeCard === index ? 'opacity-100' : 'opacity-50'}`}
+                        >
+                          {fruit.content}
+                        </motion.p>
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+              )}
             </div>
           </div>
         </motion.div>
