@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import heroImage from '../assets/hero.png'; 
+import heroImage from '../assets/hero.png';
 import Features from '../components/Features';
 import About from './About';
 import Showcase from '../components/Showcase';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FAQ from '../components/FAQ';
+import { FaComment } from "react-icons/fa"; // Import the message icon
+import "../styles/ChatbotButton.css";
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -23,7 +25,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-r from-green-50 to-green-100">
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-16 mx-auto max-w-7xl sm:px-6 lg:px-8 -mt-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,6 +55,17 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
+        <div className="relative">
+          <Link
+            to="/chatbot"
+            className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110 animate-swing"
+          >
+            <FaComment className="text-white text-3xl" />
+            <span className="absolute -top-10 -right-4 bg-white text-green-500 text-sm rounded-md px-2 py-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100 blink-text">
+              Try Our ChatBot
+            </span>
+          </Link>
+        </div>
 
         {/* Hero Image */}
         <motion.div

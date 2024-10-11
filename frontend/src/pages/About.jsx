@@ -53,7 +53,7 @@ function About() {
         </div>
       </div>
 
-      {/* Fixed message icon with tooltip */}
+      {/* Fixed message icon with tooltip
       <div className="relative">
         <Link to="/chatbot" className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110">
           <FaComment className="text-white text-3xl" />
@@ -61,7 +61,7 @@ function About() {
             Try Our ChatBot
           </span>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

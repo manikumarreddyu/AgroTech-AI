@@ -218,7 +218,7 @@ const Navbar = () => {
               Disease Detection
             </NavLink>
             <NavLink
-              to="/forecast"
+              to="/climate"
               className={({ isActive }) =>
                 `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${
                   isActive ? "bg-green-700" : "hover:bg-green-500"
@@ -232,7 +232,7 @@ const Navbar = () => {
             {/* Google Translate Component */}
             <GoogleTranslate />
             {/* Theme Toggle Button */}
-            <button
+            {/* <button
               onClick={toggleTheme}
               className="hidden lg:flex items-center justify-center p-2 rounded-lg text-white hover:bg-green-500 transition duration-300 ml-auto"
             >
@@ -241,7 +241,7 @@ const Navbar = () => {
               ) : (
                 <FaMoon className="text-2xl" />
               )}
-            </button>
+            </button> */}
 
             
             {isLoggedIn && ( 
