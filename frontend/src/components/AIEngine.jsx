@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { sugarcaneDiseaseInfo } from "./sugarcane-result-template";
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import { ArrowPathIcon } from '@heroicons/react/24/outline'; 
+import { motion, AnimatePresence } from "framer-motion";
+import { Loader2 } from "lucide-react";
+import { useEffect } from "react";
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 const AIEngine = () => {
   const { id } = useParams(); // Extracts the ID from the URL
   console.log(id);
@@ -102,7 +111,6 @@ const AIEngine = () => {
           🍀{cropDetail[index].name} Disease Prediction Engine🍀
         </h1>
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white shadow rounded-lg p-6">
           <h5 className="font-bold text-xl mb-4">
@@ -115,6 +123,62 @@ const AIEngine = () => {
             }}
           ></p>
         </div>
+
+        <Dialog open={isLoading} onOpenChange={setIsLoading}>
+          <AnimatePresence>
+            {isLoading && (
+              <DialogContent className="sm:max-w-md p-0 overflow-hidden">
+                <motion.div
+                  className="fixed inset-0 bg-gradient-to-br from-green-100 to-green-300 backdrop-blur-sm"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                />
+                <motion.div
+                  className="relative bg-white rounded-lg shadow-xl"
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.9, opacity: 0 }}
+                  transition={{ type: "spring", damping: 20, stiffness: 300 }}
+                >
+                  <div className="p-6 flex flex-col items-center">
+                    <div className="flex items-center justify-center mb-4">
+                      <motion.div
+                        animate={{
+                          rotate: 360,
+                          transition: { duration: 2, repeat: Infinity, ease: "linear" },
+                        }}
+                      >
+                        <Loader2 className="h-16 w-16 text-green-500" />
+                      </motion.div>
+                    </div>
+                    <div>
+                      <DialogTitle className="text-xl font-semibold text-gray-800 text-center">
+                        Please Wait
+                      </DialogTitle>
+                    </div>
+                    <p className="mt-2 text-sm text-gray-600 text-center">
+                      We are generating your response. This may take a moment.
+                    </p>
+                    <motion.div
+                      className="mt-6 w-full bg-gray-300 rounded-full h-2.5 overflow-hidden"
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 5, ease: "easeInOut" }}
+                    >
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-green-400 to-green-600"
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 5, ease: "easeInOut" }}
+                      />
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </DialogContent>
+            )}
+          </AnimatePresence>
+        </Dialog>
 
         <div className="bg-white shadow rounded-lg p-6">
           {!previewUrl && (
