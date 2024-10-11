@@ -30,10 +30,10 @@ import React, { useState, useEffect } from "react";
 import Climate from './components/Climate';
 import Products from "./pages/Products";
 import AuthPage from './components/AuthPage';
-
+import Rental from './pages/Rental';
 const MainContent = () => {
   UseScrollToTop();
-
+  const rentalPages = ['/rental'];
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const MainContent = () => {
           <GoTop />
           <ProgressScrollDown />
           <div>
-            <Navbar />
+          {!rentalPages.includes(location.pathname) && <Navbar />}
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/chatbot" element={<ChatBot />} />
@@ -77,6 +77,7 @@ const MainContent = () => {
               <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
               <Route path="/products" element={<Products />} /> 
               <Route path="/Auth-page" element={<AuthPage />} />
+              <Route path="/rental" element={<Rental />} />
             </Routes>
             <Footer />
           </div>
