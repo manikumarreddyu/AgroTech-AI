@@ -220,17 +220,6 @@ const Navbar = () => {
             >
               Climate
             </NavLink>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${
-                  isActive ? "bg-green-700" : "hover:bg-green-500"
-                }`
-              }
-              onClick={closeMenu}
-            >
-              About Us
-            </NavLink>
 
             {/* Google Translate Component */}
             <GoogleTranslate />
