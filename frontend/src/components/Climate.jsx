@@ -138,13 +138,12 @@ const Climate = () => {
       )}
 
       {weatherData && (
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-6xl text-gray-900'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-6xl '>
           {/* Left Section - Current Weather and 5-Day Forecast */}
           <div
-            className='p-5  shadow-md hover:shadow-lg bg-gradient-to-r from-green-500 to-green-700 rounded-lg'
+            className='p-5  shadow-md hover:shadow-lg bg-gradient-to-r from-green-500 via-green-600 to-green-500 rounded-lg text-white'
             style={{
-              background:
-                'linear-gradient(to bottom right, #e0f2f1, #b2dfdb, #4db6ac)',
+              
               backdropFilter: 'blur(10px)',
               boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37)',
               borderRadius: '50px'
@@ -191,16 +190,15 @@ const Climate = () => {
 
           {/* Right Section - Current Weather Details */}
           <div
-            className='p-5 rounded-md shadow-md hover:shadow-lg duration-300 bg-transparent grid grid-cols-1 md:grid-cols-2 gap-4 w-full'
+            className='p-5 rounded-md shadow-md hover:shadow-lg duration-300 bg-transparent grid grid-cols-1 md:grid-cols-2 gap-4 w-full bg-gradient-to-r from-green-500 via-green-600 to-green-500'
             style={{
-              background:
-                'linear-gradient(to bottom right, #e0f2f1, #b2dfdb, #4db6ac)',
+              
               backdropFilter: 'blur(10px)',
               boxShadow: '0 8px 32px rgba(31, 38, 135, 0.37)',
               borderRadius: '50px'
             }}
           >
-            <h3 className='col-span-2 text-center text-2xl font-semibold mb-4'>
+            <h3 className='col-span-2 text-center text-2xl font-semibold mb-4 text-white'>
               Current Conditions
             </h3>
 
@@ -208,7 +206,7 @@ const Climate = () => {
             <div className='grid grid-cols-2 md:grid-cols-2 gap-4 col-span-2'>
               {/* Air Quality Index Box */}
               <div className='flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-lg border border-gray-200 transition-transform duration-300 hover:scale-105'>
-                <WiCloudyGusts className='w-12 h-12 mb-2 text-gray-600' />
+                <WiCloudyGusts className='w-12 h-12 mb-2 text-green-500' />
                 <p className='text-lg font-semibold'>Air Quality Index</p>
                 <p className='mt-2'>{airQualityIndex}</p>
               </div>
@@ -256,7 +254,7 @@ const Climate = () => {
       {/* Display hourly forecast for the next 24 hours */}
       {currentWeather.length > 0 && (
         <div className='mt-8 w-full max-w-6xl'>
-          <h3 className='text-xl font-semibold text-center m-6'>
+          <h3 className='text-2xl font-semibold text-center m-6 text-green-500'>
             Hourly Forecast
           </h3>
           <ul className='mt-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4'>
