@@ -1,0 +1,86 @@
+# Define a crop calendar
+crop_calendar = {
+    "Spring": {
+        "March": {
+            "Early Potatoes": ("Plant", "N/A"),
+            "Peas": ("Plant", "N/A"),
+            "Lettuce": ("Sow indoors", "N/A"),
+            "Onions": ("Set out", "N/A"),
+        },
+        "April": {
+            "Carrots": ("Plant", "June - October"),
+            "Spinach": ("Sow", "May - June"),
+            "Beets": ("Sow", "June - September"),
+            "Cabbage": ("Transplant seedlings outdoors", "July - October"),
+        },
+        "May": {
+            "Tomatoes": ("Transplant outdoors", "July - September"),
+            "Cucumbers": ("Plant", "July - August"),
+            "Beans": ("Plant", "July - September"),
+            "Corn": ("Plant", "August - October"),
+        },
+    },
+    "Summer": {
+        "June": {
+            "Squash": ("Plant", "July - September"),
+            "Melons": ("Plant", "August - September"),
+            "Basil": ("Sow", "July - September"),
+            "Peppers": ("Transplant outdoors", "July - September"),
+        },
+        "July": {
+            "Late-season Carrots": ("Sow", "September - November"),
+            "Second crop of Beans": ("Sow", "September - October"),
+        },
+        "August": {
+            "Pumpkins": ("Plant", "September - October"),
+            "Spinach": ("Plant for fall harvest", "October - December"),
+            "Broccoli": ("Sow for fall harvest", "October - December"),
+        },
+    },
+    "Fall": {
+        "September": {
+            "Garlic": ("Plant", "July - August"),
+            "Onions": ("Sow seeds for overwintering", "May - June"),
+            "Cover crops": ("Sow", "N/A"),
+        },
+        "October": {
+            "Kale": ("Harvesting", "N/A"),
+            "Brussels Sprouts": ("Harvesting", "N/A"),
+            "Fall Lettuce": ("Harvesting", "N/A"),
+        },
+        "November": {
+            "Root crops": ("Harvest remaining", "N/A"),
+            "Mulching": ("Prepare for winter", "N/A"),
+        },
+    },
+    "Winter": {
+        "December & January": {
+            "Indoor Herbs": ("Plant indoors", "N/A"),
+        },
+        "February": {
+            "Early seeds": ("Starting indoors", "N/A"),
+        },
+    },
+}
+
+# Function to display crops for the selected season
+def display_crops_for_season(season):
+    if season in crop_calendar:
+        print(f"\n{season}:\n")
+        for month, crops in crop_calendar[season].items():
+            print(f"{month}:")
+            for crop, (action, harvest) in crops.items():
+                print(f"  - {crop}: {action} (Harvest: {harvest})")
+            print()
+    else:
+        print("Invalid season. Please choose from: Spring, Summer, Fall, Winter.")
+
+# Main function to ask user for the season and display crops
+def main():
+    season = input("Please enter a season (Spring, Summer, Fall, Winter): ").strip().capitalize()
+    display_crops_for_season(season)
+
+# Run the main function
+if __name__ == "__main__":
+    main()
+  
