@@ -23,7 +23,7 @@ const url = {
   currentWeather: (lat, lon) =>
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`,
   airPollution: (lat, lon) =>
-    `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}`,
+    `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}`,
   forecast: (lat, lon) =>
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}`,
   geo: query => `https://api.openweathermap.org/data/2.5/weather?q=${query}`,
@@ -141,7 +141,7 @@ const Climate = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-6xl text-gray-900'>
           {/* Left Section - Current Weather and 5-Day Forecast */}
           <div
-            className='p-5 rounded-md shadow-md hover:shadow-lg bg-gradient-to-r from-green-500 to-green-700 rounded-lg'
+            className='p-5  shadow-md hover:shadow-lg bg-gradient-to-r from-green-500 to-green-700 rounded-lg'
             style={{
               background:
                 'linear-gradient(to bottom right, #e0f2f1, #b2dfdb, #4db6ac)',
@@ -156,7 +156,7 @@ const Climate = () => {
             <div className='flex flex-col items-center'>
               {/* Current Weather Icon */}
               <img
-                src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
                 alt={weatherData.weather[0].description}
                 className='w-24 h-24 mb-2'
               />
@@ -177,7 +177,7 @@ const Climate = () => {
                   <div className='flex items-center'>
                     {/* Weather Icon for Each Day */}
                     <img
-                      src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} // Use forecast-specific weather icon
+                      src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} // Use forecast-specific weather icon
                       alt={forecast.weather[0].description}
                       className='w-12 h-12 mr-2' // Adjust the size of the icon
                     />
@@ -269,7 +269,7 @@ const Climate = () => {
                   {getTime(entry.dt, weatherData.timezone)}
                 </p>
                 <img
-                  src={`http://openweathermap.org/img/wn/${entry.weather[0].icon}@2x.png`}
+                  src={`https://openweathermap.org/img/wn/${entry.weather[0].icon}@2x.png`}
                   alt={entry.weather[0].description}
                   className='w-16 h-16 my-2'
                 />
