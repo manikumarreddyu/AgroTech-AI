@@ -104,6 +104,7 @@ import DiseaseRecognition from './components/DiseaseRecognition';
 import Preloader from "./components/PreLoader";
 import ProgressScrollDown from "./components/ProgressScrollDown";
 import React, { useState, useEffect } from "react";
+import Products from "./pages/Products";
 
 const MainContent = () => {
   UseScrollToTop();
@@ -146,6 +147,7 @@ const MainContent = () => {
               <Route path="/aboutus" element={<AboutUs />} />
               <Route path="/article" element={<Article />} />
               <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
+              <Route path="/products" element={<Products />} /> 
             </Routes>
             <Footer />
           </div>
