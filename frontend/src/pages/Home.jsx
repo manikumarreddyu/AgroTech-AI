@@ -7,7 +7,8 @@ import About from './About';
 import Showcase from '../components/Showcase';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FAQ from '../components/FAQ';
-import { FaComment } from "react-icons/fa"; // Import the message icon
+import AdvantagesDisadvantages from '../components/AdvDis'; // Import the new component
+import { FaComment } from "react-icons/fa";
 import "../styles/ChatbotButton.css";
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-r from-green-50 to-green-100">
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-16 mx-auto max-w-7xl sm:px-6 lg:px-8 -mt-20">
+        {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,17 +57,6 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
-        <div className="relative">
-          <Link
-            to="/chatbot"
-            className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110 animate-swing"
-          >
-            <FaComment className="text-white text-3xl" />
-            <span className="absolute -top-10 -right-4 bg-white text-green-500 text-sm rounded-md px-2 py-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100 blink-text">
-              Try Our ChatBot
-            </span>
-          </Link>
-        </div>
 
         {/* Hero Image */}
         <motion.div
@@ -122,10 +113,14 @@ export default function Home() {
         </div>
       </section>
 
+      
+
       {/* Additional Components */}
       <Features />
       <About />
       <Showcase />
+      {/* Advantages and Disadvantages of AI in Agriculture */}
+      <AdvantagesDisadvantages />  {/* Added the new component */}
       <TestimonialSlider />
       <FAQ />
     </div>
