@@ -30,6 +30,7 @@ import React, { useState, useEffect } from "react";
 import Climate from './components/Climate';
 import Products from "./pages/Products";
 import AuthPage from './components/AuthPage';
+import FertilizerCalculator from './components/FertilizerCalculator';
 const MainContent = () => {
   UseScrollToTop();
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
@@ -61,6 +62,7 @@ const MainContent = () => {
               <Route path="/engine/:id" element={<AIEngine />} />
               <Route path="/submit" element={<Submit />} />
               <Route path="/fertilizer" element={<Fertilizer />} />
+              <Route path="/fertilizer_calculator" element={<FertilizerCalculator />} />
               <Route path="/soil" element={<SoilQuality />} />
               <Route path="/Irrigation" element={<Irrigation />} />
               <Route path="/climate" element={<Climate/>} />
