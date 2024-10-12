@@ -240,34 +240,26 @@ const SoilQuality = () => {
 
                 <div
                     className="max-w-full mx-auto mt-16 pb-10 pt-5 px-4 sm:px-6 lg:px-8"
-                    style={{
-                        backgroundImage: `url(${bgHero})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                    }}
                 >
-                    <h1 className="text-2xl font-bold text-green-500 text-center">Soil Quality Prediction</h1>
-                    <div className="flex flex-col sm:flex-row items-center justify-between mb-8">
-                        <div className="sm:w-2/3 p-4">
-                            <h1 className="md:text-2xl sm:text-2xl text-2xl font-bold py-4 text-green-700">
-                                🌱 About Soil Quality Prediction Model
-                            </h1>
-                            <p className="text-lg text-[#000435] text-justify">
-                                🌍 The Soil Quality Prediction Model leverages Machine Learning to provide accurate insights into soil health. By analyzing various parameters such as nutrient levels, pH balance, and moisture content, the model helps farmers make informed decisions.
-                            </p>
-                            <p className='md:text-xl sm:text-xl text-xl font-bold py-4 text-[#000435]'>
-                                🤔 How it Works!
-                            </p>
-                            <p className="text-lg text-[#000435]">
-                                <span>🔍 Analyze key soil parameters like nitrogen, phosphorous, and potassium.</span><br />
-                                <span>📈 Assess pH level, electrical conductivity, and organic carbon.</span><br />
-                                <span>💧 Evaluate additional nutrients such as sulphur, zinc, and iron.</span><br />
-                                <span>✅ Check for copper, manganese, and boron.</span><br />
-                                <span>✅ Provide actionable insights for soil management and crop planning.</span><br />
-                            </p>
-                        </div>
+                    <h1 className="text-4xl font-extrabold text-green-600 text-center mb-6">
+        Soil Quality Prediction
+    </h1>
+    <div className="max-w-7xl mx-auto p-6">
+    {/* Main Content Section */}
+    <div className="flex flex-col md:flex-row items-center justify-between mb-12">
+        <div className="md:w-2/3 w-full px-4">
+            {/* Subheading */}
+            <h2 className="text-3xl font-bold text-green-700 mb-4">
+                🌱 About Soil Quality Prediction Model
+            </h2>
+            {/* Description */}
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
+                🌍 The Soil Quality Prediction Model leverages Machine Learning to provide accurate insights into soil health. By analyzing various parameters such as nutrient levels, pH balance, and moisture content, the model helps farmers make informed decisions to enhance crop production.
+            </p>
+        </div>
+        <div className="md:w-1/3 w-full flex justify-center p-4">
+            {/* Add a relevant image or graphic here */}
 
-                        <div className="sm:w-1/3 flex flex-wrap items-center md:pl-10 ">
                             <div className="grid grid-flow-col alignitems-center  grid-cols-2 grid-rows-2 gap-3">
                                 <div className="  "><img src={img1} alt="Crop 1" style={{ borderRadius: '50%' }} className="float-right w-40 h-40 p-2 rounded-lg border border-green-500 mb-4" /></div>
                                 <div className="   text-center"><img src={img3} alt="Crop 1" style={{ borderRadius: '50%' }} className="float-right w-40 h-40 p-2 rounded-lg border border-green-500 mb-4" /></div>
@@ -275,166 +267,254 @@ const SoilQuality = () => {
                                 <div className="   row-span-2 "><img src={img2} style={{ borderRadius: '100%' }} alt="Crop 1" className=" w-40 h-40 p-2 rounded-lg border border-green-500 mb-4 my-20" /></div>
 
                             </div>
+        </div>
+    </div>
+    
+    {/* How it Works Section */}
+    <div className="w-full">
+        <h3 className="text-2xl md:text-3xl font-semibold text-center text-gray-900 mb-8">
+            🤔 How it Works!
+        </h3>
+
+        {/* Card Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 gap-8">
+            {/* Card 1 */}
+            <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-[0px_10px_20px_2px_rgba(34,197,94,0.6)] transition-shadow duration-300">
+                <h4 className="text-xl font-semibold mb-2 text-[#000435]">
+                    🔍 Analyze Soil Parameters
+                </h4>
+                <p className="text-base text-gray-700">
+                    Analyze key soil parameters like nitrogen, phosphorous, and potassium for optimized crop growth.
+                </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-[0px_10px_20px_2px_rgba(34,197,94,0.6)] transition-shadow duration-300">
+                <h4 className="text-xl font-semibold mb-2 text-[#000435]">
+                    📈 Assess pH Level & Conductivity
+                </h4>
+                <p className="text-base text-gray-700">
+                    Assess soil pH level, electrical conductivity, and organic carbon to determine soil health.
+                </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-[0px_10px_20px_2px_rgba(34,197,94,0.6)] transition-shadow duration-300">
+                <h4 className="text-xl font-semibold mb-2 text-[#000435]">
+                    💧 Evaluate Nutrients
+                </h4>
+                <p className="text-base text-gray-700">
+                    Evaluate additional nutrients such as sulphur, zinc, and iron for well-rounded soil analysis.
+                </p>
+            </div>
+
+    {/* Card 4 */}
+    <div className="max-w-md bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300">
+        <p className='md:text-xl sm:text-xl text-xl font-bold py-4 text-[#000435]'>
+            ✅ Check for Trace Elements
+        </p>
+        <p className="text-lg text-[#000435]">
+            Check for essential trace elements like copper, manganese, and boron to ensure optimal soil conditions.
+        </p>
+    </div>
+
+    {/* Card 5 */}
+    <div className="max-w-md bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow duration-300">
+        <p className='md:text-xl sm:text-xl text-xl font-bold py-4 text-[#000435]'>
+            ✅ Provide Actionable Insights
+        </p>
+        <p className="text-lg text-[#000435]">
+            Provide actionable insights for soil management and crop planning to maximize agricultural output.
+        </p>
+    </div>
+</div>
+
                         </div>
+
                     </div>
                     <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2  text-green-900 border-green-500 shadow-2xl shadow-green-200 rounded-md">
                         <h1 className="text-2xl  font-bold mb-4 text-green-500  text-center">Soil Quality Prediction</h1>
 
-                        <form method="post" acceptCharset="utf-8" name="Modelform" className="grid grid-cols-2 gap-4" style={{ backgroundImage: `url(${bgHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Nitrogen</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="N"
-                                    name="N"
-                                    value={formData.N}
-                                    onChange={handleChange}
-                                    placeholder="0 to 400"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Phosphorus</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="P"
-                                    name="P"
-                                    value={formData.P}
-                                    onChange={handleChange}
-                                    placeholder="0 to 150"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Potassium</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="K"
-                                    name="K"
-                                    value={formData.K}
-                                    onChange={handleChange}
-                                    placeholder="0 to 900"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">pH Level</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="pH"
-                                    name="pH"
-                                    value={formData.pH}
-                                    onChange={handleChange}
-                                    placeholder="1 to 14"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Electrical Conductivity</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="EC"
-                                    name="EC"
-                                    value={formData.EC}
-                                    onChange={handleChange}
-                                    placeholder="0 to 1"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Organic Carbon</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="OC"
-                                    name="OC"
-                                    value={formData.OC}
-                                    onChange={handleChange}
-                                    placeholder="0 to 2"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Sulphur</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="S"
-                                    name="S"
-                                    value={formData.S}
-                                    onChange={handleChange}
-                                    placeholder="0 to 30"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Zinc</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="Zn"
-                                    name="Zn"
-                                    value={formData.Zn}
-                                    onChange={handleChange}
-                                    placeholder="0 to 1"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Iron</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="Fe"
-                                    name="Fe"
-                                    value={formData.Fe}
-                                    onChange={handleChange}
-                                    placeholder="0 to 50"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Copper</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="Cu"
-                                    name="Cu"
-                                    value={formData.Cu}
-                                    onChange={handleChange}
-                                    placeholder="0 to 3"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Manganese</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="Mn"
-                                    name="Mn"
-                                    value={formData.Mn}
-                                    onChange={handleChange}
-                                    placeholder="0 to 30"
-                                />
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <label className="block text-left ml-2 text-black font-semibold w-1/3">Boron</label>
-                                <input
-                                    type="text"
-                                    className="w-1/2 px-3 py-2 border border-green-500 rounded"
-                                    id="B"
-                                    name="B"
-                                    value={formData.B}
-                                    onChange={handleChange}
-                                    placeholder="0 to 3"
-                                />
-                            </div>
-                            <div className="col-span-2 mt-5">
-                                <button className="w-full px-3 py-2 relative rounded group overflow-hidden font-medium bg-rose-50 text-rose-500 border border-rose-500 inline-block"
-                                    disabled={isLoading}
-                                    onClick={!isLoading ? handlePredictClick : null}
-                                >
-                                    <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-500 ease-out transform translate-y-0 bg-rose-500 group-hover:h-full opacity-90"></span>
-                                    <span className="relative group-hover:text-white">{isLoading ? "Predicting..." : "Predict Soil Quality"}</span>
-                                </button>
-                            </div>
-                        </form>
+                        <form method="post" acceptCharset="utf-8" name="Modelform" className="grid grid-cols-2 gap-6 p-6 rounded-lg shadow-xl">
+    {/* Nitrogen */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Nitrogen</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="N"
+            name="N"
+            value={formData.N}
+            onChange={handleChange}
+            placeholder="0 to 400"
+        />
+    </div>
+
+    {/* Phosphorus */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Phosphorus</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="P"
+            name="P"
+            value={formData.P}
+            onChange={handleChange}
+            placeholder="0 to 150"
+        />
+    </div>
+
+    {/* Potassium */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Potassium</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="K"
+            name="K"
+            value={formData.K}
+            onChange={handleChange}
+            placeholder="0 to 900"
+        />
+    </div>
+
+    {/* pH Level */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">pH Level</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="pH"
+            name="pH"
+            value={formData.pH}
+            onChange={handleChange}
+            placeholder="1 to 14"
+        />
+    </div>
+
+    {/* Electrical Conductivity */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Electrical Conductivity</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="EC"
+            name="EC"
+            value={formData.EC}
+            onChange={handleChange}
+            placeholder="0 to 1"
+        />
+    </div>
+
+    {/* Organic Carbon */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Organic Carbon</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="OC"
+            name="OC"
+            value={formData.OC}
+            onChange={handleChange}
+            placeholder="0 to 2"
+        />
+    </div>
+
+    {/* Sulphur */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Sulphur</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="S"
+            name="S"
+            value={formData.S}
+            onChange={handleChange}
+            placeholder="0 to 30"
+        />
+    </div>
+
+    {/* Zinc */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Zinc</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="Zn"
+            name="Zn"
+            value={formData.Zn}
+            onChange={handleChange}
+            placeholder="0 to 1"
+        />
+    </div>
+
+    {/* Iron */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Iron</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="Fe"
+            name="Fe"
+            value={formData.Fe}
+            onChange={handleChange}
+            placeholder="0 to 50"
+        />
+    </div>
+
+    {/* Copper */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Copper</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="Cu"
+            name="Cu"
+            value={formData.Cu}
+            onChange={handleChange}
+            placeholder="0 to 3"
+        />
+    </div>
+
+    {/* Manganese */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Manganese</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="Mn"
+            name="Mn"
+            value={formData.Mn}
+            onChange={handleChange}
+            placeholder="0 to 30"
+        />
+    </div>
+
+    {/* Boron */}
+    <div className="flex flex-col">
+        <label className="block text-left text-gray-700 font-semibold">Boron</label>
+        <input
+            type="text"
+            className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
+            id="B"
+            name="B"
+            value={formData.B}
+            onChange={handleChange}
+            placeholder="0 to 3"
+        />
+    </div>
+
+    {/* Submit Button */}
+    <div className="col-span-2 mt-6">
+        <button className="w-full px-5 py-3 text-lg font-semibold rounded-lg bg-rose-600 text-white hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-colors disabled:bg-rose-300"
+            disabled={isLoading}
+            onClick={!isLoading ? handlePredictClick : null}
+        >
+            {isLoading ? "Predicting..." : "Predict Soil Quality"}
+        </button>
+    </div>
+</form>
+
                         {showSpan && (
                             <div className="mt-4">
                                 <h4 className="text-lg font-semibold ">
