@@ -1,15 +1,13 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import icon from "../assets/favicon2.png";
 import GoogleTranslate from "./GoogleTranslate";
-import { FaSun, FaMoon, FaChevronDown } from "react-icons/fa"; 
-import useTheme from "../hooks/useTheme"; 
+import { FaChevronDown } from "react-icons/fa";
+import useTheme from "../hooks/useTheme";
 import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null); 
-  const { theme, toggleTheme } = useTheme(); 
   const { isLoggedIn, logout } = useAuth(); // Use context for isLoggedIn
 
   const navbarRef = useRef(null);
@@ -17,7 +15,6 @@ const Navbar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
-        setOpenDropdown(null);
         setIsMenuOpen(false);
       }
     };
@@ -30,18 +27,10 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    if (isMenuOpen) {
-      setOpenDropdown(null); 
-    }
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-    setOpenDropdown(null);
-  };
-
-  const handleDropdown = (dropdown) => {
-    setOpenDropdown((prev) => (prev === dropdown ? null : dropdown));
   };
 
   return (
@@ -68,54 +57,58 @@ const Navbar = () => {
         {/* Navbar Links */}
         <div className={`${isMenuOpen ? "block" : "hidden"} w-full lg:flex lg:w-auto lg:items-center transition-all duration-300 ease-in-out`}>
           <div className="flex flex-col lg:flex-row lg:items-center lg:space-x-4">
-            {/* Home Link */}
             <NavLink to="/" exact className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>
               Home
             </NavLink>
 
             {/* Crop Management Dropdown */}
-            <div className="relative">
-              <button onClick={() => handleDropdown("crop")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "crop" ? "true" : "false"}>
+            <div className="relative group">
+              <NavLink to="/crop" className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300">
                 Crop Management
-                <FaChevronDown className={`ml-1 transition-transform duration-200 ${openDropdown === "crop" ? "transform rotate-180" : ""}`} />
-              </button>
-              {openDropdown === "crop" && (
-                <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50">
-                  <NavLink to="/crop" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Crop Recommendation</NavLink>
-                  <NavLink to="/crop_recommendation" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Crop Rotation Recommendation</NavLink>
-                  <NavLink to="/prices" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Crop Price Prediction</NavLink>
-                </div>
-              )}
+                <FaChevronDown className="ml-1" />
+              </NavLink>
+              <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50 hidden group-hover:block">
+                <NavLink to="/crop" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>
+                  Crop Recommendation
+                </NavLink>
+                <NavLink to="/crop_recommendation" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>
+                  Crop Rotation Recommendation
+                </NavLink>
+                <NavLink to="/prices" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>
+                  Crop Price Prediction
+                </NavLink>
+              </div>
             </div>
 
             {/* Soil & Fertilizer Dropdown */}
-            <div className="relative">
-              <button onClick={() => handleDropdown("soil")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "soil" ? "true" : "false"}>
+            <div className="relative group">
+              <NavLink to="/soil" className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300">
                 Soil & Fertilizer
-                <FaChevronDown className={`ml-1 transition-transform duration-200 ${openDropdown === "soil" ? "transform rotate-180" : ""}`} />
-              </button>
-              {openDropdown === "soil" && (
-                <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50">
-                  <NavLink to="/fertilizer" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Fertilizer Prediction</NavLink>
-                  <NavLink to="/soil" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Soil Quality Prediction</NavLink>
-                  <NavLink to="/Irrigation" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Irrigation System Prediction</NavLink>
-                </div>
-              )}
+                <FaChevronDown className="ml-1" />
+              </NavLink>
+              <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50 hidden group-hover:block">
+                <NavLink to="/fertilizer" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>
+                  Fertilizer Prediction
+                </NavLink>
+                <NavLink to="/soil" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>
+                  Soil Quality Prediction
+                </NavLink>
+                <NavLink to="/Irrigation" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>
+                  Irrigation System Prediction
+                </NavLink>
+              </div>
             </div>
 
-            {/* Other Links */}
-            <NavLink to="/disease" className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>Disease Detection</NavLink>
-            <NavLink to="/climate" className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>Climate</NavLink>
+            <NavLink to="/disease" className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>
+              Disease Detection
+            </NavLink>
 
-            {/* Google Translate Component */}
+            <NavLink to="/climate" className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>
+              Climate
+            </NavLink>
+
             <GoogleTranslate />
 
-            {/* Theme Toggle Button
-            <button onClick={toggleTheme} className="hidden lg:flex items-center justify-center p-2 rounded-lg text-white hover:bg-green-500 transition duration-300 ml-auto">
-              {theme === "light" ? <FaSun className="text-2xl" /> : <FaMoon className="text-2xl" />}
-            </button> */}
-            
-            {/* Authentication Links */}
             {isLoggedIn ? (
               <button onClick={logout} className="text-white hover:bg-red-500 py-2 px-3 rounded-lg transition-all duration-300">
                 Logout
