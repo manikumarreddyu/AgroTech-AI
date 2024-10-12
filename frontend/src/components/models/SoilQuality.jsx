@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Spinner from './Spinner';
+import Spinner from '../Spinner';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import bgHero from "../assets/bgHero.png";
-import img1 from "../assets/103.jpg";
-import img2 from "../assets/104.jpg";
-import img3 from "../assets/img3.jpg";
-import img4 from "../assets/109.jpg";
-import img5 from "../assets/105.jpg";
+import bgHero from "../../assets/bgHero.png";
+import img1 from "../../assets/103.jpg";
+import img2 from "../../assets/104.jpg";
+import img3 from "../../assets/img3.jpg";
+import img4 from "../../assets/109.jpg";
+import img5 from "../../assets/105.jpg";
 import AdvantagesDisadvantages from "./AdvantagesDisadvantages";
 
 const items = [

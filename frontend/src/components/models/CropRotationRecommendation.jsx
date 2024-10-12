@@ -1,6 +1,6 @@
-import img1 from "../assets/img1.jpg";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/116.jpg";
+import img1 from "../../assets/img1.jpg";
+import img2 from "../../assets/img2.jpg";
+import img3 from "../../assets/116.jpg";
 import React, { useEffect, useState } from 'react'
 import { Loader2 } from 'lucide-react'
 

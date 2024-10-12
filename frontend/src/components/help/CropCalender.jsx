@@ -1,15 +1,3 @@
-// import React from 'react'
-
-// const Calender = () => {
-//   return (
-//     <div className='max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8'><h1>Calender</h1></div>
-//   )
-// }
-
-// export default Calender
-
-// src/CropCalendar.jsx
-
 import React, { useState, useEffect } from 'react';
 
 const CropCalendar = () => {

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Spinner from './Spinner';
-import bgHero from "../assets/bgHero.png";
-import img1 from "../assets/img1.jpg";
-import img2 from "../assets/img2.jpg";
-import img3 from "../assets/116.jpg";
-import img4 from "../assets/112.jpg";
-import img5 from "../assets/111.jpeg";
-import img7 from "../assets/cropinspection.png";
+import Spinner from '../Spinner';
+import bgHero from "../../assets/bgHero.png";
+import img1 from "../../assets/img1.jpg";
+import img2 from "../../assets/img2.jpg";
+import img3 from "../../assets/116.jpg";
+import img4 from "../../assets/112.jpg";
+import img5 from "../../assets/111.jpeg";
+import img7 from "../../assets/cropinspection.png";
 import AdvantagesDisadvantages from './AdvantagesDisadvantages';
 
 const items = [

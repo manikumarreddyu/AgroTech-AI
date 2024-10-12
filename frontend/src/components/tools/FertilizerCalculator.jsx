@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Spinner from "./Spinner.jsx";
-import bgHero from "../assets/bgHero.png";
-import img1 from "../assets/106.jpg";
-import img2 from "../assets/101.jpg";
-import img3 from "../assets/117.jpeg";
-import img4 from "../assets/115.jpg";
+import Spinner from "../Spinner.jsx";
+import bgHero from "../../assets/bgHero.png";
+import img1 from "../../assets/106.jpg";
+import img2 from "../../assets/101.jpg";
+import img3 from "../../assets/117.jpeg";
+import img4 from "../../assets/115.jpg";
 
 const FertilizerCalculator = () => {
   useEffect(() => {

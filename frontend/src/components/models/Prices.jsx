@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import Spinner from './Spinner';
-import gain from '../assets/images/gain-icon.png';
-import loss from '../assets/images/loss-icon.png';
-import CropImages from "./CropImages";
+import Spinner from '../Spinner';
+import gain from '../../assets/images/gain-icon.png';
+import loss from '../../assets/images/loss-icon.png';
+import CropImages from "././CropImages";
 
 const Prices = () => {
     const [loading, setLoading] = useState(true);
