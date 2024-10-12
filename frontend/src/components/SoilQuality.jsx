@@ -528,39 +528,65 @@ const SoilQuality = () => {
                         )}
                     </div>
 
-                    <h2 className="mt-10 text-xl font-semibold text-[#000435] text-center">
+                    <h2 className="mt-10 text-2xl font-semibold text-[#003366] text-center transition-all duration-300 ease-in-out hover:text-green-500">
                         View Soil Testing Centers Map:
                     </h2>
                     <div
                         id="map"
-                        className="w-full max-w-4xl h-64 sm:h-80 md:h-100 mt-4 mx-auto rounded-lg border-2 border-green-500"
+                        className="w-full max-w-4xl h-64 sm:h-80 md:h-100 mt-4 mx-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 border-2 border-green-300 bg-white"
                     ></div>
+
                     <div className="">
-                        <div className="flex flex-col sm:flex-row items-center mt-20 justify-between  ">
-                            <div className="sm:w-1/2 flex flex-wrap px-10  rounded-md justify-center ">
-                                <img src={img4} alt="Crop 1" style={{ borderRadius: '100%' }} className="w-4/5 px-2 " />
+                    <div className="flex flex-col sm:flex-row items-center mt-20 justify-between  rounded-lg">
+    <div className="sm:w-1/2 flex flex-wrap px-10 rounded-md justify-center">
+        <img
+            src={img4}
+            alt="Crop 1"
+            className="w-4/5 h-auto rounded-full border-4 border-green-300 shadow-md"
+        />
+    </div>
+    <div className="sm:w-2/3 p-4 flex flex-col items-start">
+        <h1 className="md:text-3xl sm:text-2xl text-xl font-bold py-4 text-green-700">
+            🌱 Need for Soil Quality Prediction
+        </h1>
+        <p className="text-lg text-[#000435] text-justify mb-4">
+            🌍 Soil quality prediction is essential for sustainable agriculture. It enables farmers to understand soil health and make informed decisions about crop selection. By predicting soil quality, farmers can optimize their practices, improve yields, and ensure the long-term fertility of their land.
+        </p>
+        
+        <p className="md:text-2xl sm:text-xl text-xl font-semibold py-4 text-[#000435]">
+            🤔 Why It Matters!
+        </p>
 
-                            </div>
-                            <div className="sm:w-2/3 p-4 items-center">
-                                <h1 className="md:text-2xl sm:text-2xl text-2xl font-bold py-4 text-green-700">
-                                    🌱 Need for Soil Quality Prediction
-                                </h1>
-                                <p className="text-lg text-[#000435] text-justify">
-                                    🌍Soil quality prediction is essential for sustainable agriculture.It enables farmers to understand soil health and make informed decisions about crop selection.By predicting soil quality,farmers can optimize their practices,improve yields,and ensure the long-term fertility of their land.
-                                </p>
-                                <p className='md:text-xl sm:text-xl text-xl font-bold py-4 text-[#000435]'>
-                                    🤔 Why It Matters!
-                                </p>
-                                <p className="text-lg text-[#000435]">
-                                    <span>✅ Enhances crop productivity through informed soil management.</span><br />
-                                    <span>✅ Helps in efficient resource allocation and planning.</span><br />
-                                    <span>✅ Promotes sustainable farming practices and environmental health.</span><br />
-                                    <span>🔍 Enables early detection of nutrient deficiencies and soil issues.</span><br />
-                                    <span>💧 Supports better water management and conservation efforts.</span><br />
-                                </p>
-                            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            <div className="bg-gradient-to-r from-green-200 to-green-300 rounded-lg shadow-md p-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:from-green-300 hover:to-green-400">
+                <p className="text-md text-[#000435]">
+                    ✅ Enhances crop productivity through informed soil management.
+                </p>
+            </div>
+            <div className="bg-gradient-to-r from-green-200 to-green-300 rounded-lg shadow-md p-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:from-green-300 hover:to-green-400">
+                <p className="text-md text-[#000435]">
+                    ✅ Helps in efficient resource allocation and planning.
+                </p>
+            </div>
+            <div className="bg-gradient-to-r from-green-200 to-green-300 rounded-lg shadow-md p-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:from-green-300 hover:to-green-400">
+                <p className="text-md text-[#000435]">
+                    ✅ Promotes sustainable farming practices and environmental health.
+                </p>
+            </div>
+            <div className="bg-gradient-to-r from-green-200 to-green-300 rounded-lg shadow-md p-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:from-green-300 hover:to-green-400">
+                <p className="text-md text-[#000435]">
+                    🔍 Enables early detection of nutrient deficiencies and soil issues.
+                </p>
+            </div>
+            <div className="bg-gradient-to-r from-green-200 to-green-300 rounded-lg shadow-md p-4 transition-transform duration-300 ease-in-out hover:scale-105 hover:from-green-300 hover:to-green-400">
+                <p className="text-md text-[#000435]">
+                    💧 Supports better water management and conservation efforts.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
-                        </div>
                         <div className="w-full p-4 items-center rounded-3xl">
                                         <p className="text-lg text-[#000435] justify-center">
                                             <AdvantagesDisadvantages items={items} />
