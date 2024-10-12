@@ -248,7 +248,7 @@ export default function Component() {
                     <div className="mb-4">
                     <label className="block text-base font-medium mb-2" htmlFor="Soil_Type">Soil Type</label>
                     <select
-                        className="w-full px-3 py-2 border rounded-md"
+                        className= {`w-full px-3 py-2 border rounded-md ${darkMode ? 'text-black' : 'text-black'}`}
                         id="Soil_Type"
                         name="Soil_Type"
                         value={formData.Soil_Type}
@@ -267,7 +267,7 @@ export default function Component() {
                     <div className="mb-4">
                     <label className="block text-base font-medium mb-2" htmlFor="Crop_Type">Crop Type</label>
                     <select
-                        className="w-full px-3 py-2 border rounded-md"
+                        className={`w-full px-3 py-2 border rounded-md ${darkMode ? 'text-black' : 'text-black'}`}
                         id="Crop_Type"
                         name="Crop_Type"
                         value={formData.Crop_Type}
