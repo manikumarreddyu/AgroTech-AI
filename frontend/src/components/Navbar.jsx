@@ -110,10 +110,10 @@ const Navbar = () => {
             {/* Google Translate Component */}
             <GoogleTranslate />
 
-            {/* Theme Toggle Button */}
+            {/* Theme Toggle Button
             <button onClick={toggleTheme} className="hidden lg:flex items-center justify-center p-2 rounded-lg text-white hover:bg-green-500 transition duration-300 ml-auto">
               {theme === "light" ? <FaSun className="text-2xl" /> : <FaMoon className="text-2xl" />}
-            </button>
+            </button> */}
 
             {/* Authentication Links */}
             {isLoggedIn ? (
