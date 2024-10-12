@@ -37,6 +37,7 @@ import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import { AuthProvider } from './context/AuthContext';
 import TermsAndConditions from './components/TermsAndConditions';
+import CookiePolicy from './components/CookiePolicy';
 const MainContent = () => {
   UseScrollToTop();
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
@@ -88,6 +89,7 @@ const MainContent = () => {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUpPage />} />
               <Route path="/terms" element={<TermsAndConditions/>}></Route>
+              <Route path="/cookie-policy" element={<CookiePolicy/>}></Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
