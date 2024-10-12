@@ -31,18 +31,18 @@
 
     70% {
         fill: #fff;
-        stroke: #04fb00;
+        stroke: #039d00;
     }
 
     80% {
         fill: #fff;
-        stroke: #04ff00;
+        stroke: #039d00;
         stroke-width: 3;
     }
 
     100% {
         fill: #fff;
-        stroke: #04ff00;
+        stroke: #039d00;
         stroke-dashoffset: -25%;
         stroke-dasharray: 50% 0;
         stroke-width: 0;

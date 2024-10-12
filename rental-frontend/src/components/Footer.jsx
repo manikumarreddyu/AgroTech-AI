@@ -18,12 +18,11 @@ const Footer = () => {
 
     // Define quick links
     const quickLinks = [
-        { name: 'Crop Recommendation', path: '/crop' },
-        { name: 'Fertilizer Recommendation', path: '/fertilizer' },
-        { name: 'Soil Quality', path: '/soil' },
-        { name: 'Price Prediction', path: '/prices' },
-        { name: 'Forecast', path: '/forecast' },
-        { name: 'Disease', path: '/disease' },
+        { name: 'Home', path: '/rental' },
+        { name: 'Drones', path : '/drones'},
+        {name : 'Tractors',path : '/tractors'},
+        {name : 'Equipments',path: '/equipments'},
+        {name: 'Services', path: '/services'}
     ];
 
     // Define social media links
