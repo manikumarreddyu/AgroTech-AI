@@ -197,19 +197,21 @@ Make sure you follow our contributing guidlines:-  [here](https://github.com/Ram
 1. **Fork this repository** 🍴 and clone it to your local machine:
    ```bash
    git clone https://github.com/manikumarreddyu/AgroTech-AI.git
-2. **Install the required Python packages for Flask backend 🐍:**
-   ```bash
-   pip install -r requirements.txt
-3. **Start the Flask server ⚡:**
-   ```bash
-   python app.py
-4. **Install the dependencies for React frontend 🧩:**
+# ⚙️ Getting Started with Agro Tech AI main website
+
+2. **Install the node modules in frontend directory:**
    ```bash
    npm install
-5. **Run the development server ⚡:**
+3. **Start the react server ⚡:**
    ```bash
    npm run dev
-6. Open your browser at `http://localhost:3000` to see the project running! 🌟
+4. **Install the node modules for backend directory 🧩:**
+   ```bash
+   npm install
+5. **Run the backend server ⚡:**
+   ```bash
+   npm start
+6. Open your browser at `http://localhost:5173` to see the project running! 🌟
 
 <!-- Code of conduct -->
 <div>
