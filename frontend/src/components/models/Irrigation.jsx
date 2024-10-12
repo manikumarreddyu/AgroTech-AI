@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Leaf, Droplet, Sun, MapPin, Thermometer } from 'lucide-react';
 
 // Import your images
-import img2 from '../assets/102.jpg'; // Update the path as necessary
+import img2 from '../../assets/102.jpg'; // Update the path as necessary
 
 const soilTypes = ['Black', 'Clayey', 'Loamy', 'Red', 'Sandy'];
 const cropTypes = ['Barley', 'Cotton', 'Ground Nuts', 'Maize', 'Millets', 'Oil Seeds', 'Paddy', 'Pulses', 'Sugarcane', 'Tobacco', 'Wheat'];

@@ -2,8 +2,8 @@ import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import ChartComponent from "./Chart";
-import CropImages from './CropImages';
-import Spinner from './Spinner';
+import CropImages from '././CropImages';
+import Spinner from '../Spinner';
 import { FaChartLine, FaMapMarkerAlt, FaRegEye, FaExchangeAlt } from 'react-icons/fa';
 
 const Reports = () => {
