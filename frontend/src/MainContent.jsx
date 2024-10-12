@@ -36,6 +36,7 @@ import WhyAI from './pages/WhyAI'; // Import the WhyAI component
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import { AuthProvider } from './context/AuthContext';
+import TermsAndConditions from './components/TermsAndConditions';
 const MainContent = () => {
   UseScrollToTop();
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
@@ -86,6 +87,7 @@ const MainContent = () => {
               <Route path="/whyai" element={<WhyAI />} /> {/* Add the route for Why AI */}
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/terms" element={<TermsAndConditions/>}></Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
