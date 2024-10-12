@@ -32,6 +32,9 @@ import Climate from './components/Climate';
 import Products from "./pages/Products";
 import AuthPage from './components/AuthPage';
 import FertilizerCalculator from './components/FertilizerCalculator';
+import LoginPage from './components/LoginPage';
+import SignUpPage from './components/SignUpPage';
+import { AuthProvider } from './context/AuthContext';
 const MainContent = () => {
   UseScrollToTop();
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
@@ -49,6 +52,7 @@ const MainContent = () => {
         <Preloader />
       ) : (
         <div>
+          <AuthProvider>
           <GoTop />
           <ProgressScrollDown />
           <div>
@@ -79,10 +83,13 @@ const MainContent = () => {
               <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
               <Route path="/products" element={<Products />} /> 
               <Route path="/Auth-page" element={<AuthPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
           </div>
+          </AuthProvider>
         </div>
       )}
     </>
