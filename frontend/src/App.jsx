@@ -4,7 +4,6 @@ import MainContent from './MainContent';
 function App() {
   return (
     <Router>
-      
       <MainContent />
     </Router>
   );
