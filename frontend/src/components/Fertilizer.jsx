@@ -210,7 +210,7 @@ export default function Component() {
                         name="Temparature"
                         value={formData.Temparature}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md"
+                        className="w-full px-3 py-2 text-base border rounded-md text-black"
                         placeholder="1 to 50°C"
                         required
                     />
@@ -224,7 +224,7 @@ export default function Component() {
                         name="Humidity"
                         value={formData.Humidity}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md"
+                        className="w-full px-3 py-2 text-base border rounded-md text-black"
                         placeholder="1 to 100%"
                         required
                     />
@@ -238,7 +238,7 @@ export default function Component() {
                         name="Moisture"
                         value={formData.Moisture}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md"
+                        className="w-full px-3 py-2 text-base border rounded-md text-black"
                         placeholder="1 to 100%"
                         required
                     />
@@ -291,14 +291,14 @@ export default function Component() {
 
                     {/* Inputs for Nitrogen, Potassium, and Phosphorous */}
                     <div className="mb-4">
-                    <label className="block text-base font-medium mb-2" htmlFor="Nitrogen">Nitrogen</label>
+                    <label className="block text-base font-medium mb-2 " htmlFor="Nitrogen">Nitrogen</label>
                     <input
                         type="text"
                         id="Nitrogen"
                         name="Nitrogen"
                         value={formData.Nitrogen}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md"
+                        className="w-full px-3 py-2 text-base border rounded-md text-black"
                         placeholder="1 to 50"
                         required
                     />
@@ -312,7 +312,7 @@ export default function Component() {
                         name="Potassium"
                         value={formData.Potassium}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md"
+                        className="w-full px-3 py-2 text-base border rounded-md text-black"
                         placeholder="1 to 50"
                         required
                     />
@@ -326,7 +326,7 @@ export default function Component() {
                         name="Phosphorous"
                         value={formData.Phosphorous}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md"
+                        className="w-full px-3 py-2 text-base border rounded-md text-black"
                         placeholder="1 to 50"
                         required
                     />
