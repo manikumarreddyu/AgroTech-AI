@@ -2,14 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import icon from "../assets/favicon2.png";
 import GoogleTranslate from "./GoogleTranslate";
-import { FaSun, FaMoon, FaChevronDown } from "react-icons/fa"; 
-import useTheme from "../hooks/useTheme"; 
+import { FaSun, FaMoon, FaChevronDown } from "react-icons/fa";
+import useTheme from "../hooks/useTheme";
 import { useAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null); 
-  const { theme, toggleTheme } = useTheme(); 
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const { theme, toggleTheme } = useTheme();
   const { isLoggedIn, logout } = useAuth(); // Use context for isLoggedIn
 
   const navbarRef = useRef(null);
@@ -31,7 +31,7 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     if (isMenuOpen) {
-      setOpenDropdown(null); 
+      setOpenDropdown(null);
     }
   };
 
@@ -105,7 +105,43 @@ const Navbar = () => {
 
             {/* Other Links */}
             <NavLink to="/disease" className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>Disease Detection</NavLink>
-            <NavLink to="/climate" className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>Climate</NavLink>
+            {/* <NavLink to="/climate" className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>Climate</NavLink> */}
+
+            {/* Help Dropdown */}
+            <div className="relative">
+              <button onClick={() => handleDropdown("tools")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "tools" ? "true" : "false"}>
+                Tools
+                <FaChevronDown className={`ml-1 transition-transform duration-200 ${openDropdown === "tools" ? "transform rotate-180" : ""}`} />
+              </button>
+              {openDropdown === "tools" && (
+                <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50">
+                  <NavLink to="/FertilizerRequirementsCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Fertilizer Requirements Calculator</NavLink>
+                  <NavLink to="/WaterRequirementCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Water Requirement Calculator</NavLink>
+                  <NavLink to="/SoilMoistureCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Soil Moisture Calculator</NavLink>
+                  <NavLink to="/CropYieldCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Crop Yield Calculator</NavLink>
+                  <NavLink to="/FertilizerCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Fertilizer Calculator Advanced</NavLink>
+                </div>
+              )}
+            </div>
+
+
+            {/* Help Dropdown */}
+            <div className="relative">
+              <button onClick={() => handleDropdown("help")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "soil" ? "true" : "false"}>
+                Help
+                <FaChevronDown className={`ml-1 transition-transform duration-200 ${openDropdown === "help" ? "transform rotate-180" : ""}`} />
+              </button>
+              {openDropdown === "help" && (
+                <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50">
+                  <NavLink to="/Climate" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Climate</NavLink>
+                  <NavLink to="/PlantTaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder</NavLink>
+                  <NavLink to="/CropManagementGuide" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Crop Management Guide</NavLink>
+                  <NavLink to="/EcoCropManager" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Eco-Crop Manager</NavLink>
+                  <NavLink to="/TaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder Advanced</NavLink>
+                  <NavLink to="/CropCalender" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>CropCalender</NavLink>
+                </div>
+              )}
+            </div>
 
             {/* Google Translate Component */}
             <GoogleTranslate />
@@ -114,7 +150,7 @@ const Navbar = () => {
             <button onClick={toggleTheme} className="hidden lg:flex items-center justify-center p-2 rounded-lg text-white hover:bg-green-500 transition duration-300 ml-auto">
               {theme === "light" ? <FaSun className="text-2xl" /> : <FaMoon className="text-2xl" />}
             </button> */}
-            
+
             {/* Authentication Links */}
             {isLoggedIn ? (
               <button onClick={logout} className="text-white hover:bg-red-500 py-2 px-3 rounded-lg transition-all duration-300">
