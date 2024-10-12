@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import aiImage from '../assets/ai.jpg'; // Import the image
 
 const AdvantagesDisadvantages = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   const points = [
     "Predicting the best crop based on soil and climate data",
     "Real-time crop monitoring using AI-powered sensors and drones",
@@ -16,7 +19,7 @@ const AdvantagesDisadvantages = () => {
 
   return (
     <section className="py-12 bg-gradient-to-r from-green-50 to-green-100">
-      <h2 className="text-4xl font-extrabold text-green-700 text-center mb-8">Why AI in Agriculture ?</h2>
+      <h2 className="text-4xl font-extrabold text-green-700 text-center mb-8">Why AI in Agriculture?</h2>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center">
         {/* Image Section */}
         <div className="md:w-1/2 mb-6 md:mb-0 flex justify-center">
@@ -32,6 +35,15 @@ const AdvantagesDisadvantages = () => {
                 <li key={index}>{point}</li>
               ))}
             </ul>
+            {/* Know More Button */}
+            <div className="mt-6">
+              <button 
+                onClick={() => navigate('/whyai')} // Navigate to the new page on click
+                className="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-300"
+              >
+                Know More
+              </button>
+            </div>
           </div>
         </div>
       </div>
