@@ -34,7 +34,7 @@ const AuthPage = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/auth/signup", {
+      const response = await axios.post("https://agrotech-ai-11j3.onrender.com/auth/signup", {
         firstName,
         lastName,
         email,
@@ -48,11 +48,10 @@ const AuthPage = () => {
     }
   };
 
-  // Sign In Handler
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/auth/signin", {
+      const response = await axios.post("https://agrotech-ai-11j3.onrender.com/auth/signin", {
         email,
         password,
       });
@@ -147,7 +146,6 @@ const AuthPage = () => {
           </form>
         )}
 
-        {/* Sign Up Form */}
         {isSignUp && (
           <form className="p-6 space-y-4 w-full" onSubmit={handleSignUp}>
             <h2 className="text-2xl font-bold text-center text-green-600">
@@ -202,7 +200,6 @@ const AuthPage = () => {
               />
             </div>
 
-            {/* Password Validation Checkpoints */}
             <div className="space-y-1 text-green-600">
               <div className="flex items-center">
                 <input
