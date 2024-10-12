@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const FertilizerCalculator = () => {
+const FertilizerRequirementsCalculator = () => {
   const [cropType, setCropType] = useState('');
   const [fieldArea, setFieldArea] = useState('');
   const [fertilizerCostPerKg, setFertilizerCostPerKg] = useState('');
@@ -72,8 +72,8 @@ const FertilizerCalculator = () => {
   };
 
   return (
-    <div style={calculatorStyle}>
-      <h2>Fertilizer Calculator</h2>
+    <div className="max-w-full mt-40 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8  " style={calculatorStyle}>
+      <h2>Fertilizer Requirements</h2>
 
       <h3>Crop Information</h3>
       <label>Type of Crop:</label>
@@ -121,4 +121,4 @@ const FertilizerCalculator = () => {
   );
 };
 
-export default FertilizerCalculator;
+export default FertilizerRequirementsCalculator;

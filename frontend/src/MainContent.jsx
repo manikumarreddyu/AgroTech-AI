@@ -38,6 +38,15 @@ import SignUpPage from './components/SignUpPage';
 import { AuthProvider } from './context/AuthContext';
 import TermsAndConditions from './components/TermsAndConditions';
 import CookiePolicy from './components/CookiePolicy';
+import PlantTaskReminder from './components/special/PlantTaskReminder';
+import CropManagementGuide from './components/special/CropManagementGuide';
+import EcoCropManager from './components/special/EcoCropManager';
+import FertilizerRequirementsCalculator from './components/calculators/FertilizerRequirement';
+import SoilMoistureCalculator from './components/calculators/SoilMoisture';
+import WaterRequirementCalculator from './components/calculators/WaterRequirement';
+import CropYieldCalculator from './components/calculators/CropYield';
+
+
 const MainContent = () => {
   UseScrollToTop();
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
@@ -56,44 +65,58 @@ const MainContent = () => {
       ) : (
         <div>
           <AuthProvider>
-          <GoTop />
-          <ProgressScrollDown />
-          <div>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/chatbot" element={<ChatBot />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/crop" element={<Crop />} />
-              <Route path="/disease" element={<Disease />} />
-              <Route path="/engine/:id" element={<AIEngine />} />
-              <Route path="/submit" element={<Submit />} />
-              <Route path="/fertilizer" element={<Fertilizer />} />
-              <Route path="/fertilizer_calculator" element={<FertilizerCalculator />} />
-              <Route path="/soil" element={<SoilQuality />} />
-              <Route path="/Irrigation" element={<Irrigation />} />
-              <Route path="/climate" element={<Climate />} />
-              <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
-              <Route path="/forecast" element={<Forecast />} />
-              <Route path="/prices" element={<Prices />} />
-              <Route path="/reports" element={<Reports />} />
-              <Route path="/aboutus" element={<AboutUs />} />
-              <Route path="/article" element={<Article />} />
-              <Route path="/cropcalender" element={<CropCalender />} />
-              <Route path="/taskreminder" element={<TaskReminder />} />
-              <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/Auth-page" element={<AuthPage />} />
-              <Route path="/whyai" element={<WhyAI />} /> {/* Add the route for Why AI */}
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/signup" element={<SignUpPage />} />
-              <Route path="/terms" element={<TermsAndConditions/>}></Route>
-              <Route path="/cookie-policy" element={<CookiePolicy/>}></Route>
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-            <Footer />
-          </div>
+            <GoTop />
+            <ProgressScrollDown />
+            <div>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/chatbot" element={<ChatBot />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/crop" element={<Crop />} />
+                <Route path="/disease" element={<Disease />} />
+                <Route path="/engine/:id" element={<AIEngine />} />
+                <Route path="/submit" element={<Submit />} />
+                <Route path="/fertilizer" element={<Fertilizer />} />
+                <Route path="/fertilizer_calculator" element={<FertilizerCalculator />} />
+                <Route path="/soil" element={<SoilQuality />} />
+                <Route path="/Irrigation" element={<Irrigation />} />
+                
+                <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
+                <Route path="/forecast" element={<Forecast />} />
+                <Route path="/prices" element={<Prices />} />
+                <Route path="/reports" element={<Reports />} />
+                <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/article" element={<Article />} />
+
+                <Route path="/CropCalender" element={<CropCalender />} />
+
+                <Route path="/TaskReminder" element={<TaskReminder />} />
+
+                <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
+                <Route path="/PlantTaskReminder" element={<PlantTaskReminder />} />
+                <Route path="/CropManagementGuide" element={<CropManagementGuide />} />
+                <Route path="/EcoCropManager" element={<EcoCropManager />} />
+
+                <Route path="/FertilizerCalculator" element={<FertilizerCalculator />} />
+                <Route path="/Climate" element={<Climate />} />
+                <Route path="/FertilizerRequirementsCalculator" element={<FertilizerRequirementsCalculator />} />
+                <Route path="/SoilMoistureCalculator" element={<SoilMoistureCalculator />} />
+                <Route path="/WaterRequirementCalculator" element={<WaterRequirementCalculator />} />
+                <Route path="/CropYieldCalculator" element={<CropYieldCalculator />} />
+
+                <Route path="/products" element={<Products />} />
+                <Route path="/Auth-page" element={<AuthPage />} />
+                <Route path="/whyai" element={<WhyAI />} /> {/* Add the route for Why AI */}
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignUpPage />} />
+                <Route path="/terms" element={<TermsAndConditions />}></Route>
+                <Route path="/cookie-policy" element={<CookiePolicy />}></Route>
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+              <Footer />
+            </div>
           </AuthProvider>
         </div>
       )}
