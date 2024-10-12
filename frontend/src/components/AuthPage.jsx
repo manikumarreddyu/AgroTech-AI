@@ -48,7 +48,6 @@ const AuthPage = () => {
     }
   };
 
-  // Sign In Handler
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
@@ -147,7 +146,6 @@ const AuthPage = () => {
           </form>
         )}
 
-        {/* Sign Up Form */}
         {isSignUp && (
           <form className="p-6 space-y-4 w-full" onSubmit={handleSignUp}>
             <h2 className="text-2xl font-bold text-center text-green-600">
@@ -202,7 +200,6 @@ const AuthPage = () => {
               />
             </div>
 
-            {/* Password Validation Checkpoints */}
             <div className="space-y-1 text-green-600">
               <div className="flex items-center">
                 <input
