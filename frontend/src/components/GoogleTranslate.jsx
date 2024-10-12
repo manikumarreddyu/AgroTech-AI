@@ -16,6 +16,7 @@ const GoogleTranslate = () => {
           defaultLanguage: 'en',
         }, 'google_element');
       }
+      cleanUpGadgetText();
     };
 
     const loadGoogleTranslateScript = () => {
@@ -27,8 +28,21 @@ const GoogleTranslate = () => {
         script.onerror = () => console.error('Error loading Google Translate script');
         document.body.appendChild(script);
       }
+      
     };
+    
 
+    const cleanUpGadgetText = () => {
+      const gadgetElement = document.querySelector('.goog-te-gadget');
+      if (gadgetElement) {
+        const textNodes = gadgetElement.childNodes;
+        textNodes.forEach((node) => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent = ''; // Clear text content
+          }
+        });
+      }
+    };
     loadGoogleTranslateScript();
 
     if (window.google && window.google.translate) {
