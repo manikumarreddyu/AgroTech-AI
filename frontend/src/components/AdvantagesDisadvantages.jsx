@@ -67,10 +67,6 @@ export default function Component() {
   return (
     <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-extrabold text-center mb-12 text-gray-900">
-          <span className="text-emerald-600">Advantages</span> and <span className="text-rose-600">Disadvantages</span>
-          <span className="block text-2xl font-semibold mt-2 text-gray-600">of Soil Prediction</span>
-        </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h2 className="text-2xl font-bold text-emerald-600 mb-6">Advantages</h2>
