@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import heroImage from '../assets/hero.png';
 import Features from '../components/Features';
 import About from './About';
@@ -19,8 +19,6 @@ export default function Home() {
 
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-16 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Animated Heading */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-16 mx-auto max-w-7xl sm:px-6 lg:px-8 -mt-20">
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -60,6 +58,8 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </motion.div>
+
+        {/* Chatbot Button */}
         <div className="relative">
           <Link
             to="/chatbot"
