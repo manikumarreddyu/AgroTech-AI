@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import img1 from "../../assets/crops/test1.png";
 
 const WaterRequirementCalculator = () => {
   const [soilType, setSoilType] = useState('');
+  const [cropType, setCropType] = useState('');
   const [area, setArea] = useState('');
   const [temperature, setTemperature] = useState('');
   const [rainfall, setRainfall] = useState('');
-  const [cropType, setCropType] = useState('');
   const [waterRequirement, setWaterRequirement] = useState(null);
   const [error, setError] = useState(null);
 
@@ -60,136 +61,111 @@ const WaterRequirementCalculator = () => {
     setWaterRequirement(finalWaterRequirement.toFixed(2)); // Round to 2 decimal places
   };
 
-  const calculatorStyle = {
-    backgroundColor: '#f9f9f9',
-    padding: '30px',
-    borderRadius: '10px',
-    maxWidth: '500px',
-    margin: '80px auto',
-    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-    textAlign: 'center',
-    fontFamily: 'Arial, sans-serif',
-  };
-
-  const inputStyle = {
-    width: '90%',
-    padding: '12px',
-    margin: '10px 0',
-    borderRadius: '5px',
-    border: '1px solid #ddd',
-    fontSize: '16px',
-    transition: 'border-color 0.2s',
-  };
-
-  const buttonStyle = {
-    backgroundColor: '#4CAF50',
-    color: '#fff',
-    padding: '12px 25px',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    marginTop: '10px',
-    transition: 'background-color 0.3s',
-  };
-
-  const errorStyle = {
-    color: 'red',
-    fontWeight: 'bold',
-    marginTop: '10px',
-  };
-
-  const outputStyle = {
-    fontSize: '18px',
-    marginTop: '20px',
-    fontWeight: 'bold',
-    color: '#333',
-  };
-
-  const labelStyle = {
-    display: 'block',
-    margin: '10px 0 5px',
-    fontWeight: '600',
-    color: '#555',
-  };
-
-  const handleFocus = (e) => {
-    e.target.style.borderColor = '#4CAF50';
-  };
-
-  const handleBlur = (e) => {
-    e.target.style.borderColor = '#ddd';
-  };
 
   return (
-      <div style={calculatorStyle}>
-      <h2 className="text-xl font-bold text-green-500 mb-4">Water Requirement Calculator</h2>
+    <div
+      className="flex items-center justify-center min-h-screen p-24 pt-40"
+      style={{
+        backgroundImage: `url(${img1})`, // Add your background image
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Backdrop layer */}
+      <div className="absolute inset-0 bg-black opacity-40" />
 
-      <label style={labelStyle}>Soil Type:</label>
-      <select
-        value={soilType}
-        onChange={(e) => setSoilType(e.target.value)}
-        style={inputStyle}
-      >
-        <option value="">Select Soil Type</option>
-        <option value="clay">Clay</option>
-        <option value="loam">Loam</option>
-        <option value="sandy">Sandy</option>
-      </select>
+      {/* Glassmorphism effect on the form */}
+      <div className="relative bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-lg p-10 w-full max-w-md z-10">
+        <h2 className="text-3xl font-bold text-center text-white mb-8">
+          Water Requirement Calculator
+        </h2>
 
-      <label style={labelStyle}>Crop Type:</label>
-      <select
-        value={cropType}
-        onChange={(e) => setCropType(e.target.value)}
-        style={inputStyle}
-      >
-        <option value="">Select Crop Type</option>
-        <option value="Wheat">Wheat</option>
-        <option value="Corn">Corn</option>
-        <option value="Rice">Rice</option>
-      </select>
+        {/* Soil Type */}
+        <div className="relative mb-6">
+          <select
+            value={soilType}
+            onChange={(e) => setSoilType(e.target.value)}
+            className="peer w-full p-4 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
+          >
+            <option value="">Select Soil Type</option>
+            <option value="clay">Clay</option>
+            <option value="loam">Loam</option>
+            <option value="sandy">Sandy</option>
+          </select>
+        </div>
 
-      <label style={labelStyle}>Field Area (hectares):</label>
-      <input
-        type="number"
-        value={area}
-        onChange={(e) => setArea(e.target.value)}
-        style={inputStyle}
-        placeholder="Enter Field Area (hectares)"
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-      />
+        {/* Crop Type */}
+        <div className="relative mb-6">
+          <select
+            value={cropType}
+            onChange={(e) => setCropType(e.target.value)}
+            className="peer w-full p-4 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
+          >
+            <option value="" className='text-green-500'>Select Crop Type</option>
+            <option value="Wheat">Wheat</option>
+            <option value="Corn">Corn</option>
+            <option value="Rice">Rice</option>
+          </select>
+        </div>
 
-      <label style={labelStyle}>Temperature (°C):</label>
-      <input
-        type="number"
-        value={temperature}
-        onChange={(e) => setTemperature(e.target.value)}
-        style={inputStyle}
-        placeholder="Enter Temperature (°C)"
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-      />
+        {/* Field Area */}
+        <div className="relative mb-6">
+          <input
+            type="number"
+            value={area}
+            onChange={(e) => setArea(e.target.value)}
+            className="peer w-full p-4 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
+            placeholder=" "
+          />
+          <label className="text-green-500 bg-white absolute font-semibold left-2 -top-2.5  px-1 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-green-600 rounded-lg">
+            Field Area (hectares)
+          </label>
+        </div>
 
-      <label style={labelStyle}>Rainfall (mm):</label>
-      <input
-        type="number"
-        value={rainfall}
-        onChange={(e) => setRainfall(e.target.value)}
-        style={inputStyle}
-        placeholder="Enter Rainfall (mm)"
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-      />
+        {/* Temperature */}
+        <div className="relative mb-6">
+          <input
+            type="number"
+            value={temperature}
+            onChange={(e) => setTemperature(e.target.value)}
+            className="peer w-full p-4 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
+            placeholder=" "
+          />
+          <label className="text-green-500 bg-white absolute font-semibold left-2 -top-2.5  px-1 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-green-600 rounded-lg">
+            Temperature (°C)
+          </label>
+        </div>
 
-      <button onClick={calculateWaterRequirement} style={buttonStyle}>
-        Calculate Water Requirement
-      </button>
+        {/* Rainfall */}
+        <div className="relative mb-6">
+          <input
+            type="number"
+            value={rainfall}
+            onChange={(e) => setRainfall(e.target.value)}
+            className="peer w-full p-4 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
+            placeholder=" "
+          />
+          <label className="text-green-500 bg-white absolute font-semibold left-2 -top-2.5  px-1 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-green-600 rounded-lg">
+            Rainfall (mm)
+          </label>
+        </div>
 
-      {error && <p style={errorStyle}>{error}</p>}
-      {waterRequirement !== null && !error && (
-        <p style={outputStyle}>Water Required: {waterRequirement} liters</p>
-      )}
+        <button
+          onClick={calculateWaterRequirement}
+          className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200"
+        >
+          Calculate Water Requirement
+        </button>
+
+        {error && <p className="text-red-500 font-bold mt-4">{error}</p>}
+        {waterRequirement !== null && !error && (
+          <p className="mt-6 text-white font-semibold">
+            Water Required: <span className="text-green-300">{waterRequirement} liters</span>
+          </p>
+        )}
+      </div>
+
     </div>
   );
 };
