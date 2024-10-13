@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import heroImage from '../assets/hero.png';
 import Features from '../components/Features';
@@ -7,15 +7,20 @@ import About from './About';
 import Showcase from '../components/Showcase';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FAQ from '../components/FAQ';
+import { FaComment } from "react-icons/fa"; 
+import { toast, ToastContainer } from 'react-toastify'; 
+import 'react-toastify/dist/ReactToastify.css'; 
 import AdvantagesDisadvantages from '../components/AdvDis'; // Import the new component
-import { FaComment } from "react-icons/fa";
 import "../styles/ChatbotButton.css";
+import { useAuth } from '../context/AuthContext';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const { isLoggedIn } = useAuth(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -23,8 +28,37 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleChatBotClick = () => {
+    if (isLoggedIn) {
+      navigate('/chatbot'); // Redirect to ChatBot if authenticated
+    } else {
+      const redirectTime = 3000;
+      toast.warn(`You need to login before using the ChatBot! Redirecting to login page in 3 seconds...`);
+
+      setTimeout(() => {
+        navigate('/login');
+      }, redirectTime);
+    }
+  };
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-r from-green-50 to-green-100">
+      {/* Toast Container */}
+      <ToastContainer 
+        position="top-center" 
+        autoClose={5000} 
+        hideProgressBar 
+        newestOnTop 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+        toastClassName="custom-toast" 
+        bodyClassName="custom-toast-body"
+        className="mt-16"
+      />
+
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-16 mx-auto max-w-7xl sm:px-6 lg:px-8 -mt-20">
         {/* Hero Section */}
@@ -57,6 +91,17 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
+        <div className="relative">
+          <button
+            onClick={handleChatBotClick} // Call handleChatBotClick on button click
+            className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110 animate-swing"
+          >
+            <FaComment className="text-white text-3xl" />
+            <span className="absolute -top-10 -right-4 bg-white text-green-500 text-sm rounded-md px-2 py-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100 blink-text">
+              Try Our ChatBot
+            </span>
+          </button>
+        </div>
 
         {/* Fixed message icon with tooltip */}
         <div className="relative">
