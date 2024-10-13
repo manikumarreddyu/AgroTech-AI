@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from 'react-toastify'; 
 import { useAuth } from "../context/AuthContext";
 import loginImage from "../assets/LoginImage.png"
 
@@ -20,7 +20,9 @@ const LoginPage = () => {
       login(response.data.token); // Call login method from context
       toast.success("Login successful");
     } catch (error) {
+      
       toast.error(error.response?.data?.message || "Login failed");
+      return <Navigate to="/signup" />;
     }
   };
 
@@ -31,6 +33,21 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500">
+     {/* Toast Container */}
+     <ToastContainer 
+        position="top-center" 
+        autoClose={5000} 
+        hideProgressBar 
+        newestOnTop 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+        toastClassName="custom-toast" 
+        bodyClassName="custom-toast-body"
+        className="mt-16"
+      />
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 ease-in-out hover:scale-105">
         
         {/* Image section */}
