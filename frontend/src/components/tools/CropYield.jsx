@@ -12,7 +12,7 @@ const CropYieldCalculator = () => {
   };
 
   const calculatorStyle = {
-    backgroundColor: '#f0f8ff',
+    backgroundColor: '#f9f9f9',
     padding: '20px',
     borderRadius: '10px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',

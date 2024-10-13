@@ -61,7 +61,7 @@ const WaterRequirementCalculator = () => {
   };
 
   const calculatorStyle = {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#f9f9f9',
     padding: '30px',
     borderRadius: '10px',
     maxWidth: '500px',
