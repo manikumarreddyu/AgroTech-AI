@@ -1,15 +1,16 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import google.generativeai as genai
 import json
 import re
 import pandas as pd
-
-# Embed API keys directly
-GOOGLE_API_KEY = "AIzaSyAGJryFFaaRZKbpPe_r6S5lXyaV1NyywFU"
+import os
 
 # Initialize Google Gemini API with the embedded key
-genai.configure(api_key=GOOGLE_API_KEY)
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Define research prompt template for soil testing labs
 field_prompt = (
