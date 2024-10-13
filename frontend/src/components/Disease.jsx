@@ -156,7 +156,7 @@ export default function PlantDiseaseDetection() {
         </motion.h2>
   
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {['Sugarcane', 'Rice'].map((crop, index) => (
+          {['Sugarcane', 'Paddy'].map((crop, index) => (
             <motion.div 
               key={crop}
               initial={{ opacity: 0, y: 50 }}
@@ -171,7 +171,7 @@ export default function PlantDiseaseDetection() {
                 />
                 <div className="p-6">
                   <Link 
-                    href={`/engine/${index + 1}`}
+                    href={`/${crop}Recognition`}
                     className="text-xl font-semibold text-green-700 hover:text-green-500 transition-colors duration-300"
                   >
                     {crop} Engine
@@ -179,7 +179,7 @@ export default function PlantDiseaseDetection() {
                   {/* Add buttons for each engine */}
                   <div className="mt-4">
                     <Link 
-                      to={`/engine/${index + 1}`}
+                      to={`/${crop}Recognition`}
                       className="inline-block bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-500 transition-colors duration-300 mr-2"
                     >
                       Click Here
@@ -214,7 +214,7 @@ export default function PlantDiseaseDetection() {
               />
               <div className="flex justify-between items-center mb-4">
                 <Link 
-                  href="/engine/3"
+                  href="/DiseaseRecognition"
                   className="text-xl font-semibold text-green-700 hover:text-green-500 transition-colors duration-300"
                 >
                   Crop Engine
@@ -229,7 +229,7 @@ export default function PlantDiseaseDetection() {
               </div>
               <div className="mt-4">
                 <Link 
-                  to={"/engine/3"}
+                  to={"/DiseaseRecognition"}
                   className="inline-block bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-500 transition-colors duration-300 mr-2"
                 >
                   Click Here
