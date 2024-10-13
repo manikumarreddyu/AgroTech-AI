@@ -5,6 +5,7 @@ import HomeCard from "../component/HomeCard";
 import { GrPrevious, GrNext } from "react-icons/gr";
 import AllProduct from "../component/AllProduct";
 import { Link } from "react-router-dom";
+import { FaShippingFast, FaCheckCircle, FaLeaf } from "react-icons/fa";
 
 const Home = () => {
   const userData = useSelector((state) => state.user);
@@ -14,22 +15,22 @@ const Home = () => {
   
   // Filter for each category
   const homeProductCartListSeeds = productData.filter(
-    (el) => el.category == "seeds"
+    (el) => el.category === "seeds"
   );
   const homeProductCartListFertilizers = productData.filter(
-    (el) => el.category == "fertilizers"
+    (el) => el.category === "fertilizers"
   );
   const homeProductCartListPesticides = productData.filter(
-    (el) => el.category == "pesticides"
+    (el) => el.category === "pesticides"
   );
   const homeProductCartListHerbicides = productData.filter(
-    (el) => el.category == "herbicides"
+    (el) => el.category === "herbicides"
   );
   const homeProductCartListMachinery = productData.filter(
-    (el) => el.category == "machinery"
+    (el) => el.category === "machinery"
   );
   const homeProductCartListIrrigation = productData.filter(
-    (el) => el.category == "irrigation"
+    (el) => el.category === "irrigation"
   );
 
   const loadingArray = new Array(4).fill(null);
@@ -48,16 +49,35 @@ const Home = () => {
       <div className="md:flex gap-4 py-2">
         <div className="md:w-1/2">
           <h2 className="text-4xl md:text-7xl font-bold py-3">
-            The Direct Delivery to Farmers {" "}
+            The Direct Delivery to Farmers{" "}
             <span className="text-green-600">Our AgriCart</span>
           </h2>
           <p className="py-3 text-base">
-            Welcome to AgriMart, your one-stop e-commerce platform for all agricultural needs! 
-            We provide a wide range of high-quality seeds, fertilizers, pesticides, and other 
-            essential farming products to help you cultivate healthy crops and maximize yields. 
-            Our platform ensures easy access to trusted products, helping farmers save time and 
-            make informed purchasing decisions. With reliable delivery services, AgriMart is dedicated to supporting farmers in every step of their agricultural journey. Shop with confidence and grow your farm with us!
+            Welcome to AgriMart, your one-stop e-commerce platform for all
+            agricultural needs! We provide a wide range of high-quality seeds,
+            fertilizers, pesticides, and other essential farming products to
+            help you cultivate healthy crops and maximize yields. Our platform
+            ensures easy access to trusted products, helping farmers save time
+            and make informed purchasing decisions. With reliable delivery
+            services, AgriMart is dedicated to supporting farmers in every step
+            of their agricultural journey. Shop with confidence and grow your
+            farm with us!
           </p>
+          {/* Feature points with icons */}
+          <div className="flex items-center space-x-3 pt-3">
+            <FaShippingFast className="text-green-600 text-2xl" />
+            <p className="text-lg font-semibold">Fast and Reliable Delivery</p>
+          </div>
+          <div className="flex items-center space-x-3 pt-3">
+            <FaCheckCircle className="text-green-600 text-2xl" />
+            <p className="text-lg font-semibold">Quality Assured Products</p>
+          </div>
+          <div className="flex items-center space-x-3 pt-3">
+            <FaLeaf className="text-green-600 text-2xl" />
+            <p className="text-lg font-semibold">
+              Sustainable and Eco-Friendly
+            </p>
+          </div>
           <Link to={"cart"}>
             <button className="font-bold bg-green-500 text-slate-200 px-4 py-2 rounded-md">
               Order Now
@@ -80,7 +100,9 @@ const Home = () => {
                 );
               })
             : loadingArray.map((el, index) => {
-                return <HomeCard key={index + "loading"} loading={"Loading..."} />;
+                return (
+                  <HomeCard key={index + "loading"} loading={"Loading..."} />
+                );
               })}
         </div>
       </div>
@@ -88,7 +110,9 @@ const Home = () => {
       {/* Quality Seeds Section */}
       <div className="">
         <div className="flex w-full items-center">
-          <h2 className="font-bold text-2xl text-green-700 mb-4">Quality Seeds</h2>
+          <h2 className="font-bold text-2xl text-green-700 mb-4">
+            Quality Seeds
+          </h2>
           <div className="ml-auto flex gap-4">
             <button
               onClick={preveProduct}
@@ -123,7 +147,10 @@ const Home = () => {
                 );
               })
             : loadingArrayFeature.map((el, index) => (
-                <CardFeature loading="Loading..." key={index + "seedsLoading"} />
+                <CardFeature
+                  loading="Loading..."
+                  key={index + "seedsLoading"}
+                />
               ))}
         </div>
       </div>
@@ -131,7 +158,9 @@ const Home = () => {
       {/* Fertilizers Section */}
       <div className="mt-5">
         <div className="flex w-full items-center">
-          <h2 className="font-bold text-2xl text-green-700 mb-4">Quality Fertilizers</h2>
+          <h2 className="font-bold text-2xl text-green-700 mb-4">
+            Quality Fertilizers
+          </h2>
           <div className="ml-auto flex gap-4">
             <button
               onClick={preveProduct}
@@ -166,7 +195,10 @@ const Home = () => {
                 );
               })
             : loadingArrayFeature.map((el, index) => (
-                <CardFeature loading="Loading..." key={index + "fertilizersLoading"} />
+                <CardFeature
+                  loading="Loading..."
+                  key={index + "fertilizersLoading"}
+                />
               ))}
         </div>
       </div>
@@ -174,7 +206,9 @@ const Home = () => {
       {/* Pesticides Section */}
       <div className="mt-5">
         <div className="flex w-full items-center">
-          <h2 className="font-bold text-2xl text-green-700 mb-4">Quality Pesticides</h2>
+          <h2 className="font-bold text-2xl text-green-700 mb-4">
+            Quality Pesticides
+          </h2>
           <div className="ml-auto flex gap-4">
             <button
               onClick={preveProduct}
@@ -209,7 +243,10 @@ const Home = () => {
                 );
               })
             : loadingArrayFeature.map((el, index) => (
-                <CardFeature loading="Loading..." key={index + "pesticidesLoading"} />
+                <CardFeature
+                  loading="Loading..."
+                  key={index + "pesticidesLoading"}
+                />
               ))}
         </div>
       </div>
@@ -217,7 +254,9 @@ const Home = () => {
       {/* Herbicides Section */}
       <div className="mt-5">
         <div className="flex w-full items-center">
-          <h2 className="font-bold text-2xl text-green-700 mb-4">Quality Herbicides</h2>
+          <h2 className="font-bold text-2xl text-green-700 mb-4">
+            Quality Herbicides
+          </h2>
           <div className="ml-auto flex gap-4">
             <button
               onClick={preveProduct}
@@ -241,111 +280,124 @@ const Home = () => {
             ? homeProductCartListHerbicides.map((el) => {
                 return (
                   <CardFeature
-                  key={el._id + "herbicides"}
-                  id={el._id}
-                  name={el.name}
-                  category={el.category}
-                  price={el.price}
-                  image={el.image}
-                  userEmail={userData.email} // Add email field here
+                    key={el._id + "herbicides"}
+                    id={el._id}
+                    name={el.name}
+                    category={el.category}
+                    price={el.price}
+                    image={el.image}
+                    userEmail={userData.email} // Add email field here
+                  />
+                );
+              })
+            : loadingArrayFeature.map((el, index) => (
+                <CardFeature
+                  loading="Loading..."
+                  key={index + "herbicidesLoading"}
                 />
-              );
-            })
-          : loadingArrayFeature.map((el, index) => (
-              <CardFeature loading="Loading..." key={index + "herbicidesLoading"} />
-            ))}
-      </div>
-    </div>
-
-    {/* Machinery Section */}
-    <div className="mt-5">
-      <div className="flex w-full items-center">
-        <h2 className="font-bold text-2xl text-green-700 mb-4">Quality Machinery</h2>
-        <div className="ml-auto flex gap-4">
-          <button
-            onClick={preveProduct}
-            className="bg-slate-300 hover:bg-slate-400 text-lg p-1 rounded"
-          >
-            <GrPrevious />
-          </button>
-          <button
-            onClick={nextProduct}
-            className="bg-slate-300 hover:bg-slate-400 text-lg p-1 rounded"
-          >
-            <GrNext />
-          </button>
+              ))}
         </div>
       </div>
-      <div
-        className="flex gap-5 overflow-scroll scrollbar-none scroll-smooth transition-all"
-        ref={slideProductRef}
-      >
-        {homeProductCartListMachinery[0]
-          ? homeProductCartListMachinery.map((el) => {
-              return (
-                <CardFeature
-                  key={el._id + "machinery"}
-                  id={el._id}
-                  name={el.name}
-                  category={el.category}
-                  price={el.price}
-                  image={el.image}
-                  userEmail={userData.email} // Add email field here
-                />
-              );
-            })
-          : loadingArrayFeature.map((el, index) => (
-              <CardFeature loading="Loading..." key={index + "machineryLoading"} />
-            ))}
-      </div>
-    </div>
 
-    {/* Irrigation Section */}
-    <div className="mt-5">
-      <div className="flex w-full items-center">
-        <h2 className="font-bold text-2xl text-green-700 mb-4">Irrigation Supplies</h2>
-        <div className="ml-auto flex gap-4">
-          <button
-            onClick={preveProduct}
-            className="bg-slate-300 hover:bg-slate-400 text-lg p-1 rounded"
-          >
-            <GrPrevious />
-          </button>
-          <button
-            onClick={nextProduct}
-            className="bg-slate-300 hover:bg-slate-400 text-lg p-1 rounded"
-          >
-            <GrNext />
-          </button>
+      {/* Machinery Section */}
+      <div className="mt-5">
+        <div className="flex w-full items-center">
+          <h2 className="font-bold text-2xl text-green-700 mb-4">
+            Quality Machinery
+          </h2>
+          <div className="ml-auto flex gap-4">
+            <button
+              onClick={preveProduct}
+              className="bg-slate-300 hover:bg-slate-400 text-lg p-1 rounded"
+            >
+              <GrPrevious />
+            </button>
+            <button
+              onClick={nextProduct}
+              className="bg-slate-300 hover:bg-slate-400 text-lg p-1 rounded"
+            >
+              <GrNext />
+            </button>
+          </div>
+        </div>
+        <div
+          className="flex gap-5 overflow-scroll scrollbar-none scroll-smooth transition-all"
+          ref={slideProductRef}
+        >
+          {homeProductCartListMachinery[0]
+            ? homeProductCartListMachinery.map((el) => {
+                return (
+                  <CardFeature
+                    key={el._id + "machinery"}
+                    id={el._id}
+                    name={el.name}
+                    category={el.category}
+                    price={el.price}
+                    image={el.image}
+                    userEmail={userData.email} // Add email field here
+                  />
+                );
+              })
+            : loadingArrayFeature.map((el, index) => (
+                <CardFeature
+                  loading="Loading..."
+                  key={index + "machineryLoading"}
+                />
+              ))}
         </div>
       </div>
-      <div
-        className="flex gap-5 overflow-scroll scrollbar-none scroll-smooth transition-all"
-        ref={slideProductRef}
-      >
-        {homeProductCartListIrrigation[0]
-          ? homeProductCartListIrrigation.map((el) => {
-              return (
-                <CardFeature
-                  key={el._id + "irrigation"}
-                  id={el._id}
-                  name={el.name}
-                  category={el.category}
-                  price={el.price}
-                  image={el.image}
-                  userEmail={userData.email} // Add email field here
-                />
-              );
-            })
-          : loadingArrayFeature.map((el, index) => (
-              <CardFeature loading="Loading..." key={index + "irrigationLoading"} />
-            ))}
-      </div>
-    </div>
 
-    <AllProduct heading={"Your Product"} />
-  </div>
-);
+      {/* Irrigation Section */}
+      <div className="mt-5">
+        <div className="flex w-full items-center">
+          <h2 className="font-bold text-2xl text-green-700 mb-4">
+            Irrigation Supplies
+          </h2>
+          <div className="ml-auto flex gap-4">
+            <button
+              onClick={preveProduct}
+              className="bg-slate-300 hover:bg-slate-400 text-lg p-1 rounded"
+            >
+              <GrPrevious />
+            </button>
+            <button
+              onClick={nextProduct}
+              className="bg-slate-300 hover:bg-slate-400 text-lg p-1 rounded"
+            >
+              <GrNext />
+            </button>
+          </div>
+        </div>
+        <div
+          className="flex gap-5 overflow-scroll scrollbar-none scroll-smooth transition-all"
+          ref={slideProductRef}
+        >
+          {homeProductCartListIrrigation[0]
+            ? homeProductCartListIrrigation.map((el) => {
+                return (
+                  <CardFeature
+                    key={el._id + "irrigation"}
+                    id={el._id}
+                    name={el.name}
+                    category={el.category}
+                    price={el.price}
+                    image={el.image}
+                    userEmail={userData.email} // Add email field here
+                  />
+                );
+              })
+            : loadingArrayFeature.map((el, index) => (
+                <CardFeature
+                  loading="Loading..."
+                  key={index + "irrigationLoading"}
+                />
+              ))}
+        </div>
+      </div>
+
+      <AllProduct heading={"Your Product"} />
+    </div>
+  );
 };
 
 export default Home;
