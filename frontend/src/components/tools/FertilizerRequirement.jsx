@@ -39,7 +39,7 @@ const FertilizerRequirementsCalculator = () => {
     padding: '20px',
     borderRadius: '8px',
     maxWidth: '450px',
-    margin: '20px auto',
+    margin: '80px auto',
     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
@@ -52,6 +52,13 @@ const FertilizerRequirementsCalculator = () => {
     borderRadius: '4px',
     border: '1px solid #ccc',
     fontSize: '16px',
+  };
+
+  const labelStyle = {
+    display: 'block',
+    margin: '10px 0 5px',
+    fontWeight: '600',
+    color: '#555',
   };
 
   const buttonStyle = {
@@ -72,11 +79,10 @@ const FertilizerRequirementsCalculator = () => {
   };
 
   return (
-    <div className="max-w-full mt-40 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8  " style={calculatorStyle}>
-      <h2>Fertilizer Requirements</h2>
+      <div className="max-w-full mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8  " style={calculatorStyle}>
+      <h2 className="text-xl font-bold text-green-500 mb-4">Fertilizer Requirements Calculator</h2>
 
-      <h3>Crop Information</h3>
-      <label>Type of Crop:</label>
+      <label style={labelStyle}>Type of Crop:</label>
       <select
         value={cropType}
         onChange={(e) => setCropType(e.target.value)}
@@ -88,7 +94,7 @@ const FertilizerRequirementsCalculator = () => {
         <option value="rice">Rice</option>
       </select>
 
-      <label>Field Area (hectares):</label>
+      <label style={labelStyle}>Field Area (hectares):</label>
       <input
         type="number"
         value={fieldArea}
@@ -97,7 +103,7 @@ const FertilizerRequirementsCalculator = () => {
         placeholder="Enter Field Area"
       />
 
-      <label>Fertilizer Cost per Kg:</label>
+      <label style={labelStyle}>Fertilizer Cost per Kg:</label>
       <input
         type="number"
         value={fertilizerCostPerKg}

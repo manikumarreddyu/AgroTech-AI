@@ -57,7 +57,7 @@ const SoilMoistureCalculator = () => {
     padding: '20px',
     borderRadius: '8px',
     maxWidth: '450px',
-    margin: '20px auto',
+    margin: '80px auto',
     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
@@ -83,6 +83,13 @@ const SoilMoistureCalculator = () => {
     marginTop: '10px',
   };
 
+  const labelStyle = {
+    display: 'block',
+    margin: '10px 0 5px',
+    fontWeight: '600',
+    color: '#555',
+  };
+
   const errorStyle = {
     color: 'red',
     fontWeight: 'bold',
@@ -91,9 +98,9 @@ const SoilMoistureCalculator = () => {
 
   return (
     <div style={calculatorStyle}>
-      <h2>Soil Moisture Calculator</h2>
+      <h2 className="text-xl font-bold text-green-500 mb-4">Soil Moisture Calculator</h2>
 
-      <label>Rainfall (mm):</label>
+      <label style={labelStyle}>Rainfall (mm):</label>
       <input
         type="number"
         value={rainfall}
@@ -102,7 +109,7 @@ const SoilMoistureCalculator = () => {
         placeholder="Enter Rainfall (mm)"
       />
 
-      <label>Temperature (°C):</label>
+      <label style={labelStyle}>Temperature (°C):</label>
       <input
         type="number"
         value={temperature}
@@ -111,7 +118,7 @@ const SoilMoistureCalculator = () => {
         placeholder="Enter Temperature (°C)"
       />
 
-      <label>Soil Type:</label>
+      <label style={labelStyle}>Soil Type:</label>
       <select
         value={soilType}
         onChange={(e) => setSoilType(e.target.value)}
