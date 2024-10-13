@@ -10,7 +10,7 @@ import FAQ from '../components/FAQ';
 import { FaComment } from "react-icons/fa"; 
 import { toast, ToastContainer } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
-import AdvantagesDisadvantages from '../components/AdvDis'; 
+import AdvantagesDisadvantages from '../components/AdvDis'; // Import the new component
 import "../styles/ChatbotButton.css";
 import { useAuth } from '../context/AuthContext';
 
@@ -30,7 +30,7 @@ export default function Home() {
 
   const handleChatBotClick = () => {
     if (isLoggedIn) {
-      navigate('/chatbot');
+      navigate('/chatbot'); // Redirect to ChatBot if authenticated
     } else {
       const redirectTime = 3000;
       toast.warn(`You need to login before using the ChatBot! Redirecting to login page in 3 seconds...`);
@@ -72,21 +72,11 @@ export default function Home() {
             <span className="block">Welcome to AgroTech AI</span>
             <span className="block text-green-600">Revolutionizing Agriculture</span>
           </h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-md mx-auto mt-3 text-base text-green-800 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl"
-          >
+          <p className="max-w-md mx-auto mt-3 text-base text-green-800 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
             Explore AI-powered solutions tailored to enhance farming practices. From crop prediction to soil analysis,
             discover tools designed to optimize agricultural productivity.
-          </motion.p>
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-10 sm:flex sm:justify-center"
-          >
+          </p>
+          <div className="mt-10 sm:flex sm:justify-center">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -99,8 +89,29 @@ export default function Home() {
                 Explore Now
               </Link>
             </motion.div>
-          </motion.div>
+          </div>
         </motion.div>
+        <div className="relative">
+          <button
+            onClick={handleChatBotClick} // Call handleChatBotClick on button click
+            className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110 animate-swing"
+          >
+            <FaComment className="text-white text-3xl" />
+            <span className="absolute -top-10 -right-4 bg-white text-green-500 text-sm rounded-md px-2 py-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100 blink-text">
+              Try Our ChatBot
+            </span>
+          </button>
+        </div>
+
+        {/* Fixed message icon with tooltip */}
+        <div className="relative">
+          <Link to="/chatbot" className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110">
+            <FaComment className="text-white text-3xl" />
+            <span className="absolute -top-10 -right-4 bg-white text-green-500 text-sm rounded-md px-2 py-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              Try Our ChatBot
+            </span>
+          </Link>
+        </div>
 
         {/* Hero Image */}
         <motion.div
@@ -124,69 +135,49 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-extrabold text-gray-900 text-center">How It Works ?</h2>
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['Data Collection', 'Analysis', 'Optimization'].map((step, index) => (
-              <motion.div
-                key={step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-gradient-to-b from-green-100 to-green-200 p-6 rounded-lg text-center z-10 shadow-2xl"
-              >
-                <h3 className="text-xl font-semibold text-green-700">Step {index + 1}: {step}</h3>
-                <p className="mt-4 text-green-600">
-                  {index === 0 && 'We gather real-time data on soil conditions, weather, and crop health using cutting-edge sensors and AI.'}
-                  {index === 1 && 'Our AI models analyze the data to provide actionable insights on crop growth and health.'}
-                  {index === 2 && 'Based on the analysis, we recommend the best practices to improve crop yield and sustainability.'}
-                </p>
-              </motion.div>
-            ))}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-b from-green-100 to-green-200 p-6 rounded-lg text-center z-10 shadow-2xl"
+            >
+              <h3 className="text-xl font-semibold text-green-700">Step 1: Data Collection</h3>
+              <p className="mt-4 text-green-600">
+                We gather real-time data on soil conditions, weather, and crop health using cutting-edge sensors and AI.
+              </p>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-b from-green-100 to-green-200 p-6 rounded-lg text-center z-10 shadow-2xl"
+            >
+              <h3 className="text-xl font-semibold text-green-700">Step 2: Analysis</h3>
+              <p className="mt-4 text-green-600">
+                Our AI models analyze the data to provide actionable insights on crop growth and health.
+              </p>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-b from-green-100 to-green-200 p-6 rounded-lg text-center z-10 shadow-2xl"
+            >
+              <h3 className="text-xl font-semibold text-green-700">Step 3: Optimization</h3>
+              <p className="mt-4 text-green-600">
+                Based on the analysis, we recommend the best practices to improve crop yield and sustainability.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-      >
-        <Features />
-      </motion.div>
 
-      {/* About Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.9 }}
-      >
-        <About />
-      </motion.div>
-      {/* Showcase Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.0 }}
-      >
-        <Showcase />
-      </motion.div>
 
-      {/* Testimonial Slider Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.1 }}
-      >
-        <TestimonialSlider />
-      </motion.div>
-
-      {/* FAQ Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
-      >
-        <FAQ />
-      </motion.div>
+      {/* Additional Components */}
+      <Features />
+      <About />
+      <Showcase />
+      {/* Advantages and Disadvantages of AI in Agriculture */}
+      <AdvantagesDisadvantages />  {/* Added the new component */}
+      <TestimonialSlider />
+      <FAQ />
     </div>
   );
 }
