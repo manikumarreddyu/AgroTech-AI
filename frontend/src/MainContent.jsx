@@ -70,6 +70,7 @@ const MainContent = () => {
             <div>
               <Navbar />
               <Routes>
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/chatbot" element={<ChatBot />} />
                 <Route path="/contact" element={<Contact />} />
@@ -113,7 +114,7 @@ const MainContent = () => {
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/terms" element={<TermsAndConditions />}></Route>
                 <Route path="/cookie-policy" element={<CookiePolicy />}></Route>
-                <Route path="/Privacy" element={<PrivacyPolicy />}></Route>
+                
                 <Route path="*" element={<NotFound />} />
               </Routes>
               <Footer />
