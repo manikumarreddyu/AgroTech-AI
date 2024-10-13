@@ -102,11 +102,13 @@ const TestimonialSlider = () => {
                   border: '1px solid rgba(207, 230, 207, 0.5)', // Light green border
                 }}
               >
-                <img
-                  src={testimonial.image}
-                  alt={`${testimonial.author}'s picture`}
-                  className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 border-2 border-green-400 transition-all duration-300 transform hover:scale-105"
-                />
+                <div className="flex justify-center">
+                  <img
+                    src={testimonial.image}
+                    alt={`${testimonial.author}'s picture`}
+                    className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 border-2 border-green-400 transition-all duration-300 transform hover:scale-105"
+                  />
+                </div>
                 <p className="text-lg md:text-xl italic mb-4 text-center text-green-800">{testimonial.quote}</p>
                 <h4 className="text-base md:text-lg text-green-600 font-semibold text-center">- {testimonial.author}</h4>
               </div>
@@ -130,6 +132,7 @@ const TestimonialSlider = () => {
         </div>
       </div>
     </section>
+
   );
 };
 
