@@ -65,7 +65,7 @@ const WaterRequirementCalculator = () => {
     padding: '30px',
     borderRadius: '10px',
     maxWidth: '500px',
-    margin: '20px auto',
+    margin: '80px auto',
     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
@@ -88,7 +88,7 @@ const WaterRequirementCalculator = () => {
     border: 'none',
     borderRadius: '5px',
     cursor: 'pointer',
-    fontSize: '18px',
+    fontSize: '16px',
     marginTop: '10px',
     transition: 'background-color 0.3s',
   };
@@ -122,8 +122,8 @@ const WaterRequirementCalculator = () => {
   };
 
   return (
-    <div style={calculatorStyle}>
-      <h2 style={{ color: '#4CAF50' }}>Water Requirement Calculator</h2>
+      <div style={calculatorStyle}>
+      <h2 className="text-xl font-bold text-green-500 mb-4">Water Requirement Calculator</h2>
 
       <label style={labelStyle}>Soil Type:</label>
       <select

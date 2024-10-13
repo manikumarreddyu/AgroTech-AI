@@ -17,7 +17,7 @@ const CropYieldCalculator = () => {
     borderRadius: '10px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     maxWidth: '400px',
-    margin: 'auto',
+    margin: '80px auto',
     textAlign: 'center',
     fontFamily: 'Arial, sans-serif',
   };
@@ -40,10 +40,17 @@ const CropYieldCalculator = () => {
     border: '1px solid #ccc',
   };
 
+  const labelStyle = {
+    display: 'block',
+    margin: '10px 0 5px',
+    fontWeight: '600',
+    color: '#555',
+  };
+
   return (
     <div style={calculatorStyle}>
-      <h2>Crop Yield Calculator</h2>
-      <label>Field Size (hectares):</label>
+      <h2 className="text-xl font-bold text-green-500 mb-4">Crop Yield Calculator</h2>
+      <label style={labelStyle}>Field Size (hectares):</label>
       <input
         type="number"
         value={fieldSize}
@@ -51,7 +58,7 @@ const CropYieldCalculator = () => {
         style={inputStyle}
       /><br />
 
-      <label>Plant Population per Hectare:</label>
+      <label style={labelStyle}>Plant Population per Hectare:</label>
       <input
         type="number"
         value={plantPopulation}
@@ -59,7 +66,7 @@ const CropYieldCalculator = () => {
         style={inputStyle}
       /><br />
 
-      <label>Expected Yield per Plant (kg):</label>
+      <label style={labelStyle}>Expected Yield per Plant (kg):</label>
       <input
         type="number"
         value={yieldPerPlant}
