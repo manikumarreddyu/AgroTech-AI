@@ -536,6 +536,19 @@ const SoilQuality = () => {
                         className="w-full max-w-4xl h-64 sm:h-80 md:h-100 mt-4 mx-auto rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105 border-2 border-green-300 bg-white"
                     ></div>
 
+<h2 className="mt-10 text-2xl font-semibold text-[#003366] text-center transition-all duration-300 ease-in-out hover:text-green-500">
+    For more, Check out here! Click the button below
+</h2>
+
+<div className="flex justify-center mt-6">
+    <a href="/soiltestingcentres">
+        <button className="px-6 py-3 bg-green-500 text-white text-lg font-semibold rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300 ease-in-out">
+            Go to Soil Testing Centres
+        </button>
+    </a>
+</div>
+
+
                     <div className="">
                     <div className="flex flex-col sm:flex-row items-center mt-20 justify-between  rounded-lg">
     <div className="sm:w-1/2 flex flex-wrap px-10 rounded-md justify-center">

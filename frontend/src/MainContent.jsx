@@ -24,7 +24,9 @@ import CropCalender from './components/help/CropCalender';
 import TaskReminder from './components/help/TaskReminder';
 import ChatBot from './pages/ChatBot';
 import CropRotationRecommendation from './components/models/CropRotationRecommendation';
-import DiseaseRecognition from './components/DiseaseRecognition';
+import DiseaseRecognition from './pages/Disease/DiseaseRecognition';
+import SugarcaneRecognition from './pages/Disease/SugarcaneRecognition';
+import PaddyRecognition from './pages/Disease/PaddyRecognition';
 import Preloader from "./components/PreLoader";
 import ProgressScrollDown from "./components/ProgressScrollDown";
 import React, { useState, useEffect } from "react";
@@ -47,6 +49,7 @@ import WaterRequirementCalculator from './components/tools/WaterRequirement';
 import CropYieldCalculator from './components/tools/CropYield';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Feedback from './components/Feedback';
+import SoilTestingCentres from './components/SoilTestingCenters'
 
 const MainContent = () => {
   UseScrollToTop();
@@ -92,11 +95,13 @@ const MainContent = () => {
                 <Route path="/reports" element={<Reports />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/article" element={<Article />} />
+                <Route path="/soiltestingcentres" element={<SoilTestingCentres/>}/>
 
                 <Route path="/CropCalender" element={<CropCalender />} />
 
                 <Route path="/TaskReminder" element={<TaskReminder />} />
-
+                <Route path="/SugarcaneRecognition" element={<SugarcaneRecognition />} />
+                <Route path="/PaddyRecognition" element={<PaddyRecognition />} />
                 <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
                 <Route path="/PlantTaskReminder" element={<PlantTaskReminder />} />
                 <Route path="/CropManagementGuide" element={<CropManagementGuide />} />
