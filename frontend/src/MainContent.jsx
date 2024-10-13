@@ -51,6 +51,10 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters'
 
+//AgroRent
+import HeroSectionRent from './AgroRent/HeroSectionRent'
+//AgroShop
+
 const MainContent = () => {
   UseScrollToTop();
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
@@ -121,6 +125,10 @@ const MainContent = () => {
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/terms" element={<TermsAndConditions />}></Route>
                 <Route path="/cookie-policy" element={<CookiePolicy />}></Route>
+
+                { /*AgroRent */ }
+                <Route path="HeroSectionRent" element={<HeroSectionRent />} />
+                { /*AgroShop */ }
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>
