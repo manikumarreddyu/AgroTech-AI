@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import img1 from "../../assets/crops/test1.png"; // Change to your desired background image
 
 const FertilizerRequirementsCalculator = () => {
   const [cropType, setCropType] = useState('');
@@ -34,89 +35,101 @@ const FertilizerRequirementsCalculator = () => {
     setTotalCost(cost.toFixed(2));
   };
 
-  const calculatorStyle = {
-    backgroundColor: '#f9f9f9',
-    padding: '20px',
-    borderRadius: '8px',
-    maxWidth: '450px',
-    margin: '20px auto',
-    boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-    textAlign: 'center',
-    fontFamily: 'Arial, sans-serif',
-  };
-
-  const inputStyle = {
-    width: '90%',
-    padding: '10px',
-    margin: '10px 0',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-    fontSize: '16px',
-  };
-
-  const buttonStyle = {
-    backgroundColor: '#28a745',
-    color: '#fff',
-    padding: '10px 20px',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontSize: '16px',
-    marginTop: '10px',
-  };
-
-  const errorStyle = {
-    color: 'red',
-    fontWeight: 'bold',
-    marginTop: '10px',
-  };
 
   return (
-    <div className="max-w-full mt-40 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8  " style={calculatorStyle}>
-      <h2>Fertilizer Requirements</h2>
+    <div
+      className="flex items-center justify-center min-h-screen"
+      style={{
+        backgroundImage: `url(${img1})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Backdrop layer */}
+      <div className="absolute inset-0 bg-black opacity-40" />
 
-      <h3>Crop Information</h3>
-      <label>Type of Crop:</label>
-      <select
-        value={cropType}
-        onChange={(e) => setCropType(e.target.value)}
-        style={inputStyle}
-      >
-        <option value="">Select Crop Type</option>
-        <option value="wheat">Wheat</option>
-        <option value="corn">Corn</option>
-        <option value="rice">Rice</option>
-      </select>
+      {/* Glassmorphism effect on the form */}
+      <div className="relative bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-lg p-10 w-full max-w-md z-10">
+        <h2 className="text-3xl font-bold text-center text-white mb-6">
+          Fertilizer Requirements Calculator
+        </h2>
 
-      <label>Field Area (hectares):</label>
-      <input
-        type="number"
-        value={fieldArea}
-        onChange={(e) => setFieldArea(e.target.value)}
-        style={inputStyle}
-        placeholder="Enter Field Area"
-      />
+        <form className="space-y-6">
+          <div className="relative">
+            <select
+              value={cropType}
+              onChange={(e) => setCropType(e.target.value)}
+              className="peer w-full p-4 border border-transparent rounded-md focus:outline-none  focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
+            >
+              <option value="">Select Crop Type</option>
+              <option value="wheat">Wheat</option>
+              <option value="corn">Corn</option>
+              <option value="rice">Rice</option>
+            </select>
+            <label
+              className="text-green-500 absolute font-semibold left-2 -top-2.5 bg-white bg-opacity-50 backdrop-blur-md px-1 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-green-600 rounded-lg"
+            >
+              Type of Crop
+            </label>
+          </div>
 
-      <label>Fertilizer Cost per Kg:</label>
-      <input
-        type="number"
-        value={fertilizerCostPerKg}
-        onChange={(e) => setFertilizerCostPerKg(e.target.value)}
-        style={inputStyle}
-        placeholder="Enter Fertilizer Cost per Kg"
-      />
+          <div className="relative">
+            <input
+              type="number"
+              value={fieldArea}
+              onChange={(e) => setFieldArea(e.target.value)}
+              className="peer w-full p-4 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
+              placeholder=""
+            />
+            <label
+              className="text-green-500 absolute font-semibold left-2 -top-2.5 bg-white bg-opacity-50 backdrop-blur-md px-1 rounded-lg text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-green-600"
+            >
+              Field Area (hectares)
+            </label>
+          </div>
 
-      <button onClick={calculateFertilizer} style={buttonStyle}>
-        Calculate Fertilizer and Cost
-      </button>
+          <div className="relative">
+            <input
+              type="number"
+              value={fertilizerCostPerKg}
+              onChange={(e) => setFertilizerCostPerKg(e.target.value)}
+              className="peer w-full p-4 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
+              placeholder=""
+            />
+            <label
+              className="text-green-500 absolute font-semibold left-2 -top-2.5 bg-white bg-opacity-50 backdrop-blur-md px-1 rounded-lg text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-green-600"
+            >
+              Fertilizer Cost per Kg
+            </label>
+          </div>
 
-      {error && <p style={errorStyle}>{error}</p>}
-      {totalFertilizer !== null && !error && (
-        <p>Total Fertilizer Required: {totalFertilizer} kg</p>
-      )}
-      {totalCost !== null && !error && (
-        <p>Total Cost: ${totalCost}</p>
-      )}
+          <button
+            onClick={calculateFertilizer}
+            type="button"
+            className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200"
+          >
+            Calculate Fertilizer and Cost
+          </button>
+        </form>
+
+        {error && <p className="text-red-500 font-semibold mt-4">{error}</p>}
+        {totalFertilizer !== null && !error && (
+          <div className="mt-6 p-4 bg-green-200 rounded-md">
+            <p className="text-green-800 font-semibold">
+              Total Fertilizer Required: <span className="text-green-600">{totalFertilizer} kg</span>
+            </p>
+          </div>
+        )}
+        {totalCost !== null && !error && (
+          <div className="mt-2 p-4 bg-green-200 rounded-md">
+            <p className="text-green-800 font-semibold">
+              Total Cost: <span className="text-green-600">${totalCost}</span>
+            </p>
+          </div>
+        )}
+      </div>
+
     </div>
   );
 };
