@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import img1 from "../../assets/tp.png"
 
 // Crop data with categories
 const cropData = {
@@ -275,19 +276,32 @@ const EcoCropManager = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 mt-10">
-      <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Eco-Crop Manager</h1>
+    <div
+      className="flex items-center justify-center min-h-screen p-24 pt-40"
+      style={{
+        backgroundImage: `url(${img1})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Backdrop layer */}
+      <div className="absolute inset-0 bg-black opacity-40" />
 
-        <div className="mb-4">
-          <label htmlFor="category-select" className="block text-left mb-2 font-semibold">
+      {/* Glassmorphism effect */}
+      <div className="relative bg-white bg-opacity-50 backdrop-blur-md rounded-lg shadow-lg p-8 w-full max-w-md z-10 transition duration-300 ease-in-out">
+        <h1 className="text-3xl font-bold text-center text-green-600 mb-6">
+          Eco-Crop Manager
+        </h1>
+
+        <div className="mb-5">
+          <label htmlFor="category-select" className="block text-left mb-2 font-semibold text-white">
             Select a Crop Category:
           </label>
           <select
             id="category-select"
             value={selectedCategory}
             onChange={handleCategoryChange}
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-2 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 backdrop-blur-md"
           >
             <option value="">Select a Category</option>
             <option value="fruits">Fruits</option>
@@ -295,8 +309,8 @@ const EcoCropManager = () => {
           </select>
         </div>
 
-        <div className="mb-4">
-          <label htmlFor="crop-select" className="block text-left mb-2 font-semibold">
+        <div className=" mb-5">
+          <label htmlFor="crop-select" className="block text-left mb-2 font-semibold text-white">
             Select a Crop:
           </label>
           <select
@@ -304,7 +318,7 @@ const EcoCropManager = () => {
             value={selectedCrop}
             onChange={handleCropChange}
             disabled={!selectedCategory}
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+            className="w-full p-2 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 backdrop-blur-md disabled:opacity-50"
           >
             <option value="">Select a Crop</option>
             {availableCrops.map((crop) => (
@@ -318,21 +332,21 @@ const EcoCropManager = () => {
         <button
           onClick={handleLearnAbout}
           disabled={!selectedCrop}
-          className={`w-full p-2 rounded-md text-white font-semibold ${
+          className={`w-full p-2 my-5 rounded-md text-white font-semibold transition duration-300 ${
             selectedCrop
-              ? 'bg-blue-600 hover:bg-blue-700 cursor-pointer'
-              : 'bg-gray-400 cursor-not-allowed'
-          } transition duration-300`}
+              ? 'bg-green-600 hover:bg-green-700 cursor-pointer'
+              : 'bg-green-400 cursor-not-allowed'
+          }`}
         >
           Learn About This Crop
         </button>
 
         {result && (
-          <div className="mt-6 p-4 border border-blue-600 rounded-md bg-blue-50 text-left whitespace-pre-wrap">
+          <div className="mt-6 p-4 border border-green-600 rounded-md bg-blue-50 text-left whitespace-pre-wrap bg-gradient-to-r from-green-300 to-green-350">
             {result.split('\n').map((line, index) => (
               <p key={index} className="mb-2">
                 {line.startsWith('**') ? (
-                  <strong className="text-blue-700">
+                  <strong className="text-green-700">
                     {line.replace('**', '').replace('**', '')}
                   </strong>
                 ) : (

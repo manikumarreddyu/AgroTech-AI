@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import img1 from "../../assets/tp.png"
 
 const CropCalendar = () => {
   // Crop data
@@ -66,8 +67,8 @@ const CropCalendar = () => {
     },
   };
 
-  // Background images for each season
   const seasonBackgrounds = {
+    Test: `url(${img1})`,
     Spring:
       "url('https://thumbs.dreamstime.com/b/vineyard-cannonau-grapes-spring-new-shoots-young-leaves-branches-inflorescence-vine-traditional-agriculture-277846894.jpg')",
     Summer:
@@ -81,7 +82,6 @@ const CropCalendar = () => {
   const [selectedSeason, setSelectedSeason] = useState('');
   const [cropInfo, setCropInfo] = useState(null);
 
-  // Update background image when season changes
   useEffect(() => {
     if (selectedSeason) {
       document.body.style.backgroundImage = seasonBackgrounds[selectedSeason];
@@ -92,28 +92,26 @@ const CropCalendar = () => {
     }
   }, [selectedSeason]);
 
-  // Handle season selection
   const handleSeasonChange = (e) => {
     const season = e.target.value;
     setSelectedSeason(season);
     displayCrops(season);
   };
 
-  // Function to display crops based on selected season
   const displayCrops = (season) => {
     if (cropCalendar[season]) {
       const seasonCrops = cropCalendar[season];
       setCropInfo(
         <div className="mt-4">
-          <h2 className="text-2xl font-semibold mb-4 text-teal-700">{season}</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">{season}</h2>
           {Object.keys(seasonCrops).map((month) => (
             <div key={month} className="mb-6">
-              <h3 className="text-xl font-medium mt-4 text-teal-600">{month}:</h3>
+              <h3 className="text-xl font-medium mt-4 text-white">{month}:</h3>
               <ul className="list-none pl-0">
                 {Object.keys(seasonCrops[month]).map((crop) => (
                   <li
                     key={crop}
-                    className="my-2 p-2 border border-teal-700 rounded bg-teal-100"
+                    className="my-2 p-2 border border-white rounded bg-white bg-opacity-20 backdrop-blur-md"
                   >
                     <strong>{crop}:</strong> {seasonCrops[month][crop][0]}{' '}
                     <em>(Harvest: {seasonCrops[month][crop][1]})</em>
@@ -132,15 +130,28 @@ const CropCalendar = () => {
   };
 
   return (
-    <div className='max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8'>
-      <div className="max-w-lg w-full p-6 bg-white bg-opacity-90 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-teal-700 text-center mb-6">Crop Calendar</h1>
-        <label htmlFor="season" className="block mb-2 text-teal-700 text-lg">
+    <div
+      className="flex items-center justify-center min-h-screen p-24 pt-40"
+      style={{
+        backgroundImage: seasonBackgrounds[selectedSeason] || `url(${img1})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      {/* Backdrop layer */}
+      <div className="absolute inset-0 bg-black opacity-40" />
+
+      {/* Glassmorphism effect */}
+      <div className="relative bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-lg p-10 w-full max-w-xl z-10">
+        <h1 className="text-3xl font-bold text-center text-white mb-6">
+          Crop Calendar
+        </h1>
+        <label htmlFor="season" className="block mb-2 text-white text-lg">
           Select a season:
         </label>
         <select
           id="season"
-          className="w-full p-3 mb-6 border border-teal-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+          className="w-full p-4 mb-6 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
           onChange={handleSeasonChange}
           value={selectedSeason}
         >
@@ -153,7 +164,7 @@ const CropCalendar = () => {
         <div id="cropInfo" className="crop-info">
           {cropInfo}
         </div>
-        <footer className="mt-6 text-center text-gray-600 text-sm">
+        <footer className="mt-6 text-center text-white text-sm">
           <p>Data Source: Your Data Source</p>
         </footer>
       </div>

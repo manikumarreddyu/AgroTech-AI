@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import img1 from "../../assets/tp.png"
+import { motion } from 'framer-motion'
 
-// Crop management guides data
-const cropGuides = {
-  barley: `
-    <strong>1. Barley</strong>
+const CropGuides = () => {
+  // Crop guides data
+  const cropGuides = {
+    barley: 
+    `<strong>1. Barley</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Plow and harrow the field to a fine tilth. This should be done 2-4 weeks before sowing to allow the soil to aerate.</p>
     <p>Soil Testing: Test soil for pH and nutrient levels and apply lime and fertilizers as required.</p>
@@ -16,8 +19,8 @@ const cropGuides = {
     <p><strong>e. Harvesting (Weeks 12-16):</strong></p>
     <p>When to Harvest: When the grains are hard and moisture content is around 14-18%. Method: Use a combine harvester for efficiency.</p>
   `,
-  corn: `
-    <strong>2. Corn</strong>
+  corn: 
+    `<strong>2. Corn</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Prepare the ground by tilling 2-3 weeks before sowing. Soil Testing: Analyze soil for fertility.</p>
     <p><strong>b. Sowing (Weeks 3-4):</strong></p>
@@ -31,8 +34,8 @@ const cropGuides = {
   `,
   // ... Add other crop guides similarly
   // cotton, rice, soya, sugarcane, sunflower, tomato, wheat, yams
-  cotton: `
-    <strong>3. Cotton</strong>
+  cotton: 
+    `<strong>3. Cotton</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Start with deep plowing and prepare seedbed a few weeks before sowing. Soil Testing: Important for nutrient management.</p>
     <p><strong>b. Sowing (Weeks 3-4):</strong></p>
@@ -44,8 +47,8 @@ const cropGuides = {
     <p><strong>e. Harvesting (Weeks 12-20):</strong></p>
     <p>When to Harvest: When bolls are bursting open. Method: Hand-picking or mechanical harvesting.</p>
   `,
-  rice: `
-    <strong>4. Rice</strong>
+  rice: 
+    `<strong>4. Rice</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Prepare puddle fields (flooding and tillage) before sowing. Soil Testing: Test for nutrient levels.</p>
     <p><strong>b. Sowing (Weeks 3-4):</strong></p>
@@ -57,8 +60,8 @@ const cropGuides = {
     <p><strong>e. Harvesting (Weeks 15-20):</strong></p>
     <p>When to Harvest: When grains are hard, and panicles start to bend. Method: Manual harvesting or combine harvester.</p>
   `,
-  soya: `
-    <strong>5. Soya</strong>
+  soya: 
+    `<strong>5. Soya</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Prepare the field with minimum tillage about 1-2 weeks before planting. Soil Testing: Evaluate nitrogen levels.</p>
     <p><strong>b. Sowing (Weeks 3-4):</strong></p>
@@ -70,8 +73,8 @@ const cropGuides = {
     <p><strong>e. Harvesting (Weeks 12-16):</strong></p>
     <p>When to Harvest: When leaves turn yellow and pods are firm. Method: Combine harvester or manual harvesting.</p>
   `,
-  sugarcane: `
-    <strong>6. Sugarcane</strong>
+  sugarcane: 
+    `<strong>6. Sugarcane</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Deep plowing 3-4 weeks before planting. Soil Testing: To determine nutrient requirements.</p>
     <p><strong>b. Sowing (Weeks 3-4):</strong></p>
@@ -83,8 +86,8 @@ const cropGuides = {
     <p><strong>e. Harvesting (Weeks 16-20):</strong></p>
     <p>When to Harvest: When the sap is sweet, generally 12-18 months after planting. Method: Manual cutting or mechanical harvesters.</p>
   `,
-  sunflower: `
-    <strong>7. Sunflower</strong>
+  sunflower: 
+    `<strong>7. Sunflower</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Prepare soil with moderate tillage. Soil Testing: Check pH levels for ideal growth.</p>
     <p><strong>b. Sowing (Weeks 3-4):</strong></p>
@@ -96,8 +99,8 @@ const cropGuides = {
     <p><strong>e. Harvesting (Weeks 12-16):</strong></p>
     <p>When to Harvest: When the back of the head turns yellow, and seeds are developed. Method: Mechanical harvesting for larger crops.</p>
   `,
-  tomato: `
-    <strong>8. Tomato</strong>
+  tomato: 
+    `<strong>8. Tomato</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Prepare with deep plowing and adding organic matter. Soil Testing: Important for determining pH and nutrient levels.</p>
     <p><strong>b. Sowing (Weeks 3-4):</strong></p>
@@ -109,8 +112,8 @@ const cropGuides = {
     <p><strong>e. Harvesting (Weeks 12-20):</strong></p>
     <p>When to Harvest: When fruits are fully colored and have a uniform hue. Method: Hand-picked for quality.</p>
   `,
-  wheat: `
-    <strong>9. Wheat</strong>
+  wheat: 
+    `<strong>9. Wheat</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Tillage to minimize residue, done 2-4 weeks prior to sowing. Soil Testing: Test for nitrogen, phosphorus, and potassium.</p>
     <p><strong>b. Sowing (Weeks 3-4):</strong></p>
@@ -122,8 +125,8 @@ const cropGuides = {
     <p><strong>e. Harvesting (Weeks 12-20):</strong></p>
     <p>When to Harvest: Once grains are hard and moisture levels are around 13-15%. Method: Combine harvester.</p>
   `,
-  yams: `
-    <strong>10. Yams</strong>
+  yams: 
+    `<strong>10. Yams</strong>
     <p><strong>a. Starting Procedures (Weeks 1-2):</strong></p>
     <p>Tillage of Soil: Deep plow and prepare ridges or mounds. Soil Testing: Check for organic matter and pH.</p>
     <p><strong>b. Sowing (Weeks 3-4):</strong></p>
@@ -135,60 +138,77 @@ const cropGuides = {
     <p><strong>e. Harvesting (Weeks 10-20):</strong></p>
     <p>When to Harvest: When the leaves yellow and die back, typically 6-12 months after planting. Method: Manual harvesting with care to avoid damage.</p>
   `,
-};
+  };
 
-const CropManagementGuide = () => {
+  const backgroundImages = {
+    barley: `url(${img1})`,
+    corn: "url(`'https://example.com/corn-field.jpg'`)",
+    // Add background URLs for other crops
+  };
+
   const [selectedCrop, setSelectedCrop] = useState('');
+  const [guide, setGuide] = useState(null);
 
   const handleCropChange = (e) => {
-    setSelectedCrop(e.target.value);
+    const crop = e.target.value;
+    setSelectedCrop(crop);
+    setGuide(cropGuides[crop] || '<p>No data available</p>');
   };
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center flex items-center justify-center mt-10"
+      className="flex items-center justify-center min-h-screen p-4 md:p-8 lg:p-24 pt-40 relative bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://www.cabi.org/wp-content/uploads/International-development/Centres/ICM-Diagram-FINAL.jpg')",
+        backgroundImage: `url(${img1})`,
       }}
     >
-      <div className="w-11/12 max-w-4xl bg-white bg-opacity-90 rounded-lg shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-center text-green-700 mb-6">Crop Management Guide</h1>
-        <div className="mb-6">
-          <label htmlFor="cropSelector" className="block text-lg font-semibold mb-2">
-            Select a Crop
-          </label>
-          <select
-            id="cropSelector"
-            value={selectedCrop}
-            onChange={handleCropChange}
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-          >
-            <option value="">-- Select a Crop --</option>
-            <option value="barley">Barley</option>
-            <option value="corn">Corn</option>
-            <option value="cotton">Cotton</option>
-            <option value="rice">Rice</option>
-            <option value="soya">Soya</option>
-            <option value="sugarcane">Sugarcane</option>
-            <option value="sunflower">Sunflower</option>
-            <option value="tomato">Tomato</option>
-            <option value="wheat">Wheat</option>
-            <option value="yams">Yams</option>
-          </select>
-        </div>
-        <div className="guide mt-4 p-4 border border-green-700 rounded-md bg-green-50">
-          {selectedCrop ? (
-            <div
-              className="text-gray-800"
-              dangerouslySetInnerHTML={{ __html: cropGuides[selectedCrop] }}
-            />
-          ) : (
-            <p className="text-center text-gray-500">Please select a crop to view the management guide.</p>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
+      {/* Backdrop layer */}
+      <div className="absolute inset-0 bg-black/60"></div>
 
-export default CropManagementGuide;
+      {/* Glassmorphism effect */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="relative bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-6 md:p-10 w-full max-w-2xl z-10 border border-white/20"
+      >
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-white mb-8 tracking-tight">
+          Crop Management Guides
+        </h1>
+        <label htmlFor="crop" className="block mb-3 text-white text-lg font-medium">
+          Select a Crop:
+        </label>
+        <motion.select
+          id="crop"
+          className="w-full p-4 mb-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-60 bg-white/20 backdrop-blur-md text-white placeholder-white/60 transition-all duration-300 ease-in-out hover:bg-white/30"
+          onChange={handleCropChange}
+          value={selectedCrop}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          <option value="" className="bg-gray-800">-- Select a Crop --</option>
+          {['Barley', 'Corn', 'Cotton', 'Rice', 'Soya', 'Sugarcane', 'Sunflower', 'Tomato', 'Wheat', 'Yams'].map((crop) => (
+            <option key={crop.toLowerCase()} value={crop.toLowerCase()} className="bg-gray-800">
+              {crop}
+            </option>
+          ))}
+        </motion.select>
+        {guide && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="crop-info text-white space-y-4"
+          >
+            <h2 className="text-2xl font-semibold mb-4">{selectedCrop.charAt(0).toUpperCase() + selectedCrop.slice(1)} Guide</h2>
+            <div 
+              className="prose prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: guide }}
+            ></div>
+          </motion.div>
+        )}
+      </motion.div>
+    </div>
+  )
+}
+
+export default CropGuides;
