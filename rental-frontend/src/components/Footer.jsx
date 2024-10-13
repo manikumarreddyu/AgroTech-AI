@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import playstore from "../assets/favicon2.png";
 import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaLinkedinIn } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6'; // Corrected import for Twitter icon
@@ -9,6 +9,7 @@ const Footer = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
+    const navigate = useNavigate(); // Initialize useNavigate
 
     // Define company links with distinct paths
     const companyLinks = [
@@ -19,10 +20,10 @@ const Footer = () => {
     // Define quick links
     const quickLinks = [
         { name: 'Home', path: '/rental' },
-        { name: 'Drones', path : '/drones'},
-        {name : 'Tractors',path : '/tractors'},
-        {name : 'Equipments',path: '/equipments'},
-        {name: 'Services', path: '/services'}
+        { name: 'Drones', path: '/drones' },
+        { name: 'Tractors', path: '/tractors' },
+        { name: 'Equipments', path: '/equipments' },
+        { name: 'Services', path: '/services' }
     ];
 
     // Define social media links
@@ -49,6 +50,7 @@ const Footer = () => {
         setIsModalOpen(false);
         setRating(0);
         setComment('');
+        navigate('/thank-you'); // Redirect to the "Thank You" page after rating
     };
 
     return (
@@ -157,59 +159,65 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div className='mt-8 pt-8 border-t border-white/30 text-center'>
-                    <p className='flex items-center justify-center text-sm'>
-                        Copyright <FaRegCopyright className='mx-1' /> {currentYear} All Rights Reserved <span className="font-bold ml-2 bg-white text-emerald-600 px-2 py-1 rounded transition-all duration-300 hover:bg-emerald-600 hover:text-white">AgroTech AI</span>
-                    </p>
-                </div>
 
-                {/* Rate Us Button */}
-                <div className="text-center mt-4">
+                {/* Feedback Section */}
+                <div className="mt-8 text-center">
                     <button
+                        className="bg-lime-200 text-black py-2 px-4 rounded hover:bg-lime-300 transition duration-300"
                         onClick={() => setIsModalOpen(true)}
-                        className="bg-lime-200 text-gray-800 font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-lime-300"
                     >
-                        Rate Us
+                        Give Feedback
                     </button>
                 </div>
-            </div>
 
-            {/* Rating Modal */}
-            {isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="bg-white p-8 rounded-lg shadow-lg">
-                        <h2 className="text-lg font-bold mb-4 text-center text-black">Rate Us</h2>
-                        <div className="flex justify-center mb-4">
-                            {[1, 2, 3, 4, 5].map((value) => (
-                                <span key={value} className={`cursor-pointer text-2xl ${rating >= value ? 'text-lime-500' : 'text-gray-300'}`} onClick={() => handleRating(value)}>
-                                    ★
-                                </span>
-                            ))}
-                        </div>
-                        <textarea
-                            className="w-full border text-black border-gray-300 rounded p-2 mb-4"
-                            rows="4"
-                            placeholder="Write your comments here..."
-                            value={comment}
-                            onChange={(e) => setComment(e.target.value)}
-                        ></textarea>
-                        <div className="flex justify-end">
-                            <button
-                                onClick={submitRating}
-                                className="bg-lime-500 text-white font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-lime-600"
-                            >
-                                Submit
-                            </button>
-                            <button
-                                onClick={() => setIsModalOpen(false)}
-                                className="ml-2 text-gray-600 underline"
-                            >
-                                Cancel
-                            </button>
+                {/* Feedback Modal */}
+                {isModalOpen && (
+                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                        <div className="bg-white rounded-lg p-6 shadow-lg w-80">
+                            <h3 className="text-lg font-semibold mb-4">Feedback</h3>
+                            <div>
+                                <div className="mb-4">
+                                    <label className="block mb-2">Rating (1-5):</label>
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        max="5"
+                                        value={rating}
+                                        onChange={(e) => handleRating(e.target.value)}
+                                        className="border rounded w-full p-2"
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block mb-2">Comment:</label>
+                                    <textarea
+                                        value={comment}
+                                        onChange={(e) => setComment(e.target.value)}
+                                        className="border rounded w-full p-2"
+                                        rows="4"
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex justify-between">
+                                <button
+                                    className="bg-gray-300 text-black py-2 px-4 rounded hover:bg-gray-400 transition duration-300"
+                                    onClick={() => setIsModalOpen(false)}
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    className="bg-lime-200 text-black py-2 px-4 rounded hover:bg-lime-300 transition duration-300"
+                                    onClick={submitRating}
+                                >
+                                    Submit
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
+            <div className='text-center mt-8'>
+                <FaRegCopyright className='inline mr-2' /> {currentYear} AgroTech AI. All rights reserved.
+            </div>
         </footer>
     );
 };

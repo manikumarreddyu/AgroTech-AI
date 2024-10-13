@@ -85,7 +85,7 @@ export default function TermsAndConditions() {
         </div>
       </div>
       <div className="mt-8 text-center">
-        <Link href="/" className="text-green-600 hover:text-green-800 transition-colors duration-200">
+        <Link to="/" className="text-green-600 hover:text-green-800 transition-colors duration-200">
           Return to Home
         </Link>
       </div>
