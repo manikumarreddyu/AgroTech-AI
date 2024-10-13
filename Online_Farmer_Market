@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Online Farmers Market</title>
+</head>
+<body>
+    <header>
+        <h1>Online Farmers Market</h1>
+    </header>
+    <main>
+        <section id="product-form">
+            <h2>Add Your Product</h2>
+            <form id="addProductForm">
+                <label for="farmerName">Farmer Name:</label>
+                <input type="text" id="farmerName" required>
+
+                <label for="farmerEmail">Email:</label>
+                <input type="email" id="farmerEmail" required>
+
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" required>
+
+                <label for="productWeight">Weight (kg):</label>
+                <input type="number" id="productWeight" required>
+
+                <label for="productPrice">Price per kg (in INR):</label>
+                <input type="number" id="productPrice" required>
+
+                <label for="productDetails">Details:</label>
+                <textarea id="productDetails" required></textarea>
+                
+                <button type="submit">Add Product</button>
+            </form>
+        </section>
+
+        <section id="product-list">
+            <h2>Available Products</h2>
+            <ul id="products">
+                <!-- Products will be added here dynamically -->
+            </ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
+#####css#########
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #5a8f2c;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #5a8f2c;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #5a8f2c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4a7e24;
+}
+
+#product-list {
+    margin-top: 20px;
+}
+
+#######js##########
+document.getElementById("addProductForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+    // Get values from the form fields
+    const farmerName = document.getElementById("farmerName").value;
+    const farmerEmail = document.getElementById("farmerEmail").value;
+    const productName = document.getElementById("productName").value;
+    const productWeight = document.getElementById("productWeight").value;
+    const productPrice = document.getElementById("productPrice").value;
+    const productDetails = document.getElementById("productDetails").value;
+
+    // Calculate total price
+    const totalPrice = productWeight * productPrice;
+
+    // Create a new list item for the product
+    const productItem = document.createElement("li");
+    productItem.textContent = `${farmerName} (${farmerEmail}) - ${productName}: ${productWeight} kg @ ₹${productPrice}/kg | Total: ₹${totalPrice} | Details: ${productDetails}`;
+
+    // Append the new product to the list
+    document.getElementById("products").appendChild(productItem);
+
+    // Clear the form fields
+    document.getElementById("addProductForm").reset();
+});
