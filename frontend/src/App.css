@@ -38,9 +38,3 @@
 .emoji-button:hover {
   transform: translateY(-5px);
 }
-
-@media (min-width: 1024px) { 
-  .ml-55 {
-    margin-left: 55px;
-  } 
-}
