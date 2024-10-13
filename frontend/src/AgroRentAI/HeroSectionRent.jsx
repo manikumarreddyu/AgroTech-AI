@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import img1 from "../../assets/tp.png"
+import img1 from "../assets/tp.png"
 
 export default function HeroSectionRent() {
   const [searchTerm, setSearchTerm] = useState('')
