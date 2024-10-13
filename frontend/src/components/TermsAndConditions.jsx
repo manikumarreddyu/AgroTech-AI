@@ -76,7 +76,7 @@ export default function TermsAndConditions() {
           </section>
         </div>
         <div className="bg-green-100 px-6 py-4">
-          <p className="text-sm text-green-800">
+          <p className="text-sm  text-green-800">
             By using our services, you acknowledge that you have read and understood these Terms and Conditions and agree to be bound by them.
           </p>
           <p className="text-sm text-green-800 mt-2">
@@ -85,7 +85,7 @@ export default function TermsAndConditions() {
         </div>
       </div>
       <div className="mt-8 text-center">
-        <Link href="/" className="text-green-600 hover:text-green-800 transition-colors duration-200">
+        <Link to='/' className="text-green-600 hover:text-green-800 transition-colors duration-200">
           Return to Home
         </Link>
       </div>
