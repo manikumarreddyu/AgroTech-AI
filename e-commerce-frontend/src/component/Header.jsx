@@ -6,6 +6,7 @@ import { BsCartFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutRedux } from "../redux/userSlice";
 import { toast } from "react-hot-toast";
+import GoogleTranslate from "./GoogleTranslate";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -38,6 +39,7 @@ const Header = () => {
             <Link to={"menu/63f0fdbb3bcc2f97fa53d25d"} className="text-green-600">Menu</Link>
             <Link to={"about"} className="text-green-600">About</Link>
             <Link to={"contact"} className="text-green-600">Contact</Link>
+            <GoogleTranslate/>
           </nav>
           <div className="text-2xl text-slate-600 relative">
             <Link to={"cart"}>
@@ -97,6 +99,7 @@ const Header = () => {
                   <Link to={"contact"} className="px-2 py-1">
                     Contact
                   </Link>
+                  <GoogleTranslate/>
                 </nav>
               </div>
             )}
