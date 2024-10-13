@@ -3,6 +3,7 @@ import editor from "../assets/prediction.webp";
 const Showcase = () => {
   const editorData = {
     title: "🚀 Our Prediction Models 🚀",
+    subheading: "Enhancing Accuracy with Data-Driven Insights",
     features: [
       {
         title: "Accurate Predictions",
@@ -25,9 +26,10 @@ const Showcase = () => {
   return (
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl lg:text-5xl font-extrabold text-center text-green-600 mb-12">
+        <h2 className="text-3xl font-bold lg:text-4xl  text-center text-green-600 ">
           {editorData.title}
         </h2>
+        <h3 className="text-md  lg:text-xl  text-center text-green-700  mt-2 mb-12">{editorData.subheading}</h3>
         <div className="flex flex-col md:flex-row md:space-x-10 items-start">
           <div className="md:w-1/2 space-y-8">
             {editorData.features.map((feature, index) => (
@@ -35,7 +37,7 @@ const Showcase = () => {
                 key={index}
                 className="bg-gray-50 p-8 rounded-lg shadow-lg border border-green-200 transition-transform duration-300 hover:shadow-xl hover:-translate-y-1"
               >
-                <h3 className="text-xl font-semibold text-green-700 mb-2">
+                <h3 className="text-xl font-extrabold text-green-700 mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-base text-gray-600">
