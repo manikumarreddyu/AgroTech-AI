@@ -47,6 +47,7 @@ import WaterRequirementCalculator from './components/tools/WaterRequirement';
 import CropYieldCalculator from './components/tools/CropYield';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Feedback from './components/Feedback';
+import SoilTestingCentres from './components/SoilTestingCenters'
 
 const MainContent = () => {
   UseScrollToTop();
@@ -92,6 +93,7 @@ const MainContent = () => {
                 <Route path="/reports" element={<Reports />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/article" element={<Article />} />
+                <Route path="/soiltestingcentres" element={<SoilTestingCentres/>}/>
 
                 <Route path="/CropCalender" element={<CropCalender />} />
 
