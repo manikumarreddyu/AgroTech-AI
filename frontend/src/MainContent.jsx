@@ -53,6 +53,10 @@ import SoilTestingCentres from './components/SoilTestingCenters';
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
 
+//AgroRent
+import HeroSectionRent from './AgroRent/HeroSectionRent'
+//AgroShop
+
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route

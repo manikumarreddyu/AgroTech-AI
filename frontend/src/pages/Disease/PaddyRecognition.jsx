@@ -33,7 +33,7 @@ const PaddyRecognition = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5000/submit_paddy",
+        "https://agrp-tech-ai-paddy-api.onrender.com/submit_paddy",
         formData,
         {
           headers: {

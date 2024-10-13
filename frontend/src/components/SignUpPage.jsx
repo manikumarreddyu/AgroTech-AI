@@ -61,7 +61,7 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-green-500">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-green-500 mt-10">
       {/* Toast Container */}
       <ToastContainer 
           position="top-center" 
