@@ -70,9 +70,9 @@ const Footer = () => {
                     </div>
 
                     {/* Company Links */}
-                    <div>
+                    <div className='ml-55'>
                         <h3 className='text-lg font-semibold mb-4 relative inline-block after:content-[""] after:absolute after:w-0 after:h-0.5 after:bg-lime-200 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full'>Company</h3>
-                        <ul className='space-y-2'>
+                            <ul className='space-y-2'>
                             {companyLinks.map((link) => (
                                 <li key={link.name}>
                                     <Link to={link.path} className='flex items-center group'>
@@ -84,7 +84,8 @@ const Footer = () => {
                                     </Link>
                                 </li>
                             ))}
-                        </ul>
+                            </ul> 
+                        
                     </div>
 
                     {/* Quick Links */}
