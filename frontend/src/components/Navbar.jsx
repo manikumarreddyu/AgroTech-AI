@@ -134,7 +134,7 @@ const Navbar = () => {
               {openDropdown === "help" && (
                 <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50">
                   <NavLink to="/Climate" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Climate</NavLink>
-                  <NavLink to="/soilsestingcentres" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Soil Testing Centers</NavLink>
+                  <NavLink to="/soiltestingcentres" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Soil Testing Centers</NavLink>
                   <NavLink to="/PlantTaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder</NavLink>
                   <NavLink to="/CropManagementGuide" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Crop Management Guide</NavLink>
                   <NavLink to="/EcoCropManager" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Eco-Crop Manager</NavLink>
