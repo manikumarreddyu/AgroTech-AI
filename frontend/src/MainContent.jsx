@@ -50,6 +50,7 @@ import CropYieldCalculator from './components/tools/CropYield';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters'
+import HeroSectionRent from './pages/AgroRentAI/HeroSectionRent';
 
 const MainContent = () => {
   UseScrollToTop();
@@ -121,7 +122,7 @@ const MainContent = () => {
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/terms" element={<TermsAndConditions />}></Route>
                 <Route path="/cookie-policy" element={<CookiePolicy />}></Route>
-                
+                <Route path="/rent-hero" element={<HeroSectionRent />}></Route>
                 <Route path="*" element={<NotFound />} />
               </Routes>
               <Footer />
