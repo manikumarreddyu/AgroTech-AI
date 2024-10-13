@@ -34,7 +34,7 @@ const AuthPage = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/auth/signup", {
+      const response = await axios.post("https://agrotech-ai-11j3.onrender.com/auth/signup", {
         firstName,
         lastName,
         email,
@@ -51,7 +51,7 @@ const AuthPage = () => {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/auth/signin", {
+      const response = await axios.post("https://agrotech-ai-11j3.onrender.com/auth/signin", {
         email,
         password,
       });

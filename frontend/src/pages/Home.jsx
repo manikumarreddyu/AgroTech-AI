@@ -10,6 +10,8 @@ import FAQ from '../components/FAQ';
 import { FaComment } from "react-icons/fa"; 
 import { toast, ToastContainer } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
+import AdvantagesDisadvantages from '../components/AdvDis'; // Import the new component
+import { FaComment } from "react-icons/fa";
 import "../styles/ChatbotButton.css";
 import { useAuth } from '../context/AuthContext';
 
@@ -60,6 +62,7 @@ export default function Home() {
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-4 md:py-16 mx-auto max-w-7xl sm:px-6 lg:px-8 -mt-20">
+        {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -156,10 +159,14 @@ export default function Home() {
         </div>
       </section>
 
+      
+
       {/* Additional Components */}
       <Features />
       <About />
       <Showcase />
+      {/* Advantages and Disadvantages of AI in Agriculture */}
+      <AdvantagesDisadvantages />  {/* Added the new component */}
       <TestimonialSlider />
       <FAQ />
     </div>

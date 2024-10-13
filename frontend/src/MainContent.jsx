@@ -32,6 +32,7 @@ import Climate from './components/Climate';
 import Products from "./pages/Products";
 import AuthPage from './components/AuthPage';
 import FertilizerCalculator from './components/FertilizerCalculator';
+import WhyAI from './pages/WhyAI'; // Import the WhyAI component
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
 import { AuthProvider } from './context/AuthContext';
@@ -56,7 +57,7 @@ const MainContent = () => {
           <GoTop />
           <ProgressScrollDown />
           <div>
-          <Navbar/>
+            <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/chatbot" element={<ChatBot />} />
@@ -69,9 +70,8 @@ const MainContent = () => {
               <Route path="/fertilizer" element={<Fertilizer />} />
               <Route path="/fertilizer_calculator" element={<FertilizerCalculator />} />
               <Route path="/soil" element={<SoilQuality />} />
-
               <Route path="/Irrigation" element={<Irrigation />} />
-              <Route path="/climate" element={<Climate/>} />
+              <Route path="/climate" element={<Climate />} />
               <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
               <Route path="/forecast" element={<Forecast />} />
               <Route path="/prices" element={<Prices />} />
@@ -81,8 +81,9 @@ const MainContent = () => {
               <Route path="/cropcalender" element={<CropCalender />} />
               <Route path="/taskreminder" element={<TaskReminder />} />
               <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
-              <Route path="/products" element={<Products />} /> 
+              <Route path="/products" element={<Products />} />
               <Route path="/Auth-page" element={<AuthPage />} />
+              <Route path="/whyai" element={<WhyAI />} /> {/* Add the route for Why AI */}
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUpPage />} />
               <Route path="*" element={<NotFound />} />
@@ -93,7 +94,6 @@ const MainContent = () => {
         </div>
       )}
     </>
-
   );
 };
 
