@@ -11,7 +11,6 @@ const CropYieldCalculator = () => {
     const result = fieldSize * plantPopulation * yieldPerPlant;
     setTotalYield(result);
   };
-
   return (
     <div
       className="flex items-center justify-center min-h-screen p-24 pt-40"
@@ -65,6 +64,7 @@ const CropYieldCalculator = () => {
               Plant Population per Hectare
             </label>
           </div>
+
 
           <div className="relative">
             <input

@@ -61,6 +61,7 @@ const WaterRequirementCalculator = () => {
     setWaterRequirement(finalWaterRequirement.toFixed(2)); // Round to 2 decimal places
   };
 
+
   return (
     <div
       className="flex items-center justify-center min-h-screen p-24 pt-40"
@@ -164,6 +165,7 @@ const WaterRequirementCalculator = () => {
           </p>
         )}
       </div>
+
     </div>
   );
 };

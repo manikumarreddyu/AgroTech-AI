@@ -35,6 +35,7 @@ const FertilizerRequirementsCalculator = () => {
     setTotalCost(cost.toFixed(2));
   };
 
+
   return (
     <div
       className="flex items-center justify-center min-h-screen"
@@ -128,6 +129,7 @@ const FertilizerRequirementsCalculator = () => {
           </div>
         )}
       </div>
+
     </div>
   );
 };

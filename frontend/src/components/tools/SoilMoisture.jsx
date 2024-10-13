@@ -53,6 +53,7 @@ const SoilMoistureCalculator = () => {
     setCalculatedMoisture(adjustedMoisture.toFixed(2));
   };
 
+
   return (
     <div
       className="flex items-center justify-center min-h-screen p-24 pt-40"
@@ -137,6 +138,7 @@ const SoilMoistureCalculator = () => {
           </div>
         )}
       </div>
+
     </div>
   );
 };
