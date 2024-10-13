@@ -11,7 +11,6 @@ import { FaComment } from "react-icons/fa";
 import { toast, ToastContainer } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css'; 
 import AdvantagesDisadvantages from '../components/AdvDis'; // Import the new component
-import { FaComment } from "react-icons/fa";
 import "../styles/ChatbotButton.css";
 import { useAuth } from '../context/AuthContext';
 
