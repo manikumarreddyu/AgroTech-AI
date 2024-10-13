@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import signupImage from "../assets/SignUpImage.png";
 
 const SignUpPage = () => {
@@ -39,6 +39,12 @@ const SignUpPage = () => {
       return;
     }
 
+    // Additional password validation feedback
+    if (!isLowerUpper || !isNumber || !isSpecialChar || !isMinLength) {
+      toast.error("Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long.");
+      return;
+    }
+
     try {
       const response = await axios.post("https://agrotech-ai-11j3.onrender.com/auth/signup", {
         firstName,
@@ -50,13 +56,28 @@ const SignUpPage = () => {
       toast.success(response.data.message);
       navigate("/login");
     } catch (error) {
-      toast.error(error.response?.data?.message || "Signup failed");
+      toast.error(error.response?.data?.message || "Signup failed. Please try again.");
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-green-500">
-      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 ease-in-out hover:scale-105">
+      {/* Toast Container */}
+      <ToastContainer 
+          position="top-center" 
+          autoClose={5000} 
+          hideProgressBar 
+          newestOnTop 
+          closeOnClick 
+          rtl={false} 
+          pauseOnFocusLoss 
+          draggable 
+          pauseOnHover 
+          toastClassName="custom-toast" 
+          bodyClassName="custom-toast-body"
+          className="mt-16"
+      />
+      <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 ease-in-out hover:scale-105 mt-16">
         
         {/* Form section */}
         <div className="p-10 flex flex-col justify-center">
@@ -135,12 +156,57 @@ const SignUpPage = () => {
                 required
               />
             </div>
-            <button
-              type="submit"
-              className="w-full py-2 bg-gradient-to-r from-blue-500 to-green-500 hover:from-green-500 hover:to-blue-500 text-white rounded-md font-bold transform transition duration-300 hover:scale-105"
-            >
-              Sign Up
-            </button>
+            {/* Password Validation Checkpoints */}
+            <div className="space-y-1 text-green-600">
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={isLowerUpper}
+                  readOnly
+                  className="mr-2"
+                />
+                <span>Lowercase & Uppercase</span>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={isNumber}
+                  readOnly
+                  className="mr-2"
+                />
+                <span>Number (0-9)</span>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={isSpecialChar}
+                  readOnly
+                  className="mr-2"
+                />
+                <span>Special Character (@!#$%^&*)</span>
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  checked={isMinLength}
+                  readOnly
+                  className="mr-2"
+                />
+                <span>At least 8 characters</span>
+              </div>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                disabled={
+                  !isLowerUpper || !isNumber || !isSpecialChar || !isMinLength
+                }
+                className="w-full py-2 bg-gradient-to-r from-green-500 to-blue-500 hover:from-blue-500 hover:to-green-500 text-white rounded-md font-bold disabled:bg-gray-400 disabled:cursor-not-allowed"
+              >
+                Sign Up
+              </button>
+            </div>
           </form>
           <p className="text-center text-sm mt-4">
             Already have an account?{" "}
