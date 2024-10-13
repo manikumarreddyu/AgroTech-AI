@@ -45,7 +45,7 @@ import FertilizerRequirementsCalculator from './components/tools/FertilizerRequi
 import SoilMoistureCalculator from './components/tools/SoilMoisture';
 import WaterRequirementCalculator from './components/tools/WaterRequirement';
 import CropYieldCalculator from './components/tools/CropYield';
-
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 const MainContent = () => {
   UseScrollToTop();
@@ -113,6 +113,7 @@ const MainContent = () => {
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/terms" element={<TermsAndConditions />}></Route>
                 <Route path="/cookie-policy" element={<CookiePolicy />}></Route>
+                <Route path="/Privacy" element={<PrivacyPolicy />}></Route>
                 <Route path="*" element={<NotFound />} />
               </Routes>
               <Footer />
