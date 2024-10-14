@@ -50,12 +50,11 @@ import CropYieldCalculator from './components/tools/CropYield';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
+
+//AgroRentAI
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
-
-//AgroRent
-import HeroSectionRent from './AgroRent/HeroSectionRent'
-//AgroShop
+//AgroShopAI
 
 const MainContent = () => {
   UseScrollToTop();
@@ -70,7 +69,7 @@ const MainContent = () => {
   }, []);
 
   // Check if the current path is the one you want to hide the Navbar for
-  const hideNavbar = location.pathname === "/nav-products"; // Change this if necessary
+  const hideNavbar = location.pathname === "/NavigateProducts"; // Change this if necessary
 
   return (
     <>
@@ -127,8 +126,9 @@ const MainContent = () => {
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
-                <Route path="/rent-hero" element={<HeroSectionRent />} />
-                <Route path="/nav-products" element={<NavigateProducts />} />
+                {/* AgroRentAI Routes */}
+                <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
+                <Route path="/NavigateProducts" element={<NavigateProducts />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
               <Footer />
