@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const authRoutes = require('./routes/auth');
+const contactRoutes = require('./routes/Contactroute');
 const authMiddleware = require('./middleware/auth');
 const bcrypt = require('bcryptjs');
 const app = express();
@@ -10,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 app.use('/auth', authRoutes);
-
+app.use('/api', contactRoutes);
 const PORT = process.env.PORT || 8080;
 
 // MongoDB connection
