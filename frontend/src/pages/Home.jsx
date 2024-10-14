@@ -103,16 +103,6 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Fixed message icon with tooltip */}
-        <div className="relative">
-          <Link to="/chatbot" className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110">
-            <FaComment className="text-white text-3xl" />
-            <span className="absolute -top-10 -right-4 bg-white text-green-500 text-sm rounded-md px-2 py-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              Try Our ChatBot
-            </span>
-          </Link>
-        </div>
-
         {/* Hero Image */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
