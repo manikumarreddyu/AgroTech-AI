@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Crop from './components/models/CropRecommendation';
 import Disease from './components/Disease';
@@ -49,7 +49,9 @@ import WaterRequirementCalculator from './components/tools/WaterRequirement';
 import CropYieldCalculator from './components/tools/CropYield';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Feedback from './components/Feedback';
-import SoilTestingCentres from './components/SoilTestingCenters'
+import SoilTestingCentres from './components/SoilTestingCenters';
+import HeroSectionRent from './AgroRentAI/HeroSectionRent';
+import NavigateProducts from './AgroRentAI/NavigateProducts';
 
 //AgroRent
 import HeroSectionRent from './AgroRent/HeroSectionRent'
@@ -57,6 +59,7 @@ import HeroSectionRent from './AgroRent/HeroSectionRent'
 
 const MainContent = () => {
   UseScrollToTop();
+  const location = useLocation(); // Get the current route
   const [isPreloaderVisible, setIsPreloaderVisible] = useState(true);
 
   useEffect(() => {
@@ -65,6 +68,9 @@ const MainContent = () => {
     }, 5000); // Preloader visible for 5 seconds
     return () => clearTimeout(timer);
   }, []);
+
+  // Check if the current path is the one you want to hide the Navbar for
+  const hideNavbar = location.pathname === "/nav-products"; // Change this if necessary
 
   return (
     <>
@@ -76,7 +82,7 @@ const MainContent = () => {
             <GoTop />
             <ProgressScrollDown />
             <div>
-              <Navbar />
+              {!hideNavbar && <Navbar />} {/* Conditional rendering for Navbar */}
               <Routes>
                 <Route path="/thank-you" element={<Feedback />} /> {/* Thank You Page Route */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -99,10 +105,8 @@ const MainContent = () => {
                 <Route path="/reports" element={<Reports />} />
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/article" element={<Article />} />
-                <Route path="/soiltestingcentres" element={<SoilTestingCentres/>}/>
-
+                <Route path="/soiltestingcentres" element={<SoilTestingCentres />} />
                 <Route path="/CropCalender" element={<CropCalender />} />
-
                 <Route path="/TaskReminder" element={<TaskReminder />} />
                 <Route path="/SugarcaneRecognition" element={<SugarcaneRecognition />} />
                 <Route path="/PaddyRecognition" element={<PaddyRecognition />} />
@@ -110,26 +114,21 @@ const MainContent = () => {
                 <Route path="/PlantTaskReminder" element={<PlantTaskReminder />} />
                 <Route path="/CropManagementGuide" element={<CropManagementGuide />} />
                 <Route path="/EcoCropManager" element={<EcoCropManager />} />
-
                 <Route path="/FertilizerCalculator" element={<FertilizerCalculator />} />
                 <Route path="/Climate" element={<Climate />} />
                 <Route path="/FertilizerRequirementsCalculator" element={<FertilizerRequirementsCalculator />} />
                 <Route path="/SoilMoistureCalculator" element={<SoilMoistureCalculator />} />
                 <Route path="/WaterRequirementCalculator" element={<WaterRequirementCalculator />} />
                 <Route path="/CropYieldCalculator" element={<CropYieldCalculator />} />
-
                 <Route path="/products" element={<Products />} />
                 <Route path="/Auth-page" element={<AuthPage />} />
                 <Route path="/whyai" element={<WhyAI />} /> {/* Add the route for Why AI */}
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignUpPage />} />
-                <Route path="/terms" element={<TermsAndConditions />}></Route>
-                <Route path="/cookie-policy" element={<CookiePolicy />}></Route>
-
-                { /*AgroRent */ }
-                <Route path="HeroSectionRent" element={<HeroSectionRent />} />
-                { /*AgroShop */ }
-                
+                <Route path="/terms" element={<TermsAndConditions />} />
+                <Route path="/cookie-policy" element={<CookiePolicy />} />
+                <Route path="/rent-hero" element={<HeroSectionRent />} />
+                <Route path="/nav-products" element={<NavigateProducts />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
               <Footer />
