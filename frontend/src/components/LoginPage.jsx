@@ -1,26 +1,31 @@
 import { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify'; 
+import { toast, ToastContainer } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
-import loginImage from "../assets/LoginImage.png"
+import loginImage from "../assets/LoginImage.png";
+import eyeIcon from "../assets/icons/eye.svg";
+import eyeSlashIcon from "../assets/icons/eye-slash.svg";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const { isLoggedIn, login } = useAuth(); // Use context
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://agro-tech-ai-backend.vercel.app/auth/signin", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://agrotech-ai-11j3.onrender.com/auth/signin",
+        {
+          email,
+          password,
+        }
+      );
       login(response.data.token); // Call login method from context
       toast.success("Login successful");
     } catch (error) {
-      
       toast.error(error.response?.data?.message || "Login failed");
       return <Navigate to="/signup" />;
     }
@@ -33,23 +38,22 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500 mt-10">
-     {/* Toast Container */}
-     <ToastContainer 
-        position="top-center" 
-        autoClose={5000} 
-        hideProgressBar 
-        newestOnTop 
-        closeOnClick 
-        rtl={false} 
-        pauseOnFocusLoss 
-        draggable 
-        pauseOnHover 
-        toastClassName="custom-toast" 
+      {/* Toast Container */}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        toastClassName="custom-toast"
         bodyClassName="custom-toast-body"
         className="mt-16"
       />
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 ease-in-out hover:scale-105">
-        
         {/* Image section */}
         <div className="hidden md:block">
           <img
@@ -92,15 +96,28 @@ const LoginPage = () => {
               >
                 Password
               </label>
-              <input
-                type="password"
-                id="password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 mt-1 rounded-md bg-green-100 text-green-800 focus:ring focus:ring-green-400"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  placeholder="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-2 mt-1 rounded-md bg-green-100 text-green-800 focus:ring focus:ring-green-400"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 text-green-800"
+                >
+                  <img
+                    src={showPassword ? eyeSlashIcon : eyeIcon}
+                    alt="Show/Hide"
+                    className="w-5 h-6"
+                  />
+                </button>
+              </div>
             </div>
             <button
               type="submit"
