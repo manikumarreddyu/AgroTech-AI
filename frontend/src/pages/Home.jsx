@@ -19,7 +19,7 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const { isLoggedIn } = useAuth(); 
+  const { isAuthenticated } = useAuth(); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,9 +28,10 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleChatBotClick = () => {
-    if (isLoggedIn) {
-      navigate('/chatbot'); // Redirect to ChatBot if authenticated
+  const handleChatBotAuthentication = () => {
+    // Check if the user is authenticated
+    if (isAuthenticated) {
+      navigate('/chatbot');
     } else {
       const redirectTime = 3000;
       toast.warn(`You need to login before using the ChatBot! Redirecting to login page in 3 seconds...`);
@@ -93,7 +94,7 @@ export default function Home() {
         </motion.div>
         <div className="relative">
           <button
-            onClick={handleChatBotClick} // Call handleChatBotClick on button click
+            onClick={handleChatBotAuthentication} // Call handleChatBotAuthentication on button click
             className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110 animate-swing"
           >
             <FaComment className="text-white text-3xl" />
@@ -101,16 +102,6 @@ export default function Home() {
               Try Our ChatBot
             </span>
           </button>
-        </div>
-
-        {/* Fixed message icon with tooltip */}
-        <div className="relative">
-          <Link to="/chatbot" className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110">
-            <FaComment className="text-white text-3xl" />
-            <span className="absolute -top-10 -right-4 bg-white text-green-500 text-sm rounded-md px-2 py-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              Try Our ChatBot
-            </span>
-          </Link>
         </div>
 
         {/* Hero Image */}
@@ -168,14 +159,11 @@ export default function Home() {
         </div>
       </section>
 
-
-
       {/* Additional Components */}
       <Features />
       <About />
       <Showcase />
-      {/* Advantages and Disadvantages of AI in Agriculture */}
-      <AdvantagesDisadvantages />  {/* Added the new component */}
+      <AdvantagesDisadvantages />
       <TestimonialSlider />
       <FAQ />
     </div>
