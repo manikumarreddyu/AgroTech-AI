@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import signupImage from "../assets/SignUpImage.png";
+import eyeIcon from "../assets/icons/eye.svg"
+import eyeSlashIcon from "../assets/icons/eye-slash.svg"
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -10,6 +12,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const [isLowerUpper, setIsLowerUpper] = useState(false);
   const [isNumber, setIsNumber] = useState(false);
@@ -146,8 +149,9 @@ const SignUpPage = () => {
               >
                 Password
               </label>
+              <div className="relative">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 placeholder="password"
                 value={password}
@@ -155,6 +159,14 @@ const SignUpPage = () => {
                 className="w-full px-4 py-2 mt-1 rounded-md bg-blue-100 text-blue-800 focus:ring focus:ring-blue-400"
                 required
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-3 text-green-800"
+              >
+                <img src={showPassword? eyeSlashIcon : eyeIcon} alt="Show/Hide" className="w-5 h-6" />
+              </button>
+              </div>
             </div>
             {/* Password Validation Checkpoints */}
             <div className="space-y-1 text-green-600">
