@@ -22,8 +22,10 @@ const HeroSectionShop = ({ images }) => {
   };
 
   return (
+    <div className="mx-2">
+
     <div
-      className="flex w-full h-[70vh] overflow-hidden relative" // Set height to 60% of viewport height
+      className="flex w-full h-[70vh] overflow-hidden relative " // Set height to 60% of viewport height
       onMouseEnter={() => setAutoPlay(false)}
       onMouseLeave={() => setAutoPlay(true)}
     >
@@ -76,6 +78,7 @@ const HeroSectionShop = ({ images }) => {
           ></div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
