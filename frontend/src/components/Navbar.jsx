@@ -143,6 +143,9 @@ const Navbar = () => {
                 </div>
               )}
             </div>
+            <NavLink to="/news" exact className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>
+              News
+            </NavLink>
 
             {/* Google Translate Component */}
             <GoogleTranslate />
