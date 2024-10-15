@@ -50,6 +50,7 @@ import CropYieldCalculator from './components/tools/CropYield';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
+import NewsForum from './components/NewsForum';
 
 //AgroRentAI
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
@@ -126,6 +127,7 @@ const MainContent = () => {
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
+                <Route path="/news" element={<NewsForum />} />
                 {/* AgroRentAI Routes */}
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
