@@ -52,6 +52,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
 import NewsForum from './components/NewsForum';
+import ElectricalElectronicsShops from './components/ElectricalElectronicsShops';
 
 //AgroRentAI
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
@@ -131,6 +132,7 @@ const MainContent = () => {
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/news" element={<NewsForum />} />
+                <Route path="/ee-shops" element={<ElectricalElectronicsShops/>} />
                 {/* AgroRentAI Routes */}
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
