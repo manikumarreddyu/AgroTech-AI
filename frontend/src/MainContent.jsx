@@ -47,6 +47,7 @@ import FertilizerRequirementsCalculator from './components/tools/FertilizerRequi
 import SoilMoistureCalculator from './components/tools/SoilMoisture';
 import WaterRequirementCalculator from './components/tools/WaterRequirement';
 import CropYieldCalculator from './components/tools/CropYield';
+import MushroomEdibility from './components/tools/Mushroom';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
@@ -119,6 +120,7 @@ const MainContent = () => {
                 <Route path="/SoilMoistureCalculator" element={<SoilMoistureCalculator />} />
                 <Route path="/WaterRequirementCalculator" element={<WaterRequirementCalculator />} />
                 <Route path="/CropYieldCalculator" element={<CropYieldCalculator />} />
+                <Route path="/MushroomEdibility" element={<MushroomEdibility/>}/>
                 <Route path="/products" element={<Products />} />
                 <Route path="/Auth-page" element={<AuthPage />} />
                 <Route path="/whyai" element={<WhyAI />} /> {/* Add the route for Why AI */}
