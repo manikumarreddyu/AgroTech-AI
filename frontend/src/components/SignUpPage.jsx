@@ -18,6 +18,7 @@ const SignUpPage = () => {
   const [isNumber, setIsNumber] = useState(false);
   const [isSpecialChar, setIsSpecialChar] = useState(false);
   const [isMinLength, setIsMinLength] = useState(false);
+  const [isSigningUp, setIsSigningUp] = useState(false);
 
   const validatePassword = (input) => {
     setPassword(input);
@@ -50,9 +51,10 @@ const SignUpPage = () => {
       return;
     }
 
+    setIsSigningUp(true);
     try {
       const response = await axios.post(
-        "https://agrotech-ai-11j3.onrender.com/auth/signup",
+        "https://agro-tech-ai-backend.vercel.app/auth/signup",
         {
           firstName,
           lastName,
@@ -67,6 +69,8 @@ const SignUpPage = () => {
       toast.error(
         error.response?.data?.message || "Signup failed. Please try again."
       );
+    } finally {
+      setIsSigningUp(false);
     }
   };
 
@@ -222,11 +226,15 @@ const SignUpPage = () => {
               <button
                 type="submit"
                 disabled={
-                  !isLowerUpper || !isNumber || !isSpecialChar || !isMinLength
+                  !isLowerUpper ||
+                  !isNumber ||
+                  !isSpecialChar ||
+                  !isMinLength ||
+                  isSigningUp
                 }
                 className="w-full py-2 bg-gradient-to-r from-green-500 to-blue-500 hover:from-blue-500 hover:to-green-500 text-white rounded-md font-bold disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                Sign Up
+                {isSigningUp ? "Signing Up..." : "Sign Up"}
               </button>
             </div>
           </form>
