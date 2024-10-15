@@ -51,8 +51,8 @@ def get_gemini_response(location):
     return response_text
 
 # API route to get get nearby electrical and electronics shops based on location
-@app.route('/find_electronics_shop', methods=['POST'])
-def find_soil_labs():
+@app.route('/find_ee_shops', methods=['POST'])
+def find_ee_shops():
     data = request.get_json()
 
     if not data or 'location' not in data:

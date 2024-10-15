@@ -1,0 +1,11 @@
+/* Ensure navbar stays on top */
+.navbar {
+    z-index: 1000;
+    position: relative;
+}
+
+/* Map container z-index fix */
+.map-container {
+    z-index: 0;
+    position: relative;
+}
