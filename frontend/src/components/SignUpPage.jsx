@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import signupImage from "../assets/SignUpImage.png";
+import eyeIcon from "../assets/icons/eye.svg";
+import eyeSlashIcon from "../assets/icons/eye-slash.svg";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -10,6 +12,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const [isLowerUpper, setIsLowerUpper] = useState(false);
   const [isNumber, setIsNumber] = useState(false);
@@ -41,44 +44,50 @@ const SignUpPage = () => {
 
     // Additional password validation feedback
     if (!isLowerUpper || !isNumber || !isSpecialChar || !isMinLength) {
-      toast.error("Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long.");
+      toast.error(
+        "Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long."
+      );
       return;
     }
 
     try {
-      const response = await axios.post("https://agro-tech-ai-backend.vercel.app/auth/signup", {
-        firstName,
-        lastName,
-        email,
-        password,
-        confirmPassword: password,
-      });
+      const response = await axios.post(
+        "https://agrotech-ai-11j3.onrender.com/auth/signup",
+        {
+          firstName,
+          lastName,
+          email,
+          password,
+          confirmPassword: password,
+        }
+      );
       toast.success(response.data.message);
       navigate("/login");
     } catch (error) {
-      toast.error(error.response?.data?.message || "Signup failed. Please try again.");
+      toast.error(
+        error.response?.data?.message || "Signup failed. Please try again."
+      );
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-green-500 mt-10">
       {/* Toast Container */}
-      <ToastContainer 
-          position="top-center" 
-          autoClose={5000} 
-          hideProgressBar 
-          newestOnTop 
-          closeOnClick 
-          rtl={false} 
-          pauseOnFocusLoss 
-          draggable 
-          pauseOnHover 
-          toastClassName="custom-toast" 
-          bodyClassName="custom-toast-body"
-          className="mt-16"
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        toastClassName="custom-toast"
+        bodyClassName="custom-toast-body"
+        className="mt-16"
       />
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 ease-in-out hover:scale-105 mt-16">
-        
         {/* Form section */}
         <div className="p-10 flex flex-col justify-center">
           <h2 className="text-4xl font-bold text-center text-blue-600 mb-4 animate-fadeInDown">
@@ -146,15 +155,28 @@ const SignUpPage = () => {
               >
                 Password
               </label>
-              <input
-                type="password"
-                id="password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => validatePassword(e.target.value)}
-                className="w-full px-4 py-2 mt-1 rounded-md bg-blue-100 text-blue-800 focus:ring focus:ring-blue-400"
-                required
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  placeholder="password"
+                  value={password}
+                  onChange={(e) => validatePassword(e.target.value)}
+                  className="w-full px-4 py-2 mt-1 rounded-md bg-blue-100 text-blue-800 focus:ring focus:ring-blue-400"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 text-green-800"
+                >
+                  <img
+                    src={showPassword ? eyeSlashIcon : eyeIcon}
+                    alt="Show/Hide"
+                    className="w-5 h-6"
+                  />
+                </button>
+              </div>
             </div>
             {/* Password Validation Checkpoints */}
             <div className="space-y-1 text-green-600">
