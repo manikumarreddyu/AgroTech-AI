@@ -4,20 +4,24 @@ import { Navigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
 import loginImage from "../assets/LoginImage.png";
+<<<<<<< HEAD
 import eyeIcon from "../assets/icons/eye.svg";
 import eyeSlashIcon from "../assets/icons/eye-slash.svg";
+=======
+>>>>>>> 742f485 (add button loading login signin)
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
+  const [isSigningIn, setIsSigningIn] = useState(false);
   const { isLoggedIn, login } = useAuth(); // Use context
 
   const handleSignIn = async (e) => {
     e.preventDefault();
+    setIsSigningIn(true);
     try {
       const response = await axios.post(
-        "https://agrotech-ai-11j3.onrender.com/auth/signin",
+        "https://agro-tech-ai-backend.vercel.app/auth/signin",
         {
           email,
           password,
@@ -27,7 +31,8 @@ const LoginPage = () => {
       toast.success("Login successful");
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
-      return <Navigate to="/signup" />;
+    } finally {
+      setIsSigningIn(false);
     }
   };
 
@@ -121,9 +126,10 @@ const LoginPage = () => {
             </div>
             <button
               type="submit"
-              className="w-full py-2 bg-gradient-to-r from-green-500 to-blue-500 hover:from-blue-500 hover:to-green-500 text-white rounded-md font-bold transform transition duration-300 hover:scale-105"
+              disabled={isSigningIn}
+              className="w-full py-2 bg-gradient-to-r from-green-500 to-blue-500 hover:from-blue-500 hover:to-green-500 text-white rounded-md font-bold transform transition duration-300 hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
-              Sign In
+              {isSigningIn ? "Signing In..." : "Sign In"}
             </button>
           </form>
           <p className="text-center text-sm mt-4">
