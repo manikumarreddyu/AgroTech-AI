@@ -9,7 +9,7 @@ const HeroSectionShop = ({ images }) => {
       if (autoPlay) {
         slideRight();
       }
-    }, 5000); // Increased stay time to 6000ms (6 seconds)
+    }, 3000); // Increased stay time to 6000ms (6 seconds)
     return () => clearInterval(interval);
   }, [current, autoPlay]);
 
@@ -23,7 +23,7 @@ const HeroSectionShop = ({ images }) => {
 
   return (
     <div
-      className="flex w-full h-[60vh] overflow-hidden relative" // Set height to 60% of viewport height
+      className="flex w-full h-[70vh] overflow-hidden relative" // Set height to 60% of viewport height
       onMouseEnter={() => setAutoPlay(false)}
       onMouseLeave={() => setAutoPlay(true)}
     >
@@ -35,12 +35,12 @@ const HeroSectionShop = ({ images }) => {
           <div key={index} className="min-w-full h-full relative">
             <img className="w-full h-full object-cover shadow-lg" src={image.image} alt={image.title} />
             <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center ">
-                <div className="ml-20 mb-15">
+                <div className="ml-20">
 
               <h3 className="text-gray-300 text-l text-left font-serif display-block">{image.title}</h3>
               {/* <h2 className="text-white text-3xl text-left font-sans font-normal font-semibold" dangerouslySetInnerHTML={{__html : image.tag}}></h2> */}
               <img className="w-1/3 mt-2 display-block" src={image.tag} alt="" />
-                <button className="border-2 border-yellow-300 text-yellow-300 mt-10 hover:bg-yellow-300 hover:text-white transition duration-300 rounded-md py-2 px-4 text-xl text-left inline-block">Shop Now!</button>
+                <button className="border-2 border-white text-white mt-10 hover:text-white transition duration-300 rounded-md py-2 px-4 text-xl text-left inline-block hover:bg-gradient-to-r from-green-400 to-green-600 shadow-[rgba(0,0,0,0.35)_0_5px_15px]">Shop Now!</button>
                 <img className="inline-block ml-5 mb-5" style={{width: '100px'}} src={"/shop-asset/sale.png"} alt="" />
                 </div>
             </div>
