@@ -1,0 +1,9 @@
+/* Add this CSS to your stylesheet */
+.image-container img {
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .image-container img:not(:first-child) {
+    opacity: 0;
+  }
+  
