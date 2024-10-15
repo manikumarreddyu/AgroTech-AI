@@ -1,0 +1,11 @@
+/* Custom styles for the slider arrows */
+.slick-prev,
+.slick-next {
+  color: green; /* Change to the desired color */
+}
+
+/* Custom styles for the arrow icons (if needed) */
+.slick-prev:before,
+.slick-next:before {
+  color:green; /* Change to the desired color */
+}
