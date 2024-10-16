@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const HeroSectionShop = ({ images }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       if (autoPlay) {
@@ -34,7 +34,9 @@ const HeroSectionShop = ({ images }) => {
         style={{ transform: `translateX(-${current * 100}%)`, transition: "transform 0.2s ease" }} // Increased shift speed to 0.2s
       >
         {images.map((image, index) => (
+          
           <div key={index} className="min-w-full h-full relative">
+            {console.log(image.image)}
             <img className="w-full h-full object-cover shadow-lg" src={image.image} alt={image.title} />
             <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center ">
                 <div className="ml-20">
@@ -43,9 +45,10 @@ const HeroSectionShop = ({ images }) => {
               {/* <h2 className="text-white text-3xl text-left font-sans font-normal font-semibold" dangerouslySetInnerHTML={{__html : image.tag}}></h2> */}
               <img className="w-1/3 mt-2 display-block" src={image.tag} alt="" />
                 <button className="border-2 border-white text-white mt-10 hover:text-white transition duration-300 rounded-md py-2 px-4 text-xl text-left inline-block hover:bg-gradient-to-r from-green-400 to-green-600 shadow-[rgba(0,0,0,0.35)_0_5px_15px]">Shop Now!</button>
-                <img className="inline-block ml-5 mb-5" style={{width: '100px'}} src={"/shop-asset/sale.png"} alt="" />
+                <img className="inline-block ml-5 mb-5" style={{width: '100px'}} src="https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/sale.png?raw=true" alt="" />
                 </div>
             </div>
+            {console.log(image.image)}
           </div>
         ))}
       </div>

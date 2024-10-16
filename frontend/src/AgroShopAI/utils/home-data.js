@@ -1,43 +1,43 @@
 export const categories = [
     {
         title: "Herbicides",
-        image: "/shop-asset/category-img/herbicide.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/herbicide.jpg?raw=true"
     },
     {
         title: "Growth Promoters",
-        image: "/shop-asset/category-img/growth_promoters.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/growth_promoters.jpg?raw=true"
     },
     {
         title: "Fungicides",
-        image: "/shop-asset/category-img/fungicides.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/fungicides.jpg?raw=true"
     },
     {
         title: "Vegetable & Fruit Seeds",
-        image: "/shop-asset/category-img/seeds.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/seeds.jpg?raw=true"
     },
     {
         title: "Farm Machinery",
-        image: "/shop-asset/category-img/machine.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/machine.jpg?raw=true"
     },
     {
         title: "Nutrients",
-        image: "/shop-asset/category-img/nutrient.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/nutrient.jpg?raw=true"
     },
     {
         title: "Insecticide",
-        image: "/shop-asset/category-img/insecticide.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/insecticide.jpg?raw=true"
     },
     {
         title: "Organic Farming",
-        image: "/shop-asset/category-img/organic.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/organic.jpg?raw=true"
     },
     {
         title: "Animal Husbandry",
-        image: "/shop-asset/category-img/animal.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/animal.jpg?raw=true"
     },
     {
         title: "New Products",
-        image: "/shop-asset/category-img/new.jpg"
+        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/new.jpg?raw=true"
     }
 ];
 export const topSellingItems = [
@@ -163,3 +163,20 @@ export const topSellingItems = [
   }
 ];
 
+export const slides = [
+  {
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/banner_1.jpg?raw=true",
+      title: 'Organic Fertilizers and Soil Enhancers',
+      tag: 'https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/nurture.png?raw=true',
+  },
+  {
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/banner_2.jpg?raw=true",
+      title: 'Grow Naturally with Organic Seeds',
+      tag: 'https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/fresh.png?raw=true',
+  },
+  {
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/banner_3.jpg?raw=true",
+      title: 'Eco-Friendly Pest Control Solutions',
+      tag: 'https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/pest.png?raw=true',
+  },
+]
