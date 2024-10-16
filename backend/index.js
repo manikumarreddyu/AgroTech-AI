@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 8080;
 // MongoDB connection
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(process.env.MONGODB_URL)
+  .connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/agrotech')
   .then(() => console.log("Connected to Database"))
   .catch((err) => console.log(err));
 

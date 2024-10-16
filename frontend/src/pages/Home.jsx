@@ -19,7 +19,7 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const { isAuthenticated } = useAuth(); 
+  const { isLoggedIn } = useAuth(); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Home() {
 
   const handleChatBotAuthentication = () => {
     // Check if the user is authenticated
-    if (isAuthenticated) {
+    if (isLoggedIn) {
       navigate('/chatbot');
     } else {
       const redirectTime = 3000;
