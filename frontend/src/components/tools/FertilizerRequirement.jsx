@@ -49,7 +49,7 @@ const FertilizerRequirementsCalculator = () => {
       <div className="absolute inset-0 bg-black opacity-40" />
 
       {/* Glassmorphism effect on the form */}
-      <div className="relative bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-lg p-10 w-full max-w-md z-10">
+      <div className="relative bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-lg p-10 w-full max-w-md z-10 mt-10">
         <h2 className="text-3xl font-bold text-center text-white mb-6">
           Fertilizer Requirements Calculator
         </h2>
@@ -115,7 +115,7 @@ const FertilizerRequirementsCalculator = () => {
           <button
             onClick={calculateFertilizer}
             type="button"
-            className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200 shadow"
+            className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200"
           >
             Calculate Fertilizer and Cost
           </button>
