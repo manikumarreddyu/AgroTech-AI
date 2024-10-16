@@ -35,7 +35,6 @@ const FertilizerRequirementsCalculator = () => {
     setTotalCost(cost.toFixed(2));
   };
 
-
   return (
     <div
       className="flex items-center justify-center min-h-screen"
@@ -50,7 +49,7 @@ const FertilizerRequirementsCalculator = () => {
       <div className="absolute inset-0 bg-black opacity-40" />
 
       {/* Glassmorphism effect on the form */}
-      <div className="relative bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-lg p-10 w-full max-w-md z-10">
+      <div className="relative bg-white bg-opacity-30 backdrop-blur-md rounded-lg shadow-2xl p-10 w-full max-w-md z-10">
         <h2 className="text-3xl font-bold text-center text-white mb-6">
           Fertilizer Requirements Calculator
         </h2>
@@ -60,7 +59,7 @@ const FertilizerRequirementsCalculator = () => {
             <select
               value={cropType}
               onChange={(e) => setCropType(e.target.value)}
-              className="peer w-full p-4 border border-transparent rounded-md focus:outline-none  focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
+              className="peer w-full p-4 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-60 backdrop-blur-md"
             >
               <option value="">Select Crop Type</option>
               <option value="wheat">Wheat</option>
@@ -68,7 +67,16 @@ const FertilizerRequirementsCalculator = () => {
               <option value="rice">Rice</option>
             </select>
             <label
-              className="text-green-500 absolute font-semibold left-2 -top-2.5 bg-white bg-opacity-50 backdrop-blur-md px-1 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-green-600 rounded-lg"
+              htmlFor="cropType"
+              className="
+                absolute left-2 -top-4 
+                bg-white bg-opacity-75 backdrop-blur-md 
+                px-1 text-sm font-semibold 
+                text-green-500 transition-all 
+                peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 
+                peer-focus:-top-4 peer-focus:text-sm peer-focus:text-green-600 
+                rounded-lg
+              "
             >
               Type of Crop
             </label>
@@ -107,7 +115,7 @@ const FertilizerRequirementsCalculator = () => {
           <button
             onClick={calculateFertilizer}
             type="button"
-            className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200"
+            className="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200 shadow"
           >
             Calculate Fertilizer and Cost
           </button>
@@ -129,7 +137,6 @@ const FertilizerRequirementsCalculator = () => {
           </div>
         )}
       </div>
-
     </div>
   );
 };
