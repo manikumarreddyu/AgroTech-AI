@@ -2,12 +2,6 @@
 <div style="display:none;" align="center">
 <h1><font size="10"> AgroTech AI </font></h1>
 
-![image](https://github.com/user-attachments/assets/4c4855a7-3256-4878-8cbf-7ef4ecefa058)
-
-![image](https://github.com/user-attachments/assets/bb2da5d2-fe19-4cfd-a410-0efa8c02366e)
-
-![image](https://github.com/user-attachments/assets/5b57a69a-d450-4530-bd76-88b02a85a4de)
-    
 <!-- repo intro -->
 
 </div>
@@ -219,7 +213,6 @@ Make sure you follow our contributing guidlines:-  [here](https://github.com/Ram
 </div>
 
 Please note that this project is released with a [Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
-
 
 
 <div>
