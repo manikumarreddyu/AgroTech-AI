@@ -115,3 +115,17 @@ body.dark p,
 body.dark a {
     color: #ffffff;
 } */
+
+/* Add this to your Tailwind CSS file or a custom CSS file */
+.tooltip {
+    @apply relative;
+  }
+  
+  .tooltip::after {
+    @apply absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 transition-opacity duration-300 pointer-events-none;
+    content: attr(data-tooltip);
+  }
+  
+  .tooltip:hover::after {
+    @apply opacity-100;
+  }
