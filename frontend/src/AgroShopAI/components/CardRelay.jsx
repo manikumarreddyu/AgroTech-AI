@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 
-const CardRelay = ({ items }) => {
+const CardRelay = ({heading, items }) => {
   const containerRef = useRef(null);
   const [isAtStart, setIsAtStart] = useState(true);
   const [isAtEnd, setIsAtEnd] = useState(false);
@@ -47,8 +47,8 @@ const CardRelay = ({ items }) => {
 
   return (
     <div className="category-container d-flex justify-content-center align-items-center mx-2 my-2">
-      <div className="top-heading flex justify-between items-center bg-green-100 border-b-2 border-green-600">
-        <h1 className="font-bold py-1 ml-8 text-2xl text-black">Top Selling</h1>
+      <div className="top-heading flex justify-between items-center bg-green-200 border-b-2 border-green-600">
+        <h1 className="font-semibold py-1 ml-8 text-2xl text-black">{heading}</h1>
         <button className="font-semibold text-green-600 hover:text-green-800 mr-2">View All</button>
       </div>
 
