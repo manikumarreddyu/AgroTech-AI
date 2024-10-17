@@ -7,11 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "start": "node index.js"
-
   },
   "author": "Murtuza Manoj Siddheya Mahesh",
   "license": "ISC",
   "dependencies": {
+    "backend": "file:",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

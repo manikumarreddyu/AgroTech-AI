@@ -53,6 +53,7 @@ import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
 import NewsForum from './components/NewsForum';
 import ElectricalElectronicsShops from './components/ElectricalElectronicsShops';
+import DashBoardCart from './AgroRentAI/DashBoardCart'
 
 //AgroRentAI
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
@@ -73,7 +74,7 @@ const MainContent = () => {
   }, []);
 
   // Check if the current path is the one you want to hide the Navbar for
-  const hideNavbarRoutes = ['/NavigateProducts', '/AgroShop', '/404'];
+  const hideNavbarRoutes = ['/NavigateProducts', '/AgroShop', '/404','/DashBoardCart'];
   const hideNavbar = hideNavbarRoutes.includes(location.pathname);
   return (
     <>
@@ -136,6 +137,7 @@ const MainContent = () => {
                 {/* AgroRentAI Routes */}
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
+                <Route path="/DashBoardCart" element={<DashBoardCart/>} />
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Search, ShoppingCart, ChevronDown, Star } from 'lucide-react';
 import img1 from "../assets/116.jpg"
+import img2 from "../assets/109.jpg"
+import img3 from "../assets/105.jpg"
+import img4 from "../assets/106.jpg"
 
 const products = [
   {
@@ -59,7 +62,18 @@ const products = [
   },
 ];
 
-const categories = ['All', 'Farming Technology', 'Farming Equipment', 'Agriculture'];
+const categories = [
+  'All', 
+  'Farming Technology', 
+  'Farming Equipment', 
+  'Agriculture', 
+  'Sustainable Farming', 
+  'Irrigation Systems', 
+  'Soil Health', 
+  'Crop Monitoring', 
+  'Livestock Management', 
+  'Smart Farming Solutions'
+];
   
 
 const ProductCard = ({ product }) => (
@@ -120,6 +134,66 @@ const Banner = ({ title, description, backgroundImage }) => {
     );
   };
 
+  const BannerCarousel = ({ banners }) => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+  
+    const nextSlide = () => {
+      setCurrentSlide((prev) => (prev + 1) % banners.length);
+    };
+  
+    const prevSlide = () => {
+      setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length);
+    };
+  
+    return (
+      <div className="relative mx-auto">
+        {/* Carousel Container */}
+        <div
+          className="relative flex items-center justify-center h-64 bg-cover bg-center mb-4 rounded-xl"
+          style={{
+            backgroundImage: `url(${banners[currentSlide].backgroundImage})`,
+          }}
+        >
+          {/* Overlay for better text contrast */}
+          <div className="absolute inset-0 bg-black bg-opacity-50 rounded-xl"></div>
+          
+          {/* Slide Content */}
+          <div className="relative text-center text-white p-4">
+            <h1 className="text-3xl font-bold">{banners[currentSlide].title}</h1>
+            <p className="mt-2">{banners[currentSlide].description}</p>
+          </div>
+          
+          {/* Previous and Next Buttons */}
+          <button
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 text-black hover:bg-opacity-50 px-4 py-2 rounded-full"
+            onClick={prevSlide}
+          >
+            &#8592;
+          </button>
+          <button
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 text-black hover:bg-opacity-50 px-4 py-2 rounded-full"
+            onClick={nextSlide}
+          >
+            &#8594;
+          </button>
+        </div>
+        
+        {/* Dots for navigation */}
+        <div className="flex justify-center mt-4 space-x-2">
+          {banners.map((_, idx) => (
+            <span
+              key={idx}
+              className={`h-2 w-2 rounded-full cursor-pointer ${
+                idx === currentSlide ? "bg-white" : "bg-gray-400"
+              }`}
+              onClick={() => setCurrentSlide(idx)}
+            ></span>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
 const RentalMarketplace = () => {
   const [sortBy, setSortBy] = useState('popularity');
 
@@ -145,10 +219,31 @@ const RentalMarketplace = () => {
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <Banner 
-          title="Spring Sale: 20% Off All Garden Tools" 
-          description="Get ready for the gardening season with our amazing discounts!"
-        />
+      <BannerCarousel
+        banners={[
+          {
+            title: "Efficient Equipment Rentals",
+            description: "Rent high-quality agricultural machinery tailored to your specific farming needs, without long-term commitments.",
+            backgroundImage: img1
+          },
+          {
+            title: "Expert Support at Your Fingertips",
+            description: "Get access to expert advice and customer support 24/7 to ensure your farming operations run smoothly.",
+            backgroundImage: img2
+          },
+          {
+            title: "Flexible Rental Plans",
+            description: "Choose from daily, weekly, or monthly rental plans that fit your budget and timeline, making farming more affordable.",
+            backgroundImage: img3
+          },
+          {
+            title: "Sustainable Farming Solutions",
+            description: "Leverage modern, eco-friendly equipment that helps reduce carbon footprint while improving productivity.",
+            backgroundImage: img4
+          }
+        ]}
+      />
+
 
         <div className="flex mb-4 overflow-x-auto">
           {categories.map((category) => (
