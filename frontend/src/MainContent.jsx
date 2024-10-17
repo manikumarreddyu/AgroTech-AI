@@ -59,6 +59,7 @@ import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
 //AgroShopAI
 import HomeShop from './AgroShopAI/HomeShop';
+import ShopFooter from './AgroShopAI/components/ShopFooter';
 
 const MainContent = () => {
   UseScrollToTop();
@@ -75,6 +76,8 @@ const MainContent = () => {
   // Check if the current path is the one you want to hide the Navbar for
   const hideNavbarRoutes = ['/NavigateProducts', '/AgroShop', '/404'];
   const hideNavbar = hideNavbarRoutes.includes(location.pathname);
+  const ShopRoutes = ['/AgroShop'];
+  const checkShop = ShopRoutes.includes(location.pathname);
   return (
     <>
       {isPreloaderVisible ? (
@@ -140,7 +143,7 @@ const MainContent = () => {
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
               </Routes>
-              <Footer />
+              {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
           </AuthProvider>
         </div>

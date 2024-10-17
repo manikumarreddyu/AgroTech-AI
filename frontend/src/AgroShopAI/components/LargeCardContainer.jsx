@@ -1,6 +1,6 @@
 const LargeCardContainer = ({items,text}) => {
     return (
-      <div className="h-fit w-full pr-2 bg-white mx-2 my-4">
+      <div className="h-fit w-full pr-2 bg-white mx-2 mt-4">
         <div className="border-b-2 bg-green-200 border-green-600">
   
           <h1 className="font-semibold py-1 ml-8 text-2xl text-black text-center">{text}</h1>
