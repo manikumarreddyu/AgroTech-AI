@@ -62,7 +62,18 @@ const products = [
   },
 ];
 
-const categories = ['All', 'Farming Technology', 'Farming Equipment', 'Agriculture'];
+const categories = [
+  'All', 
+  'Farming Technology', 
+  'Farming Equipment', 
+  'Agriculture', 
+  'Sustainable Farming', 
+  'Irrigation Systems', 
+  'Soil Health', 
+  'Crop Monitoring', 
+  'Livestock Management', 
+  'Smart Farming Solutions'
+];
   
 
 const ProductCard = ({ product }) => (
