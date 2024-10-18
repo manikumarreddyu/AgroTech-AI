@@ -6,8 +6,8 @@ from flask_cors import CORS
 import google.generativeai as genai
 import json
 import re
-import pandas as pd
 import os
+from mushroom_edibility import check_mushroom_edibility
 
 # Initialize Google Gemini API with the embedded key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -31,53 +31,41 @@ ee_shop_prompt = (
 
 # Initialize Flask app
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)
 
 # Function to load Gemini Pro model and get responses
 model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
 def extract_json(text):
-    # Use regex to find a valid JSON block in the response
     json_pattern = r'\{.*\}|\[.*\]'
     match = re.search(json_pattern, text, re.DOTALL)
-    
     if match:
         return match.group(0)
-    else:
-        return None
+    return None
 
 def get_gemini_response(location, prompt):
     full_prompt = prompt + location
     response = chat.send_message(full_prompt, stream=True)
-    
-    # Capture the full response text
     response_text = ""
     for chunk in response:
         response_text += chunk.text
-    
     return response_text
 
 # API route to get soil testing labs based on location
 @app.route('/find_soil_labs', methods=['POST'])
 def find_soil_labs():
     data = request.get_json()
-
     if not data or 'location' not in data:
         return jsonify({"error": "Location not provided"}), 400
 
     location_input = data['location']
     response = get_gemini_response(location_input, soil_lab_prompt)
-    
-    # Extract JSON from the response text
     json_data = extract_json(response)
-    
+
     if json_data:
         try:
-            # Parse the extracted JSON
             soil_labs = json.loads(json_data)
-            
-            # Return the JSON response with nearby soil labs
             return jsonify(soil_labs), 200
         except json.JSONDecodeError:
             return jsonify({"error": "Error decoding the JSON data."}), 500
@@ -88,27 +76,26 @@ def find_soil_labs():
 @app.route('/find_ee_shops', methods=['POST'])
 def find_ee_shops():
     data = request.get_json()
-
     if not data or 'location' not in data:
         return jsonify({"error": "Location not provided"}), 400
 
     location_input = data['location']
     response = get_gemini_response(location_input, ee_shop_prompt)
-    
-    # Extract JSON from the response text
     json_data = extract_json(response)
-    
+
     if json_data:
         try:
-            # Parse the extracted JSON
             ee_shops = json.loads(json_data)
-            
-            # Return the JSON response with nearby electrical shops
             return jsonify(ee_shops), 200
         except json.JSONDecodeError:
             return jsonify({"error": "Error decoding the JSON data."}), 500
     else:
         return jsonify({"error": "No valid JSON found in the response."}), 500
+
+# API route to check mushroom edibility
+@app.route("/mushroom_edibility", methods=["POST"])
+def mushroom_edibility():
+    return check_mushroom_edibility()
 
 # Run the Flask app
 if __name__ == "__main__":
