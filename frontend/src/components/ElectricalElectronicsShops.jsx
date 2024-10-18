@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
 import L from 'leaflet';
-import '../styles/ElectricalElectronicsShops.css'; // Import custom CSS
+import '../styles/ElectricalElectronicsShops.css';
+import BgImg from '../assets/crop_monitor.jpg';
 
 // Leaflet CSS
 import 'leaflet/dist/leaflet.css';
@@ -48,8 +49,13 @@ export default function ElectricalElectronicsShops() {
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 mt-10">
-      <div className="max-w-4xl w-full space-y-8">
+    <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 mt-10"
+          style={{ 
+        backgroundImage: `url(${BgImg})`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+      }}>
+      <div className="glassmorphic-container max-w-4xl w-full space-y-8 p-8 rounded-lg shadow-lg">
         <h1 className="text-3xl font-bold text-center text-blue-800">Electrical and Electronics Shop Finder</h1>
         <div className="flex justify-center">
           <input
@@ -64,7 +70,11 @@ export default function ElectricalElectronicsShops() {
             disabled={loading}
             className="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
           >
-            {loading ? 'Searching...' : 'Find Shops'}
+            {loading ? (
+              <div className="loader mx-auto"></div>
+            ) : (
+              'Find Shops'
+            )}
           </button>
         </div>
 
@@ -95,7 +105,7 @@ export default function ElectricalElectronicsShops() {
 
             <div>
               <h3 className="text-xl font-semibold text-blue-800 mb-4">Shop List:</h3>
-              <ul className="space-y-4">
+              <ul className="space-y-4 map-container">
                 {shops.map((shop, index) => (
                   <li key={index} className="bg-white p-4 rounded-lg shadow">
                     <span className="font-semibold">{shop.name}</span> -{' '}
