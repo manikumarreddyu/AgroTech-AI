@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
 import L from 'leaflet';
-import '../styles/SoilTestingCenters.css'; // Import custom CSS
-
-// Leaflet CSS
 import 'leaflet/dist/leaflet.css';
+import BgImg from '../assets/106.jpg';
+import '../styles/SoilTestingCenters.css';
 
 // Fix for missing marker icon in Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -48,9 +47,16 @@ export default function SoilTestingCenters() {
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 mt-10">
-      <div className="max-w-4xl w-full space-y-8">
-        <h1 className="text-3xl font-bold text-center text-blue-800">Soil Testing Centers Finder</h1>
+    <div 
+      className="min-h-screen bg-blue-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 mt-10" 
+      style={{ 
+        backgroundImage: `url(${BgImg})`, 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="glassmorphic-container max-w-4xl w-full space-y-8 p-8 rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold text-center text-green-800">Soil Testing Centers Finder</h1>
         <div className="flex justify-center">
           <input
             type="text"
@@ -64,7 +70,11 @@ export default function SoilTestingCenters() {
             disabled={loading}
             className="px-4 py-2 bg-blue-600 text-white rounded-r-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
           >
-            {loading ? 'Searching...' : 'Find Soil Labs'}
+            {loading ? (
+              <div className="loader mx-auto"></div>
+            ) : (
+              'Find Soil Labs'
+            )}
           </button>
         </div>
 
@@ -95,7 +105,7 @@ export default function SoilTestingCenters() {
 
             <div>
               <h3 className="text-xl font-semibold text-blue-800 mb-4">Lab List:</h3>
-              <ul className="space-y-4">
+              <ul className="space-y-4 map-container">
                 {labs.map((lab, index) => (
                   <li key={index} className="bg-white p-4 rounded-lg shadow">
                     <span className="font-semibold">{lab.name}</span> -{' '}
