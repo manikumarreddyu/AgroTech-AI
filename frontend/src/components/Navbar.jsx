@@ -134,6 +134,7 @@ const Navbar = () => {
               {openDropdown === "help" && (
                 <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50">
                   <NavLink to="/Climate" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Climate</NavLink>
+                  <NavLink to="/news" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>News</NavLink>
                   <NavLink to="/soiltestingcentres" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Soil Testing Centers</NavLink>
                   <NavLink to="/ee-shops" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Electrical and Electronics Shops</NavLink>
                   <NavLink to="/PlantTaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder</NavLink>
@@ -144,9 +145,6 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <NavLink to="/news" exact className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>
-              News
-            </NavLink>
 
             {/* Google Translate Component */}
             <GoogleTranslate />
