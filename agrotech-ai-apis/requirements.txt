@@ -9,4 +9,6 @@ matplotlib
 scikit-learn
 xgboost
 seaborn
+pillow
+tensorflow
 gunicorn

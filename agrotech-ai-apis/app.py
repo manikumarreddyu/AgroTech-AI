@@ -8,6 +8,7 @@ import json
 import re
 import os
 from mushroom_edibility import check_mushroom_edibility
+from paddy_prediction import paddy_prediction
 
 # Initialize Google Gemini API with the embedded key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -96,6 +97,21 @@ def find_ee_shops():
 @app.route("/mushroom_edibility", methods=["POST"])
 def mushroom_edibility():
     return check_mushroom_edibility()
+
+# API route to handle paddy disease prediction
+@app.route('/submit_paddy', methods=['POST'])
+def submit_paddy():
+    if 'image' not in request.files:
+        return jsonify({'error': 'No image part in the request'}), 400
+    
+    image = request.files['image']
+    filename = image.filename
+    file_path = os.path.join('uploaded_image', filename)
+    image.save(file_path)
+
+    result = paddy_prediction(file_path)
+    return jsonify(result), 200
+
 
 # Run the Flask app
 if __name__ == "__main__":
