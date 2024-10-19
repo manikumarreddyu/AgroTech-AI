@@ -1,16 +1,10 @@
-const LargeCardContainer = ({items,text}) => {
-    return (
-      <div className="h-fit w-full pr-2 bg-white mx-2 mt-4">
-        <div className="border-b-2 bg-green-200 border-green-600">
-  
-          <h1 className="font-semibold py-1 ml-8 text-2xl text-black text-center">{text}</h1>
-        </div>
-        <div className="grid grid-cols-4 gap-4 p-6 mt-2 bg-green-100">
-        {items.slice(0, 12).map((item, index) => {
-            const savings = item.mrp - item.salePrice; // Calculate savings
-            return (
-              <div
-                key={index}
+import React from 'react'
+
+const DisplayCard = ({item}) =>{
+
+    const savings = item.mrp - item.salePrice;
+  return (
+    <div
                 className="flex-shrink-0 w-60 h-80 bg-white rounded-lg overflow-hidden cursor-pointer relative"
                 style={{
                     boxShadow: `rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px,
@@ -43,12 +37,7 @@ const LargeCardContainer = ({items,text}) => {
                   <p className="text-green-600 text-xs font-bold">You Save: ₹{savings.toFixed(2)}</p>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  };
-  
-  export default LargeCardContainer;
-  
+  )
+}
+
+export default DisplayCard
