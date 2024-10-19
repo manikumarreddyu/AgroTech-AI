@@ -53,3 +53,24 @@ describe('Category APIs', () => {
   // Add tests for POST, PUT, DELETE
 });
 
+// Test Brand APIs
+describe('Brand APIs', () => {
+  test('GET /api/brands', async () => {
+    const res = await request(app).get('/api/brands');
+    expect(res.statusCode).toBe(200);
+    expect(Array.isArray(res.body)).toBe(true);
+  });
+
+  // Add tests for POST, PUT, DELETE
+});
+
+// Test Seller APIs
+describe('Seller APIs', () => {
+  test('GET /api/sellers', async () => {
+    const res = await request(app).get('/api/sellers');
+    expect(res.statusCode).toBe(200);
+    expect(Array.isArray(res.body)).toBe(true);
+  });
+
+  // Add tests for POST, PUT, DELETE
+});
