@@ -52,7 +52,7 @@ const SignUpPage = () => {
 
     try {
       const response = await axios.post(
-        "https://agrotech-ai-11j3.onrender.com/auth/signup",
+        "https://agro-tech-ai-backend-teal.vercel.app/auth/signup",
         {
           firstName,
           lastName,
