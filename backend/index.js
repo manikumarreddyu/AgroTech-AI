@@ -7,12 +7,11 @@ const contactRoutes = require('./routes/Contactroute');
 const authMiddleware = require('./middleware/auth');
 const bcrypt = require('bcryptjs');
 const app = express();
-const shopRoutes = require('./routes/shop')
+
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
 app.use('/auth', authRoutes);
 app.use('/api', contactRoutes);
-app.use('/api', shopRoutes); 
 const PORT = process.env.PORT || 8080;
 
 // MongoDB connection
@@ -32,6 +31,3 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-
-
-module.exports = app; 
