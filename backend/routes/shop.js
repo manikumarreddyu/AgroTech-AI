@@ -6,6 +6,8 @@ const productController = require('../controllers/productController');
 const categoryController = require('../controllers/categoryController');
 const brandController = require('../controllers/brandController');
 const sellerController = require('../controllers/sellerController');
+const reviewController = require('../controllers/reviewController');
+const variantController = require('../controllers/variantController');
 
 /**
  * Product Routes
@@ -44,5 +46,22 @@ router.post('/sellers', sellerController.createSeller);
 router.put('/sellers/:id', sellerController.updateSeller);
 router.delete('/sellers/:id', sellerController.deleteSeller);
 
+/**
+ * Review Routes
+ */
+router.get('/reviews', reviewController.getAllReviews);
+router.get('/reviews/:id', reviewController.getReviewById);
+router.post('/reviews', reviewController.createReview);
+router.put('/reviews/:id', reviewController.updateReview);
+router.delete('/reviews/:id', reviewController.deleteReview);
+
+/**
+ * Variant Routes
+ */
+router.get('/variants', variantController.getAllVariants);
+router.get('/variants/:id', variantController.getVariantById);
+router.post('/variants', variantController.createVariant);
+router.put('/variants/:id', variantController.updateVariant);
+router.delete('/variants/:id', variantController.deleteVariant);
 
 module.exports = router;
