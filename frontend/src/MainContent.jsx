@@ -58,9 +58,10 @@ import ElectricalElectronicsShops from './components/ElectricalElectronicsShops'
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
 //AgroShopAI
-import HomeShop from './AgroShopAI/HomeShop';
+import HomeShop from './AgroShopAI/pages/HomeShop';
 import ShopFooter from './AgroShopAI/components/ShopFooter';
-
+import CategoryPage from './AgroShopAI/pages/CategoryPage';
+import { topSellingSeeds } from './AgroShopAI/utils/home-data';
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route
@@ -74,9 +75,9 @@ const MainContent = () => {
   }, []);
 
   // Check if the current path is the one you want to hide the Navbar for
-  const hideNavbarRoutes = ['/NavigateProducts', '/AgroShop', '/404'];
+  const hideNavbarRoutes = ['/NavigateProducts', '/AgroShop','/AgroShop/Category', '/404'];
   const hideNavbar = hideNavbarRoutes.includes(location.pathname);
-  const ShopRoutes = ['/AgroShop'];
+  const ShopRoutes = ['/AgroShop','/AgroShop/Category'];
   const checkShop = ShopRoutes.includes(location.pathname);
   return (
     <>
@@ -142,6 +143,7 @@ const MainContent = () => {
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
+                <Route path="/AgroShop/Category" element={<CategoryPage items={topSellingSeeds}/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
