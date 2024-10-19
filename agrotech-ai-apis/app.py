@@ -8,7 +8,7 @@ import json
 import re
 import os
 from mushroom_edibility import check_mushroom_edibility
-from paddy_prediction import paddy_prediction
+from crop_recommendation import recommend_crop
 
 # Initialize Google Gemini API with the embedded key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -27,7 +27,6 @@ ee_shop_prompt = (
     "for the specified location. Please return the response in a well-structured JSON format. "
     "Each entry should include the shop's name, latitude, longitude, and a direct Google Maps link for easy navigation. "
     "Ensure the JSON output follows this structure: [{'name': 'Shop 1', 'latitude': lat, 'longitude': lon, 'link': 'https://www.google.com/maps/...'}, ...]. "
-    "Please make sure the response is clean and contains only the JSON data, without any additional explanations or text."
 )
 
 # Initialize Flask app
@@ -98,20 +97,19 @@ def find_ee_shops():
 def mushroom_edibility():
     return check_mushroom_edibility()
 
-# API route to handle paddy disease prediction
-@app.route('/submit_paddy', methods=['POST'])
-def submit_paddy():
-    if 'image' not in request.files:
-        return jsonify({'error': 'No image part in the request'}), 400
-    
-    image = request.files['image']
-    filename = image.filename
-    file_path = os.path.join('uploaded_image', filename)
-    image.save(file_path)
+# API route to recommend crops based on soil and previous crop information
+@app.route('/crop_recommendation', methods=['POST'])
+def crop_recommendation():
+    try:
+        data = request.json
+        print("Received data:", data)  # Debugging: Log received data
 
-    result = paddy_prediction(file_path)
-    return jsonify(result), 200
+        # Call the crop recommendation function
+        result = recommend_crop(data)
+        return jsonify(result), 200
 
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 # Run the Flask app
 if __name__ == "__main__":
