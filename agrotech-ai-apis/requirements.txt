@@ -1,7 +1,12 @@
 flask
 flask-cors
-pandas
 requests
 google-generativeai
 python-dotenv
+pandas
+numpy
+matplotlib
+scikit-learn
+xgboost
+seaborn
 gunicorn
