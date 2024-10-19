@@ -48,7 +48,6 @@ const HeroSectionShop = ({ images }) => {
                 <img className="inline-block ml-5 mb-5" style={{width: '100px'}} src="https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/sale.png?raw=true" alt="" />
                 </div>
             </div>
-            {console.log(image.image)}
           </div>
         ))}
       </div>
