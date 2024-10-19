@@ -1,9 +1,9 @@
-import HeroSectionShop from "./components/HeroSectionShop";
-import Categories from "./components/Categories";
-import CardRelay from "./components/CardRelay";
-import CardContainer from "./components/CardContainer";
-import LargeCardContainer from "./components/LargeCardContainer";
-import { slides, categories, topSellingItems, ongoingSale, topSellingSeeds, todaysOffers, topSellingFertilizers, organicGardeningItems } from "./utils/home-data";
+import HeroSectionShop from "../components/HeroSectionShop";
+import Categories from "../components/Categories";
+import CardRelay from "../components/CardRelay";
+import CardContainer from "../components/CardContainer";
+import BottomCardContainer from "../components/BottomCardContainer";
+import { slides, categories, topSellingItems, ongoingSale, topSellingSeeds, todaysOffers, topSellingFertilizers, organicGardeningItems } from "../utils/home-data";
 
 const HomeShop = () => {
   return (
@@ -38,7 +38,7 @@ const HomeShop = () => {
         alt=""
         className="w-full mx-2 my-3" // Add this class to make the image responsive
       />
-      <LargeCardContainer items={organicGardeningItems} text={'Organic Farming'}/>
+      <BottomCardContainer items={organicGardeningItems} text={'Organic Farming'}/>
       
     </div>
   );
