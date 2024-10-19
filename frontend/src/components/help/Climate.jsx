@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { WiHumidity, WiBarometer, WiStrongWind, WiThermometer, WiSunrise, WiSunset, WiCloudyGusts } from 'react-icons/wi';
 import { Search } from 'lucide-react';
 
-// API key (Note: In a production environment, this should be stored securely)
 const API_KEY = 'af0348ed3ad216d028627277b50db13f';
 
-// Utility functions
 const fetchData = async (URL) => {
   const response = await fetch(`${URL}&appid=${API_KEY}`);
   if (!response.ok) {
@@ -14,26 +12,21 @@ const fetchData = async (URL) => {
   return response.json();
 };
 
-// OpenWeatherAPI Endpoints
 const url = {
-  currentWeather: (lat, lon) =>
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`,
-  airPollution: (lat, lon) =>
-    `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}`,
-  forecast: (lat, lon) =>
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}`,
+  currentWeather: (lat, lon) => `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`,
+  airPollution: (lat, lon) => `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}`,
+  forecast: (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}`,
   geocoding: (query) => `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5`,
-};
-
-// Helper functions
-const getDate = (dateUnix, timezone) => {
-  const date = new Date((dateUnix + timezone) * 1000);
-  return date.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
 };
 
 const getTime = (timeUnix, timezone) => {
   const date = new Date((timeUnix + timezone) * 1000);
   return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+};
+
+const getDate = (timeUnix, timezone) => {
+  const date = new Date((timeUnix + timezone) * 1000);
+  return date.toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'short' });
 };
 
 export default function Climate() {
@@ -46,7 +39,6 @@ export default function Climate() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
 
-  // Fetch weather data
   const fetchWeatherData = async (lat, lon) => {
     setLoading(true);
     setError(false);
@@ -60,7 +52,6 @@ export default function Climate() {
 
       const now = new Date();
       const cutoffTime = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-
       const next24HoursForecast = forecast.list.filter((entry) => {
         const entryDate = new Date(entry.dt * 1000);
         return entryDate >= now && entryDate <= cutoffTime;
@@ -76,7 +67,6 @@ export default function Climate() {
     }
   };
 
-  // Handle search
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!searchTerm) {
@@ -99,7 +89,6 @@ export default function Climate() {
         return;
       }
 
-      // Assuming the first result is the most relevant
       const { lat, lon, name, state, country } = locations[0];
       setSelectedLocation(`${name}${state ? ', ' + state : ''}, ${country}`);
       fetchWeatherData(lat, lon);
@@ -110,7 +99,6 @@ export default function Climate() {
     }
   };
 
-  // Handle current location
   const handleCurrentLocation = () => {
     if (!navigator.geolocation) {
       alert('Geolocation is not supported by your browser.');
@@ -139,10 +127,9 @@ export default function Climate() {
     );
   };
 
-  // Use effect to fetch current location weather on component mount
   useEffect(() => {
     handleCurrentLocation();
-  }, []); // Empty dependency array to run only once when the component mounts
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-blue-100 to-green-100 p-5 w-full mt-14">
@@ -174,29 +161,11 @@ export default function Climate() {
       {error && <p className="text-red-500">Error fetching data. Please try again.</p>}
 
       {weatherData && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
-          {/* Current Weather */}
-          <div className="bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
-              {selectedLocation || weatherData.name}
-            </h2>
-            <div className="flex flex-col items-center">
-              <img
-                src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`}
-                alt={weatherData.weather[0].description}
-                className="w-32 h-32 mb-4"
-              />
-              <p className="text-6xl font-semibold text-gray-800 mb-2">
-                {Math.round(weatherData.main.temp - 273.15)}°C
-              </p>
-              <p className="text-xl text-gray-600 capitalize">{weatherData.weather[0].description}</p>
-            </div>
-          </div>
-
-          {/* Weather Details */}
-          <div className="bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl">
-            <h3 className="text-2xl font-semibold mb-4 text-center text-gray-800">Current Conditions</h3>
-            <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mt-16">
+          <WeatherCard weatherData={weatherData} airQualityIndex={airQualityIndex} selectedLocation={selectedLocation} />
+          <div className="rounded-xl p-6 transition duration-300 hover:shadow-xl group hover:-rotate-0 [transform:rotate3d(1_,-1,_1,_15deg)] duration-500 overflow-hidden bg-gradient-to-bl from-green-400 via-green-500 to-green-700 p-6 rounded-lg hover:shadow-lg [box-shadow:12px_12px_0px_0px_#0d0d0d] backdrop-filter backdrop-blur-md border border-neutral-600">
+            <h3 className="text-2xl font-semibold mb-4 text-center text-gray-800 ">Current Conditions</h3>
+            <div className="grid grid-cols-2 gap-4 group">
               <WeatherDetail icon={WiHumidity} label="Humidity" value={`${weatherData.main.humidity}%`} />
               <WeatherDetail icon={WiThermometer} label="Feels Like" value={`${Math.round(weatherData.main.feels_like - 273.15)}°C`} />
               <WeatherDetail icon={WiStrongWind} label="Wind Speed" value={`${Math.round(weatherData.wind.speed * 3.6)} km/h`} />
@@ -211,7 +180,7 @@ export default function Climate() {
 
       {/* 5-Day Forecast */}
       {forecastData.length > 0 && (
-        <div className="mt-8 w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl">
+        <div className="mt-16 w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl duration-500 overflow-hidden bg-gradient-to-bl from-green-400 via-green-500 to-green-700 p-6 rounded-lg hover:shadow-lg [box-shadow:12px_12px_0px_0px_#0d0d0d] backdrop-filter backdrop-blur-md border border-neutral-600">
           <h3 className="text-2xl font-semibold mb-4 text-center text-gray-800">5-Day Forecast</h3>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {forecastData.map((forecast, index) => (
@@ -232,7 +201,7 @@ export default function Climate() {
 
       {/* Hourly Forecast */}
       {currentWeather.length > 0 && (
-        <div className="mt-8 w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl">
+        <div className="mt-16 mb-10 w-full max-w-4xl bg-white rounded-xl shadow-lg p-6 transition duration-300 duration-500 overflow-hidden bg-gradient-to-bl from-green-400 via-green-500 to-green-700 p-6 rounded-lg hover:shadow-lg [box-shadow:12px_12px_0px_0px_#0d0d0d] backdrop-filter backdrop-blur-md border border-neutral-600">
           <h3 className="text-2xl font-semibold mb-4 text-center text-gray-800">Hourly Forecast</h3>
           <div className="overflow-x-auto">
             <div className="inline-flex space-x-4 pb-4">
@@ -256,13 +225,36 @@ export default function Climate() {
   );
 }
 
+function WeatherCard({ weatherData, airQualityIndex, selectedLocation }) {
+  return (
+    <div className="bg-gradient-to-br from-sky-500 to-blue-500 p-8 rounded-xl shadow-lg transition duration-300 hover:-rotate-0 [transform:rotate3d(1_,-1,_1,_15deg)] duration-500 overflow-hidden bg-gradient-to-bl from-green-400 via-green-500 to-green-700 p-6 rounded-lg hover:shadow-lg [box-shadow:12px_12px_0px_0px_#0d0d0d] backdrop-filter backdrop-blur-md border border-neutral-600">
+      <div className="flex flex-col items-center justify-center text-center">
+        <div>
+          <h2 className="text-4xl font-bold text-white mt-2">{selectedLocation || weatherData.name}</h2>
+          <p className="text-xl text-gray-200 mt-4">{weatherData.weather[0].description}</p>
+        </div>
+        <img
+          src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
+          alt={weatherData.weather[0].description}
+          className="w-36 h-36 my-4"
+        />
+      </div>
+      <div className="mt-4 text-white text-center">
+        <p className="text-5xl font-semibold">
+          {Math.round(weatherData.main.temp - 273.15)}°C
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function WeatherDetail({ icon: Icon, label, value }) {
   return (
-    <div className="flex items-center space-x-2">
-      <Icon className="w-8 h-8 text-blue-500" />
+    <div className="flex items-center space-x-3 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out">
+      <Icon className="w-8 h-8 text-sky-500" />
       <div>
-        <p className="text-sm text-gray-600">{label}</p>
-        <p className="text-lg font-semibold text-gray-800">{value}</p>
+        <h3 className="text-lg font-medium text-gray-800">{label}</h3>
+        <p className="text-sm text-gray-600">{value}</p>
       </div>
     </div>
   );
