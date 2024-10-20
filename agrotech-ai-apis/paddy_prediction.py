@@ -6,8 +6,8 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
 import numpy as np
 
-# Load your trained model (make sure to adjust the model path)
-model = load_model('models/rice_model.h5')
+# Load your trained model
+model = load_model('models/rice_model.h5', compile=False)
 
 # Class labels for the paddy diseases
 modified_class_label = ['Bacterial Leaf Blight', 'Bacterial Leaf Streak', 'Bacterial Panicle Blight', 'Blast',
