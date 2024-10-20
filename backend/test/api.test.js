@@ -74,3 +74,25 @@ describe('Seller APIs', () => {
 
   // Add tests for POST, PUT, DELETE
 });
+
+// Test Review APIs
+describe('Review APIs', () => {
+  test('GET /api/reviews', async () => {
+    const res = await request(app).get('/api/reviews');
+    expect(res.statusCode).toBe(200);
+    expect(Array.isArray(res.body)).toBe(true);
+  });
+
+  // Add tests for POST, PUT, DELETE
+});
+
+// Test Variant APIs
+describe('Variant APIs', () => {
+  test('GET /api/variants', async () => {
+    const res = await request(app).get('/api/variants');
+    expect(res.statusCode).toBe(200);
+    expect(Array.isArray(res.body)).toBe(true);
+  });
+
+  // Add tests for POST, PUT, DELETE
+});
