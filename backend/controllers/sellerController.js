@@ -23,9 +23,10 @@ exports.getSellerById = async (req, res) => {
 
 // Create new seller
 exports.createSeller = async (req, res) => {
-  const { name, description, contactInfo } = req.body;
+  const { name, email, phone, address} = req.body;
+  console.log(req.body)
   try {
-    const seller = new Seller({ name, description, contactInfo });
+    const seller = new Seller({ name, email, phone, address });
     await seller.save();
     res.status(201).json(seller);
   } catch (err) {

@@ -24,9 +24,9 @@ exports.getProductById = async (req, res) => {
 
 // Create new product
 exports.createProduct = async (req, res) => {
-  const { name, description, price, stock, imageUrl, category, brand, seller } = req.body;
+  const { name, description, price, stock, offer,imageUrl, category, brand, seller } = req.body;
   try {
-    const product = new Product({ name, description, price, stock, imageUrl, category, brand, seller });
+    const product = new Product({ name, description, price, stock,offer, imageUrl, category, brand, seller });
     await product.save();
     res.status(201).json(product);
   } catch (err) {
@@ -50,6 +50,26 @@ exports.deleteProduct = async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.json({ message: "Product deleted" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
+exports.getProductsByCategory = async (req, res) => {
+  const { categoryId } = req.params;
+  
+  try {
+    const products = await Product.find({ category: categoryId })
+      .populate('category','name')
+      .populate('brand', 'name') // Populate brand name
+      .populate('seller', 'name'); // Populate seller name
+
+    if (!products.length) {
+      return res.status(404).json({ message: 'No products found for this category.' });
+    }
+
+    res.status(200).json(products);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

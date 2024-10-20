@@ -11,7 +11,7 @@ const Filter = ({ items, setFilteredItems }) => {
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    const brands = [...new Set(items.map((item) => item.brand))];
+    const brands = [...new Set(items.map((item) => item.brand.name))]; // Access brand.name
     setBrandList(brands);
   }, [items]);
 
@@ -54,12 +54,15 @@ const Filter = ({ items, setFilteredItems }) => {
 
   const filterItems = (priceRange, sortOption, brand, discountOption) => {
     let filteredItems = items.filter((item) => {
-      const itemBrand = item.brand.toLowerCase();
-      const discountPercent = parseInt(item.offer) || 0;
-
+      const itemBrand = item.brand.name.toLowerCase(); // Access brand.name
+      const discountPercent = parseInt(item.offer) || 0; // Ensure offer is parsed correctly
+      
+      // Calculate salePrice
+      const salePrice = item.price * (1 - (item.offer / 100)); 
+  
       return (
-        (priceRange.min === "" || item.salePrice >= priceRange.min) &&
-        (priceRange.max === "" || item.salePrice <= priceRange.max) &&
+        (priceRange.min === "" || salePrice >= Number(priceRange.min)) && // Use salePrice for filtering
+        (priceRange.max === "" || salePrice <= Number(priceRange.max)) && // Use salePrice for filtering
         (brand ? itemBrand.includes(brand.toLowerCase()) : true) &&
         (discountOption === "none" ||
           (discountOption === "less-than-10" && discountPercent < 10) ||
@@ -70,18 +73,19 @@ const Filter = ({ items, setFilteredItems }) => {
           (discountOption === "50" && discountPercent >= 50))
       );
     });
-
-    // Only sort if sortOption is not "none"
+  
+    // Sorting logic remains the same
     if (sortOption === "price-asc") {
-      filteredItems.sort((a, b) => a.salePrice - b.salePrice);
+      filteredItems.sort((a, b) => (a.price * (1 - (a.offer / 100))) - (b.price * (1 - (b.offer / 100)))); // Sort by salePrice
     } else if (sortOption === "price-desc") {
-      filteredItems.sort((a, b) => b.salePrice - a.salePrice);
+      filteredItems.sort((a, b) => (b.price * (1 - (b.offer / 100))) - (a.price * (1 - (a.offer / 100)))); // Sort by salePrice
     } else if (sortOption === "newly-added") {
-      filteredItems.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+      filteredItems.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Use createdAt for newly added
     }
-
+  
     setFilteredItems(filteredItems);
   };
+  
 
   return (
     <div className="flex flex-col gap-4 p-4 border-2 rounded-lg bg-white ">
@@ -262,15 +266,15 @@ const Filter = ({ items, setFilteredItems }) => {
             onChange={handleBrandChange}
             placeholder="Brand Name"
             className="border rounded p-1 w-full bg-gray-100 mt-2"
+            onFocus={() => setIsDropdownOpen(true)}
           />
-          {/* Autocomplete dropdown */}
           {isDropdownOpen && filteredBrands.length > 0 && (
-            <ul ref={dropdownRef} className="border mt-1 max-h-60 overflow-y-auto z-10 bg-white">
-              {filteredBrands.map((b, index) => (
+            <ul className="border rounded bg-white mt-2 max-h-48 overflow-y-auto z-10">
+              {filteredBrands.map((b) => (
                 <li
-                  key={index}
+                  key={b}
+                  className="p-2 hover:bg-gray-200 cursor-pointer"
                   onClick={() => handleBrandSelect(b)}
-                  className="cursor-pointer hover:bg-gray-200 p-2"
                 >
                   {b}
                 </li>

@@ -1,45 +1,56 @@
 export const categories = [
-    {
-        title: "Herbicides",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/herbicide.jpg?raw=true"
-    },
-    {
-        title: "Growth Promoters",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/growth_promoters.jpg?raw=true"
-    },
-    {
-        title: "Fungicides",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/fungicides.jpg?raw=true"
-    },
-    {
-        title: "Vegetable & Fruit Seeds",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/seeds.jpg?raw=true"
-    },
-    {
-        title: "Farm Machinery",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/machine.jpg?raw=true"
-    },
-    {
-        title: "Nutrients",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/nutrient.jpg?raw=true"
-    },
-    {
-        title: "Insecticide",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/insecticide.jpg?raw=true"
-    },
-    {
-        title: "Organic Farming",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/organic.jpg?raw=true"
-    },
-    {
-        title: "Animal Husbandry",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/animal.jpg?raw=true"
-    },
-    {
-        title: "New Products",
-        image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/new.jpg?raw=true"
-    }
+  {
+      title: "Herbicides",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/herbicide.jpg?raw=true",
+      id: "" // Empty string for id
+  },
+  {
+      title: "Growth Promoters",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/growth_promoters.jpg?raw=true",
+      id: "67154de8c99a7d1729a431ba" // ID for Growth Promoters
+  },
+  {
+      title: "Fungicides",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/fungicides.jpg?raw=true",
+      id: "" // Empty string for id
+  },
+  {
+      title: "Vegetable & Fruit Seeds",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/seeds.jpg?raw=true",
+      id: "67154da7c99a7d1729a431b8" // ID for Vegetable & Fruit Seeds
+  },
+  {
+      title: "Farm Machinery",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/machine.jpg?raw=true",
+      id: "" // Empty string for id
+  },
+  {
+      title: "Nutrients",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/nutrient.jpg?raw=true",
+      id: "" // Empty string for id
+  },
+  {
+      title: "Insecticide",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/insecticide.jpg?raw=true",
+      id: "" // Empty string for id
+  },
+  {
+      title: "Organic Farming",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/organic.jpg?raw=true",
+      id: "" // Empty string for id
+  },
+  {
+      title: "Animal Husbandry",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/animal.jpg?raw=true",
+      id: "" // Empty string for id
+  },
+  {
+      title: "New Products",
+      image: "https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category-img/new.jpg?raw=true",
+      id: "" // Empty string for id
+  }
 ];
+
 export const topSellingItems = [
   {
     title: "Roundup Weed Killer",
