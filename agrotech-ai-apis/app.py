@@ -9,6 +9,7 @@ import re
 import os
 from mushroom_edibility import check_mushroom_edibility
 from crop_recommendation import recommend_crop
+from seed_quality_predictor import predict_seed_quality 
 
 # Initialize Google Gemini API with the embedded key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -19,14 +20,12 @@ soil_lab_prompt = (
     "for the specified location. Please return the response in a well-structured JSON format. "
     "Each entry should include the lab's name, latitude, longitude, and a direct Google Maps link for easy navigation. "
     "Ensure the JSON output follows this structure: [{'name': 'Lab 1', 'latitude': lat, 'longitude': lon, 'link': 'https://www.google.com/maps/...'}, ...]. "
-    "Please make sure the response is clean and contains only the JSON data, without any additional explanations or text."
 )
 
 ee_shop_prompt = (
     "As an expert in location-based services and geospatial data, your task is to provide a precise and accurate list of nearby electrical and electronics shops "
     "for the specified location. Please return the response in a well-structured JSON format. "
     "Each entry should include the shop's name, latitude, longitude, and a direct Google Maps link for easy navigation. "
-    "Ensure the JSON output follows this structure: [{'name': 'Shop 1', 'latitude': lat, 'longitude': lon, 'link': 'https://www.google.com/maps/...'}, ...]. "
 )
 
 # Initialize Flask app
@@ -108,6 +107,25 @@ def crop_recommendation():
         result = recommend_crop(data)
         return jsonify(result), 200
 
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# API route for seed quality prediction
+@app.route('/predict_seed_quality', methods=['POST'])
+def predict_seed_quality_route():
+    """API endpoint for predicting seed quality."""
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file provided'}), 400
+
+    file = request.files['file']
+
+    if not file:
+        return jsonify({'error': 'No file provided'}), 400
+
+    try:
+        # Call the seed quality prediction function
+        result = predict_seed_quality(file)
+        return jsonify(result), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
