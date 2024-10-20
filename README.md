@@ -45,6 +45,16 @@ This repository also provides one such platforms where contributers come over an
 
 </div>
 
+<div>
+
+## Project Structure
+
+<!-- START_STRUCTURE -->
+
+<!-- END_STRUCTURE -->
+
+</div>
+
 <details>
     <summary><h2>:pushpin:Table of Contents: </h2></summary>
 
