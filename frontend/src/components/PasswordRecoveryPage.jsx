@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const PasswordRecoveryPage = () => {
   const [email, setEmail] = useState("");
@@ -54,6 +55,11 @@ const PasswordRecoveryPage = () => {
         {message && (
           <p className='mt-4 text-center text-green-500'>{message}</p>
         )}
+        <p className='mt-4 text-center'>
+          <Link to='/login' className='text-blue-500 hover:underline'>
+            Back to Login
+          </Link>
+        </p>
       </div>
     </div>
   );
