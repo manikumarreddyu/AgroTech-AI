@@ -53,7 +53,7 @@ import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
 import NewsForum from './components/NewsForum';
 import ElectricalElectronicsShops from './components/ElectricalElectronicsShops';
-
+import ProductPage from './AgroShopAI/pages/ProductPage';
 //AgroRentAI
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
@@ -146,6 +146,7 @@ const MainContent = () => {
                 <Route path="/AgroShop" element={<HomeShop/>} />
                 <Route path="/AgroShop/Category" element={<CategoryPage/>} />
                 <Route path="/AgroShop/Category/:id" element={<CategoryPage/>} />
+                <Route path="/AgroShop/Product" element={<ProductPage/>}></Route>
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
