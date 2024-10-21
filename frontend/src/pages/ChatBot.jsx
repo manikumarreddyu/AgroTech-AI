@@ -9,7 +9,21 @@ function ChatBot() {
   const chatHistoryRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [showLoadingModal, setShowLoadingModal] = useState(false);
-  const [firstMessageSent, setFirstMessageSent] = useState(false); // Tracking if the first message is sent
+  const [firstMessageSent, setFirstMessageSent] = useState(false);
+
+  // Updated pre-made prompts array
+  const preMadePrompts = [
+    "What is AgroTech AI?",
+    "How does the equipment rental platform work?",
+    "Is there any training for using the technology?",
+    "How do I get started with AgroTech AI?",
+    "Why use AI in agriculture?",
+    "How do we do it?",
+    "What kind of solutions does AgroTech AI offer?",
+    "What features does AgroTech AI offer?",
+    "How do I create an account?",
+    "Where can I find more information about your features?",
+  ];
 
   const loadChatHistory = () => {
     const savedChatHistory = localStorage.getItem('chatHistory');
@@ -22,39 +36,43 @@ function ChatBot() {
     localStorage.setItem('chatHistory', JSON.stringify(history));
   };
 
-  const sendMessage = async () => {
-    if (userPrompt.trim() === '') return;
-
+  const sendMessage = async (prompt) => {
+    const messageToSend = prompt || userPrompt.trim(); // Ensure no leading/trailing spaces
+    if (messageToSend === '') return;
+  
     setLoading(true);
-
-    const updatedHistory = [...chatHistory, { role: 'user', content: userPrompt }];
+    const updatedHistory = [...chatHistory, { role: 'user', content: messageToSend }];
     setChatHistory(updatedHistory);
     saveChatHistory(updatedHistory);
-
-    // Show the loading modal only for the first message
+  
+    console.log("Sending message:", messageToSend); // Check the prompt being sent
+  
     if (!firstMessageSent) {
       setShowLoadingModal(true);
       setFirstMessageSent(true);
     }
-
+  
     try {
       const response = await fetch('https://agrotech-chatbot.onrender.com/AgroTech-ChatBot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: userPrompt }),
+        body: JSON.stringify({ prompt: messageToSend }),
       });
-
+  
       const data = await response.json();
       if (data.response) {
         const formattedResponse = data.response
           .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
           .replace(/\d\.\s/g, '<li>')
           .replace(/\n/g, '</li>');
-
+  
         const updatedAssistantHistory = [
           ...updatedHistory,
           { role: 'assistant', content: formattedResponse },
         ];
+        // Log the updated chat history for debugging
+        console.log("Updated chat history:", updatedAssistantHistory);
+
         setChatHistory(updatedAssistantHistory);
         saveChatHistory(updatedAssistantHistory);
       } else if (data.error) {
@@ -63,10 +81,10 @@ function ChatBot() {
     } catch (error) {
       console.error('Error sending message:', error);
     }
-
+  
     setLoading(false);
     setUserPrompt('');
-  };
+  };  
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -74,6 +92,13 @@ function ChatBot() {
       sendMessage();
     }
   };
+
+  const handlePromptSelect = (prompt) => {
+    console.log("Selected prompt:", prompt);
+    setUserPrompt(prompt); // Set the selected prompt in the input field
+    sendMessage(prompt); // Send the selected pre-made prompt
+  };
+  
 
   const scrollToBottom = () => {
     if (chatHistoryRef.current) {
@@ -90,7 +115,7 @@ function ChatBot() {
   }, []);
 
   const handleCloseModal = () => {
-    setShowLoadingModal(false); // Close modal
+    setShowLoadingModal(false);
   };
 
   return (
@@ -142,6 +167,17 @@ function ChatBot() {
               <FaPaperPlane className="mr-2" />
               Send
             </button>
+          </div>
+          <div className="mt-4">
+            {preMadePrompts.map((prompt, index) => (
+              <button
+                key={index}
+                onClick={() => handlePromptSelect(prompt)}
+                className="bg-green-300 hover:bg-green-400 text-green-800 dark:bg-green-700 dark:hover:bg-green-600 dark:text-green-100 p-2 rounded-lg m-1 transition-colors duration-200"
+              >
+                {prompt}
+              </button>
+            ))}
           </div>
         </div>
       </div>
