@@ -23,6 +23,7 @@ exports.getCategoryById = async (req, res) => {
 
 // Create new category
 exports.createCategory = async (req, res) => {
+  console.log(req.body)
   const { name, description } = req.body;
   try {
     const category = new Category({ name, description });
