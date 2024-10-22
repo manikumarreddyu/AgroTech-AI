@@ -28,9 +28,10 @@ export default function Component() {
 
   const handleChange = (event) => {
     const { name, value } = event.target
+    const maxValue = Number(event.target.getAttribute("max"))
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: (value <= maxValue) ? value : maxValue,
     }))
   }
 
@@ -102,14 +103,14 @@ export default function Component() {
             </div>
 
             <div className="mt-6 grid grid-cols-3 gap-4">
-              {['Nitrogen', 'Phosphorus', 'Potassium'].map((nutrient) => (
+              {['Nitrogen', 'Phosphorous', 'Potassium'].map((nutrient) => (
                 <div key={nutrient} className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-4`}>
-                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : nutrient === 'Phosphorus' ? 'text-blue-500' : 'text-orange-500'}`}>
+                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : (nutrient === 'Phosphorous' ? 'text-blue-500' : 'text-orange-500')}`}>
                     {nutrient}
                   </h3>
                   <div className="relative pt-1">
                     <div className="overflow-hidden h-3 mb-2 text-xs flex rounded bg-gray-200">
-                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : nutrient === 'Phosphorus' ? 'bg-blue-500' : 'bg-orange-500'}`}></div>
+                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : (nutrient === 'Phosphorous' ? 'bg-blue-500' : 'bg-orange-500')}`}></div>
                     </div>
                   </div>
                   <p className="text-sm">Current: {formData[nutrient]}, Optimal: 30-40</p>
@@ -205,9 +206,11 @@ export default function Component() {
                     <div className="mb-4">
                     <label className="block text-base font-medium mb-2" htmlFor="Temparature">Temparature</label>
                     <input
-                        type="text"
+                        type="number"
                         id="Temparature"
                         name="Temparature"
+                        max={50}
+                        min={1}
                         value={formData.Temparature}
                         onChange={handleChange}
                         className="w-full px-3 py-2 text-base border rounded-md text-black"
@@ -219,9 +222,11 @@ export default function Component() {
                     <div className="mb-4">
                     <label className="block text-base font-medium mb-2" htmlFor="Humidity">Humidity</label>
                     <input
-                        type="text"
+                        type="number"
                         id="Humidity"
                         name="Humidity"
+                        min={1}
+                        max={100}
                         value={formData.Humidity}
                         onChange={handleChange}
                         className="w-full px-3 py-2 text-base border rounded-md text-black"
@@ -233,9 +238,11 @@ export default function Component() {
                     <div className="mb-4">
                     <label className="block text-base font-medium mb-2" htmlFor="Moisture">Moisture</label>
                     <input
-                        type="text"
+                        type="number"
                         id="Moisture"
                         name="Moisture"
+                        min={1}
+                        max={100}
                         value={formData.Moisture}
                         onChange={handleChange}
                         className="w-full px-3 py-2 text-base border rounded-md text-black"
@@ -293,7 +300,9 @@ export default function Component() {
                     <div className="mb-4">
                     <label className="block text-base font-medium mb-2 " htmlFor="Nitrogen">Nitrogen</label>
                     <input
-                        type="text"
+                        type="number"
+                        min={1}
+                        max={50}
                         id="Nitrogen"
                         name="Nitrogen"
                         value={formData.Nitrogen}
@@ -307,7 +316,9 @@ export default function Component() {
                     <div className="mb-4">
                     <label className="block text-base font-medium mb-2" htmlFor="Potassium">Potassium</label>
                     <input
-                        type="text"
+                        type="number"
+                        min={1}
+                        max={50}
                         id="Potassium"
                         name="Potassium"
                         value={formData.Potassium}
@@ -321,7 +332,9 @@ export default function Component() {
                     <div className="mb-4">
                     <label className="block text-base font-medium mb-2" htmlFor="Phosphorous">Phosphorous</label>
                     <input
-                        type="text"
+                        type="number"
+                        min={1}
+                        max={50}
                         id="Phosphorous"
                         name="Phosphorous"
                         value={formData.Phosphorous}
@@ -400,7 +413,7 @@ export default function Component() {
         </button>
       </div>
 
-      <div className="fixed bottom-6 left-6 flex items-center space-x-3">
+      <div className="fixed bottom-6 left-6 flex items-center space-x-3 rounded-full px-3 py-2 bg-green-600 shadow-lg">
         <div className="relative inline-block w-12 mr-2 align-middle select-none">
           <input
             type="checkbox"
@@ -415,7 +428,7 @@ export default function Component() {
             className="toggle-label block overflow-hidden h-7 rounded-full bg-gray-300 cursor-pointer"
           ></label>
         </div>
-        <label htmlFor="dark-mode" className="text-lg">
+        <label htmlFor="dark-mode" className="text-lg font-semibold">
           Dark Mode
         </label>
       </div>

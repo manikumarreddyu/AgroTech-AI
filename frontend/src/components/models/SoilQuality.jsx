@@ -186,9 +186,10 @@ const SoilQuality = () => {
     const handleChange = (event) => {
         const value = event.target.value;
         const name = event.target.name;
+        const maxValue = Number(event.target.getAttribute("max"))
         setFormData(prevState => ({
             ...prevState,
-            [name]: value
+            [name]: (value <= maxValue) ? value : maxValue,
         }));
     };
 
@@ -335,17 +336,20 @@ const SoilQuality = () => {
                     <div className="max-w-lg mx-auto mt-10 text-center p-5 border-2  text-green-900 border-green-500 shadow-2xl shadow-green-200 rounded-md">
                         <h1 className="text-2xl  font-bold mb-4 text-green-500  text-center">Soil Quality Prediction</h1>
 
-                        <form method="post" acceptCharset="utf-8" name="Modelform" className="grid grid-cols-2 gap-6 p-6 rounded-lg shadow-xl">
+                        <form onSubmit={handlePredictClick} acceptCharset="utf-8" name="Modelform" className="grid grid-cols-2 gap-6 p-6 rounded-lg shadow-xl">
     {/* Nitrogen */}
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Nitrogen</label>
         <input
-            type="text"
+            type="number"
+            max={400}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="N"
             name="N"
             value={formData.N}
             onChange={handleChange}
+            required
             placeholder="0 to 400"
         />
     </div>
@@ -354,12 +358,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Phosphorus</label>
         <input
-            type="text"
+            type="number"
+            max={150}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="P"
             name="P"
             value={formData.P}
             onChange={handleChange}
+            required
             placeholder="0 to 150"
         />
     </div>
@@ -368,12 +375,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Potassium</label>
         <input
-            type="text"
+            type="number"
+            max={900}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="K"
             name="K"
             value={formData.K}
             onChange={handleChange}
+            required
             placeholder="0 to 900"
         />
     </div>
@@ -382,12 +392,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">pH Level</label>
         <input
-            type="text"
+            type="number"
+            max={14}
+            min={1}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="pH"
             name="pH"
             value={formData.pH}
             onChange={handleChange}
+            required
             placeholder="1 to 14"
         />
     </div>
@@ -396,12 +409,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Electrical Conductivity</label>
         <input
-            type="text"
+            type="number"
+            max={1}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="EC"
             name="EC"
             value={formData.EC}
             onChange={handleChange}
+            required
             placeholder="0 to 1"
         />
     </div>
@@ -410,12 +426,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Organic Carbon</label>
         <input
-            type="text"
+            type="number"
+            max={2}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="OC"
             name="OC"
             value={formData.OC}
             onChange={handleChange}
+            required
             placeholder="0 to 2"
         />
     </div>
@@ -424,12 +443,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Sulphur</label>
         <input
-            type="text"
+            type="number"
+            max={30}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="S"
             name="S"
             value={formData.S}
             onChange={handleChange}
+            required
             placeholder="0 to 30"
         />
     </div>
@@ -438,12 +460,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Zinc</label>
         <input
-            type="text"
+            type="number"
+            max={1}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="Zn"
             name="Zn"
             value={formData.Zn}
             onChange={handleChange}
+            required
             placeholder="0 to 1"
         />
     </div>
@@ -452,12 +477,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Iron</label>
         <input
-            type="text"
+            type="number"
+            max={50}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="Fe"
             name="Fe"
             value={formData.Fe}
             onChange={handleChange}
+            required
             placeholder="0 to 50"
         />
     </div>
@@ -466,12 +494,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Copper</label>
         <input
-            type="text"
+            type="number"
+            max={3}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="Cu"
             name="Cu"
             value={formData.Cu}
             onChange={handleChange}
+            required
             placeholder="0 to 3"
         />
     </div>
@@ -480,12 +511,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Manganese</label>
         <input
-            type="text"
+            type="number"
+            max={30}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="Mn"
             name="Mn"
             value={formData.Mn}
             onChange={handleChange}
+            required
             placeholder="0 to 30"
         />
     </div>
@@ -494,12 +528,15 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Boron</label>
         <input
-            type="text"
+            type="number"
+            max={3}
+            min={0}
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="B"
             name="B"
             value={formData.B}
             onChange={handleChange}
+            required
             placeholder="0 to 3"
         />
     </div>
@@ -507,8 +544,8 @@ const SoilQuality = () => {
     {/* Submit Button */}
     <div className="col-span-2 mt-6">
         <button className="w-full px-5 py-3 text-lg font-semibold rounded-lg bg-rose-600 text-white hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-500 transition-colors disabled:bg-rose-300"
+        type='submit'
             disabled={isLoading}
-            onClick={!isLoading ? handlePredictClick : null}
         >
             {isLoading ? "Predicting..." : "Predict Soil Quality"}
         </button>

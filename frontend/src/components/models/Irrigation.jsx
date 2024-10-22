@@ -98,7 +98,7 @@ export default function IrrigationSystem() {
           <form onSubmit={handlePredictClick} className="space-y-4">
             <div className="flex items-center space-x-2">
               <Leaf className="text-green-600" />
-              <select onChange={(e) => handleChange('Soil_Type', e.target.value)} className="flex-1 border border-gray-300 rounded-md p-2">
+              <select onChange={(e) => handleChange('Soil_Type', e.target.value)} required className="flex-1 border border-gray-300 rounded-md p-2">
                 <option value="">Select Soil Type</option>
                 {soilTypes.map((type, index) => (
                   <option key={index} value={type}>{type}</option>
@@ -107,7 +107,7 @@ export default function IrrigationSystem() {
             </div>
             <div className="flex items-center space-x-2">
               <Droplet className="text-green-600" />
-              <select onChange={(e) => handleChange('Crop_Type', e.target.value)} className="flex-1 border border-gray-300 rounded-md p-2">
+              <select onChange={(e) => handleChange('Crop_Type', e.target.value)} required className="flex-1 border border-gray-300 rounded-md p-2">
                 <option value="">Select Crop Type</option>
                 {cropTypes.map((type, index) => (
                   <option key={index} value={type}>{type}</option>
@@ -121,6 +121,7 @@ export default function IrrigationSystem() {
                 name="Avg_Temperature"
                 value={formData.Avg_Temperature}
                 onChange={(e) => handleChange('Avg_Temperature', e.target.value)}
+                required
                 placeholder="Average Temperature"
                 className="flex-1 border border-gray-300 rounded-md p-2"
               />
@@ -132,6 +133,7 @@ export default function IrrigationSystem() {
                 name="Geographical_Location"
                 value={formData.Geographical_Location}
                 onChange={(e) => handleChange('Geographical_Location', e.target.value)}
+                required
                 placeholder="Geographical Location"
                 className="flex-1 border border-gray-300 rounded-md p-2"
               />
@@ -143,6 +145,7 @@ export default function IrrigationSystem() {
                 name="Moisture_Level"
                 value={formData.Moisture_Level}
                 onChange={(e) => handleChange('Moisture_Level', e.target.value)}
+                required
                 placeholder="Moisture Level"
                 className="flex-1 border border-gray-300 rounded-md p-2"
               />
