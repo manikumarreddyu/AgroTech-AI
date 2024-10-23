@@ -2,28 +2,35 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import Filter from "../components/Filter";
 import { useParams } from 'react-router-dom';
+
 const CategoryPage = () => {
   const [items, setItems] = useState([]); // State to store fetched items
   const [filteredItems, setFilteredItems] = useState([]); // State for filtered items
   const [loading, setLoading] = useState(true); // State for loading status
   const { id } = useParams();
-  let url = ''
-  if (id){
-    url = `http://127.0.0.1:8080/api/products/category/${id}`
+  let url = '';
+
+  if (id) {
+    url = `http://127.0.0.1:8080/api/products/category/${id}`;
+  } else {
+    url = `http://127.0.0.1:8080/api/products/`;
   }
-  else{
-    url= `http://127.0.0.1:8080/api/products/`
-  }
+
   // Function to fetch data from the backend
   const fetchData = async () => {
     try {
       setLoading(true); // Set loading to true before fetching
       const response = await fetch(url); // Replace with your API URL
-      console.log(response)
       const data = await response.json();
-      console.log(data)
-      setItems(data); // Set fetched data to items
-      setFilteredItems(data); // Set initial filtered items
+
+      // Map the data to only include the first variant for each item
+      const modifiedData = data.map(item => ({
+        ...item,
+        variant: item.variants[0] // Include only the first variant
+      }));
+
+      setItems(modifiedData); // Set fetched data to items
+      setFilteredItems(modifiedData); // Set initial filtered items
     } catch (error) {
       console.error("Failed to fetch items:", error);
     } finally {

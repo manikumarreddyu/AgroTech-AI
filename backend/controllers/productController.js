@@ -78,7 +78,8 @@ exports.getProductsByCategory = async (req, res) => {
     const products = await Product.find({ category: categoryId })
       .populate('category', 'name')
       .populate('brand', 'name')
-      .populate('seller', 'name');
+      .populate('seller', 'name')
+      .populate('variants'); // Include variants data
 
     if (!products.length) {
       return res.status(404).json({ message: 'No products found for this category.' });
@@ -98,7 +99,8 @@ exports.getProductsByBrand = async (req, res) => {
     const products = await Product.find({ brand: brandId })
       .populate('category', 'name')
       .populate('brand', 'name')
-      .populate('seller', 'name');
+      .populate('seller', 'name')
+      .populate('variants'); // Include variants data
 
     if (!products.length) {
       return res.status(404).json({ message: 'No products found for this brand.' });
