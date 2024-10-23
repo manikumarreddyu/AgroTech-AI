@@ -98,7 +98,6 @@ const Navbar = () => {
                 <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50">
                   <NavLink to="/fertilizer" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Fertilizer Prediction</NavLink>
                   <NavLink to="/soil" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Soil Quality Prediction</NavLink>
-                  <NavLink to="/Irrigation" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Irrigation System Prediction</NavLink>
                 </div>
               )}
             </div>
