@@ -53,7 +53,6 @@ import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
 import NewsForum from './components/NewsForum';
 import ElectricalElectronicsShops from './components/ElectricalElectronicsShops';
-
 //AgroRentAI
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';

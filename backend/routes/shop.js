@@ -19,7 +19,7 @@ router.put('/products/:id', productController.updateProduct);
 router.delete('/products/:id', productController.deleteProduct);
 //complex routes
 router.get('/products/category/:categoryId', productController.getProductsByCategory);
-
+router.get('/products/brand/:brandId', productController.getProductsByBrand);
 /**
  * Category Routes
  */
