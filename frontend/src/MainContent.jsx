@@ -61,6 +61,7 @@ import NavigateProducts from './AgroRentAI/NavigateProducts';
 import HomeShop from './AgroShopAI/pages/HomeShop';
 import ShopFooter from './AgroShopAI/components/ShopFooter';
 import CategoryPage from './AgroShopAI/pages/CategoryPage';
+import BestPractices from './pages/BestPractices';
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route
@@ -131,13 +132,14 @@ const MainContent = () => {
                 <Route path="/MushroomEdibility" element={<MushroomEdibility/>}/>
                 <Route path="/products" element={<Products />} />
                 <Route path="/Auth-page" element={<AuthPage />} />
-                <Route path="/whyai" element={<WhyAI />} /> {/* Add the route for Why AI */}
+                <Route path="/whyai" element={<WhyAI />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/news" element={<NewsForum />} />
                 <Route path="/ee-shops" element={<ElectricalElectronicsShops/>} />
+                <Route path="/BestPractices" element={<BestPractices/>} />
                 {/* AgroRentAI Routes */}
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
