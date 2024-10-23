@@ -10,7 +10,7 @@ import os
 from mushroom_edibility import check_mushroom_edibility
 from crop_recommendation import recommend_crop
 from seed_quality_predictor import predict_seed_quality
-from plant_disease_detection import model_prediction, get_class_name  # Import the functions for plant disease detection
+from plant_disease_detection import model_prediction, get_class_name
 
 # Initialize Google Gemini API with the embedded key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
