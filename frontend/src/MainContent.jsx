@@ -32,28 +32,29 @@ import ProgressScrollDown from "./components/ProgressScrollDown";
 import React, { useState, useEffect } from "react";
 import Climate from "./components/help/Climate";
 import Products from "./pages/Products";
-import AuthPage from "./components/AuthPage";
-import FertilizerCalculator from "./components/tools/FertilizerCalculator";
-import WhyAI from "./pages/WhyAI"; // Import the WhyAI component
-import LoginPage from "./components/LoginPage";
-import SignUpPage from "./components/SignUpPage";
-import PasswordRecoveryPage from "./components/PasswordRecoveryPage"; // Import the PasswordRecoveryPage component
-import { AuthProvider } from "./context/AuthContext";
-import TermsAndConditions from "./components/TermsAndConditions";
-import CookiePolicy from "./components/CookiePolicy";
-import PlantTaskReminder from "./components/help/PlantTaskReminder";
-import CropManagementGuide from "./components/help/CropManagementGuide";
-import EcoCropManager from "./components/help/EcoCropManager";
-import FertilizerRequirementsCalculator from "./components/tools/FertilizerRequirement";
-import SoilMoistureCalculator from "./components/tools/SoilMoisture";
-import WaterRequirementCalculator from "./components/tools/WaterRequirement";
-import CropYieldCalculator from "./components/tools/CropYield";
-import MushroomEdibility from "./components/tools/Mushroom";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import Feedback from "./components/Feedback";
-import SoilTestingCentres from "./components/SoilTestingCenters";
-import NewsForum from "./components/NewsForum";
-import ElectricalElectronicsShops from "./components/ElectricalElectronicsShops";
+
+import AuthPage from './components/AuthPage';
+import FertilizerCalculator from './components/tools/FertilizerCalculator';
+import WhyAI from './pages/WhyAI'; // Import the WhyAI component
+import LoginPage from './components/LoginPage';
+import SignUpPage from './components/SignUpPage';
+import { AuthProvider } from './context/AuthContext';
+import TermsAndConditions from './components/TermsAndConditions';
+import CookiePolicy from './components/CookiePolicy';
+import PlantTaskReminder from './components/help/PlantTaskReminder';
+import CropManagementGuide from './components/help/CropManagementGuide';
+import EcoCropManager from './components/help/EcoCropManager';
+import FertilizerRequirementsCalculator from './components/tools/FertilizerRequirement';
+import SoilMoistureCalculator from './components/tools/SoilMoisture';
+import WaterRequirementCalculator from './components/tools/WaterRequirement';
+import CropYieldCalculator from './components/tools/CropYield';
+import MushroomEdibility from './components/tools/Mushroom';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Feedback from './components/Feedback';
+import SoilTestingCentres from './components/SoilTestingCenters';
+import NewsForum from './components/NewsForum';
+import ElectricalElectronicsShops from './components/ElectricalElectronicsShops';
+import ProductPage from './AgroShopAI/pages/ProductPage';
 
 //AgroRentAI
 import HeroSectionRent from "./AgroRentAI/HeroSectionRent";
@@ -203,12 +204,12 @@ const MainContent = () => {
                 />
                 <Route path='*' element={<NotFound />} />
                 {/* AgroShopAI Routes */}
-                <Route path='/AgroShop' element={<HomeShop />} />
-                <Route path='/AgroShop/Category' element={<CategoryPage />} />
-                <Route
-                  path='/AgroShop/Category/:id'
-                  element={<CategoryPage />}
-                />
+
+                <Route path="/AgroShop" element={<HomeShop/>} />
+                <Route path="/AgroShop/Category" element={<CategoryPage/>} />
+                <Route path="/AgroShop/Category/:id" element={<CategoryPage/>} />
+                <Route path="/AgroShop/Product" element={<ProductPage/>}></Route>
+
               </Routes>
               {checkShop ? <ShopFooter /> : <Footer />}
             </div>
