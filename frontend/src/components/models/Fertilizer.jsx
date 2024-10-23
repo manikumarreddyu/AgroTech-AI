@@ -128,14 +128,14 @@ export default function Component() {
             </div>
 
             <div className="mt-6 grid grid-cols-3 gap-4">
-              {['Nitrogen', 'Phosphorus', 'Potassium'].map((nutrient) => (
+              {['Nitrogen', 'Phosphorous', 'Potassium'].map((nutrient) => (
                 <div key={nutrient} className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-4`}>
-                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : nutrient === 'Phosphorus' ? 'text-blue-500' : 'text-orange-500'}`}>
+                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : nutrient === 'Phosphorous' ? 'text-blue-500' : 'text-orange-500'}`}>
                     {nutrient}
                   </h3>
                   <div className="relative pt-1">
                     <div className="overflow-hidden h-3 mb-2 text-xs flex rounded bg-gray-200">
-                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : nutrient === 'Phosphorus' ? 'bg-blue-500' : 'bg-orange-500'}`}></div>
+                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : nutrient === 'Phosphorous' ? 'bg-blue-500' : 'bg-orange-500'}`}></div>
                     </div>
                   </div>
                   <p className="text-sm">Current: {formData[nutrient]}, Optimal: 30-40</p>
