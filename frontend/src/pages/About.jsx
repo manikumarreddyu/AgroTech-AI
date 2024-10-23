@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import about from '../assets/about.png';
-import { FaComment } from "react-icons/fa"; // Import the message icon
 
 function About() {
   return (
@@ -19,9 +18,6 @@ function About() {
           <p className="bg-gradient-to-r from-green-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text text-5xl font-bold py-1">
             🌾 About AgroTech AI
           </p>
-          <h1 className="md:text-5xl sm:text-4xl text-3xl font-bold py-4 text-green-700">
-            Empowering Farmers with AI-Driven Solutions
-          </h1>
 
           {/* Mission Card */}
           <div className="bg-gradient-to-r from-green-200 to-green-400 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 mb-6 h-[200px] my-5">
@@ -33,7 +29,7 @@ function About() {
 
           {/* How It Works Section with Cards */}
           <div className="w-full">
-            <div className="bg-gradient-to-r from-green-200 to-green-400 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-[200px] my-5">
+            <div className="bg-gradient-to-r from-green-200 to-green-400 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-[200px] mt-2">
               <h2 className="text-2xl font-semibold text-green-700 mb-2">🤔 How it Works!</h2>
               <p className="text-md text-[#000435] leading-relaxed">
                 <span>☑️ Access various machine learning models for crop prediction and soil analysis.</span><br />
@@ -52,16 +48,6 @@ function About() {
           </Link>
         </div>
       </div>
-
-      {/* Fixed message icon with tooltip
-      <div className="relative">
-        <Link to="/chatbot" className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110">
-          <FaComment className="text-white text-3xl" />
-          <span className="absolute -top-10 -right-4 bg-white text-green-500 text-sm rounded-md px-2 py-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            Try Our ChatBot
-          </span>
-        </Link>
-      </div> */}
     </div>
   );
 }

@@ -11,11 +11,6 @@ const Showcase = () => {
           "Utilize our state-of-the-art prediction models to get accurate insights on crop yield, soil health, and pest outbreaks. Make data-driven decisions to enhance your farming practices.",
       },
       {
-        title: "User-Friendly Interface",
-        description:
-          "Our platform offers an intuitive and easy-to-navigate interface, making it simple for farmers to input data and understand the results without needing technical expertise.",
-      },
-      {
         title: "Customizable Reports",
         description:
           "Generate and customize detailed reports based on your specific requirements. Share these reports with stakeholders to showcase farm performance and improvements.",
