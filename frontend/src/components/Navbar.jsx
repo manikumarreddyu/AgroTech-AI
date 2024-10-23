@@ -142,6 +142,7 @@ const Navbar = () => {
                   <NavLink to="/EcoCropManager" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Eco-Crop Manager</NavLink>
                   <NavLink to="/TaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder Advanced</NavLink>
                   <NavLink to="/CropCalender" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>CropCalender</NavLink>
+                  <NavLink to="/BestPractices" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Best Practices</NavLink>
                 </div>
               )}
             </div>
