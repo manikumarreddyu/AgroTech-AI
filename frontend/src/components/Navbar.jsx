@@ -115,11 +115,8 @@ const Navbar = () => {
               </button>
               {openDropdown === "tools" && (
                 <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50">
-                  <NavLink to="/FertilizerRequirementsCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Fertilizer Requirements Calculator</NavLink>
-                  <NavLink to="/WaterRequirementCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Water Requirement Calculator</NavLink>
-                  <NavLink to="/SoilMoistureCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Soil Moisture Calculator</NavLink>
-                  <NavLink to="/CropYieldCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Crop Yield Calculator</NavLink>
-                  <NavLink to="/FertilizerCalculator" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Fertilizer Calculator Advanced</NavLink>
+                  <NavLink to="/PlantTaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder</NavLink>
+                  <NavLink to="/TaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder Advanced</NavLink>
                 </div>
               )}
             </div>
@@ -137,11 +134,8 @@ const Navbar = () => {
                   <NavLink to="/news" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>News</NavLink>
                   <NavLink to="/soiltestingcentres" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Soil Testing Centers</NavLink>
                   <NavLink to="/ee-shops" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Electrical and Electronics Shops</NavLink>
-                  <NavLink to="/PlantTaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder</NavLink>
-                  <NavLink to="/CropManagementGuide" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Crop Management Guide</NavLink>
-                  <NavLink to="/EcoCropManager" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Eco-Crop Manager</NavLink>
-                  <NavLink to="/TaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder Advanced</NavLink>
-                  <NavLink to="/CropCalender" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>CropCalender</NavLink>
+
+                
                   <NavLink to="/BestPractices" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Best Practices</NavLink>
                 </div>
               )}
