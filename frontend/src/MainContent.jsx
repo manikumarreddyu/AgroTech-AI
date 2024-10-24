@@ -50,6 +50,7 @@ import HomeShop from './AgroShopAI/pages/HomeShop';
 import ShopFooter from './AgroShopAI/components/ShopFooter';
 import CategoryPage from './AgroShopAI/pages/CategoryPage';
 import BestPractices from './pages/BestPractices';
+import Profile from './components/Profile';
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route
@@ -113,6 +114,7 @@ const MainContent = () => {
                 <Route path="/Auth-page" element={<AuthPage />} />
                 <Route path="/whyai" element={<WhyAI />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route path="/profile" element={<Profile/>} />
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
