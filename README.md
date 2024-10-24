@@ -232,6 +232,27 @@ If you would like to contribute to the project then kindly go through [Contribut
 </a></p>
 
 </div>
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for @manikumarreddyu/AgroTech-AI](https://reporoster.com/stars/dark/manikumarreddyu/AgroTech-AI)](https://github.com/manikumarreddyu/AgroTech-AI/stargazers)
+
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for @manikumarreddyu/AgroTech-AI](https://reporoster.com/forks/dark/manikumarreddyu/AgroTech-AI)](https://github.com/manikumarreddyu/AgroTech-AI/network/members)
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+
 <!-- License -->
 <div>
 <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" width="35" height="35"> License:</h2>
