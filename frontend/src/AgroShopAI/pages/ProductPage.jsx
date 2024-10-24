@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ReviewSection from "../components/ReviewSection"; // Adjust the path as needed
-
-const ProductPage = ({ id }) => {
-  id = "67190cc7bf4fd76a51b41a1c"; // Hardcoded for testing; replace with actual product id
+import { useParams } from "react-router-dom";
+import NotFound from "../../NotFound";
+const ProductPage = () => {
+  const {id} = useParams();
+  if (!id){
+    return (
+      <NotFound />
+    )
+  }
   const [quantity, setQuantity] = useState(1); // State to hold the selected quantity
   const [chosenVariant, setChosenVariant] = useState(null); // State to store chosen variant
-  const [product,setProduct] = useState(null)
+  const [product,setProduct] = useState(null)//will help in adding to cart
   const handleVariantClick = (index) => {
     setChosenVariant(index); // Set the chosen variant's index
     setProduct(items.variants[index]._id)
@@ -179,7 +185,7 @@ const ProductPage = ({ id }) => {
         >
           {[...Array(10)].map((_, i) => (
             <option key={i + 1} value={i + 1}>
-              {i + 1} {i === 9 ? 'kg' : ''} {/* Add "kg" to the 10th option */}
+              {i + 1} {/* Add "kg" to the 10th option */}
             </option>
           ))}
         </select>
