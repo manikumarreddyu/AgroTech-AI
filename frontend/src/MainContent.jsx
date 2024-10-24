@@ -48,6 +48,7 @@ import NavigateProducts from './AgroRentAI/NavigateProducts';
 import HomeShop from './AgroShopAI/pages/HomeShop';
 import ShopFooter from './AgroShopAI/components/ShopFooter';
 import CategoryPage from './AgroShopAI/pages/CategoryPage';
+import ProductPage from './AgroShopAI/pages/ProductPage';
 import BestPractices from './pages/BestPractices';
 const MainContent = () => {
   UseScrollToTop();
