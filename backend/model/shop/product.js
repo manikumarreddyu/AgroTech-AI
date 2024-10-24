@@ -10,24 +10,15 @@ const ProductSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  price: {
-    type: Number,
-    required: true,
-    min: 0,
-  },
   offer: {
     type: Number,
     required: true,
     min: 0,
   },
-  stock: {
-    type: Number,
+  images: { // Changed to an array of strings for multiple images
+    type: [String],
     required: true,
-    min: 0,
-  },
-  imageUrl: {
-    type: String,
-    required: true,
+    validate: [arrayLimit, 'Exceeds the limit of 3 images']
   },
   category: {
     type: mongoose.Schema.Types.ObjectId,
@@ -52,5 +43,10 @@ const ProductSchema = new mongoose.Schema({
     required: true,
   }
 }, { timestamps: true });
+
+// Validator function to limit the number of images
+function arrayLimit(val) {
+  return val.length <= 3;
+}
 
 module.exports = mongoose.model('Product', ProductSchema);
