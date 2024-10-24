@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 const ProductCard = ({ item }) => {
   console.log(item)
   const salePrice = item.variant.price * (1 - (item.offer / 100));
@@ -31,10 +31,10 @@ const ProductCard = ({ item }) => {
 
       <div className="p-4 bg-white">
         {/* Title with truncation */}
-        <h3 className="text-s font-semibold text-black cursor-pointer hover:text-blue-500">
+        <Link to={`/AgroShop/Product/${item._id}`} className="block text-s font-semibold text-black cursor-pointer hover:text-blue-500">
           {item.name.length > 25 ? `${item.name.substring(0, 25)}...` : item.name}
-        </h3>
-        <span className="text-gray-400 text-xs hover:underline cursor-pointer hover:text-blue-500">{item.brand.name.length > 25 ? `${item.brand.name.substring(0, 35)}...` : item.brand.name}</span>
+        </Link>
+        <Link  className="block text-gray-400 text-xs hover:underline cursor-pointer hover:text-blue-500">{item.brand.name.length > 25 ? `${item.brand.name.substring(0, 35)}...` : item.brand.name}</Link>
         <div className="flex items-center">
           <p className="text-black text-m display-inline mr-2">₹{salePrice.toFixed(2)}</p>
           <p className="text-gray-400 text-m display-inline line-through">₹{item.variant.price}</p>
