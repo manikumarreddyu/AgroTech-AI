@@ -26,29 +26,17 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="profile-page max-w-3xl mx-auto mt-16 p-6 bg-white shadow-lg rounded-lg">
-      <h1 className="text-3xl font-semibold mb-4 text-center">Your Profile</h1>
+    <div className="profile-page mt-16">
+      <h1>Your Profile</h1>
       {userData ? ( // Render userData only if it exists
-        <div className="space-y-4">
-          <div className="flex justify-between">
-            <p className="font-bold">First Name:</p>
-            <p>{userData.firstName}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-bold">Last Name:</p>
-            <p>{userData.lastName}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-bold">Email:</p>
-            <p>{userData.email}</p>
-          </div>
-          <div className="flex justify-between">
-            <p className="font-bold">Role:</p>
-            <p>{userData.role}</p>
-          </div>
+        <div>
+          <p><strong>First Name:</strong> {userData.firstName}</p>
+          <p><strong>Last Name:</strong> {userData.lastName}</p>
+          <p><strong>Email:</strong> {userData.email}</p>
+          <p><strong>Role:</strong> {userData.role}</p>
         </div>
       ) : (
-        <p className="text-center text-gray-600">Loading...</p>
+        <p>Loading...</p>
       )}
     </div>
   );
