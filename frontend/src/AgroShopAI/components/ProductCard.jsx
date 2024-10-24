@@ -1,9 +1,9 @@
 import React from 'react';
 
 const ProductCard = ({ item }) => {
-  
-  const salePrice = item.price * (1 - (item.offer / 100));
-  const savings = item.price - salePrice;
+  console.log(item)
+  const salePrice = item.variant.price * (1 - (item.offer / 100));
+  const savings = item.variant.price - salePrice;
 
   return (
     <div
@@ -17,7 +17,7 @@ const ProductCard = ({ item }) => {
       <div className="w-full h-48">
         {/* Image */}
         <img
-          src={item.imageUrl}
+          src={item.images[0]}
           alt={item.name}
           className="w-full h-full object-cover cursor-pointer"
         />
@@ -37,7 +37,7 @@ const ProductCard = ({ item }) => {
         <span className="text-gray-400 text-xs hover:underline cursor-pointer hover:text-blue-500">{item.brand.name.length > 25 ? `${item.brand.name.substring(0, 35)}...` : item.brand.name}</span>
         <div className="flex items-center">
           <p className="text-black text-m display-inline mr-2">₹{salePrice.toFixed(2)}</p>
-          <p className="text-gray-400 text-m display-inline line-through">₹{item.price}</p>
+          <p className="text-gray-400 text-m display-inline line-through">₹{item.variant.price}</p>
         </div>
         <p className="text-green-600 text-xs font-bold">You Save: ₹{savings.toFixed(2)}</p>
       </div>

@@ -1,7 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaUser, FaRobot, FaTimes, FaPaperPlane } from 'react-icons/fa';
-import bgHero from "../assets/bgHero.png";
-import loadingGif from "../assets/loading.gif";
 
 function ChatBot() {
   const [userPrompt, setUserPrompt] = useState('');
@@ -119,9 +117,8 @@ function ChatBot() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-100 to-green-200 p-6 flex items-center justify-center bg-cover bg-center my-10" style={{
-      backgroundImage: "url('https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80')",
-    }}>
+    <div className="min-h-screen bg-gradient-to-br from-green-100 to-green-200 p-6 flex items-center justify-center bg-cover bg-center mt-16" 
+    >
       <div className="w-full max-w-4xl bg-white bg-opacity-80 backdrop-blur-md shadow-xl rounded-lg overflow-hidden">
         <div className="border-b border-green-200 p-4">
           <h1 className="text-3xl font-bold text-green-800 text-center">AgroTech AI ChatBot</h1>

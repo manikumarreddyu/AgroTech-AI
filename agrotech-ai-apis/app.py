@@ -9,7 +9,8 @@ import re
 import os
 from mushroom_edibility import check_mushroom_edibility
 from crop_recommendation import recommend_crop
-from seed_quality_predictor import predict_seed_quality 
+from seed_quality_predictor import predict_seed_quality
+from plant_disease_detection import model_prediction, get_class_name
 
 # Initialize Google Gemini API with the embedded key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -19,7 +20,6 @@ soil_lab_prompt = (
     "As an expert in location-based services and geospatial data, your task is to provide a precise and accurate list of nearby soil testing labs "
     "for the specified location. Please return the response in a well-structured JSON format. "
     "Each entry should include the lab's name, latitude, longitude, and a direct Google Maps link for easy navigation. "
-    "Ensure the JSON output follows this structure: [{'name': 'Lab 1', 'latitude': lat, 'longitude': lon, 'link': 'https://www.google.com/maps/...'}, ...]. "
 )
 
 ee_shop_prompt = (
@@ -129,6 +129,34 @@ def predict_seed_quality_route():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+# API route for plant disease prediction
+@app.route('/predict', methods=['POST'])
+def predict():
+    if 'image' not in request.files:
+        return jsonify({"error": "No image part in the request"}), 400
+
+    file = request.files['image']
+
+    if file.filename == '':
+        return jsonify({"error": "No image selected for uploading"}), 400
+
+    try:
+        img_bytes = file.read()
+        result_index = model_prediction(img_bytes)
+
+        if result_index is None:
+            return jsonify({"error": "Prediction failed"}), 500
+
+        class_name = get_class_name(result_index)
+        if class_name:
+            return jsonify({"prediction": class_name}), 200
+        else:
+            return jsonify({"error": "Invalid class index returned."}), 500
+
+    except Exception as e:
+        print(f"Error in /predict: {e}")
+        return jsonify({"error": "An error occurred during prediction"}), 500
+
 # Run the Flask app
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

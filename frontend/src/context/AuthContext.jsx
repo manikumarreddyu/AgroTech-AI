@@ -1,36 +1,28 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    return !!localStorage.getItem("auth");
-  });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
 
-  const login = (token) => {
-    localStorage.setItem("auth", JSON.stringify(token));
+  const login = (token, user) => {
+    localStorage.setItem('auth', JSON.stringify({ token, user }));
     setIsLoggedIn(true);
+    setUserData(user); // Set user data which includes role
   };
 
   const logout = () => {
-    localStorage.removeItem("auth");
+    localStorage.removeItem('auth');
     setIsLoggedIn(false);
+    setUserData(null);
   };
 
-  useEffect(() => {
-    const authToken = localStorage.getItem("auth");
-    if (authToken) {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, login, logout, userData }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);

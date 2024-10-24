@@ -17,7 +17,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://agro-tech-ai-backend-teal.vercel.app/auth/signin",
+        "http://localhost:8080/auth/signin",
         {
           email,
           password,

@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import jsPDF from "jspdf";
 
 export default function Component() {
   const [loading, setLoading] = useState(true)
@@ -18,6 +19,7 @@ export default function Component() {
   })
   const [result, setResult] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [showReport, setShowReport] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -44,36 +46,60 @@ export default function Component() {
     const jsonData = JSON.stringify(formData);
     console.log("Sending data:", jsonData); // Log the data being sent
     fetch(url, {
-        headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: jsonData,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: jsonData,
     })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((response) => {
-            console.log("Received response:", response); // Log the response
-            setResult(response.Prediction);
-            setIsLoading(false);
-            setShowSpan(true);
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-            setIsLoading(false);
-            setShowSpan(true);
-            setResult("Error: Unable to predict fertilizer");
-        });
-};
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((response) => {
+        console.log("Received response:", response); // Log the response
+        setResult(response.Prediction);
+        setIsLoading(false);
+        setShowSpan(true);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        setIsLoading(false);
+        setShowSpan(true);
+        setResult("Error: Unable to predict fertilizer");
+      });
+  };
 
   if (loading) {
     return <div className="flex items-center justify-center h-screen text-xl">Loading...</div>
   }
+  // Handle view report
+  const handleViewReport = () => {
+    setShowReport(true); // Show the report when the button is clicked
+  };
+
+  // Handle download report as PDF
+  const handleDownloadPdf = () => {
+    const doc = new jsPDF();
+    doc.text(
+      `Fertilizer Prediction Report:
+      \nTemperature: ${formData.Temparature}
+      \nHumidity: ${formData.Humidity}
+      \nMoisture: ${formData.Moisture}
+      \nSoil Type: ${formData.Soil_Type}
+      \nCrop Type: ${formData.Crop_Type}
+      \nNitrogen: ${formData.Nitrogen}
+      \nPotassium: ${formData.Potassium}
+      \nPhosphorous: ${formData.Phosphorous}
+      \nPrediction: ${result}`,
+      10,
+      10
+    );
+    doc.save("fertilizer_report.pdf");
+  };
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-green-50 to-green-100'} py-20`}>
@@ -102,14 +128,14 @@ export default function Component() {
             </div>
 
             <div className="mt-6 grid grid-cols-3 gap-4">
-              {['Nitrogen', 'Phosphorus', 'Potassium'].map((nutrient) => (
+              {['Nitrogen', 'Phosphorous', 'Potassium'].map((nutrient) => (
                 <div key={nutrient} className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-4`}>
-                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : nutrient === 'Phosphorus' ? 'text-blue-500' : 'text-orange-500'}`}>
+                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : nutrient === 'Phosphorous' ? 'text-blue-500' : 'text-orange-500'}`}>
                     {nutrient}
                   </h3>
                   <div className="relative pt-1">
                     <div className="overflow-hidden h-3 mb-2 text-xs flex rounded bg-gray-200">
-                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : nutrient === 'Phosphorus' ? 'bg-blue-500' : 'bg-orange-500'}`}></div>
+                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : nutrient === 'Phosphorous' ? 'bg-blue-500' : 'bg-orange-500'}`}></div>
                     </div>
                   </div>
                   <p className="text-sm">Current: {formData[nutrient]}, Optimal: 30-40</p>
@@ -198,152 +224,163 @@ export default function Component() {
             </div>
 
             <form onSubmit={handlePredictClick} className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-6`}>
-                <h2 className="text-2xl font-bold text-green-600 mb-4">Predict Fertilizer</h2>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Inputs for Temparature, Humidity, and Moisture */}
-                    <div className="mb-4">
-                    <label className="block text-base font-medium mb-2" htmlFor="Temparature">Temparature</label>
-                    <input
-                        type="text"
-                        id="Temparature"
-                        name="Temparature"
-                        value={formData.Temparature}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md text-black"
-                        placeholder="1 to 50°C"
-                        required
-                    />
-                    </div>
+              <h2 className="text-2xl font-bold text-green-600 mb-4">Predict Fertilizer</h2>
 
-                    <div className="mb-4">
-                    <label className="block text-base font-medium mb-2" htmlFor="Humidity">Humidity</label>
-                    <input
-                        type="text"
-                        id="Humidity"
-                        name="Humidity"
-                        value={formData.Humidity}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md text-black"
-                        placeholder="1 to 100%"
-                        required
-                    />
-                    </div>
-
-                    <div className="mb-4">
-                    <label className="block text-base font-medium mb-2" htmlFor="Moisture">Moisture</label>
-                    <input
-                        type="text"
-                        id="Moisture"
-                        name="Moisture"
-                        value={formData.Moisture}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md text-black"
-                        placeholder="1 to 100%"
-                        required
-                    />
-                    </div>
-
-                    {/* Dropdowns for Soil Type and Crop Type */}
-                    <div className="mb-4">
-                    <label className="block text-base font-medium mb-2" htmlFor="Soil_Type">Soil Type</label>
-                    <select
-                        className= {`w-full px-3 py-2 border rounded-md ${darkMode ? 'text-black' : 'text-black'}`}
-                        id="Soil_Type"
-                        name="Soil_Type"
-                        value={formData.Soil_Type}
-                        onChange={handleChange}
-                        required
-                    >
-                        <option value="" disabled>Select</option>
-                        <option value="0">Black</option>
-                        <option value="1">Clayey</option>
-                        <option value="2">Loamy</option>
-                        <option value="3">Red</option>
-                        <option value="4">Sandy</option>
-                    </select>
-                    </div>
-
-                    <div className="mb-4">
-                    <label className="block text-base font-medium mb-2" htmlFor="Crop_Type">Crop Type</label>
-                    <select
-                        className={`w-full px-3 py-2 border rounded-md ${darkMode ? 'text-black' : 'text-black'}`}
-                        id="Crop_Type"
-                        name="Crop_Type"
-                        value={formData.Crop_Type}
-                        onChange={handleChange}
-                        required
-                    >
-                        <option value="" disabled>Select</option>
-                        <option value="0">Barley</option>
-                        <option value="1">Cotton</option>
-                        <option value="2">Ground Nuts</option>
-                        <option value="3">Maize</option>
-                        <option value="4">Millets</option>
-                        <option value="5">Oil Seeds</option>
-                        <option value="6">Paddy</option>
-                        <option value="7">Pulses</option>
-                        <option value="8">Sugarcane</option>
-                        <option value="9">Tobacco</option>
-                        <option value="10">Wheat</option>
-                    </select>
-                    </div>
-
-                    {/* Inputs for Nitrogen, Potassium, and Phosphorous */}
-                    <div className="mb-4">
-                    <label className="block text-base font-medium mb-2 " htmlFor="Nitrogen">Nitrogen</label>
-                    <input
-                        type="text"
-                        id="Nitrogen"
-                        name="Nitrogen"
-                        value={formData.Nitrogen}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md text-black"
-                        placeholder="1 to 50"
-                        required
-                    />
-                    </div>
-
-                    <div className="mb-4">
-                    <label className="block text-base font-medium mb-2" htmlFor="Potassium">Potassium</label>
-                    <input
-                        type="text"
-                        id="Potassium"
-                        name="Potassium"
-                        value={formData.Potassium}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md text-black"
-                        placeholder="1 to 50"
-                        required
-                    />
-                    </div>
-
-                    <div className="mb-4">
-                    <label className="block text-base font-medium mb-2" htmlFor="Phosphorous">Phosphorous</label>
-                    <input
-                        type="text"
-                        id="Phosphorous"
-                        name="Phosphorous"
-                        value={formData.Phosphorous}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 text-base border rounded-md text-black"
-                        placeholder="1 to 50"
-                        required
-                    />
-                    </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Inputs for Temparature, Humidity, and Moisture */}
+                <div className="mb-4">
+                  <label className="block text-base font-medium mb-2" htmlFor="Temparature">Temparature</label>
+                  <input
+                    type="number"
+                    max={50}
+                    id="Temparature"
+                    name="Temparature"
+                    value={formData.Temparature}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 text-base border rounded-md text-black"
+                    placeholder="1 to 50°C"
+                    required
+                  />
                 </div>
 
-                <button
-                    type="submit"
-                    disabled={isLoading}
-                    className={`w-full mt-4 px-6 py-3 text-lg text-white font-semibold rounded-lg ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-500 hover:bg-green-600'}`}
-                >
-                    {isLoading ? 'Predicting...' : 'Predict Fertilizer'}
-                </button>
-                </form>
+                <div className="mb-4">
+                  <label className="block text-base font-medium mb-2" htmlFor="Humidity">Humidity</label>
+                  <input
+                    type="number"
+                    max={100}
+                    min={0}
+                    id="Humidity"
+                    name="Humidity"
+                    value={formData.Humidity}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 text-base border rounded-md text-black"
+                    placeholder="1 to 100%"
+                    required
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-base font-medium mb-2" htmlFor="Moisture">Moisture</label>
+                  <input
+                    type="number"
+                    max={100}
+                    min={0}
+                    id="Moisture"
+                    name="Moisture"
+                    value={formData.Moisture}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 text-base border rounded-md text-black"
+                    placeholder="1 to 100%"
+                    required
+                  />
+                </div>
+
+                {/* Dropdowns for Soil Type and Crop Type */}
+                <div className="mb-4">
+                  <label className="block text-base font-medium mb-2" htmlFor="Soil_Type">Soil Type</label>
+                  <select
+                    className= {`w-full px-3 py-2 border rounded-md ${darkMode ? 'text-black' : 'text-black'}`}
+                    id="Soil_Type"
+                    name="Soil_Type"
+                    value={formData.Soil_Type}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="" disabled>Select</option>
+                    <option value="0">Black</option>
+                    <option value="1">Clayey</option>
+                    <option value="2">Loamy</option>
+                    <option value="3">Red</option>
+                    <option value="4">Sandy</option>
+                  </select>
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-base font-medium mb-2" htmlFor="Crop_Type">Crop Type</label>
+                  <select
+                    className={`w-full px-3 py-2 border rounded-md ${darkMode ? 'text-black' : 'text-black'}`}
+                    id="Crop_Type"
+                    name="Crop_Type"
+                    value={formData.Crop_Type}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="" disabled>Select</option>
+                    <option value="0">Barley</option>
+                    <option value="1">Cotton</option>
+                    <option value="2">Ground Nuts</option>
+                    <option value="3">Maize</option>
+                    <option value="4">Millets</option>
+                    <option value="5">Oil Seeds</option>
+                    <option value="6">Paddy</option>
+                    <option value="7">Pulses</option>
+                    <option value="8">Sugarcane</option>
+                    <option value="9">Tobacco</option>
+                    <option value="10">Wheat</option>
+                  </select>
+                </div>
+
+                {/* Inputs for Nitrogen, Potassium, and Phosphorous */}
+                <div className="mb-4">
+                  <label className="block text-base font-medium mb-2 " htmlFor="Nitrogen">Nitrogen</label>
+                  <input
+                    type="number"
+                    max={50}
+                    min={0}
+                    id="Nitrogen"
+                    name="Nitrogen"
+                    value={formData.Nitrogen}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 text-base border rounded-md text-black"
+                    placeholder="1 to 50"
+                    required
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-base font-medium mb-2" htmlFor="Potassium">Potassium</label>
+                  <input
+                    type="number"
+                    max={50}
+                    min={0}
+                    id="Potassium"
+                    name="Potassium"
+                    value={formData.Potassium}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 text-base border rounded-md text-black"
+                    placeholder="1 to 50"
+                    required
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-base font-medium mb-2" htmlFor="Phosphorous">Phosphorous</label>
+                  <input
+                    type="number"
+                    max={50}
+                    min={0}
+                    id="Phosphorous"
+                    name="Phosphorous"
+                    value={formData.Phosphorous}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 text-base border rounded-md text-black"
+                    placeholder="1 to 50"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={`w-full mt-4 px-6 py-3 text-lg text-white font-semibold rounded-lg ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-500 hover:bg-green-600'}`}
+              >
+                {isLoading ? 'Predicting...' : 'Predict Fertilizer'}
+              </button>
+            </form>
 
 
-                {(result || isLoading) && (
+            {(result || isLoading) && (
               <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden mt-6 p-6`}>
                 <h2 className="text-2xl font-bold text-green-600 mb-4">Prediction Result</h2>
                 {isLoading ? (
@@ -355,26 +392,72 @@ export default function Component() {
             )}
           </div>
         </div>
+        
+        <div>
+          <div className="mt-6 flex flex-wrap justify-center space-x-4">
+            <button
+              onClick={handleViewReport}
+              className="bg-white text-green-600 px-6 py-2 rounded-lg shadow hover:bg-green-50 text-lg mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 inline-block mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                />
+              </svg>
+              View Report
+            </button>
+            <button className="bg-white text-green-600 px-6 py-2 rounded-lg shadow hover:bg-green-50 text-lg mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              Compare Options
+            </button>
+            <button
+              onClick={handleDownloadPdf}
+              className="bg-white text-green-600 px-6 py-2 rounded-lg shadow hover:bg-green-50 text-lg mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 inline-block mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              Download PDF
+            </button>
+          </div>
 
-        <div className="mt-6 flex flex-wrap justify-center space-x-4">
-          <button className="bg-white text-green-600 px-6 py-2 rounded-lg shadow hover:bg-green-50 text-lg mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            View Report
-          </button>
-          <button className="bg-white text-green-600 px-6 py-2 rounded-lg shadow hover:bg-green-50 text-lg mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-            Compare Options
-          </button>
-          <button className="bg-white text-green-600 px-6 py-2 rounded-lg shadow hover:bg-green-50 text-lg mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
-            Download PDF
-          </button>
+          {/* Conditionally render the report */}
+          {showReport && (
+            <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
+              <h2 className="text-xl font-semibold mb-4">Fertilizer Prediction Report</h2>
+              <p><strong>Temperature:</strong> {formData.Temparature}</p>
+              <p><strong>Humidity:</strong> {formData.Humidity}</p>
+              <p><strong>Moisture:</strong> {formData.Moisture}</p>
+              <p><strong>Soil Type:</strong> {formData.Soil_Type}</p>
+              <p><strong>Crop Type:</strong> {formData.Crop_Type}</p>
+              <p><strong>Nitrogen:</strong> {formData.Nitrogen}</p>
+              <p><strong>Potassium:</strong> {formData.Potassium}</p>
+              <p><strong>Phosphorous:</strong> {formData.Phosphorous}</p>
+              <p><strong>Prediction:</strong> {result}</p>
+            </div>
+          )}
         </div>
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -400,7 +483,7 @@ export default function Component() {
         </button>
       </div>
 
-      <div className="fixed bottom-6 left-6 flex items-center space-x-3">
+      <div className="fixed bottom-6 left-6 flex items-center space-x-3 rounded-full px-3 py-2 bg-green-600 shadow-lg">
         <div className="relative inline-block w-12 mr-2 align-middle select-none">
           <input
             type="checkbox"
