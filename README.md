@@ -46,26 +46,27 @@ This repository also provides one such platforms where contributers come over an
 ![GitHub Repo stars](https://img.shields.io/github/stars/manikumarreddyu/AgroTech-AI)
 ![GitHub contributors](https://img.shields.io/github/contributors/manikumarreddyu/AgroTech-AI)
 
-
 </p>
 
+</div>
 
-## Table of Contents
+<details>
+    <summary><h2>:pushpin:Table of Contents: </h2></summary>
+
 
 1. [Project Description](#project-description)
-2. [Getting Started / Installation](#getting-started--installation)
-3. [API Documentation](#api-documentation)
-   - [Fertilizer Prediction](#fertilizer-prediction)
-   - [Crop Prediction](#crop-prediction)
-   - [Soil Quality Prediction](#soil-quality-prediction)
-   - [Yield Prediction](#yield-prediction)
-   - [Mushroom Edibility Prediction](#mushroom-edibility-prediction)
-4. [Tech Stack](#techstack)
-5. [Contributing](#are-ready-to-contribute)
-6. [Code of Conduct](#code-of-conduct)
-7. [License](#license)
-8. [Stargazers](#stargazers)
-9. [Forkers](#forkers)
+2. [TechStack](#techstack)
+3. [Screenshots](#screenshots)
+4. [Video](#video)
+5. [Code of Conduct](#code-of-conduct)
+6. [Setting Up on your machine](#setting-up-on-your-machine)
+7. [How to Contribute](#how-to-contribute)
+8. [Our Contributors](#our-contributors)
+9. [License](#license)
+
+</details>
+
+<hr>
 
 
 ## Project Description
