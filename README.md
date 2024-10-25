@@ -213,7 +213,110 @@ Make sure you follow our contributing guidlines:-  [here](https://github.com/Ram
    npm start
 6. Open your browser at `http://localhost:5173` to see the project running! 🌟
 
+## API Documentation
+
+The API provides endpoints for various functionalities of the AgroTech AI platform. Below is a brief overview of the available endpoints:
+
+### 1. Fertilizer Prediction
+- **Endpoint:** `/api/fertilizer`
+- **Method:** `POST`
+- **Request Body:**
+  ```json
+  {
+      "temperature": <number>,
+      "humidity": <number>,
+      "moisture": <number>,
+      "soil_type": "<string>",
+      "crop_type": "<string>",
+      "nitrogen": <number>,
+      "potassium": <number>,
+      "phosphorus": <number>
+  }
+  ```
+#### 2. Crop Prediction
+
+- **Endpoint:** `/api/crop`
+- **Method:** `POST`
+- **Request Body:**
+    ```json
+    {
+        "nitrogen": <number>,
+        "phosphorus": <number>,
+        "potassium": <number>,
+        "temperature": <number>,
+        "humidity": <number>,
+        "ph_level": <number>,
+        "rainfall": <number>
+    }
+    ```
+#### 3. Soil Quality Prediction
+
+**Endpoint:** `/api/soil-quality`  
+**Method:** `POST`  
+
+**Request Body:**
+```json
+{
+    "nitrogen": <number>,
+    "ph": <number>,
+    "organic_carbon": <number>,
+    "other_nutrients": {
+        "phosphorus": <number>,
+        "potassium": <number>
+    }
+}
+```
+#### 4. Yield Prediction
+
+**Endpoint:** `/api/yield`  
+**Method:** `POST`  
+
+### Request Body:
+```json
+{
+    "area": <number>,
+    "crop_type": "<string>",
+    "year": <number>,
+    "rainfall": <number>,
+    "pesticide_usage": <number>,
+    "average_temperature": <number>
+}
+```
+#### 5. Mushroom Edibility Prediction
+
+**Endpoint:** `/api/mushroom`  
+**Method:** `POST`  
+
+### Request Body:
+```json
+{
+    "cap_shape": "<string>",
+    "cap_surface": "<string>",
+    "cap_color": "<string>",
+    "bruises": "<string>",
+    "odor": "<string>",
+    "gill_attachment": "<string>",
+    "gill_spacing": "<string>",
+    "gill_size": "<string>",
+    "gill_color": "<string>",
+    "stalk_shape": "<string>",
+    "stalk_surface_above_ring": "<string>",
+    "stalk_surface_below_ring": "<string>",
+    "stalk_color_above_ring": "<string>",
+    "stalk_color_below_ring": "<string>",
+    "veil_type": "<string>",
+    "veil_color": "<string>",
+    "ring_number": "<string>",
+    "ring_type": "<string>",
+    "spore_print_color": "<string>",
+    "population": "<string>",
+    "habitat": "<string>"
+}
+```
+
+
 <!-- Code of conduct -->
+
 <div>
 <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
 </div>
