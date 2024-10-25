@@ -22,7 +22,7 @@ const Footer = () => {
         { name: 'Fertilizer Recommendation', path: '/fertilizer' },
         { name: 'Soil Quality', path: '/soil' },
         { name: 'Price Prediction', path: '/prices' },
-        { name: 'Forecast', path: '/forecast' },
+        { name: 'Forecast', path: '/Climate' },
         { name: 'Disease', path: '/disease' },
     ];
 
