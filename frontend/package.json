@@ -39,7 +39,7 @@
     "react-leaflet": "^4.2.1",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.24.1",
-    "react-toastify": "^10.0.5",
+    "react-toastify": "^10.0.6",
     "react-tsparticles": "^2.12.2",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
