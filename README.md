@@ -53,6 +53,8 @@ This repository also provides one such platforms where contributers come over an
 <details>
     <summary><h2>:pushpin:Table of Contents: </h2></summary>
 
+## Table of Contents
+
 1. [Project Description](#project-description)
 2. [Getting Started / Installation](#getting-started--installation)
 3. [API Documentation](#api-documentation)
@@ -61,8 +63,8 @@ This repository also provides one such platforms where contributers come over an
    - [Soil Quality Prediction](#soil-quality-prediction)
    - [Yield Prediction](#yield-prediction)
    - [Mushroom Edibility Prediction](#mushroom-edibility-prediction)
-4. [Tech Stack](#techstack)
-5. [Contributing](#are-ready-to-contribute)
+4. [Tech Stack](#tech-stack)
+5. [Contributing](#contributing)
 6. [Code of Conduct](#code-of-conduct)
 7. [License](#license)
 8. [Stargazers](#stargazers)
