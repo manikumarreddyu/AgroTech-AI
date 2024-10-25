@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const User = require("../model/user");
+const authenticateJWT = require('../middleware/auth.js');
+const { submitRating } = require('../controllers/rating.js');
 
 // Get User by ID
 router.get('/users/:id', async (req, res) => {
@@ -15,5 +17,8 @@ router.get('/users/:id', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+
+router.post('/rating', authenticateJWT, submitRating);
 
 module.exports = router;
