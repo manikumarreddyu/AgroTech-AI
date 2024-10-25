@@ -342,10 +342,10 @@ If you would like to contribute to the project then kindly go through [Contribut
 <div align = "center">
  <h3>Thank you for contributing to our repository</h3>
 
-<p><a href="https://github.com/manikumarreddyu/AgroTech-AI/contributors">
-  <img src="https://contributors-img.web.app/image?repo=manikumarreddyu/AgroTech-AI" />
-  
-</a></p>
+<p align="center">
+    <img src="https://api.vaunt.dev/v1/github/entities/manikumarreddyu/repositories/AgroTech-AI/contributors?format=svg&limit=54" width="700" height="250" />
+</p>
+
 
 </div>
 
