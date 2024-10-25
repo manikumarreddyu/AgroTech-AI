@@ -129,7 +129,7 @@ const MainContent = () => {
                 <Route path="/AgroShop" element={<HomeShop/>} />
                 <Route path="/AgroShop/Category" element={<CategoryPage/>} />
                 <Route path="/AgroShop/Category/:id" element={<CategoryPage/>} />
-                <Route path="/AgroShop/Product" element={<ProductPage/>}></Route>
+                <Route path="/AgroShop/Product/:id" element={<ProductPage/>}/>
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
