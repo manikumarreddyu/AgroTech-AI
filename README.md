@@ -15,6 +15,12 @@ Make sure you star the repository and show your love to us💗
 <br>
 <p>
 
+## 📈 GitHub Repository Stats
+| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | ✅ **Contributors** |
+|--------------|--------------|---------------|-----------------|------------------|------------------|
+| ![GitHub stars](https://img.shields.io/github/stars/manikumarreddyu/AgroTech-AI) | ![forks](https://img.shields.io/github/forks/manikumarreddyu/AgroTech-AI) | ![issues](https://img.shields.io/github/issues/manikumarreddyu/AgroTech-AI?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/manikumarreddyu/AgroTech-AI?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/manikumarreddyu/AgroTech-AI?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/manikumarreddyu/AgroTech-AI?color=00FA9A) |
+
+
 
 ## Why to Open Source
 
