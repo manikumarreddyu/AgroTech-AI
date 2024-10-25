@@ -204,7 +204,7 @@ Make sure you follow our contributing guidlines:-  [here](https://github.com/Ram
 1. **Fork this repository** 🍴 and clone it to your local machine:
    ```bash
    git clone https://github.com/manikumarreddyu/AgroTech-AI.git
-# ⚙️ Getting Started with Agro Tech AI main website
+## ⚙️ Getting Started with Agro Tech AI main website
 
 2. **Install the node modules in frontend directory:**
    ```bash
