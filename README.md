@@ -49,53 +49,53 @@ This repository also provides one such platforms where contributers come over an
 
 </p>
 
-</div>
 
-<details>
-    <summary><h2>:pushpin:Table of Contents: </h2></summary>
-
+## Table of Contents
 
 1. [Project Description](#project-description)
-2. [TechStack](#techstack)
-3. [Screenshots](#screenshots)
-4. [Video](#video)
-5. [Code of Conduct](#code-of-conduct)
-6. [Setting Up on your machine](#setting-up-on-your-machine)
-7. [How to Contribute](#how-to-contribute)
-8. [Our Contributors](#our-contributors)
-9. [License](#license)
+2. [Getting Started / Installation](#getting-started--installation)
+3. [API Documentation](#api-documentation)
+   - [Fertilizer Prediction](#fertilizer-prediction)
+   - [Crop Prediction](#crop-prediction)
+   - [Soil Quality Prediction](#soil-quality-prediction)
+   - [Yield Prediction](#yield-prediction)
+   - [Mushroom Edibility Prediction](#mushroom-edibility-prediction)
+4. [Tech Stack](#techstack)
+5. [Contributing](#are-ready-to-contribute)
+6. [Code of Conduct](#code-of-conduct)
+7. [License](#license)
+8. [Stargazers](#stargazers)
+9. [Forkers](#forkers)
 
-</details>
-<hr>
 
 ## Project Description
 
 AgroTech AI platform is a comprehensive web-based tool where users can access various machine learning models for making accurate predictions related to agriculture. It offers solutions for crop management, soil health assessment, pest control, and more.
 
 It implements machine learning algorithms to implement 3 basic functionalities:
-# 1. Fertilizer Prediction
+### 1. Fertilizer Prediction
 Aims to predict the appropriate fertilizer based on environmental and soil conditions. The dataset contains various features like temperature, humidity, moisture, soil type, crop type, and the levels of nitrogen, potassium, and phosphorus in the soil. The model aims to recommend the correct fertilizer to use, improving crop yield and soil health.
  
-# Dataset: 
+### Dataset: 
 Fertilizer Prediction.csv (Uploaded under notebooks)
  
-# Model Development :
+### Model Development :
 A Random Forest Classifier was chosen as the primary model due to its robustness and high accuracy in classification tasks. The dataset was split into training and testing sets in an 80:20 ratio.
 Key steps:
 
-# Label Encoding: 
+#### Label Encoding: 
 Categorical variables (Soil Type, Crop Type, and Fertilizer Name) were encoded using LabelEncoder.
-# Model Training: 
+#### Model Training: 
 A Random Forest model was trained using the training data.
-# Hyperparameter Tuning: 
+#### Hyperparameter Tuning: 
 A grid search with cross-validation was applied to find the optimal parameters for the Random Forest model.
 
-# 2. Crop Prediction
+### 2. Crop Prediction
 Develop a machine learning-based crop recommendation system that uses various classification algorithms to predict the optimal crop for farming based on soil and environmental factors. The model takes inputs such as Nitrogen (N), Phosphorus (P), Potassium (K), temperature, humidity, pH level, and rainfall, and outputs the most suitable crop for specific conditions.
-# Dataset:
+#### Dataset:
 Crop_recommendation.csv
 
-# Model Training and Results
+#### Model Training and Results
 Four different models were trained on the dataset to predict the crop:
 The results of each model are as follows:
 
@@ -105,13 +105,13 @@ The results of each model are as follows:
 4. Random Forest Classifier: 99.45%
 The final model selected for deployment is the Random Forest Classifier.
 
-# 3. Soil Quality Prediction 
+### 3. Soil Quality Prediction 
 Implements machine learning models to classify soil quality based on various features like nitrogen content, pH levels, organic carbon, and other nutrients. The goal of the model is to predict the quality of soil using logistic regression and a Support Vector Machine (SVM) model.
 
-# Dataset:
+#### Dataset:
 Soil_Quality.csv (Uploaded under notebooks)
 
-# Model Traning and Results
+#### Model Traning and Results
 1. Logistic Regression
 Logistic Regression is used to model the soil quality based on the provided features. The dataset is split into training and testing sets, and the logistic regression model is trained on the training data.
 
@@ -121,13 +121,13 @@ A Support Vector Machine with an RBF (Radial Basis Function) kernel is trained a
 3. Performance Evaluation
 The performance of both models is evaluated using accuracy. The accuracy of each model is calculated by comparing the predicted soil quality labels with the actual labels in the test dataset.
 
-# 4. Yield Prediction
+### 4. Yield Prediction
 Aims to develop a machine learning-based model for predicting crop yields based on various environmental and agricultural factors. The primary objective of this project is to create a model that predicts the total crop yield for a given region using data such as Area and type of crop, Year of cultivation, Average rainfall (in mm per year), Pesticide usage (in tonnes), Average temperature (in °C)
 
-# Dataset:
+#### Dataset:
 yield_df.csv (Uploaded under notebooks)
 
-# Model Training and Results
+#### Model Training and Results
 Various machine learning regression algorithms are applied, and the performance is evaluated based on metrics like Mean Squared Error (MSE).
 The results of the models used are as follows:
 1. Linear Regression
@@ -158,13 +158,13 @@ Score 0.09879301553673503
 
 The Random Forest Regressor was found to have the lowest MSE, making it the most suitable model for crop yield prediction. This model was selected for deployment and future predictions.
 
-# 5. Mushroom Edibility Prediction
+### 5. Mushroom Edibility Prediction
 Develop a machine learning model that predicts whether a mushroom is edible or not, depending on it's physical features and environment. The model takes various inputs regarding the physical characteristics of the mushroom and outputs if the mushroom is edible or poisonous.
 
-# Dataset:
+#### Dataset:
 mushrooms.csv
 
-# Model Training and Results
+#### Model Training and Results
 Five different models were trained on the dataset to predict mushroom edibility. The accuracy of each model are as follows:
 
 1. Logistic Regression: 0.94
