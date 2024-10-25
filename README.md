@@ -342,10 +342,14 @@ If you would like to contribute to the project then kindly go through [Contribut
 <div align = "center">
  <h3>Thank you for contributing to our repository</h3>
 
-<p><a href="https://github.com/manikumarreddyu/AgroTech-AI/contributors">
-  <img src="https://contributors-img.web.app/image?repo=manikumarreddyu/AgroTech-AI" />
-  
-</a></p>
+<p align="center">
+    <img src="https://api.vaunt.dev/v1/github/entities/manikumarreddyu/repositories/AgroTech-AI/contributors?format=svg&limit=54" width="700" height="250" />
+</p>
+
+#### A Big Thank You to Our Contributors! 🎉👏
+
+We want to extend our heartfelt gratitude to all the amazing contributors who have dedicated their time and effort to make FinVeda a success! Your hard work and commitment to excellence are what drive this project forward. Together, we are building something great! 
+Thank you for being a part of our community! ❤️✨
 
 </div>
 
