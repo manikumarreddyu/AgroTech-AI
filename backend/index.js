@@ -16,6 +16,7 @@ app.use('/auth', authRoutes);
 app.use('/api', contactRoutes);
 app.use('/api', shopRoutes);
 app.use('/api', userRoutes); 
+ 
 const PORT = process.env.PORT || 8080;
 
 // MongoDB connection

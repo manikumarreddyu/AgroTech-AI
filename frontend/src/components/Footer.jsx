@@ -45,12 +45,45 @@ const Footer = () => {
         setRating(value);
     };
 
-    const submitRating = () => {
-        alert(`Thank you for rating us ${rating} out of 5! Comment: ${comment}`);
-        setIsModalOpen(false);
-        setRating(0);
-        setComment('');
+    const submitRating = async () => {
+        const authData = JSON.parse(localStorage.getItem("auth"));
+
+        // Extract the token
+        const token = authData?.token;
+        
+        if (!token) {
+            alert("Please log in to submit a rating.");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:8080/api/rating", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}` // Include token for authentication
+                },
+                body: JSON.stringify({
+                    rating,
+                    comment,
+                }),
+            });
+
+            if (response.ok) {
+                alert("Thank you for your feedback!");
+                setRating(0);
+                setComment("");
+                setIsModalOpen(false); // Close modal after submission
+            } else {
+                const errorData = await response.json();
+                alert(`Error: ${errorData.message || "Submission failed."}`);
+            }
+        } catch (error) {
+            console.error("Error submitting rating:", error);
+            alert("An error occurred while submitting your rating.");
+        }
     };
+
 
     return (
         <footer className='bg-gradient-to-r from-[#11cb46] via-green-600 to-[#04ba10]  p-8 text-white'>
@@ -182,7 +215,11 @@ const Footer = () => {
                         <h2 className="text-lg font-bold mb-4 text-center text-black">Rate Us</h2>
                         <div className="flex justify-center mb-4">
                             {[1, 2, 3, 4, 5].map((value) => (
-                                <span key={value} className={`cursor-pointer text-2xl ${rating >= value ? 'text-lime-500' : 'text-gray-300'}`} onClick={() => handleRating(value)}>
+                                <span
+                                    key={value}
+                                    className={`cursor-pointer text-2xl ${rating >= value ? 'text-lime-500' : 'text-gray-300'}`}
+                                    onClick={() => handleRating(value)}
+                                >
                                     ★
                                 </span>
                             ))}
