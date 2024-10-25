@@ -5,6 +5,7 @@ import Crop from './components/models/CropRecommendation';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Disease from './components/Disease';
 import Fertilizer from './components/models/Fertilizer';
 import SoilQuality from './components/models/SoilQuality';
 import Footer from './components/Footer';
@@ -91,7 +92,7 @@ const MainContent = () => {
                 <Route path="/crop" element={<Crop />} />
                 <Route path="/fertilizer" element={<Fertilizer />} />
                 <Route path="/soil" element={<SoilQuality />} />
-                
+                <Route path="/disease" element={<Disease/>}/>
                 <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
 
                 <Route path="/prices" element={<Prices />} />
