@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 const ProductCard = ({ item }) => {
   console.log(item)
   const salePrice = item.variant.price * (1 - (item.offer / 100));
   const savings = item.variant.price - salePrice;
-
+  const navigate = useNavigate();
+  const handleCart = ()=>{
+    console.log("cart")
+    navigate('/agroshop/cart')
+  }
   return (
     <div
       className="flex-shrink-0 w-64 h-fit bg-white rounded-lg overflow-hidden relative"
@@ -47,7 +52,7 @@ const ProductCard = ({ item }) => {
         <button className="bg-green-400 hover:bg-green-300 text-gray-800 font-medium px-4 py-2 rounded-md transition duration-200 ease-in-out shadow-sm">
           Buy Now
         </button>
-        <button className="bg-orange-400 hover:bg-orange-300 text-gray-800 font-medium px-4 py-2 rounded-md transition duration-200 ease-in-out shadow-sm">
+        <button className="bg-orange-400 hover:bg-orange-300 text-gray-800 font-medium px-4 py-2 rounded-md transition duration-200 ease-in-out shadow-sm" onClick={() => handleCart()}>
           Add to Cart
         </button>
       </div>

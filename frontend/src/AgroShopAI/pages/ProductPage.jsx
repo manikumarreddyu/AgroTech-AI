@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReviewSection from "../components/ReviewSection"; // Adjust the path as needed
 import { useParams } from "react-router-dom";
 import NotFound from "../../NotFound";
+import { useNavigate } from "react-router-dom";
 const ProductPage = () => {
   const {id} = useParams();
   if (!id){
@@ -57,6 +58,11 @@ const ProductPage = () => {
   };
 
   const averageRating = calculateAverageRating();
+  const navigate = useNavigate()
+  const handleCart = ()=>{
+    console.log("cart")
+    navigate('/agroshop/cart')
+  }
 
   // Display loader while fetching data
   if (loading) {
@@ -196,7 +202,7 @@ const ProductPage = () => {
     </div>
           {/* Add to Cart and Buy Now Buttons */}
           <div className="space-y-4">
-            <button className="bg-yellow-400 text-black px-6 py-3 rounded-md font-bold hover:bg-yellow-500 w-full">
+            <button className="bg-yellow-400 text-black px-6 py-3 rounded-md font-bold hover:bg-yellow-500 w-full" onClick={() => handleCart()}>
               Add to Cart ( {quantity>0?`${quantity}`:''} )
             </button>
             <button className="bg-orange-600 text-white px-6 py-3 rounded-md font-bold hover:bg-orange-700 w-full">
