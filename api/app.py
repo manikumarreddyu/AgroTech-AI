@@ -45,11 +45,11 @@ field_prompt = (
 CORS(app,resources={r"/*":{"origins":"*"}})
 
 
-crop_model = pickle.load(open('crop_recommendation.pkl', 'rb'))
+crop_recommendation_model = pickle.load(open('crop_recommendation.pkl', 'rb'))
 fertilizer_model = pickle.load(open('fertilizer.pkl', 'rb'))
 classifier_model = pickle.load(open('classifier.pkl', 'rb'))
 soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
-crop_model = pickle.load('crop_rotation_recommendation_model.pkl')
+crop_rotation_recommendation_model = pickle.load('crop_rotation_recommendation_model.pkl')
 
 # Define a route for handling HTTP GET requests to the root URL
 @app.route('/', methods=['GET'])
@@ -85,7 +85,7 @@ def get_gemini_response(location):
     return response_text
 
 # API route to get soil testing labs based on location
-@app.route('/find_soil_labs', methods=['POST'])
+@app.route('/soil_labs', methods=['POST'])
 def find_soil_labs():
     data = request.get_json()
 
@@ -191,7 +191,7 @@ def is_rate_limited(ip):
     rate_limit_store[ip].append(current_time)
     return False
 
-@app.route('/AgroTech-ChatBot', methods=['POST'])
+@app.route('/chatbot', methods=['POST'])
 def chat():
     ip = request.remote_addr
     if is_rate_limited(ip):
@@ -347,7 +347,7 @@ def crop_recommendation():
         }])
 
         # Make prediction
-        prediction = crop_model.predict(input_data)
+        prediction = crop_rotation_recommendation_model.predict(input_data)
         print("Prediction:", prediction)
 
         if prediction[0] in crop_mapping:
@@ -371,7 +371,7 @@ def crop_predict():
     try:
         data = request.get_json()
         query_df = pd.DataFrame([data])
-        prediction = crop_model.predict(query_df)
+        prediction = crop_recommendation_model.predict(query_df)
         return jsonify({'Prediction': list(prediction)})
     except Exception as e:
         return jsonify({'error': str(e)})
