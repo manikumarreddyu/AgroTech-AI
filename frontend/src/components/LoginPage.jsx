@@ -23,7 +23,7 @@ const LoginPage = () => {
           password,
         }
       );
-      login(response.data.token); // Call login method from context
+      login(response.data.token, response.data.user_id); // Call login method from context
       toast.success("Login successful");
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
