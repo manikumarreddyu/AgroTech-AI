@@ -38,8 +38,7 @@ export default function Component() {
 
   const handlePredictClick = (e) => {
     e.preventDefault();
-    // const url = "https://agro-ai-1.onrender.com/fertilizer_predict";
-    // https://agro-kdxo.onrender.com/
+    
     const url = "https://agrotech-api.onrender.com/fertilizer_predict";
     //  const url = "http://127.0.0.1:5000/fertilizer_predict";
     setIsLoading(true);
