@@ -22,7 +22,7 @@ const DiseaseRecognition = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post('https://combined-disease-detection-api.onrender.com/predict', formData, {
+      const response = await axios.post('https://agrotech-api.onrender.com/disease_predict', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

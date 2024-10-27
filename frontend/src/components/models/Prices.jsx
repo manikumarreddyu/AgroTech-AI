@@ -28,7 +28,7 @@ const Prices = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://agro-kdxo.onrender.com/price_predict');
+                const response = await fetch('https://agrotech-api.onrender.com/price_predict');
                 if (!response.ok) throw new Error('Network response was not ok');
                 const responseData = await response.json();
                 setReceivedData(responseData);

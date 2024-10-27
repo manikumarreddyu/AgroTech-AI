@@ -51,7 +51,7 @@ function ChatBot() {
     }
   
     try {
-      const response = await fetch('https://agrotech-chatbot.onrender.com/AgroTech-ChatBot', {
+      const response = await fetch('https://agrotech-api.onrender.com/chatbot', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: messageToSend }),
