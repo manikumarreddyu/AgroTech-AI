@@ -5,6 +5,7 @@ import Crop from './components/models/CropRecommendation';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Disease from './components/Disease';
 import Fertilizer from './components/models/Fertilizer';
 import SoilQuality from './components/models/SoilQuality';
 import Footer from './components/Footer';
@@ -51,6 +52,7 @@ import CategoryPage from './AgroShopAI/pages/CategoryPage';
 import ProductPage from './AgroShopAI/pages/ProductPage';
 import BestPractices from './pages/BestPractices';
 import Profile from './components/Profile';
+import AgriProductListing from './AgroRentAI/components/AgriProductListing';
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route
@@ -91,7 +93,7 @@ const MainContent = () => {
                 <Route path="/crop" element={<Crop />} />
                 <Route path="/fertilizer" element={<Fertilizer />} />
                 <Route path="/soil" element={<SoilQuality />} />
-                
+                <Route path="/disease" element={<Disease/>}/>
                 <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
 
                 <Route path="/prices" element={<Prices />} />
@@ -124,12 +126,13 @@ const MainContent = () => {
                 {/* AgroRentAI Routes */}
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
+                <Route path="/AgriProducts" element={<AgriProductListing/>} />
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
                 <Route path="/AgroShop/Category" element={<CategoryPage/>} />
                 <Route path="/AgroShop/Category/:id" element={<CategoryPage/>} />
-                <Route path="/AgroShop/Product" element={<ProductPage/>}></Route>
+                <Route path="/AgroShop/Product/:id" element={<ProductPage/>}/>
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>

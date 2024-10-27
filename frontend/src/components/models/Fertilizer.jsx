@@ -38,9 +38,8 @@ export default function Component() {
 
   const handlePredictClick = (e) => {
     e.preventDefault();
-    // const url = "https://agro-ai-1.onrender.com/fertilizer_predict";
-    // https://agro-kdxo.onrender.com/
-    const url = "https://agro-kdxo.onrender.com/fertilizer_predict";
+    
+    const url = "https://agrotech-api.onrender.com/fertilizer_predict";
     //  const url = "http://127.0.0.1:5000/fertilizer_predict";
     setIsLoading(true);
     const jsonData = JSON.stringify(formData);
@@ -128,14 +127,14 @@ export default function Component() {
             </div>
 
             <div className="mt-6 grid grid-cols-3 gap-4">
-              {['Nitrogen', 'Phosphorous', 'Potassium'].map((nutrient) => (
+              {['Nitrogen', 'Phosphorus', 'Potassium'].map((nutrient) => (
                 <div key={nutrient} className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-4`}>
-                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : nutrient === 'Phosphorous' ? 'text-blue-500' : 'text-orange-500'}`}>
+                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : nutrient === 'Phosphorus' ? 'text-blue-500' : 'text-orange-500'}`}>
                     {nutrient}
                   </h3>
                   <div className="relative pt-1">
                     <div className="overflow-hidden h-3 mb-2 text-xs flex rounded bg-gray-200">
-                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : nutrient === 'Phosphorous' ? 'bg-blue-500' : 'bg-orange-500'}`}></div>
+                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : nutrient === 'Phosphorus' ? 'bg-blue-500' : 'bg-orange-500'}`}></div>
                     </div>
                   </div>
                   <p className="text-sm">Current: {formData[nutrient]}, Optimal: 30-40</p>
@@ -231,8 +230,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Temparature">Temparature</label>
                   <input
-                    type="number"
-                    max={50}
+                    type="text"
                     id="Temparature"
                     name="Temparature"
                     value={formData.Temparature}
@@ -246,9 +244,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Humidity">Humidity</label>
                   <input
-                    type="number"
-                    max={100}
-                    min={0}
+                    type="text"
                     id="Humidity"
                     name="Humidity"
                     value={formData.Humidity}
@@ -262,9 +258,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Moisture">Moisture</label>
                   <input
-                    type="number"
-                    max={100}
-                    min={0}
+                    type="text"
                     id="Moisture"
                     name="Moisture"
                     value={formData.Moisture}
@@ -324,9 +318,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2 " htmlFor="Nitrogen">Nitrogen</label>
                   <input
-                    type="number"
-                    max={50}
-                    min={0}
+                    type="text"
                     id="Nitrogen"
                     name="Nitrogen"
                     value={formData.Nitrogen}
@@ -340,9 +332,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Potassium">Potassium</label>
                   <input
-                    type="number"
-                    max={50}
-                    min={0}
+                    type="text"
                     id="Potassium"
                     name="Potassium"
                     value={formData.Potassium}
@@ -356,9 +346,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Phosphorous">Phosphorous</label>
                   <input
-                    type="number"
-                    max={50}
-                    min={0}
+                    type="text"
                     id="Phosphorous"
                     name="Phosphorous"
                     value={formData.Phosphorous}
@@ -483,7 +471,7 @@ export default function Component() {
         </button>
       </div>
 
-      <div className="fixed bottom-6 left-6 flex items-center space-x-3 rounded-full px-3 py-2 bg-green-600 shadow-lg">
+      <div className="fixed bottom-6 left-6 flex items-center space-x-3">
         <div className="relative inline-block w-12 mr-2 align-middle select-none">
           <input
             type="checkbox"
