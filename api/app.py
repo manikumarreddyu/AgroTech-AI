@@ -21,6 +21,7 @@ import json
 from groq import Groq
 import time
 import re
+import joblib
 
 # Create a Flask application instance
 app = Flask(__name__)
@@ -49,7 +50,7 @@ crop_recommendation_model = pickle.load(open('crop_recommendation.pkl', 'rb'))
 fertilizer_model = pickle.load(open('fertilizer.pkl', 'rb'))
 classifier_model = pickle.load(open('classifier.pkl', 'rb'))
 soil_quality_model=pickle.load(open('soil_quality.pkl' ,'rb'))
-crop_rotation_recommendation_model = pickle.load('crop_rotation_recommendation_model.pkl')
+crop_rotation_recommendation_model = joblib.load('crop_rotation_recommendation_model.pkl')
 
 # Define a route for handling HTTP GET requests to the root URL
 @app.route('/', methods=['GET'])
