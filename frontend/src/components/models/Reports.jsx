@@ -80,7 +80,7 @@ const Reports = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = "https://agro-ai-1.onrender.com/commodity_predict";
+        const url = "https://agrotech-api.onrender.com/commodity_predict";
         const response = await fetch(url, {
           method: "POST",
           headers: {
