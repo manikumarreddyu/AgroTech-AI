@@ -231,8 +231,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Temparature">Temparature</label>
                   <input
-                    type="number"
-                    max={50}
+                    type="text"
                     id="Temparature"
                     name="Temparature"
                     value={formData.Temparature}
@@ -246,9 +245,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Humidity">Humidity</label>
                   <input
-                    type="number"
-                    max={100}
-                    min={0}
+                    type="text"
                     id="Humidity"
                     name="Humidity"
                     value={formData.Humidity}
@@ -262,9 +259,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Moisture">Moisture</label>
                   <input
-                    type="number"
-                    max={100}
-                    min={0}
+                    type="text"
                     id="Moisture"
                     name="Moisture"
                     value={formData.Moisture}
@@ -324,9 +319,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2 " htmlFor="Nitrogen">Nitrogen</label>
                   <input
-                    type="number"
-                    max={50}
-                    min={0}
+                    type="text"
                     id="Nitrogen"
                     name="Nitrogen"
                     value={formData.Nitrogen}
@@ -340,9 +333,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Potassium">Potassium</label>
                   <input
-                    type="number"
-                    max={50}
-                    min={0}
+                    type="text"
                     id="Potassium"
                     name="Potassium"
                     value={formData.Potassium}
@@ -356,9 +347,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Phosphorous">Phosphorous</label>
                   <input
-                    type="number"
-                    max={50}
-                    min={0}
+                    type="text"
                     id="Phosphorous"
                     name="Phosphorous"
                     value={formData.Phosphorous}
@@ -483,7 +472,7 @@ export default function Component() {
         </button>
       </div>
 
-      <div className="fixed bottom-6 left-6 flex items-center space-x-3 rounded-full px-3 py-2 bg-green-600 shadow-lg">
+      <div className="fixed bottom-6 left-6 flex items-center space-x-3">
         <div className="relative inline-block w-12 mr-2 align-middle select-none">
           <input
             type="checkbox"

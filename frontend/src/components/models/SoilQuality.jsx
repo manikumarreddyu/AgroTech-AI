@@ -340,9 +340,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Nitrogen</label>
         <input
-            type="number"
-            min={0}
-            max={400}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="N"
             name="N"
@@ -356,9 +354,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Phosphorus</label>
         <input
-            type="number"
-            min={0}
-            max={150}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="P"
             name="P"
@@ -372,9 +368,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Potassium</label>
         <input
-            type="number"
-            min={0}
-            max={900}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="K"
             name="K"
@@ -388,9 +382,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">pH Level</label>
         <input
-            type="number"
-            min={0}
-            max={14}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="pH"
             name="pH"
@@ -404,9 +396,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Electrical Conductivity</label>
         <input
-            type="number"
-            min={0}
-            max={1}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="EC"
             name="EC"
@@ -420,9 +410,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Organic Carbon</label>
         <input
-            type="number"
-            min={0}
-            max={2}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="OC"
             name="OC"
@@ -436,9 +424,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Sulphur</label>
         <input
-            type="number"
-            min={0}
-            max={30}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="S"
             name="S"
@@ -452,9 +438,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Zinc</label>
         <input
-            type="number"
-            min={0}
-            max={1}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="Zn"
             name="Zn"
@@ -468,9 +452,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Iron</label>
         <input
-            type="number"
-            min={0}
-            max={50}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="Fe"
             name="Fe"
@@ -484,9 +466,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Copper</label>
         <input
-            type="number"
-            min={0}
-            max={3}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="Cu"
             name="Cu"
@@ -500,9 +480,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Manganese</label>
         <input
-            type="number"
-            min={0}
-            max={30}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="Mn"
             name="Mn"
@@ -516,9 +494,7 @@ const SoilQuality = () => {
     <div className="flex flex-col">
         <label className="block text-left text-gray-700 font-semibold">Boron</label>
         <input
-            type="number"
-            min={0}
-            max={3}
+            type="text"
             className="w-full px-4 py-2 mt-1 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:outline-none transition-shadow"
             id="B"
             name="B"
