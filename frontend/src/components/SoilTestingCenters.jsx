@@ -33,6 +33,7 @@ export default function SoilTestingCenters() {
         location: location,
       });
 
+      
       if (response.status === 200) {
         setLabs(response.data);
         setError('');
