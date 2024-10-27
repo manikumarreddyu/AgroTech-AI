@@ -103,7 +103,7 @@ const Contact = () => {
 
     try {
       // Send form data to backend
-      const response = await fetch('http://localhost:8080/api/contactus', {
+      const response = await fetch('agro-tech-ai-backend-teal.vercel.app/contact/contactus', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
