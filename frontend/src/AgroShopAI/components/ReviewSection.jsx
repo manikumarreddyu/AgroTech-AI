@@ -20,7 +20,7 @@ const ReviewSection = ({ product_id,reviews, setReviews }) => {
     // Check if review text, rating, and user ID are valid
     if (reviewText.trim() && rating > 0 && userId.trim()) {
       try {
-        const response = await fetch('http://127.0.0.1:8080/api/reviews', {
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}api/reviews`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json', // Set the content type to JSON

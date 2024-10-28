@@ -1,14 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
+import LoginPrompt from './LoginPrompt';
 const ProductCard = ({ item }) => {
-  console.log(item)
+  const {isLoggedIn, userData} = useAuth();
   const salePrice = item.variant.price * (1 - (item.offer / 100));
   const savings = item.variant.price - salePrice;
   const navigate = useNavigate();
-  const handleCart = ()=>{
-    console.log("cart")
-    navigate('/agroshop/cart')
+  const handleCart = async()=>{
+    if(!isLoggedIn){
+      return (
+        <LoginPrompt/>
+      )
+    }
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}api/cart/${userData}/add`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId: item._id,
+          variantId: item.variant._id,
+          quantity: 1,
+        }),
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        console.log(result.message);
+        navigate('/agroshop/cart')
+      } else {
+        alert(result.message || "Failed to add item to cart.");
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
   }
   return (
     <div
@@ -40,6 +69,10 @@ const ProductCard = ({ item }) => {
           {item.name.length > 25 ? `${item.name.substring(0, 25)}...` : item.name}
         </Link>
         <Link  className="block text-gray-400 text-xs hover:underline cursor-pointer hover:text-blue-500">{item.brand.name.length > 25 ? `${item.brand.name.substring(0, 35)}...` : item.brand.name}</Link>
+        <div className="flex items-center">
+          <p className="text-black text-sm display-inline mr-2">Size :</p>
+          <p className="text-gray-400 text-sm display-inline">{item.variant.size} {item.variant.type? 'Kg' : 'L'} </p>
+        </div>
         <div className="flex items-center">
           <p className="text-black text-m display-inline mr-2">₹{salePrice.toFixed(2)}</p>
           <p className="text-gray-400 text-m display-inline line-through">₹{item.variant.price}</p>
