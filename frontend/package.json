@@ -12,6 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@fortawesome/fontawesome-svg-core": "^6.x.x",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@headlessui/react": "^2.1.10",
@@ -42,12 +43,12 @@
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.24.1",
     "react-toastify": "^10.0.6",
+    "react-transition-group": "^4.4.5",
     "react-tsparticles": "^2.12.2",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.169.0",
-    "tsparticles": "^3.5.0",
-   "@fortawesome/fontawesome-svg-core": "^6.x.x"
+    "tsparticles": "^3.5.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
