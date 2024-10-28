@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
 const CartItem = ({ index, image, title, description,size, type,color, qty, price, originalPrice, updateQuantity, deleteItem }) => (
     <div className="flex justify-between items-start mb-4 border-b border-gray-200 pb-4">
         <img alt={title} className="w-24 h-24" src={image} />

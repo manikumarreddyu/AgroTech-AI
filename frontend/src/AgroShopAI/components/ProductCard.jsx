@@ -15,7 +15,7 @@ const ProductCard = ({ item }) => {
       )
     }
     try {
-      const response = await fetch(`http://127.0.0.1:8080/api/cart/${userData}/add`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}api/cart/${userData}/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

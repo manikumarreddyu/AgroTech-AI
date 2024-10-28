@@ -15,7 +15,7 @@ const CartPage = () => {
         const fetchCartItems = async () => {
             if (isLoggedIn) {
                 try {
-                    const response = await axios.get(`http://127.0.0.1:8080/api/cart/${userData}`);
+                    const response = await axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}api/cart/${userData}`);
                     setCartItems(response.data.cart || []);
                 } catch (error) {
                     console.error("Failed to fetch cart items:", error);
@@ -31,7 +31,7 @@ const CartPage = () => {
     const updateQuantity = async (index, newQty) => {
         const item = cartItems[index];
         try {
-            await axios.put(`http://127.0.0.1:8080/api/cart/${userData}/update`, {
+            await axios.put(`${import.meta.env.VITE_BACKEND_BASE_URL}api/cart/${userData}/update`, {
                 variantId: item.variantId._id, // Use variantId._id instead of itemNo
                 quantity: newQty
             });
@@ -46,7 +46,7 @@ const CartPage = () => {
     const deleteItem = async (index) => {
         const item = cartItems[index];
         try {
-            await axios.delete(`http://127.0.0.1:8080/api/cart/${userData}/remove`, { data: { variantId: item.variantId._id } });
+            await axios.delete(`${import.meta.env.VITE_BACKEND_BASE_URL}api/cart/${userData}/remove`, { data: { variantId: item.variantId._id } });
             setCartItems(prevItems => prevItems.filter((_, i) => i !== index));
         } catch (error) {
             console.error("Failed to delete cart item:", error);

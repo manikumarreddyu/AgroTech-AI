@@ -10,11 +10,10 @@ const CategoryPage = () => {
   const [loading, setLoading] = useState(true); // State for loading status
   const { id } = useParams();
   let url = '';
-
   if (id) {
-    url = `http://127.0.0.1:8080/api/products/category/${id}`;
+    url = `${import.meta.env.VITE_BACKEND_BASE_URL}api/products/category/${id}`;
   } else {
-    url = `http://127.0.0.1:8080/api/products/`;
+    url = `${import.meta.env.VITE_BACKEND_BASE_URL}api/products/`;
   }
 
   // Function to fetch data from the backend

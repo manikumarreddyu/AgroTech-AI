@@ -31,7 +31,7 @@ const ProductPage = () => {
   const [items, setItems] = useState(null);
   const [loading, setLoading] = useState(false);
   const [currentImage, setCurrentImage] = useState("");
-  const url = `http://127.0.0.1:8080/api/products/${id}`; // Replace with your API URL
+  const url = `${import.meta.env.VITE_BACKEND_BASE_URL}api/products/${id}`; // Replace with your API URL
 
   // Function to fetch product data and reviews
   const fetchData = async () => {

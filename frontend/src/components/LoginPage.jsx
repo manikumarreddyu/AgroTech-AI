@@ -17,7 +17,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8080/auth/signin",
+        "https://agrotech-ai-11j3.onrender.com/auth/signin",
         {
           email,
           password,
