@@ -17,7 +17,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://agrotech-ai-11j3.onrender.com/auth/signin",
+        "https://agro-tech-ai-backend-teal.vercel.app/auth/signin",
         {
           email,
           password,
