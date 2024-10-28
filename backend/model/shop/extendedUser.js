@@ -17,8 +17,8 @@ const addressSchema = new mongoose.Schema({
 // Define the cart item schema
 const cartItemSchema = new mongoose.Schema({
   productId: { type: String, required: true },
+  variantId : { type: String, required: true },
   quantity: { type: Number, required: true, min: 1 },
-  price: { type: Number, required: true },
   addedAt: { type: Date, default: Date.now },
 });
 

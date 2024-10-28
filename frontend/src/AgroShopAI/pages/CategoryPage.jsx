@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import Filter from "../components/Filter";
 import { useParams } from 'react-router-dom';
+import Preloader from "../../components/PreLoader";
 
 const CategoryPage = () => {
   const [items, setItems] = useState([]); // State to store fetched items
@@ -23,14 +24,17 @@ const CategoryPage = () => {
       const response = await fetch(url); // Replace with your API URL
       const data = await response.json();
 
-      // Map the data to only include the first variant for each item
-      const modifiedData = data.map(item => ({
-        ...item,
-        variant: item.variants[0] // Include only the first variant
-      }));
+      // Flatten data to include each variant as a separate item
+      const flattenedData = data.flatMap(item =>
+        item.variants.map(variant => ({
+          ...item,
+          variant, // Replace with individual variant
+          variantId: variant._id, // Add a unique key for each variant
+        }))
+      );
 
-      setItems(modifiedData); // Set fetched data to items
-      setFilteredItems(modifiedData); // Set initial filtered items
+      setItems(flattenedData); // Set flattened data to items
+      setFilteredItems(flattenedData); // Set initial filtered items
     } catch (error) {
       console.error("Failed to fetch items:", error);
     } finally {
@@ -40,17 +44,12 @@ const CategoryPage = () => {
 
   useEffect(() => {
     fetchData(); // Fetch data when the component mounts
-  }, []);
+  }, [id]);
 
   // Display loader while fetching data
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="text-center text-white">
-          <div className="loader border-t-4 border-b-4 border-purple-600 rounded-full w-12 h-12 mb-4 animate-spin"></div>
-          <p>Loading products...</p>
-        </div>
-      </div>
+      <Preloader />
     );
   }
 
@@ -73,7 +72,7 @@ const CategoryPage = () => {
         <div className="product-panel border-2 rounded-lg flex-grow flex flex-col">
           <div className="grid grid-cols-3 gap-4 py-4">
             {filteredItems.slice(0, 12).map((item, index) => (
-              <div className="justify-center mx-auto h-fit" key={index}>
+              <div className="justify-center mx-auto h-fit" key={item.variantId || index}>
                 <ProductCard item={item} />
               </div>
             ))}
