@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
 import axios from 'axios';
-import img from "../../assets/102.jpg"
+import img from "../../assets/102.jpg";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TaskReminder = () => {
     const [tasks, setTasks] = useState(() => {
@@ -46,8 +48,10 @@ const TaskReminder = () => {
             setShowTaskForm(false);
             scheduleNotification(task);
             await sendEmailNotification(task, 'created'); // Send email notification on creation
+            
+            toast.success(`Task for ${task.crop} scheduled successfully!`); // Show success toast
         } else {
-            alert('Please fill in all required fields.');
+            toast.error('Please fill in all required fields.'); // Show error toast
         }
     };
 
@@ -94,7 +98,9 @@ const TaskReminder = () => {
     };
 
     const handleDeleteTask = (id) => {
+        const deletedTask = tasks.find(task => task.id === id);
         setTasks((prev) => prev.filter((task) => task.id !== id));
+        toast.error(`Task for ${deletedTask.crop} deleted successfully!`); // Show delete toast
     };
 
     const handleEditTask = (task) => {
@@ -116,8 +122,9 @@ const TaskReminder = () => {
             setNewTask({ crop: '', date: '', time: '', notes: '', to: '' });
             setShowTaskForm(false);
             setEditingTask(null);
+            toast.success(`Task for ${updatedTask.crop} updated successfully!`); // Show update toast
         } else {
-            alert('Please fill in all required fields.');
+            toast.error('Please fill in all required fields.'); // Show error toast
         }
     };
 
@@ -213,35 +220,35 @@ const TaskReminder = () => {
                 {tasks.length > 0 ? (
                     <ul>
                         {tasks.map((task) => (
-                            <li key={task.id} className="my-2 p-4 border border-teal-700 rounded bg-teal-100 flex justify-between items-center">
+                            <li key={task.id} className="flex justify-between items-center mb-2 p-2 border border-teal-700 rounded">
                                 <div>
-                                    <p className="font-semibold">{task.crop}</p>
-                                    <p>{`${format(parseISO(task.date), 'MMMM dd, yyyy')} at ${task.time}`}</p>
-                                    <p className="text-sm text-gray-700">{task.notes}</p>
+                                    <p className="font-semibold text-white">{task.crop}</p>
+                                    <p className="text-white">{format(parseISO(task.date), 'MMMM do, yyyy')} at {task.time}</p>
+                                    {task.notes && <p className="text-white italic">Notes: {task.notes}</p>}
                                 </div>
-                                <div className="flex space-x-2">
+                                <div>
                                     <button
                                         onClick={() => handleEditTask(task)}
-                                        className="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 mr-2"
+                                        className="mr-2 px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition duration-200"
                                     >
                                         Edit
                                     </button>
                                     <button
                                         onClick={() => handleDeleteTask(task.id)}
-                                        className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                                        className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-200"
                                     >
                                         Delete
                                     </button>
                                 </div>
-
-
                             </li>
                         ))}
                     </ul>
                 ) : (
-                    <p className="text-gray-600">No tasks scheduled yet.</p>
+                    <p className="text-gray-600">No tasks scheduled.</p>
                 )}
             </div>
+
+            <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />
         </div>
     );
 };
