@@ -54,6 +54,7 @@ import BestPractices from './pages/BestPractices';
 import Profile from './components/Profile';
 import AgriProductListing from './AgroRentAI/components/AgriProductListing';
 import CartPage from './AgroShopAI/pages/Cart';
+import ShopNavbar from './AgroShopAI/components/ShopNavbar';
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route
@@ -83,7 +84,7 @@ const MainContent = () => {
             <GoTop />
             <ProgressScrollDown />
             <div>
-              {!hideNavbar && <Navbar />} {/* Conditional rendering for Navbar */}
+              {!hideNavbar ? <Navbar /> : <ShopNavbar/>} {/* Conditional rendering for Navbar */}
               <Routes>
                 <Route path="/thank-you" element={<Feedback />} /> {/* Thank You Page Route */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
