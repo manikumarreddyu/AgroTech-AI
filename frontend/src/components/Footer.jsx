@@ -208,46 +208,65 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Rating Modal */}
+            {/* Rating Modal */}           
             {isModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                    <div className="bg-white p-8 rounded-lg shadow-lg">
-                        <h2 className="text-lg font-bold mb-4 text-center text-black">Rate Us</h2>
-                        <div className="flex justify-center mb-4">
+                <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50 transition-opacity duration-300 ease-in-out">
+                    <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full relative">
+                        {/* Close Icon */}
+                        <button 
+                            onClick={() => setIsModalOpen(false)}
+                            className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition duration-200"
+                        >
+                            ✕
+                        </button>
+
+                        {/* Modal Header */}
+                        <h2 className="text-2xl font-bold mb-4 text-center text-gray-900">
+                            We'd Love Your Feedback
+                        </h2>
+
+                        {/* Star Rating */}
+                        <div className="flex justify-center space-x-2 mb-6">
                             {[1, 2, 3, 4, 5].map((value) => (
                                 <span
                                     key={value}
-                                    className={`cursor-pointer text-2xl ${rating >= value ? 'text-lime-500' : 'text-gray-300'}`}
+                                    className={`cursor-pointer text-2xl ${
+                                        rating >= value ? 'text-yellow-500' : 'text-gray-300'
+                                    } transition-transform transform hover:scale-105`}
                                     onClick={() => handleRating(value)}
                                 >
                                     ★
                                 </span>
                             ))}
                         </div>
+
+                        {/* Comments Text Area */}
                         <textarea
-                            className="w-full border text-black border-gray-300 rounded p-2 mb-4"
-                            rows="4"
-                            placeholder="Write your comments here..."
+                            className="w-full border border-gray-300 rounded-lg p-4 mb-4 text-gray-700 placeholder-gray-400 resize-none focus:outline-none focus:border-yellow-500 focus:ring-2 focus:ring-yellow-100"
+                            rows="3"
+                            placeholder="Share your thoughts..."
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                         ></textarea>
-                        <div className="flex justify-end">
+
+                        {/* Buttons */}
+                        <div className="flex justify-end space-x-4">
                             <button
                                 onClick={submitRating}
-                                className="bg-lime-500 text-white font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-lime-600"
+                                className="bg-yellow-500 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 hover:bg-yellow-600 shadow-md hover:shadow-lg"
                             >
                                 Submit
                             </button>
                             <button
                                 onClick={() => setIsModalOpen(false)}
-                                className="ml-2 text-gray-600 underline"
+                                className="text-gray-500 hover:text-gray-700 transition duration-200"
                             >
                                 Cancel
                             </button>
                         </div>
                     </div>
                 </div>
-            )}
+            )}          
         </footer>
     );
 };
