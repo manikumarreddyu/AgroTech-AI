@@ -5,9 +5,10 @@ const dotenv = require("dotenv").config();
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
 const contactRoutes = require('./routes/Contactroute');
-const shopRoutes = require('./routes/shop')
+const shopRoutes = require('./routes/shop');
+const agriProductRoutes = require('./routes/agriProductRoutes');
 const authMiddleware = require('./middleware/auth');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs')
 const app = express();
 
 app.use(cors());
@@ -16,6 +17,7 @@ app.use('/auth', authRoutes);
 app.use('/api', contactRoutes);
 app.use('/api', shopRoutes);
 app.use('/api', userRoutes); 
+app.use('/api/products', agriProductRoutes);
 const PORT = process.env.PORT || 8080;
 
 // MongoDB connection
