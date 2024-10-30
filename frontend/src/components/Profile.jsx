@@ -19,7 +19,7 @@ const Profile = () => {
     const token = localStorage.getItem('auth'); 
     if (token) {
       const { userId } = JSON.parse(atob(token.split('.')[1]));
-      axios.get(`http://localhost:8080/api/users/${userId}`, { 
+      axios.get(`https://agro-tech-ai-backend-teal.vercel.app/api/users/${userId}`, { 
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -56,7 +56,7 @@ const Profile = () => {
     const token = localStorage.getItem('auth'); 
     const { userId } = JSON.parse(atob(token.split('.')[1]));
 
-    axios.put(`http://localhost:8080/api/users/${userId}`, formData, {
+    axios.put(`https://agro-tech-ai-backend-teal.vercel.app/api/users/${userId}`, formData, {
       headers: {
         Authorization: `Bearer ${token}`,
       }

@@ -29,10 +29,11 @@ export default function SoilTestingCenters() {
     setError('');
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/find_soil_labs', {
+      const response = await axios.post('https://agrotech-api.onrender.com/soil_labs', {
         location: location,
       });
 
+      
       if (response.status === 200) {
         setLabs(response.data);
         setError('');

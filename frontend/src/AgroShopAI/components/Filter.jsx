@@ -10,11 +10,13 @@ const Filter = ({ items, setFilteredItems }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  // Extract unique brands from items
   useEffect(() => {
     const brands = [...new Set(items.map((item) => item.brand.name))]; // Access brand.name
     setBrandList(brands);
   }, [items]);
 
+  // Filter items based on selected criteria
   useEffect(() => {
     filterItems(priceRange, sortOption, brand, discountOption);
   }, [priceRange, sortOption, brand, discountOption]);
@@ -58,7 +60,7 @@ const Filter = ({ items, setFilteredItems }) => {
       const discountPercent = parseInt(item.offer) || 0; // Ensure offer is parsed correctly
       
       // Calculate salePrice
-      const salePrice = item.price * (1 - (item.offer / 100)); 
+      const salePrice = item.variant.price * (1 - (item.offer / 100)); 
   
       return (
         (priceRange.min === "" || salePrice >= Number(priceRange.min)) && // Use salePrice for filtering
@@ -76,22 +78,26 @@ const Filter = ({ items, setFilteredItems }) => {
   
     // Sorting logic remains the same
     if (sortOption === "price-asc") {
-      filteredItems.sort((a, b) => (a.price * (1 - (a.offer / 100))) - (b.price * (1 - (b.offer / 100)))); // Sort by salePrice
+      filteredItems.sort((a, b) => 
+        (a.price * (1 - (a.offer / 100))) - (b.price * (1 - (b.offer / 100))) // Sort by salePrice
+      );
     } else if (sortOption === "price-desc") {
-      filteredItems.sort((a, b) => (b.price * (1 - (b.offer / 100))) - (a.price * (1 - (a.offer / 100)))); // Sort by salePrice
+      filteredItems.sort((a, b) => 
+        (b.price * (1 - (b.offer / 100))) - (a.price * (1 - (a.offer / 100))) // Sort by salePrice
+      );
     } else if (sortOption === "newly-added") {
       filteredItems.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Use createdAt for newly added
     }
   
     setFilteredItems(filteredItems);
   };
-  
 
   return (
     <div className="flex flex-col gap-4 p-4 border-2 rounded-lg bg-white ">
       <div className="bg-white p-2 rounded-lg">
         <h2 className="font-semibold text-lg border-b-2 mb-4">Filter</h2>
 
+        {/* Price Range Filter */}
         <div className="mt-4">
           <div className="flex justify-between items-center">
             <h3 className="font-medium">&#9830; Price Range</h3>
@@ -126,6 +132,7 @@ const Filter = ({ items, setFilteredItems }) => {
           </div>
         </div>
 
+        {/* Sort By Filter */}
         <div className="mt-4">
           <div className="flex justify-between items-center">
             <h3 className="font-medium">&#9830; Sort By</h3>
@@ -172,6 +179,7 @@ const Filter = ({ items, setFilteredItems }) => {
           </div>
         </div>
 
+        {/* Discount Filter */}
         <div className="mt-4">
           <div className="flex justify-between items-center">
             <h3 className="font-medium">&#9830; Discount</h3>
@@ -248,12 +256,16 @@ const Filter = ({ items, setFilteredItems }) => {
           </div>
         </div>
 
+        {/* Brand Filter */}
         <div className="mt-4">
           <div className="flex justify-between items-center">
             <h3 className="font-medium">&#9830; Brand</h3>
             {brand && (
               <button
-                onClick={() => setBrand("")}
+                onClick={() => {
+                  setBrand("");
+                  setFilteredBrands([]);
+                }}
                 className="text-red-500 hover:underline"
               >
                 Clear
@@ -262,24 +274,26 @@ const Filter = ({ items, setFilteredItems }) => {
           </div>
           <input
             type="text"
+            placeholder="Search brand..."
             value={brand}
             onChange={handleBrandChange}
-            placeholder="Brand Name"
-            className="border rounded p-1 w-full bg-gray-100 mt-2"
-            onFocus={() => setIsDropdownOpen(true)}
+            className="border rounded p-1 w-full bg-gray-100"
           />
-          {isDropdownOpen && filteredBrands.length > 0 && (
-            <ul className="border rounded bg-white mt-2 max-h-48 overflow-y-auto z-10">
-              {filteredBrands.map((b) => (
-                <li
-                  key={b}
-                  className="p-2 hover:bg-gray-200 cursor-pointer"
+          {isDropdownOpen && (
+            <div
+              ref={dropdownRef}
+              className="absolute z-10 w-fit bg-white border rounded mt-1 shadow-lg"
+            >
+              {filteredBrands.map((b, index) => (
+                <div
+                  key={index}
                   onClick={() => handleBrandSelect(b)}
+                  className="p-2 hover:bg-gray-200 cursor-pointer"
                 >
                   {b}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
         </div>
       </div>

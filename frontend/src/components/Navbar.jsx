@@ -151,9 +151,9 @@ const Navbar = () => {
             {/* Authentication Links */}
             {isLoggedIn ? (
               <>
-                <Link to="/profile" className="text-white hover:bg-blue-500 py-2 px-3 rounded-lg transition-all duration-300">
+                {/* <Link to="/profile" className="text-white hover:bg-blue-500 py-2 px-3 rounded-lg transition-all duration-300">
                   Profile
-                </Link>
+                </Link> */}
                 <button onClick={logout} className="text-white hover:bg-red-500 py-2 px-3 rounded-lg transition-all duration-300">
                   Logout
                 </button>

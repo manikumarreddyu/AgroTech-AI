@@ -1,4 +1,6 @@
-const Review = require('../model/shop/Review');
+const mongoose = require('mongoose');
+const Review = require('../model/shop/review');
+const Product = require('../model/shop/product');
 
 // Get all reviews
 exports.getAllReviews = async (req, res) => {
@@ -13,8 +15,15 @@ exports.getAllReviews = async (req, res) => {
 // Get review by ID
 exports.getReviewById = async (req, res) => {
   try {
-    const review = await Review.findById(req.params.id).populate('product');
+    const reviewId = req.params.id;
+
+    if (!mongoose.Types.ObjectId.isValid(reviewId)) {
+      return res.status(400).json({ error: 'Invalid review ID' });
+    }
+
+    const review = await Review.findById(reviewId).populate('product');
     if (!review) return res.status(404).json({ error: "Review not found" });
+
     res.json(review);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -23,11 +32,23 @@ exports.getReviewById = async (req, res) => {
 
 // Create new review
 exports.createReview = async (req, res) => {
-  const { product, user, rating, comment } = req.body;
+  const { product,user, rating, comment } = req.body; // User is removed from here
   try {
-    const review = new Review({ product, user, rating, comment });
-    await review.save();
-    res.status(201).json(review);
+    // Step 1: Validate the product
+    const existingProduct = await Product.findById(product);
+    if (!existingProduct) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+
+    // Step 2: Create and save the review without checking for existing reviews
+    const review = new Review({ product,user, rating, comment });
+    const savedReview = await review.save();
+
+    // Step 3: Add the review to the product's reviews array
+    existingProduct.reviews.push(savedReview._id);
+    await existingProduct.save();
+
+    res.status(201).json(savedReview);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -35,8 +56,16 @@ exports.createReview = async (req, res) => {
 
 // Update review
 exports.updateReview = async (req, res) => {
+  const reviewId = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(reviewId)) {
+    return res.status(400).json({ error: 'Invalid review ID' });
+  }
+
   try {
-    const updatedReview = await Review.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedReview = await Review.findByIdAndUpdate(reviewId, req.body, { new: true });
+    if (!updatedReview) return res.status(404).json({ error: "Review not found" });
+
     res.json(updatedReview);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -45,8 +74,23 @@ exports.updateReview = async (req, res) => {
 
 // Delete review
 exports.deleteReview = async (req, res) => {
+  const reviewId = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(reviewId)) {
+    return res.status(400).json({ error: 'Invalid review ID' });
+  }
+
   try {
-    await Review.findByIdAndDelete(req.params.id);
+    const review = await Review.findByIdAndDelete(reviewId);
+    if (!review) return res.status(404).json({ error: "Review not found" });
+
+    // Remove review from associated product
+    await Product.findByIdAndUpdate(
+      review.product,
+      { $pull: { reviews: review._id } }, // Remove review from product's reviews array
+      { new: true }
+    );
+
     res.json({ message: "Review deleted" });
   } catch (err) {
     res.status(500).json({ error: err.message });

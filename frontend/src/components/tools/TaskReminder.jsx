@@ -1,15 +1,15 @@
-// src/TaskReminder.jsx
-
 import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
 
 const TaskReminder = () => {
   // State to manage tasks
   const [tasks, setTasks] = useState(() => {
-    // Load tasks from localStorage if available
     const savedTasks = localStorage.getItem('irrigationTasks');
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
+
+  // State to manage deleted tasks
+  const [deletedTasks, setDeletedTasks] = useState([]);
 
   // State to toggle task form visibility
   const [showTaskForm, setShowTaskForm] = useState(false);
@@ -21,6 +21,9 @@ const TaskReminder = () => {
     time: '',
     notes: '',
   });
+
+  // State to manage the visibility of the history modal
+  const [showHistoryModal, setShowHistoryModal] = useState(false);
 
   // Save tasks to localStorage whenever they change
   useEffect(() => {
@@ -83,11 +86,21 @@ const TaskReminder = () => {
 
   // Handle task deletion
   const handleDeleteTask = (id) => {
+    const deletedTask = tasks.find((task) => task.id === id);
+    if (deletedTask) {
+      setDeletedTasks((prev) => [...prev, deletedTask]); // Add deleted task to history
+    }
     setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
+  // Clear history
+  const handleClearHistory = () => {
+    setDeletedTasks([]);
+    setShowHistoryModal(false); // Close the modal after clearing history
+  };
+
   return (
-    <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8  rounded-lg shadow-lg ">
+    <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8 rounded-lg shadow-lg ">
       <h2 className="text-2xl font-semibold mb-4 text-teal-700">Irrigation Task Reminders</h2>
 
       <button
@@ -95,6 +108,13 @@ const TaskReminder = () => {
         onClick={() => setShowTaskForm(!showTaskForm)}
       >
         {showTaskForm ? 'Cancel' : 'Add New Task'}
+      </button>
+
+      <button
+        className="mb-4 ml-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+        onClick={() => setShowHistoryModal(true)}
+      >
+        View History
       </button>
 
       {showTaskForm && (
@@ -187,6 +207,40 @@ const TaskReminder = () => {
           <p className="text-gray-600">No irrigation tasks scheduled.</p>
         )}
       </div>
+
+      {/* History Modal */}
+      {showHistoryModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg p-6 w-1/3">
+            <h2 className="text-xl font-semibold mb-4">Deleted Tasks History</h2>
+            {deletedTasks.length > 0 ? (
+              <ul>
+                {deletedTasks.map((task, index) => (
+                  <li key={index} className="my-2 p-2 border-b">
+                    <p className="font-semibold">{task.crop}</p>
+                    <p>{format(parseISO(task.date), 'MMMM d, yyyy')} at {task.time}</p>
+                    {task.notes && <p className="text-sm italic">{task.notes}</p>}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-gray-600">No tasks deleted yet.</p>
+            )}
+            <button
+              className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+              onClick={handleClearHistory}
+            >
+              Clear History
+            </button>
+            <button
+              className="mt-4 ml-2 px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400"
+              onClick={() => setShowHistoryModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,0 +1,16 @@
+/* FAQ.css */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleY(0.95);
+    transition: max-height 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .faq-answer-open {
+    max-height: 500px; /* Adjust to desired max height */
+    opacity: 1;
+    transform: scaleY(1);
+    transition: max-height 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+  }
+  

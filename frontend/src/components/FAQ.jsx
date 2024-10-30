@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BiChevronUp } from 'react-icons/bi';
+import "../styles/Fa.css"
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -57,7 +58,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-b from-green-50 via-white to-green-50">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl mb-10 font-bold text-green-600 text-center">
           Frequently Asked Questions
@@ -65,20 +66,25 @@ const FAQ = () => {
         <dl className="space-y-4">
           {faqs.slice(0, faqCount).map((faq, index) => (
             <div key={index} className="transition-transform duration-300 group">
-              <div className="rounded-lg border-2 border-green-200 bg-white shadow hover:shadow-lg transition-shadow duration-300">
+              <div className="rounded-lg border border-green-300 bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300">
                 <button
                   onClick={() => handleToggle(index)}
-                  className="flex justify-between items-center w-full p-4 text-lg font-medium text-green-700 bg-gradient-to-r from-green-500 to-green-700 rounded-lg text-white transition-all duration-300 hover:bg-gradient-to-l"
+                  className="flex justify-between items-center w-full p-4 text-lg font-semibold text-green-700 bg-gradient-to-r from-green-500 to-green-700 rounded-lg text-white transition-all duration-300 hover:bg-gradient-to-l"
                 >
                   <span>{faq.question}</span>
-                  <BiChevronUp className={`w-5 h-5 transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`} />
+                  <BiChevronUp
+                    className={`w-5 h-5 transition-transform duration-300 ${activeIndex === index ? 'rotate-180' : ''}`}
+                  />
                 </button>
               </div>
-              {activeIndex === index && (
-                <div className="mt-2 p-2 rounded-lg bg-green-50 text-green-800">
+              <div
+                className={`faq-answer ${activeIndex === index ? 'faq-answer-open' : ''}`}
+                style={{ maxHeight: activeIndex === index ? '500px' : '0px' }}
+              >
+                <div className="mt-2 p-4 rounded-lg bg-green-50 text-green-800">
                   {faq.answer}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </dl>
@@ -86,7 +92,7 @@ const FAQ = () => {
           <div className="text-center mt-8">
             <button
               onClick={loadMoreFAQs}
-              className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg transition-colors duration-300 hover:bg-green-700"
+              className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg transition-all duration-300 hover:bg-green-700 hover:scale-105 shadow-md"
             >
               Load More FAQs
             </button>

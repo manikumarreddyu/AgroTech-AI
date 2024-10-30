@@ -17,13 +17,13 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/auth/signin",
+        "https://agro-tech-ai-backend-teal.vercel.app/auth/signin",
         {
           email,
           password,
         }
       );
-      login(response.data.token); // Call login method from context
+      login(response.data.token, response.data.user_id); // Call login method from context
       toast.success("Login successful");
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");

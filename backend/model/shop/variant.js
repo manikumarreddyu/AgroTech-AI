@@ -7,14 +7,25 @@ const VariantSchema = new mongoose.Schema({
     required: true,
   },
   size: {
-    type: String,
+    type: Number,
+    required: true,
+  },
+  type:{
+    type:Boolean, //True for weight and False for litre
+    required: true,
   },
   color: {
     type: String,
   },
-  additionalPrice: {
+  stock: {
     type: Number,
-    default: 0,
+    required: true,
+    min: 0,
+  },
+  price: {
+    type: Number,
+    required: true,
+    min: 0,
   },
 }, { timestamps: true });
 
