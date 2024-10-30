@@ -3,11 +3,14 @@ import ProductCard from "../components/ProductCard";
 import Filter from "../components/Filter";
 import { useParams } from 'react-router-dom';
 import Preloader from "../../components/PreLoader";
-
+import { useAuth } from "../../context/AuthContext";
 const CategoryPage = () => {
+  const { isLoggedIn, userData } = useAuth(); 
   const [items, setItems] = useState([]); // State to store fetched items
   const [filteredItems, setFilteredItems] = useState([]); // State for filtered items
   const [loading, setLoading] = useState(true); // State for loading status
+  const [wishlist, setWishlist] = useState([]);
+  const [wishlistLoading, setWishlistLoading] = useState(true);
   const { id } = useParams();
   let url = '';
   if (id) {
@@ -40,16 +43,29 @@ const CategoryPage = () => {
       setLoading(false); // Set loading to false after fetching
     }
   };
+  const fetchWishlist = async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}api/wishlist/${userData}`); // Replace with your wishlist API URL
+      const data = await response.json();
+      const variantIds = data.wishlist.map(wishItem => wishItem.variantId._id);
+
+      setWishlist(variantIds); // Set wishlist state with fetched data
+    } catch (error) {
+      console.error("Failed to fetch wishlist:", error);
+    }
+   finally {
+    setWishlistLoading(false); // Set loading to false after fetching
+  }
+  };
 
   useEffect(() => {
     fetchData(); // Fetch data when the component mounts
+    fetchWishlist();
   }, [id]);
 
   // Display loader while fetching data
-  if (loading) {
-    return (
-      <Preloader />
-    );
+  if (loading || wishlistLoading) {
+    return <Preloader />;
   }
 
   return (
@@ -70,11 +86,16 @@ const CategoryPage = () => {
         </div>
         <div className="product-panel border-2 rounded-lg flex-grow flex flex-col">
           <div className="grid grid-cols-3 gap-4 py-4">
-            {filteredItems.slice(0, 12).map((item, index) => (
-              <div className="justify-center mx-auto h-fit" key={item.variantId || index}>
-                <ProductCard item={item} />
-              </div>
-            ))}
+          {filteredItems.slice(0, 12).map((item, index) => {
+
+          let isInWishlist = wishlistLoading ? false : wishlist.includes(item.variant._id);
+
+              return (
+                <div className="justify-center mx-auto h-fit" key={item.variantId || index}>
+                  <ProductCard item={item} initialWishlistStatus={isInWishlist} />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

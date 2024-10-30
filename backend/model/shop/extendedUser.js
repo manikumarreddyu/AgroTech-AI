@@ -25,6 +25,7 @@ const cartItemSchema = new mongoose.Schema({
 // Define the wishlist item schema
 const wishlistItemSchema = new mongoose.Schema({
   productId: { type: String, required: true },
+  variantId : { type: String, required: true },
   addedAt: { type: Date, default: Date.now },
 });
 
