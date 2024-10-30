@@ -1,4 +1,4 @@
-const AgriProduct = require('../models/AgriProduct');
+const AgriProduct = require('../model/AgriProduct');
 
 exports.getAllProducts = async (req, res) => {
     try {
