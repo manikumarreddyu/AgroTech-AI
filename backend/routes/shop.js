@@ -8,7 +8,7 @@ const brandController = require('../controllers/brandController');
 const sellerController = require('../controllers/sellerController');
 const reviewController = require('../controllers/reviewController');
 const variantController = require('../controllers/variantController');
-
+const cartController = require('../controllers/cartController')
 /**
  * Product Routes
  */
@@ -19,7 +19,7 @@ router.put('/products/:id', productController.updateProduct);
 router.delete('/products/:id', productController.deleteProduct);
 //complex routes
 router.get('/products/category/:categoryId', productController.getProductsByCategory);
-
+router.get('/products/brand/:brandId', productController.getProductsByBrand);
 /**
  * Category Routes
  */
@@ -65,5 +65,25 @@ router.get('/variants/:id', variantController.getVariantById);
 router.post('/variants', variantController.createVariant);
 router.put('/variants/:id', variantController.updateVariant);
 router.delete('/variants/:id', variantController.deleteVariant);
+
+
+/**
+ * Cart Routes
+*/
+
+// Route to add product to cart
+router.post('/cart/:userId/add', cartController.addProductToCart);
+
+// Route to get user's cart
+router.get('/cart/:userId', cartController.getUserCart);
+
+// Route to update cart item quantity
+router.put('/cart/:userId/update', cartController.updateCartItemQuantity);
+
+// Route to remove product from cart
+router.delete('/cart/:userId/remove', cartController.removeProductFromCart);
+
+// Route to clear user's cart
+router.delete('/cart/:userId/clear', cartController.clearUserCart);
 
 module.exports = router;

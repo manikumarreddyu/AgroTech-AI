@@ -1,4 +1,4 @@
-const Brand = require('../model/shop/Brand');
+const Brand = require('../model/shop/brand');
 
 // Get all brands
 exports.getAllBrands = async (req, res) => {

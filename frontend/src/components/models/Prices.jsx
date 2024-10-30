@@ -3,33 +3,24 @@ import React, { useEffect, useState } from 'react';
 import Spinner from '../Spinner';
 import gain from '../../assets/images/gain-icon.png';
 import loss from '../../assets/images/loss-icon.png';
-import CropImages from "././CropImages";
+import CropImages from "./CropImages";
 
 const Prices = () => {
     const [loading, setLoading] = useState(true);
-    const [viewCount, setViewCount] = useState(3);
-    const [sortOrder, setSortOrder] = useState('desc');
-    const [error, setError] = useState(null); 
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 3000);
-
+        }, 2000);
         return () => clearTimeout(timer);
     }, []);
 
     const initialData = {
-        top_gainers: [
-            ["Gram", 3592.4, 5.51],
-            ["Arhar", 4850.2, 7.23],
-            ["Bajra", 1102.6, 4.87]
-        ],
-        top_losers: [
-            ["Niger", 4648.0, -6.28],
-            ["Barley", 1850.2, -4.12],
-            ["Maize", 990.6, -3.56]
-        ]
+        chunks: [["arhar", "bajra", "barley", "copra", "urad", "gram", "groundnut", "jowar"]],
+        commodities: ["arhar"],
+        six_months_forecast: [["Aug 24", "Copra", 5650.8, -0.36, "Barley", 1085.84, -0.36]],
+        top_gainers: [["Gram", 3592.4, 5.51]],
+        top_losers: [["Niger", 4648.0, -6.28]]
     };
 
     const [receivedData, setReceivedData] = useState(initialData);
@@ -37,161 +28,111 @@ const Prices = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://agro-kdxo.onrender.com/price_predict');
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                const response = await fetch('https://agrotech-api.onrender.com/price_predict');
+                if (!response.ok) throw new Error('Network response was not ok');
                 const responseData = await response.json();
                 setReceivedData(responseData);
             } catch (error) {
-                setError('Failed to fetch data. Please try again later.'); 
                 console.log('Error:', error);
-            } finally {
-                setLoading(false); 
             }
         };
         fetchData();
     }, []);
 
-    const sortData = (data) => {
-        return [...data].sort((a, b) => {
-            return sortOrder === 'desc' ? b[2] - a[2] : a[2] - b[2];
-        });
-    };
-
-    const renderCards = (data, isGainer) => {
-        return data.slice(0, viewCount).map((ele, index) => {
-            const bgColor = isGainer
-                ? `rgba(0, 255, 0, ${0.2 + Math.min(ele[2] / 10, 0.8)})`
-                : `rgba(255, 0, 0, ${0.2 + Math.min(Math.abs(ele[2]) / 10, 0.8)})`;
-
-            return (
-                <div
-                    key={index}
-                    className="p-4 rounded-lg shadow-md transition-transform transform hover:scale-105 hover:shadow-xl duration-300 ease-in-out"
-                    style={{ backgroundColor: bgColor }}
-                >
-                    <h4 className="text-lg font-semibold">
-                        {ele[0]}
-                        <img
-                            src={isGainer ? gain : loss}
-                            alt={isGainer ? "Gain Icon" : "Loss Icon"}
-                            className="inline-block ml-2 h-5 w-5"
-                        />
-                    </h4>
-                    <p className="text-xl font-bold">₹{ele[1]}</p>
-                    <p className={`text-lg ${isGainer ? 'text-white' : 'text-white'}`}>
-                        {ele[2]}%
-                    </p>
-                </div>
-            );
-        });
-    };
-
     return (
         <>
-            {loading ? <Spinner /> : error ? ( 
-                <div className="text-red-500 text-center mt-4">
-                    {error}
-                </div>
+            {loading ? (
+                <Spinner />
             ) : (
-                <div className="container mx-auto px-4 py-6 mt-12">
-                    <h1 className="text-3xl font-bold text-green-500 text-center mb-6">Price Prediction</h1>
+                <div className="container mx-auto px-6 py-8 mt-12 space-y-8 bg-gray-50 rounded-lg shadow-lg">
+                    <h1 className="text-4xl font-extrabold text-green-700 text-center mb-8">
+                        Price Prediction
+                    </h1>
 
-                    <div className="grid md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <h2 className="text-xl text-green-600 text-center font-bold mb-4">Top Gainers</h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {renderCards(sortData(receivedData.top_gainers), true)}
-                            </div>
+                    <div className="grid md:grid-cols-2 gap-8">
+                        {/* Top Gainers */}
+                        <div className="p-4 rounded-lg shadow-md border border-green-200 bg-white">
+                            <h2 className="text-2xl text-green-600 font-bold text-center mb-4">Top Gainers</h2>
+                            <table className="w-full text-left border-collapse border border-gray-200">
+                                <thead className="text-lg font-semibold text-green-600 bg-green-50">
+                                    <tr>
+                                        <th className="px-6 py-3 border-b border-gray-200">Item</th>
+                                        <th className="px-6 py-3 border-b border-gray-200">Price (₹/Qtl)</th>
+                                        <th className="px-6 py-3 border-b border-gray-200">Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-gray-800 text-base">
+                                    {receivedData.top_gainers.map((ele, index) => (
+                                        <tr key={index} className="hover:bg-green-50">
+                                            <td className="px-6 py-3 border-b border-gray-200">{ele[0]}</td>
+                                            <td className="px-6 py-3 border-b border-gray-200">{ele[1]}</td>
+                                            <td className="px-6 py-3 border-b border-gray-200">{ele[2]}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div>
 
-                        <div>
-                            <h2 className="text-xl text-red-600 text-center font-bold mb-4">Top Losers</h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                                {renderCards(sortData(receivedData.top_losers), false)}
-                            </div>
+                        {/* Top Losers */}
+                        <div className="p-4 rounded-lg shadow-md border border-red-200 bg-white">
+                            <h2 className="text-2xl text-red-600 font-bold text-center mb-4">Top Losers</h2>
+                            <table className="w-full text-left border-collapse border border-gray-200">
+                                <thead className="text-lg font-semibold text-red-600 bg-red-50">
+                                    <tr>
+                                        <th className="px-6 py-3 border-b border-gray-200">Item</th>
+                                        <th className="px-6 py-3 border-b border-gray-200">Price (₹/Qtl)</th>
+                                        <th className="px-6 py-3 border-b border-gray-200">Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-gray-800 text-base">
+                                    {receivedData.top_losers.map((ele, index) => (
+                                        <tr key={index} className="hover:bg-red-50">
+                                            <td className="px-6 py-3 border-b border-gray-200">{ele[0]}</td>
+                                            <td className="px-6 py-3 border-b border-gray-200">{ele[1]}</td>
+                                            <td className="px-6 py-3 border-b border-gray-200">{ele[2]}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
-                    <div className="flex justify-center space-x-4 mb-6">
-                        <button
-                            onClick={() => setViewCount(1)}
-                            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-                        >
-                            View 1
-                        </button>
-                        <button
-                            onClick={() => setViewCount(3)}
-                            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-                        >
-                            View 3
-                        </button>
-                        <button
-                            onClick={() => setViewCount(5)}
-                            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-                        >
-                            View 5
-                        </button>
-                    </div>
-
-                    <div className="flex justify-center space-x-4 mb-6">
-                        <button
-                            onClick={() => setSortOrder('asc')}
-                            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                        >
-                            Sort Ascending
-                        </button>
-                        <button
-                            onClick={() => setSortOrder('desc')}
-                            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                        >
-                            Sort Descending
-                        </button>
-                    </div>
-
-                    <div className="mb-6">
-                        <h2 className="text-xl font-bold text-green-500 text-center mb-4">Star Crop Prediction</h2>
-                        <table className="min-w-full border-collapse border border-gray-300">
+                    {/* Star Crop Prediction */}
+                    <div className="p-6 bg-white rounded-lg shadow-md border border-gray-200">
+                        <h2 className="text-2xl font-bold text-green-700 text-center mb-6">
+                            Star Crop Prediction
+                        </h2>
+                        <table className="w-full border-collapse border border-gray-300 text-center">
                             <tbody>
-                                <tr>
-                                    <td className="px-4 py-2 border border-gray-300">
-                                    <h5>{receivedData?.six_months_forecast?.[0]?.[1] || 'N/A'}</h5>
+                                <tr className="bg-green-50">
+                                    <td className="px-6 py-4 border border-gray-300">
+                                        <h4 className="text-lg font-semibold">{receivedData.six_months_forecast[0][1]}</h4>
+                                        <p className="text-2xl font-bold text-gray-700">₹{receivedData.six_months_forecast[0][2]}</p>
+                                        <span className="text-green-500 flex items-center justify-center">
+                                            {receivedData.six_months_forecast[0][3]}%
+                                            <img src={gain} alt="Gain Icon" className="ml-2 h-5 w-5" />
+                                        </span>
                                     </td>
-                                    <td className="px-4 py-2 border border-gray-300">
-                                    <h4>₹{receivedData?.six_months_forecast?.[0]?.[2] || 'N/A'}</h4>
-                                        <p className="flex items-center">
-                                        {receivedData?.six_months_forecast?.[0]?.[3] || 'N/A'}%
-                                            <img src={gain} alt="Gain Icon" className="ml-2 h-4 w-4" />
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td className="px-4 py-2 border border-gray-300">
-                                        <h5>{receivedData.six_months_forecast?.[0]?.[4] || 'N/A'}</h5>
-                                    </td>
-                                    <td className="px-4 py-2 border border-gray-300">
-                                        <h4>₹{receivedData.six_months_forecast?.[0]?.[5] || 'N/A'}</h4>
-                                        <p className="flex items-center">
-                                            {receivedData.six_months_forecast?.[0]?.[6] || 'N/A'}%
-                                            <img src={loss} alt="Loss Icon" className="ml-2 h-4 w-4" />
-                                        </p>
+                                    <td className="px-6 py-4 border border-gray-300">
+                                        <h4 className="text-lg font-semibold">{receivedData.six_months_forecast[0][4]}</h4>
+                                        <p className="text-2xl font-bold text-gray-700">₹{receivedData.six_months_forecast[0][5]}</p>
+                                        <span className="text-red-500 flex items-center justify-center">
+                                            {receivedData.six_months_forecast[0][6]}%
+                                            <img src={loss} alt="Loss Icon" className="ml-2 h-5 w-5" />
+                                        </span>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
+                    {/* Crop Images Grid */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4">
                         {CropImages.map((crop, index) => (
-                            <Link key={index} to={`/reports?crop=${crop.crop_name}`} className="block p-4 border border-green-500 bg-green-100 rounded-md hover:shadow-lg">
+                            <Link key={index} to={`/reports?crop=${crop.crop_name}`} className="block p-4 border border-green-200 bg-white rounded-lg shadow hover:bg-green-100">
                                 <div className="flex flex-col items-center">
-                                    <img
-                                        src={crop.crop_image}
-                                        alt={crop.crop_name}
-                                        className="rounded-md h-12 w-12 mb-2"
-                                    />
-                                    <span className="font-medium">{crop.crop_name.charAt(0).toUpperCase() + crop.crop_name.slice(1)}</span>
+                                    <img src={crop.crop_image} alt={crop.crop_name} className="rounded-full h-16 w-16 mb-2" />
+                                    <span className="text-lg font-medium text-gray-700">{crop.crop_name.charAt(0).toUpperCase() + crop.crop_name.slice(1)}</span>
                                 </div>
                             </Link>
                         ))}
@@ -203,3 +144,4 @@ const Prices = () => {
 };
 
 export default Prices;
+``
