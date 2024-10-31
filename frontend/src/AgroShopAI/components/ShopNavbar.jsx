@@ -129,7 +129,7 @@ function ShopNavbar() {
             {isDropdownOpen && (
               <div ref={dropdownRef} className="absolute right-0 mt-2 w-32 bg-white text-black rounded-lg shadow-lg transition-all duration-200 transform origin-top-right">
                 <Link to="/profile" className="block px-4 py-2 hover:bg-gray-200 rounded-t-lg ">Your Profile</Link>
-                <Link to="/logout" className="block px-4 py-2 hover:bg-gray-200">Your Wishlist</Link>
+                <Link to="/agroshop/wishlist" className="block px-4 py-2 hover:bg-gray-200">Your Wishlist</Link>
                 <Link to="/logout" className="block px-4 py-2 hover:bg-gray-200 rounded-b-lg">Logout</Link>
               </div>
             )}
