@@ -31,8 +31,6 @@ import AuthPage from './components/AuthPage';
 import WhyAI from './pages/WhyAI'; // Import the WhyAI component
 import LoginPage from './components/LoginPage';
 import SignUpPage from './components/SignUpPage';
-import PasswordRecoveryPage from './components/PasswordRecoveryPage'; // Import the PasswordRecoveryPage component
-import VerifyOtpPage from './components/VerifyOtpPage'; // Import the VerifyOtpPage component
 import { AuthProvider } from './context/AuthContext';
 import TermsAndConditions from './components/TermsAndConditions';
 import CookiePolicy from './components/CookiePolicy';
@@ -124,8 +122,6 @@ const MainContent = () => {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/profile" element={<Profile/>} />
                 <Route path="/signup" element={<SignUpPage />} />
-                <Route path="/forgot-password" element={<PasswordRecoveryPage />} /> {/* Add the route for Password Recovery */}
-                <Route path="/verify-otp" element={<VerifyOtpPage />} /> {/* Add the route for Verify OTP */}
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/news" element={<NewsForum />} />
