@@ -2,17 +2,33 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import json
+import logging
 from groq import Groq
 import time
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # Load API key
 working_dir = os.path.dirname(os.path.abspath(__file__))
-config_data = json.load(open(f"{working_dir}/config.json"))
-GROQ_API_KEY = config_data["GROQ_API_KEY"]
-os.environ["GROQ_API_KEY"] = GROQ_API_KEY
+try:
+    config_data = json.load(open(f"{working_dir}/config.json"))
+    GROQ_API_KEY = config_data["GROQ_API_KEY"]
+    os.environ["GROQ_API_KEY"] = GROQ_API_KEY
+    logger.info("API key loaded successfully.")
+except FileNotFoundError:
+    logger.error("config.json file not found. Please add your API key in config.json.")
+    raise
+except KeyError:
+    logger.error("GROQ_API_KEY is missing in config.json.")
+    raise
+except Exception as e:
+    logger.error(f"Failed to load API key: {e}")
+    raise
 
 client = Groq()
 
@@ -20,8 +36,7 @@ client = Groq()
 RATE_LIMIT = 20  # Maximum 20 requests per minute
 rate_limit_store = {}  # Store to track user requests by IP
 
-
-# Premade requests
+# Predefined responses for common questions
 premade_requests = {
     "What is AgroTech AI?": (
         "AgroTech AI is a cutting-edge platform that uses artificial intelligence to improve farming practices. "
@@ -66,7 +81,6 @@ premade_requests = {
     )
 }
 
-
 def is_rate_limited(ip):
     current_time = time.time()
     if ip not in rate_limit_store:
@@ -77,6 +91,7 @@ def is_rate_limited(ip):
     
     # Check if the number of requests exceeds the rate limit
     if len(rate_limit_store[ip]) >= RATE_LIMIT:
+        logger.warning(f"Rate limit exceeded for IP: {ip}")
         return True
     rate_limit_store[ip].append(current_time)
     return False
@@ -91,8 +106,8 @@ def chat():
     user_prompt = data.get('prompt')
 
     # Check if the prompt matches a pre-made prompt
-
     if premade_requests.get(user_prompt):
+        logger.info(f"Premade response provided for IP {ip}: {user_prompt}")
         return jsonify({"response": premade_requests[user_prompt]})
 
     # If not a pre-made prompt, use the LLM
@@ -107,9 +122,11 @@ def chat():
             messages=messages
         )
         assistant_response = response.choices[0].message.content
+        logger.info(f"Response generated for IP {ip}")
         return jsonify({"response": assistant_response})
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        logger.error(f"Error generating response for IP {ip}: {e}")
+        return jsonify({"error": "There was an error processing your request. Please try again later."}), 500
 
 if __name__ == '__main__':
     app.run()
