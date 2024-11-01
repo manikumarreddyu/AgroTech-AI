@@ -56,7 +56,7 @@ import AgriProductListing from './AgroRentAI/components/AgriProductListing';
 import CartPage from './AgroShopAI/pages/Cart';
 import Wishlist from './AgroShopAI/pages/Wishlist';
 import ShopNavbar from './AgroShopAI/components/ShopNavbar';
-
+import ShopProfile from './AgroShopAI/pages/Profile'
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route
@@ -139,6 +139,7 @@ const MainContent = () => {
                 <Route path="/AgroShop/Product/:id" element={<ProductPage/>}/>
                 <Route path="/AgroShop/Cart" element={<CartPage/>} />
                 <Route path="/AgroShop/Wishlist" element={<Wishlist/>} />
+                <Route path="/AgroShop/Profile" element={<ShopProfile/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
