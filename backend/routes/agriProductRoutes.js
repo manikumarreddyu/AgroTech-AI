@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const agriProductController = require('../controllers/agriProductController');
-const authMiddleware = require('../middlewares/authMiddleware');
+const authMiddleware = require('../middleware/authMiddleware');
 
 // Get all products
 router.get('/', agriProductController.getAllProducts);

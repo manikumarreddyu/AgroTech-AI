@@ -53,6 +53,8 @@ This repository also provides one such platforms where contributers come over an
 <details>
     <summary><h2>:pushpin:Table of Contents: </h2></summary>
 
+    
+
 ## Table of Contents
 
 1. [Project Description](#project-description)
@@ -72,8 +74,24 @@ This repository also provides one such platforms where contributers come over an
 
 </details>
 
-<hr>
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
+
+## This project is now OFFICIALLY accepted for
+
+<div align="center">
+  <img src="https://github.com/amiya-cyber/banner/blob/main/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="60%">
+</div>
+
+<div align="center">
+  <img src="https://github.com/amiya-cyber/banner/blob/main/hacktober.png" alt="Hacktober fest 2024" width="60%">
+</div>
+
+
+
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## Project Description
 
