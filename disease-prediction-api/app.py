@@ -6,6 +6,7 @@ import tensorflow as tf
 import pandas as pd
 from flask_cors import CORS
 
+# Load disease and supplement information
 disease_info = pd.read_csv('disease_info.csv', encoding='cp1252')
 supplement_info = pd.read_csv('supplement_info.csv', encoding='cp1252')
 
@@ -18,7 +19,7 @@ input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
 # Preprocess image and run inference
-def prediction(image_path):
+def predict(image_path):
     image = Image.open(image_path)
     image = image.resize((224, 224))  # Resize to match model's input size
     input_data = np.array(image, dtype=np.float32) / 255.0  # Normalize the image
@@ -33,57 +34,60 @@ def prediction(image_path):
 
 # Flask App Setup
 app = Flask(__name__)
-application = app
 CORS(app)
+
+# Create upload directory if it doesn't exist
+UPLOAD_FOLDER = 'static/uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route('/', methods=['GET'])
 def get_data():
-    data = {
-        "message": "API is Running"
-    }
-    return jsonify(data)
+    return jsonify({"message": "API is Running"})
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    if request.method == 'POST':
-        try:
-            image = request.files['image']
-            filename = image.filename
-            file_path = os.path.join('static/uploads', filename)
-            image.save(file_path)
+    if 'image' not in request.files:
+        return jsonify({'error': 'No image file provided'}), 400
 
-            pred = prediction(file_path)
-            print(pred)
-            
-            # Check if prediction is valid
-            if pred not in disease_info.index or pred not in supplement_info.index:
-                raise ValueError("Invalid prediction value")
+    image = request.files['image']
+    
+    if image.filename == '':
+        return jsonify({'error': 'No selected file'}), 400
+    
+    try:
+        # Save the uploaded image
+        file_path = os.path.join(UPLOAD_FOLDER, image.filename)
+        image.save(file_path)
 
-            # Retrieve information from the dataframes and convert values to standard Python types
-            title = str(disease_info['disease_name'][pred])
-            description = str(disease_info['description'][pred])
-            prevent = str(disease_info['Possible Steps'][pred])
-            image_url = str(disease_info['image_url'][pred])
-            supplement_name = str(supplement_info['supplement name'][pred])
-            supplement_image_url = str(supplement_info['supplement image'][pred])
-            supplement_buy_link = str(supplement_info['buy link'][pred])
+        # Predict disease
+        pred = predict(file_path)
 
-            # Convert `pred` (which is likely int64) to a regular Python int
-            pred = int(pred)
+        # Check if prediction is valid
+        if pred not in disease_info.index or pred not in supplement_info.index:
+            return jsonify({'error': "Invalid prediction value"}), 500
 
-            return jsonify({
-                'title': title,
-                'desc': description,
-                'prevent': prevent,
-                'image_url': image_url,
-                'pred': pred,
-                'sname': supplement_name,
-                'simage': supplement_image_url,
-                'buy_link': supplement_buy_link
-            })
-        except Exception as e:
-            print("error:", str(e))
-            return jsonify({'error': str(e)}), 500
+        # Retrieve information from the dataframes
+        title = str(disease_info['disease_name'].iloc[pred])
+        description = str(disease_info['description'].iloc[pred])
+        prevent = str(disease_info['Possible Steps'].iloc[pred])
+        image_url = str(disease_info['image_url'].iloc[pred])
+        supplement_name = str(supplement_info['supplement name'].iloc[pred])
+        supplement_image_url = str(supplement_info['supplement image'].iloc[pred])
+        supplement_buy_link = str(supplement_info['buy link'].iloc[pred])
+
+        return jsonify({
+            'title': title,
+            'desc': description,
+            'prevent': prevent,
+            'image_url': image_url,
+            'pred': int(pred),  # Convert to regular Python int
+            'sname': supplement_name,
+            'simage': supplement_image_url,
+            'buy_link': supplement_buy_link
+        })
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

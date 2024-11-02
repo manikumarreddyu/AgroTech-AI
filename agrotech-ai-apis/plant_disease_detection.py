@@ -35,8 +35,8 @@ def model_prediction(image_bytes):
         # Load and preprocess the image
         image = Image.open(io.BytesIO(image_bytes)).convert('RGB')
         image = image.resize((224, 224))
-        input_arr = np.array(image)
-        input_arr = np.expand_dims(input_arr, axis=0).astype(np.float32) / 255.0
+        input_arr = np.array(image, dtype=np.float32) / 255.0  # Normalize the image
+        input_arr = np.expand_dims(input_arr, axis=0)  # Add batch dimension
 
         # Set the tensor for the input
         interpreter.set_tensor(input_details[0]['index'], input_arr)
@@ -47,6 +47,7 @@ def model_prediction(image_bytes):
         # Get the output tensor and return the index of the max element
         output_data = interpreter.get_tensor(output_details[0]['index'])
         return int(np.argmax(output_data))
+    
     except Exception as e:
         print(f"Error in model_prediction: {e}")
         return None
@@ -55,4 +56,4 @@ def get_class_name(index):
     """Function to get the class name based on the index."""
     if index is not None and 0 <= index < len(CLASS_NAMES):
         return CLASS_NAMES[index]
-    return None
+    return "Unknown Class"  # Improved handling for invalid index

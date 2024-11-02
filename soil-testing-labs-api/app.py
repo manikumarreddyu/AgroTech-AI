@@ -6,7 +6,6 @@ from flask_cors import CORS
 import google.generativeai as genai
 import json
 import re
-import pandas as pd
 import os
 
 # Initialize Google Gemini API with the embedded key
@@ -30,24 +29,21 @@ model = genai.GenerativeModel("gemini-pro")
 chat = model.start_chat(history=[])
 
 def extract_json(text):
-    # Use regex to find a valid JSON block in the response
+    """Extract a valid JSON block from the response text."""
     json_pattern = r'\{.*\}|\[.*\]'
     match = re.search(json_pattern, text, re.DOTALL)
     
     if match:
         return match.group(0)
-    else:
-        return None
+    return None
 
 def get_gemini_response(location):
+    """Send a message to Gemini API and get the response."""
     prompt = field_prompt + location
     response = chat.send_message(prompt, stream=True)
     
     # Capture the full response text
-    response_text = ""
-    for chunk in response:
-        response_text += chunk.text
-    
+    response_text = "".join(chunk.text for chunk in response)
     return response_text
 
 # API route to get soil testing labs based on location
@@ -55,6 +51,7 @@ def get_gemini_response(location):
 def find_soil_labs():
     data = request.get_json()
 
+    # Validate input
     if not data or 'location' not in data:
         return jsonify({"error": "Location not provided"}), 400
 
@@ -68,16 +65,6 @@ def find_soil_labs():
         try:
             # Parse the extracted JSON
             soil_labs = json.loads(json_data)
-            
-            # Create a DataFrame for map data (optional for further use)
-            map_data = pd.DataFrame({
-                "name": [lab['name'] for lab in soil_labs],
-                "latitude": [lab['latitude'] for lab in soil_labs],
-                "longitude": [lab['longitude'] for lab in soil_labs],
-                "link": [lab['link'] for lab in soil_labs]
-            })
-            
-            # Return the JSON response with nearby soil labs
             return jsonify(soil_labs), 200
         except json.JSONDecodeError:
             return jsonify({"error": "Error decoding the JSON data."}), 500

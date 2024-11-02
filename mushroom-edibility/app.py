@@ -2,14 +2,20 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import pickle
 from flask_cors import CORS
-import sys
 import os
-
-sys.path.append(os.path.abspath('..'))
-from data.maps import *
 
 app = Flask(__name__)
 CORS(app)
+
+# Load model and encoders at the start to avoid reloading for every request
+model_path = os.path.join("models", "model.pkl")
+encoder_path = os.path.join("models", "encoders.pkl")
+
+with open(encoder_path, 'rb') as f:
+    encoders = pickle.load(f)
+
+# Load the prediction model
+model = pickle.load(open(model_path, "rb"))
 
 @app.route("/mushroom_edibility", methods=["POST"])
 def mushroom_edibility():
@@ -39,24 +45,20 @@ def mushroom_edibility():
             'habitat': habitat_mapping
         }
 
-        
         data_dict = {}
 
         for key, mapping in mappings.items():
             value = request.form.get(key)
-            
-            if value:
-                mapped_value = mapping.get(value)
-                data_dict[key] = [mapped_value if mapped_value is not None else None]
-            else:
-                raise ValueError(f"Missing value in column: {key} with value {value}")
-                data_dict[key] = [None]
+            if value is None:
+                raise ValueError(f"Missing value for {key}.")
                 
+            mapped_value = mapping.get(value)
+            if mapped_value is not None:
+                data_dict[key] = [mapped_value]
+            else:
+                raise ValueError(f"Invalid value '{value}' for {key}.")
 
         df = pd.DataFrame(data_dict)
-
-        with open('./models/encoders.pkl', 'rb') as f:
-            encoders = pickle.load(f)
 
         for col in df.columns:
             if col in encoders:
@@ -65,16 +67,12 @@ def mushroom_edibility():
                 df[col] = encoders[col].transform(df[col])
 
         edible = edibility_check(df)
-        if edible == 1:
-            return jsonify({"edibility": "Edible"})
-        else:
-            return jsonify({"edibility": "Poisonous"})
+        return jsonify({"edibility": "Edible" if edible == 1 else "Poisonous"})
 
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return jsonify({"error": str(e)}), 400
 
 def edibility_check(df):
-    model = pickle.load(open("./models/model.pkl", "rb"))
     prediction = model.predict(df)
     return prediction[0]
 

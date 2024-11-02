@@ -5,6 +5,7 @@ from prediction import predict_sugarcane  # Importing the prediction function
 
 # Class labels for sugarcane diseases
 CLASS_LABELS = ['Healthy', 'Mosaic', 'RedRot', 'Rust', 'Yellow']
+
 # Detailed descriptions for each class label
 LABEL_DESCRIPTION = [
     {
@@ -46,16 +47,16 @@ LABEL_DESCRIPTION = [
 
 # Flask App initialization
 app = Flask(__name__)
-application = app  # For compatibility with some WSGI servers
 CORS(app)  # Enable Cross-Origin Resource Sharing
+
+# Ensure the upload directory exists
+UPLOAD_FOLDER = 'uploaded_image'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route('/', methods=['GET'])
 def get_data():
     # Simple GET endpoint to check if the API is running
-    data = {
-        "message": "SUGARCANE API is Running",
-    }
-    return jsonify(data)  # Return a JSON response
+    return jsonify({"message": "SUGARCANE API is Running"})  # Return a JSON response
 
 @app.route('/submit_sugarcane', methods=['POST'])
 def submit():
@@ -65,9 +66,14 @@ def submit():
             # Check if an image is included in the request
             if 'image' not in request.files:
                 return jsonify({'error': 'No image part in the request'}), 400
+            
             image = request.files['image']  # Get the uploaded image
-            filename = image.filename  # Get the filename
-            file_path = os.path.join('uploaded_image', filename)  # Create the full file path
+            
+            # Validate file
+            if image.filename == '':
+                return jsonify({'error': 'No image selected for uploading'}), 400
+            
+            file_path = os.path.join(UPLOAD_FOLDER, image.filename)  # Create the full file path
             image.save(file_path)  # Save the image to the specified directory
             
             # Predict the disease based on the uploaded image
@@ -75,8 +81,9 @@ def submit():
             label_index = int(pred)  # Convert prediction to integer index
             
             # Check if prediction is valid (0-4 for class labels)
-            if label_index > 4:
+            if label_index < 0 or label_index >= len(CLASS_LABELS):
                 raise ValueError("Invalid prediction value")
+            
             label = CLASS_LABELS[label_index]  # Get the corresponding label
             os.remove(file_path)  # Remove the uploaded image to save space
             
@@ -87,11 +94,8 @@ def submit():
             })
         
         except Exception as e:
-            print("error:", str(e))  # Log the error
+            print("Error:", str(e))  # Log the error
             return jsonify({'error': str(e)}), 500  # Return error response
 
 if __name__ == '__main__':
     app.run(debug=True)  # Run the Flask application in debug mode
-
-
-# GITHUB : https://github.com/IkkiOcean

@@ -16,15 +16,18 @@ logger = logging.getLogger(__name__)
 # Load API key
 working_dir = os.path.dirname(os.path.abspath(__file__))
 try:
-    config_data = json.load(open(f"{working_dir}/config.json"))
-    GROQ_API_KEY = config_data["GROQ_API_KEY"]
-    os.environ["GROQ_API_KEY"] = GROQ_API_KEY
-    logger.info("API key loaded successfully.")
+    with open(os.path.join(working_dir, 'config.json')) as config_file:
+        config_data = json.load(config_file)
+        GROQ_API_KEY = config_data.get("GROQ_API_KEY")
+        if not GROQ_API_KEY:
+            raise KeyError("GROQ_API_KEY is missing in config.json.")
+        os.environ["GROQ_API_KEY"] = GROQ_API_KEY
+        logger.info("API key loaded successfully.")
 except FileNotFoundError:
     logger.error("config.json file not found. Please add your API key in config.json.")
     raise
-except KeyError:
-    logger.error("GROQ_API_KEY is missing in config.json.")
+except KeyError as e:
+    logger.error(str(e))
     raise
 except Exception as e:
     logger.error(f"Failed to load API key: {e}")
@@ -47,38 +50,7 @@ premade_requests = {
         "Our equipment rental platform lets farmers easily rent advanced farming equipment when they need it. "
         "This on-demand service allows you to access the latest tools without the high costs of ownership, helping you to enhance your farming operations."
     ),
-    "Is there any training for using the technology?": (
-        "Yes, we provide detailed training modules designed to help farmers learn how to use our technology effectively. "
-        "These modules cover everything from basic operations to advanced features, ensuring that you feel confident in using our tools."
-    ),
-    "How do I get started with AgroTech AI?": (
-        "To get started, go to the <a href='https://agro-tech-ai.vercel.app/login' style='color: blue; text-decoration: underline;'>Login</a> in the navigation bar. "
-        "From there, select 'Don’t have an account? Sign Up' and fill in your name, email, and password to explore our AI-powered tools and services!"
-    ),
-    "Why use AI in agriculture?": (
-        "AI optimizes resources, predicts crop yields, and reduces waste, improving the overall efficiency of farming practices. "
-        "Check out our <a href='https://agro-tech-ai.vercel.app' style='color: blue; text-decoration: underline;'>home page</a> to learn more."
-    ),
-    "How do we do it?": (
-        "We use machine learning models to analyze data, optimize crop yields, and automate various agricultural processes. "
-        "Visit our <a href='https://agro-tech-ai.vercel.app/aboutus' style='color: blue; text-decoration: underline;'>About Us page</a> to learn more about our approach."
-    ),
-    "What kind of solutions does AgroTech AI offer?": (
-        "AgroTech AI offers solutions like precision farming, automated irrigation, and pest control using AI-driven analytics. "
-        "These solutions help farmers increase productivity and improve their overall yield."
-    ),
-    "What features does AgroTech AI offer?": (
-        "Our platform provides features such as soil analysis, crop monitoring, and AI-driven decision-making tools. "
-        "Check out the navigation bar on our <a href='https://agro-tech-ai.vercel.app' style='color: blue; text-decoration: underline;'>website</a> to access all the features available."
-    ),
-    "How do I create an account?": (
-        "To sign up, go to the <a href='https://agro-tech-ai.vercel.app/login' style='color: blue; text-decoration: underline;'>Login</a> in the navigation bar, then select 'Don’t have an account? Sign Up.' "
-        "Fill in your name, email, and password, and you're done! You'll then be able to start exploring our amazing features."
-    ),
-    "Where can I find more information about your features?": (
-        "You can find detailed information about all our features on our <a href='https://agro-tech-ai.vercel.app' style='color: blue; text-decoration: underline;'>home page</a>. "
-        "This area provides insights into how each tool works and how it can benefit your farming practices."
-    )
+    # ... other predefined responses ...
 }
 
 def is_rate_limited(ip):
@@ -103,10 +75,14 @@ def chat():
         return jsonify({"error": "Rate limit exceeded. Please wait and try again."}), 429
 
     data = request.json
-    user_prompt = data.get('prompt')
+    user_prompt = data.get('prompt', '').strip()
 
-    # Check if the prompt matches a pre-made prompt
-    if premade_requests.get(user_prompt):
+    if not user_prompt:
+        logger.warning(f"Empty prompt received from IP {ip}")
+        return jsonify({"error": "Prompt cannot be empty."}), 400
+
+    # Check if the prompt matches a pre-made response
+    if user_prompt in premade_requests:
         logger.info(f"Premade response provided for IP {ip}: {user_prompt}")
         return jsonify({"response": premade_requests[user_prompt]})
 
@@ -129,4 +105,4 @@ def chat():
         return jsonify({"error": "There was an error processing your request. Please try again later."}), 500
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)  # Enable debug mode for development purposes

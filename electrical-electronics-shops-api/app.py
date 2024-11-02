@@ -12,7 +12,7 @@ import os
 # Initialize Google Gemini API with the embedded key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Define research prompt template for soil testing labs
+# Define research prompt template for finding electrical and electronics shops
 field_prompt = (
     "As an expert in location-based services and geospatial data, your task is to provide a precise and accurate list of nearby electrical and electronics shops "
     "for the specified location. Please return the response in a well-structured JSON format. "
@@ -31,7 +31,7 @@ chat = model.start_chat(history=[])
 
 def extract_json(text):
     # Use regex to find a valid JSON block in the response
-    json_pattern = r'\{.*\}|\[.*\]'
+    json_pattern = r'(\[.*?\]|\{.*?\})'
     match = re.search(json_pattern, text, re.DOTALL)
     
     if match:
@@ -40,7 +40,7 @@ def extract_json(text):
         return None
 
 def get_gemini_response(location):
-    prompt = field_prompt + location
+    prompt = field_prompt + f" {location}"  # Ensure there's a space before the location
     response = chat.send_message(prompt, stream=True)
     
     # Capture the full response text
@@ -50,7 +50,7 @@ def get_gemini_response(location):
     
     return response_text
 
-# API route to get get nearby electrical and electronics shops based on location
+# API route to get nearby electrical and electronics shops based on location
 @app.route('/find_ee_shops', methods=['POST'])
 def find_ee_shops():
     data = request.get_json()
@@ -67,18 +67,13 @@ def find_ee_shops():
     if json_data:
         try:
             # Parse the extracted JSON
-            soil_labs = json.loads(json_data)
-            
-            # Create a DataFrame for map data (optional for further use)
-            map_data = pd.DataFrame({
-                "name": [lab['name'] for lab in soil_labs],
-                "latitude": [lab['latitude'] for lab in soil_labs],
-                "longitude": [lab['longitude'] for lab in soil_labs],
-                "link": [lab['link'] for lab in soil_labs]
-            })
-            
-            # Return the JSON response with nearby soil labs
-            return jsonify(soil_labs), 200
+            ee_shops = json.loads(json_data)
+
+            # Check if the extracted data is a list
+            if isinstance(ee_shops, list):
+                return jsonify(ee_shops), 200
+            else:
+                return jsonify({"error": "Unexpected format: JSON is not a list."}), 500
         except json.JSONDecodeError:
             return jsonify({"error": "Error decoding the JSON data."}), 500
     else:

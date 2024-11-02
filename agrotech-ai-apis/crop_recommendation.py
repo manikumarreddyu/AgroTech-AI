@@ -45,8 +45,8 @@ def recommend_crop(data):
 
         # Prepare data for prediction
         input_data = pd.DataFrame([{
-            "Previous Crop": previous_crop_mapping.get(previous_crop, -1),  # Map to integer
-            "Soil Type": soil_type_mapping.get(soil_type, -1),  # Map to integer
+            "Previous Crop": previous_crop_mapping.get(previous_crop, -1),  # Map to integer or -1 if not found
+            "Soil Type": soil_type_mapping.get(soil_type, -1),  # Map to integer or -1 if not found
             "Moisture Level": moisture_level,
             "Nitrogen (N)": nitrogen,
             "Phosphorus (P)": phosphorus,
@@ -56,10 +56,8 @@ def recommend_crop(data):
         # Make prediction
         prediction = crop_model.predict(input_data)
 
-        if prediction[0] in crop_mapping:
-            recommended_crop = crop_mapping[prediction[0]]
-        else:
-            return {'Recommended Crop': 'No prediction available'}
+        # Map prediction to crop name
+        recommended_crop = crop_mapping.get(prediction[0], 'No prediction available')
 
         return {'Recommended Crop': str(recommended_crop)}
 

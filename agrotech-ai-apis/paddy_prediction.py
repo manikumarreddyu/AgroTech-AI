@@ -10,8 +10,10 @@ import numpy as np
 model = load_model('models/rice_model.h5', compile=False)
 
 # Class labels for the paddy diseases
-modified_class_label = ['Bacterial Leaf Blight', 'Bacterial Leaf Streak', 'Bacterial Panicle Blight', 'Blast',
- 'Brown Spot', 'Dead Heart', 'Downy Mildew', 'Hispa', 'Normal', 'Tungro']
+modified_class_label = [
+    'Bacterial Leaf Blight', 'Bacterial Leaf Streak', 'Bacterial Panicle Blight', 'Blast',
+    'Brown Spot', 'Dead Heart', 'Downy Mildew', 'Hispa', 'Normal', 'Tungro'
+]
 
 LABEL_DESCRIPTION = [
     {
@@ -87,25 +89,31 @@ LABEL_DESCRIPTION = [
 ]
 
 def preprocess_image(image_path, target_size=(256, 256)):
+    """Load and preprocess the image for prediction."""
     img = load_img(image_path, target_size=target_size)
     img_array = img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array = tf.cast(img_array / 255.0, tf.float32)
     return img_array
 
-def predict_paddy(filepath):
-    predictions = model.predict(preprocess_image(filepath))
+def predict_paddy(image_path):
+    """Predict the class of the paddy image."""
+    processed_image = preprocess_image(image_path)
+    predictions = model.predict(processed_image)
     predicted_class = np.argmax(predictions, axis=1)
     return predicted_class[0]  # Return the class index
 
 def paddy_prediction(image_path):
+    """Main function to handle the prediction logic."""
     try:
         label_index = predict_paddy(image_path)
         label = modified_class_label[label_index]
+        details = LABEL_DESCRIPTION[label_index]
+
         os.remove(image_path)  # Clean up the image after prediction
         return {
             'prediction': label,
-            'details': LABEL_DESCRIPTION[label_index]
+            'details': details
         }
     except Exception as e:
         return {"error": str(e)}

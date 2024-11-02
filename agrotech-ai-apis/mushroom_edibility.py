@@ -31,35 +31,37 @@ def check_mushroom_edibility():
         }
 
         data_dict = {}
-
         for key, mapping in mappings.items():
             value = request.form.get(key)
             if value:
                 mapped_value = mapping.get(value)
                 data_dict[key] = [mapped_value if mapped_value is not None else None]
             else:
-                raise ValueError(f"Missing value in column: {key} with value {value}")
                 data_dict[key] = [None]
 
         df = pd.DataFrame(data_dict)
 
+        # Load encoders
         with open('./models/encoders.pkl', 'rb') as f:
             encoders = pickle.load(f)
 
+        # Transform using encoders
         for col in df.columns:
             if col in encoders:
                 if df[col].isnull().any():
                     raise ValueError(f"Missing value in column: {col}")
                 df[col] = encoders[col].transform(df[col])
 
-        return jsonify({"edibility": edibility_check(df)})
+        # Get edibility prediction
+        edibility_result = edibility_check(df)
+        return jsonify({"edibility": edibility_result})
 
     except Exception as e:
         return jsonify({"error": str(e)})
 
-
 def edibility_check(df):
     with open("./models/model.pkl", "rb") as f:
         model = pickle.load(f)
+
     prediction = model.predict(df)
     return "Edible" if prediction[0] == 1 else "Poisonous"

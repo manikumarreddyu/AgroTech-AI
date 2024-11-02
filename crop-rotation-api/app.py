@@ -2,9 +2,14 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import joblib
 from flask_cors import CORS
+import logging
 
 app = Flask(__name__)
 CORS(app)
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Load the crop recommendation model
 crop_model = joblib.load('crop_rotation_recommendation_model.pkl')
@@ -43,7 +48,13 @@ def crop_recommendation():
     try:
         # Get data from the POST request
         data = request.json
-        print("Received data:", data)  # Debugging: Log received data
+        logger.info("Received data: %s", data)  # Log received data
+
+        # Validate required fields
+        required_fields = ['Previous Crop', 'Soil Type', 'Moisture Level', 'Nitrogen (N)', 'Phosphorus (P)', 'Potassium (K)']
+        for field in required_fields:
+            if field not in data:
+                return jsonify({'error': f'Missing field: {field}'}), 400
 
         # Extract features from the data
         previous_crop = data.get('Previous Crop')
@@ -65,17 +76,18 @@ def crop_recommendation():
 
         # Make prediction
         prediction = crop_model.predict(input_data)
-        print("Prediction:", prediction)
+        logger.info("Prediction: %s", prediction)
 
         if prediction[0] in crop_mapping:
             recommended_crop = crop_mapping[prediction[0]]
         else:
-            return jsonify({'Recommended Crop': 'No prediction available'})
+            return jsonify({'Recommended Crop': 'No prediction available'}), 500
 
-        return jsonify({'Recommended Crop': str(recommended_crop)})
+        return jsonify({'Recommended Crop': recommended_crop})
 
     except Exception as e:
-        return jsonify({'error': str(e)})
+        logger.error("Error occurred: %s", str(e))
+        return jsonify({'error': 'An error occurred while processing your request.'}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
