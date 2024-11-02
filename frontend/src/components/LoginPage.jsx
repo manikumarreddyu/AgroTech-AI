@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
 import loginImage from "../assets/LoginImage.png";
@@ -144,9 +144,10 @@ const LoginPage = () => {
           </form>
           <p className="text-center text-sm mt-4">
             Don’t have an account?{" "}
-            <a href="/signup" className="text-green-500 hover:underline">
-              Sign Up
-            </a>
+            <Link to="/signup" className="text-green-500 hover:underline">Sign Up</Link>
+          </p>
+          <p className="text-center text-sm mt-2">
+            <Link to="/forgot-password" className="text-green-500 hover:underline">Forgot Password?</Link>
           </p>
         </div>
       </div>

@@ -57,6 +57,7 @@ import CartPage from './AgroShopAI/pages/Cart';
 import Wishlist from './AgroShopAI/pages/Wishlist';
 import ShopNavbar from './AgroShopAI/components/ShopNavbar';
 import ShopProfile from './AgroShopAI/pages/Profile'
+import ForgotPasswordPage from './components/ForgotPassword';
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route
@@ -122,6 +123,7 @@ const MainContent = () => {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/profile" element={<Profile/>} />
                 <Route path="/signup" element={<SignUpPage />} />
+                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/news" element={<NewsForum />} />
