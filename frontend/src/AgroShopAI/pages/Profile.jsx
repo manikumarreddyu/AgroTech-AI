@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {useAuth} from '../../context/AuthContext';
+import Preloader from "../../components/PreLoader";
+import LoginPrompt from '../components/LoginPrompt';
 
 const ShopProfile = () => {
+  const { isLoggedIn, userData } = useAuth(); 
+  const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
     countryCode: "+1",
@@ -18,30 +24,44 @@ const ShopProfile = () => {
         isDefault: true,
       },
     ],
+    paymentMethods: [
+      {
+        method : "",
+        details : {
+          cardNumber : "",
+          expiryDate : "",
+          lastFour : "",
+          holderName: ""
+        } 
+      }
+    ]
   });
   const [paymentMethods, setPaymentMethods] = useState([]);
   const [selectedCardType, setSelectedCardType] = useState("Visa");
   const [cardNumber, setCardNumber] = useState("");
   const [holderName, setHolderName] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
-
-
   const handleAddPaymentMethod = (event) => {
     event.preventDefault();
 
     const newPaymentMethod = {
-      type: selectedCardType,
-      lastFour: cardNumber.slice(-4),
-      expiry: expiryDate,
-      holderName: holderName,
-      logo:
-        selectedCardType === "Visa"
-          ? "https://storage.googleapis.com/a1aa/image/id8topenT93KMii2p2h4rGV1UpeTeaQOEIy9WT6KwyBQEKZnA.jpg"
-          :"https://storage.googleapis.com/a1aa/image/tnrRDTY20O53INprOfEjaewhe9E4tQig91qm3vFGV07NEKZnA.jpg"
-           
+      method : selectedCardType,
+      details : {
+
+        cardNumber : cardNumber,
+        lastFour: cardNumber.slice(-4),
+        expiry: expiryDate,
+        holderName: holderName,           
+      }
     };
 
     setPaymentMethods([...paymentMethods, newPaymentMethod]);
+    setFormData((prevData) => ({
+      ...prevData,
+      paymentMethods: [
+        ...prevData.paymentMethods,newPaymentMethod
+      ]}));
+      
     // Reset the fields after adding
     setCardNumber("");
     setHolderName("");
@@ -51,6 +71,9 @@ const ShopProfile = () => {
   const handleRemovePaymentMethod = (index) => {
     const updatedMethods = paymentMethods.filter((_, i) => i !== index);
     setPaymentMethods(updatedMethods);
+    setFormData((prevData) => ({
+      ...prevData,
+      paymentMethods: updatedMethods}));
   };
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
@@ -60,8 +83,73 @@ const ShopProfile = () => {
       return { ...prevData, addresses: updatedAddresses };
     });
   };
+  
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        setLoading(true);
+  
+        // Use fetch to get user data
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}api/profile/${userData}`);
+        
+        // Check if the request was successful
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+  
+        // Parse the JSON data from the response
+        const data = await response.json();
+        setFormData(data);
+        setPaymentMethods(data.paymentMethods)
+      } catch (err) {
+        // Handle and set error message
+        // setError(err.message || 'Error fetching user data');
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchUser();
+  }, [userData]);
+  
 
-  const toggleEditMode = () => setIsEditing(!isEditing);
+  const handleSubmit = async () => {
+    try {
+      setLoading(true); // Show a loader if needed
+  
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}api/profile/${userData}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to update profile data");
+      }
+  
+      const result = await response.json();
+      console.log("Profile updated successfully:", result);
+  
+      setIsEditing(false); // Exit edit mode on successful submission
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      // Handle error (e.g., display error message to user)
+    } finally {
+      setLoading(false); // Hide the loader
+    }
+  };
+  
+  const toggleEditMode = () => {
+    setIsEditing(!isEditing);
+    }
+  const handleSave= ()=>{
+    if (isEditing) {
+      handleSubmit(); // Call handleSubmit to save the form data
+    }
+    setIsEditing(!isEditing);
+  }
 
   const handleAddAddress = () => {
     setFormData((prevData) => ({
@@ -113,7 +201,16 @@ const ShopProfile = () => {
     { code: "+61", label: "Australia" },
     // Add more country codes as needed
   ];
-
+  if(!isLoggedIn){
+    return(
+      <LoginPrompt />
+    )
+  }
+  if (loading) {
+    return (
+      <Preloader />
+    );
+  }
   return (
     <div className="bg-gray-100 min-h-screen flex bg-gray-800">
       <div className="w-full p-6 bg-white shadow-md m-2">
@@ -128,14 +225,23 @@ const ShopProfile = () => {
             />
             <div className="ml-4">
               <h2 className="text-xl font-semibold">Your Profile</h2>
+              <button className="text-green-500 text-sm border rounded-md hover:bg-green-500 hover:text-white px-1 py-1 rounded-md">
+              CHANGE PASSWORD
+            </button>
             </div>
           </div>
           <div>
-            <button className="text-green-500 border rounded-md hover:bg-green-500 hover:text-white px-4 py-2 mx-2 rounded-md">
-              CHANGE PASSWORD
-            </button>
+            {isEditing && (
+
             <button
               onClick={toggleEditMode}
+              className={`text-red-500 hover:bg-red-500 border hover:text-white px-4 py-2 rounded-md mr-2 `}
+            >
+              Cancel
+            </button>
+            )}
+            <button
+              onClick={handleSave}
               className={`text-red-500 hover:bg-red-500 border hover:text-white px-4 py-2 rounded-md ${
                 isEditing ? "bg-red-500 text-white" : ""
               }`}
@@ -148,12 +254,25 @@ const ShopProfile = () => {
         {/* Name, Email, and Phone */}
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <label className="block text-gray-700">Name</label>
+            <label className="block text-gray-700">First Name</label>
             <input
               className="w-full mt-1 p-2 border rounded-md"
               type="text"
               name="name"
-              value={formData.name}
+              value={formData.firstName}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+              disabled={!isEditing}
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700">Last Name</label>
+            <input
+              className="w-full mt-1 p-2 border rounded-md"
+              type="text"
+              name="name"
+              value={formData.lastName}
               onChange={(e) =>
                 setFormData({ ...formData, name: e.target.value })
               }
@@ -229,7 +348,11 @@ const ShopProfile = () => {
             )}
           </div>
         <div className="p-6 border rounded-md">
-          
+        {formData.addresses.length === 0 && (
+       <div className="p-4 border rounded-md text-center">
+       <p className="text-gray-500 text-sm">No Address Added.</p>
+     </div>
+      )}
           {formData.addresses.map((address, index) => (
             <div key={index} className="mb-4 p-4 border rounded-md bg-gray-100">
               <div className="flex justify-between items-center">
@@ -367,29 +490,34 @@ const ShopProfile = () => {
         className="flex items-center p-4 border rounded-md"
       >
         <img
-          alt={`${method.type} logo`}
+          alt={`${method.method} logo`}
           className="mr-4"
           height="30"
-          src={method.logo}
+          src={method.method === "Visa"
+            ? "https://storage.googleapis.com/a1aa/image/id8topenT93KMii2p2h4rGV1UpeTeaQOEIy9WT6KwyBQEKZnA.jpg"
+            :"https://storage.googleapis.com/a1aa/image/tnrRDTY20O53INprOfEjaewhe9E4tQig91qm3vFGV07NEKZnA.jpg"}
           width="50"
         />
         <div className="flex-1">
           <p>
-            {method.type} .... {method.lastFour}
+            {method.method} .... {method.details.lastFour}
           </p>
           <p className="text-gray-500 text-sm">
-            Cardholder: {method.holderName}
+            Cardholder: {method.details.holderName}
           </p>
           <p className="text-gray-500 text-sm">
-            Expires: {method.expiry}
+            Expires: {method.details.expiry}
           </p>
         </div>
+        {isEditing  && (
+
         <button
           className="ml-auto text-red-500"
           onClick={() => handleRemovePaymentMethod(index)}
         >
           REMOVE
         </button>
+        )}
       </div>
     ))}
     {paymentMethods.length == 0 && !isEditing &&(

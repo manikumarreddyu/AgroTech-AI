@@ -1,4 +1,4 @@
-const Category = require('../model/shop/category');
+const Category = require('../../model/shop/category');
 
 // Get all categories
 exports.getAllCategories = async (req, res) => {

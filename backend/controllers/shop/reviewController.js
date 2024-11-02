@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Review = require('../model/shop/review');
-const Product = require('../model/shop/product');
+const Review = require('../../model/shop/review');
+const Product = require('../../model/shop/product');
 
 // Get all reviews
 exports.getAllReviews = async (req, res) => {

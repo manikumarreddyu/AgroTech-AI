@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Variant = require('../model/shop/variant');
-const Product = require('../model/shop/product');
+const Variant = require('../../model/shop/variant');
+const Product = require('../../model/shop/product');
 
 // Get all variants
 exports.getAllVariants = async (req, res) => {

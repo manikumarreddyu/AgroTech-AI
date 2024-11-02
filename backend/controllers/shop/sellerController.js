@@ -1,4 +1,4 @@
-const Seller = require('../model/shop/seller');
+const Seller = require('../../model/shop/seller');
 
 // Get all sellers
 exports.getAllSellers = async (req, res) => {
