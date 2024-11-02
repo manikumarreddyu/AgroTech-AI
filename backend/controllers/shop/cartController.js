@@ -1,4 +1,4 @@
-const ExtendedUser = require('../model/shop/extendedUser');
+const ExtendedUser = require('../../model/shop/extendedUser');
 
 // Add product to cart
 exports.addProductToCart = async (req, res) => {

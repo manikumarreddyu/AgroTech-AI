@@ -2,14 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 // Import controllers
-const productController = require('../controllers/productController');
-const categoryController = require('../controllers/categoryController');
-const brandController = require('../controllers/brandController');
-const sellerController = require('../controllers/sellerController');
-const reviewController = require('../controllers/reviewController');
-const variantController = require('../controllers/variantController');
-const cartController = require('../controllers/cartController')
-const wishlistController = require('../controllers/wishlistController');
+const productController = require('../controllers/shop/productController');
+const categoryController = require('../controllers/shop/categoryController');
+const brandController = require('../controllers/shop/brandController');
+const sellerController = require('../controllers/shop/sellerController');
+const reviewController = require('../controllers/shop/reviewController');
+const variantController = require('../controllers/shop/variantController');
+const cartController = require('../controllers/shop/cartController')
+const wishlistController = require('../controllers/shop/wishlistController');
+const extendedUserController = require('../controllers/shop/profileController');
 /**
  * Product Routes
  */
@@ -81,11 +82,19 @@ router.delete('/cart/:userId/clear', cartController.clearUserCart);
  * Wishlist Routes
 */
 
-// Add an item to the wishlist
-router.post('/wishlist/:userId/add', wishlistController.addToWishlist);
-// Remove an item from the wishlist
-router.delete('/wishlist/:userId/remove', wishlistController.removeFromWishlist);
-// Get all wishlist items
-router.get('/wishlist/:userId', wishlistController.getWishlist);
+router.post('/wishlist/:userId/add', wishlistController.addToWishlist); // Add an item to the wishlist
+router.delete('/wishlist/:userId/remove', wishlistController.removeFromWishlist); // Remove an item from the wishlist
+router.get('/wishlist/:userId', wishlistController.getWishlist);// Get all wishlist items
+
+/**
+ * ExtendedUser Routes
+*/
+
+router.post('/profile',  extendedUserController.createExtendedUser); // Create a new extended user
+router.get('/profile/:id', extendedUserController.getExtendedUserById);// Get extended user by ID
+router.get('/profile', extendedUserController.getAllExtendedUsers);// Get all extended users
+router.put('/profile/:id', extendedUserController.updateExtendedUser);// Update an existing extended user
+router.delete('/profile/:id', extendedUserController.deleteExtendedUser);// Delete an extended user
+
 
 module.exports = router;

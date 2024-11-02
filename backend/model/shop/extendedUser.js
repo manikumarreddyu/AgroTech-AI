@@ -6,12 +6,13 @@ const userSchema = require('../user'); // Adjust the path based on your project 
 
 // Define the address schema
 const addressSchema = new mongoose.Schema({
-  street: { type: String, required: true },
+  address: { type: String, required: true },
   city: { type: String, required: true },
   state: { type: String, required: true },
-  postalCode: { type: String, required: true },
+  zip: { type: String, required: true },
   country: { type: String, required: true },
   isDefault: { type: Boolean, default: false },
+  label: {type: String, default: 'home', enum: ['home', 'work','other']}
 });
 
 // Define the cart item schema
@@ -55,8 +56,9 @@ const paymentMethodSchema = new mongoose.Schema({
 const extendedUserSchema = new mongoose.Schema({
   ...userSchema.obj, // Spread the existing user schema fields
   role: { type: String, default: 'customer', enum: ['customer', 'admin'] },
-  address: { type: [addressSchema], default: [] },
+  addresses: { type: [addressSchema], default: [] },
   phone: { type: String, optional: true },
+  countryCode : { type: String, default: '91+',optional: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   isActive: { type: Boolean, default: true },

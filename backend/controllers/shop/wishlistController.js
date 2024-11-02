@@ -1,4 +1,4 @@
-const ExtendedUser = require('../model/shop/extendedUser'); 
+const ExtendedUser = require('../../model/shop/extendedUser'); 
 
 // Add an item to the wishlist by productId and variantId
 const addToWishlist = async (req, res) => {
