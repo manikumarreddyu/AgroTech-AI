@@ -11,6 +11,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false); // New state for remember me checkbox
   const { isLoggedIn, login } = useAuth(); // Use context
 
   const handleSignIn = async (e) => {
@@ -21,9 +22,10 @@ const LoginPage = () => {
         {
           email,
           password,
+          rememberMe, 
         }
       );
-      login(response.data.token, response.data.user_id); // Call login method from context
+      login(response.data.token, response.data.user_id); 
       toast.success("Login successful");
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
@@ -31,7 +33,6 @@ const LoginPage = () => {
     }
   };
 
-  // Redirect to home page if logged in
   if (isLoggedIn) {
     return <Navigate to="/" />;
   }
@@ -119,6 +120,21 @@ const LoginPage = () => {
                 </button>
               </div>
             </div>
+
+            {/* Remember Me Checkbox */}
+            <div className="flex items-center animate-fadeInUp">
+              <input
+                type="checkbox"
+                id="rememberMe"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="mr-2 text-green-600 focus:ring-green-500"
+              />
+              <label htmlFor="rememberMe" className="text-sm text-green-600">
+                Remember Me
+              </label>
+            </div>
+
             <button
               type="submit"
               className="w-full py-2 bg-gradient-to-r from-green-500 to-blue-500 hover:from-blue-500 hover:to-green-500 text-white rounded-md font-bold transform transition duration-300 hover:scale-105"
