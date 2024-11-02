@@ -8,9 +8,11 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   role: {
     type: String,
-    enum: ['admin', 'farmer', 'vendor', 'customer'],  // Roles
-    default: 'customer',  // Default role is 'customer'
+    enum: ['admin', 'farmer', 'vendor', 'customer'],
+    default: 'customer',
   },
+  resetPasswordOTP: { type: String },
+  resetPasswordExpires: { type: Date },
 });
 
 // Hash password before saving
