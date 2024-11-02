@@ -4,18 +4,27 @@ import Filter from "../components/Filter";
 import { useParams } from 'react-router-dom';
 import Preloader from "../../components/PreLoader";
 import { useAuth } from "../../context/AuthContext";
+import NotFound from "../../NotFound";
+import { categories } from "../utils/home-data";
 const CategoryPage = () => {
   const { isLoggedIn, userData } = useAuth(); 
+  const [wrongURL, setWrongURL] =useState(false);
   const [items, setItems] = useState([]); // State to store fetched items
   const [filteredItems, setFilteredItems] = useState([]); // State for filtered items
   const [loading, setLoading] = useState(true); // State for loading status
   const [wishlist, setWishlist] = useState([]);
   const [wishlistLoading, setWishlistLoading] = useState(true);
-  const { id } = useParams();
+ 
+  // Using name instead of Id for test purpose.
+  const {name} = useParams();
+  let id;
   let url = '';
   if (id) {
+    //  Add Data to collection and use that Id here
     url = `${import.meta.env.VITE_BACKEND_BASE_URL}api/products/category/${id}`;
   } else {
+    /* Fetching every product for development phase
+    Remove it after setting up db locally */
     url = `${import.meta.env.VITE_BACKEND_BASE_URL}api/products/`;
   }
 
@@ -25,7 +34,7 @@ const CategoryPage = () => {
       setLoading(true); // Set loading to true before fetching
       const response = await fetch(url); // Replace with your API URL
       const data = await response.json();
-
+      console.log(data)
       // Flatten data to include each variant as a separate item
       const flattenedData = data.flatMap(item =>
         item.variants.map(variant => ({
@@ -39,6 +48,7 @@ const CategoryPage = () => {
       setFilteredItems(flattenedData); // Set initial filtered items
     } catch (error) {
       console.error("Failed to fetch items:", error);
+      setWrongURL(true);
     } finally {
       setLoading(false); // Set loading to false after fetching
     }
@@ -62,7 +72,9 @@ const CategoryPage = () => {
     fetchData(); // Fetch data when the component mounts
     fetchWishlist();
   }, [id]);
-
+  if(wrongURL){
+    return <NotFound />
+  }
   // Display loader while fetching data
   if (loading || wishlistLoading) {
     return <Preloader />;
@@ -72,7 +84,8 @@ const CategoryPage = () => {
     <div className="category bg-gray-800">
       <img
         className="mx-2"
-        src="https://github.com/IkkiOcean/AgroTech_Assets/blob/main/shop-asset/category_page/seed_banner.png?raw=true"
+        src={categories.find(category => category.alias === name)?.banner || null}
+        
         alt=""
       />
       <div className="flex gap-4 mx-2 mt-2 pb-2">

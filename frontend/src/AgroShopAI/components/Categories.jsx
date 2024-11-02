@@ -14,7 +14,7 @@ const Categories = ({ categories }) => {
             <>
               <div key={index} className="w-36 justify-center mx-auto ">
                 {/* display category information here */}
-                <Link to={`category/${category.id}`}>
+                <Link to={`category/${category.alias}`}>
                   {" "}
                   {/* Adjust the route as needed */}
                   <img
