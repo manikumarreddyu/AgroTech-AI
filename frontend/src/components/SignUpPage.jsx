@@ -62,7 +62,7 @@ const SignUpPage = () => {
         }
       );
       toast.success(response.data.message);
-      navigate("/login");
+      navigate("/verify-email");
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Signup failed. Please try again."
