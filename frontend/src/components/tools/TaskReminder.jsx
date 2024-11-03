@@ -47,11 +47,11 @@ const TaskReminder = () => {
             setNewTask({ crop: '', date: '', time: '', notes: '', to: '' });
             setShowTaskForm(false);
             scheduleNotification(task);
-            await sendEmailNotification(task, 'created');
+            await sendEmailNotification(task, 'created'); // Send email notification on creation
             
-            toast.success(`Task for ${task.crop} scheduled successfully!`);
+            toast.success(`Task for ${task.crop} scheduled successfully!`); // Show success toast
         } else {
-            toast.error('Please fill in all required fields.');
+            toast.error('Please fill in all required fields.'); // Show error toast
         }
     };
 
@@ -100,7 +100,7 @@ const TaskReminder = () => {
     const handleDeleteTask = (id) => {
         const deletedTask = tasks.find(task => task.id === id);
         setTasks((prev) => prev.filter((task) => task.id !== id));
-        toast.error(`Task for ${deletedTask.crop} deleted successfully!`);
+        toast.error(`Task for ${deletedTask.crop} deleted successfully!`); // Show delete toast
     };
 
     const handleEditTask = (task) => {
@@ -122,12 +122,11 @@ const TaskReminder = () => {
             setNewTask({ crop: '', date: '', time: '', notes: '', to: '' });
             setShowTaskForm(false);
             setEditingTask(null);
-            toast.success(`Task for ${updatedTask.crop} updated successfully!`);
+            toast.success(`Task for ${updatedTask.crop} updated successfully!`); // Show update toast
         } else {
-            toast.error('Please fill in all required fields.');
+            toast.error('Please fill in all required fields.'); // Show error toast
         }
     };
-
 
     return (
         <div className="flex items-center justify-center bg-gray-100">
