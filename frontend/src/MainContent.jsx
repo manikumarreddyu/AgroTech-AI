@@ -137,7 +137,7 @@ const MainContent = () => {
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
                 <Route path="/AgroShop/Category" element={<CategoryPage/>} />
-                <Route path="/AgroShop/Category/:id" element={<CategoryPage/>} />
+                <Route path="/AgroShop/Category/:name" element={<CategoryPage/>} />
                 <Route path="/AgroShop/Product/:id" element={<ProductPage/>}/>
                 <Route path="/AgroShop/Cart" element={<CartPage/>} />
                 <Route path="/AgroShop/Wishlist" element={<Wishlist/>} />
