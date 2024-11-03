@@ -2,29 +2,81 @@ const User = require("../model/user");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 
 exports.signupController = async (req, res) => {
-    try {
-      const { firstName, lastName, email, password, role } = req.body;
-  
-      const existingUser = await User.findOne({ email });
-      if (existingUser) {
-        return res.status(400).json({ message: 'Email already exists' });
-      }
-  
-      const newUser = new User({ firstName, lastName, email, password, role });
-      await newUser.save();
-  
-      // Include role in the token
-      const token = jwt.sign({ userId: newUser._id, role: newUser.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
-  
-      res.status(201).json({ message: 'User created', token });
-    } catch (error) {
-      console.error("Signup error:", error);
-      res.status(500).json({ message: 'Signup failed' });
+  try {
+    const { firstName, lastName, email, password, role } = req.body;
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Email already exists' });
     }
-}
+
+    const newUser = new User({ firstName, lastName, email, password, role });
+
+    // Generate OTP
+    const otp = crypto.randomInt(100000, 999999).toString();
+    newUser.otp = otp;
+    newUser.otpExpires = Date.now() + 10 * 60 * 1000; // OTP expires in 10 minutes
+
+    await newUser.save();
+
+    // Send OTP via email
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail', // Use a secure service
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: '"Agro-tech AI Support" <support@agrotechai.com>',
+      to: newUser.email,
+      subject: 'Verify your account - OTP',
+      text: `Hello ${firstName},\n\nYour OTP for account verification is: ${otp}\n\nThis OTP is valid for 10 minutes.`,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.status(201).json({ message: 'User created. Please verify your email with the OTP sent.' });
+  } catch (error) {
+    console.error("Signup error:", error);
+    res.status(500).json({ message: 'Signup failed' });
+  }
+};
+
+exports.signupVerifyOtpController = async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (user.isVerified) {
+      return res.status(400).json({ message: 'User is already verified' });
+    }
+
+    if (user.otp !== otp || user.otpExpires < Date.now()) {
+      return res.status(400).json({ message: 'Invalid or expired OTP' });
+    }
+
+    // Update user to verified
+    user.isVerified = true;
+    user.otp = undefined; // Clear OTP fields
+    user.otpExpires = undefined;
+    await user.save();
+
+    res.status(200).json({ message: 'Account verified successfully' });
+  } catch (error) {
+    console.error("OTP Verification error:", error);
+    res.status(500).json({ message: 'OTP verification failed' });
+  }
+};
 
 exports.signinController = async (req, res) => {
   try {
@@ -93,7 +145,7 @@ exports.forgotPasswordController = async (req, res) => {
         <h2>${otp}</h2>
         <p>If you did not request a password reset, please ignore this email.</p>
         <p>Thank you,</p>
-        <p>The Rentalog Team</p>
+        <p>The AgroTech-AI Team</p>
       `,
     };
 
