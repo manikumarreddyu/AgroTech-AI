@@ -90,7 +90,7 @@ router.get('/wishlist/:userId', wishlistController.getWishlist);// Get all wishl
  * ExtendedUser Routes
 */
 
-router.post('/profile',  extendedUserController.createExtendedUser); // Create a new extended user
+router.post('/profile', extendedUserController.createExtendedUser); // Create a new extended user
 router.get('/profile/:id', extendedUserController.getExtendedUserById);// Get extended user by ID
 router.get('/profile', extendedUserController.getAllExtendedUsers);// Get all extended users
 router.put('/profile/:id', extendedUserController.updateExtendedUser);// Update an existing extended user
