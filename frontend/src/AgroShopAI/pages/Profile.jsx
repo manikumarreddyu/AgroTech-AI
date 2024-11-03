@@ -6,6 +6,8 @@ import LoginPrompt from '../components/LoginPrompt';
 const ShopProfile = () => {
   const { isLoggedIn, userData } = useAuth(); 
   const [loading, setLoading] = useState(false);
+  const [expiryMonth, setExpiryMonth] = useState('');
+  const [expiryYear, setExpiryYear] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -40,17 +42,16 @@ const ShopProfile = () => {
   const [selectedCardType, setSelectedCardType] = useState("Visa");
   const [cardNumber, setCardNumber] = useState("");
   const [holderName, setHolderName] = useState("");
-  const [expiryDate, setExpiryDate] = useState("");
   const handleAddPaymentMethod = (event) => {
     event.preventDefault();
-
+    const formattedExpiry = `${expiryMonth}/${expiryYear.toString().slice(-2)}`;
     const newPaymentMethod = {
       method : selectedCardType,
       details : {
 
         cardNumber : cardNumber,
         lastFour: cardNumber.slice(-4),
-        expiry: expiryDate,
+        expiry: formattedExpiry,
         holderName: holderName,           
       }
     };
@@ -553,37 +554,73 @@ const ShopProfile = () => {
             className="mt-4 w-1/2 flex flex-col space-y-2"
           >
             <div className="flex gap-6">
+              <div className="">
+              <label className="block" htmlFor=""> Card Number</label>
               <input
-                type="text"
-                value={cardNumber}
-                onChange={(e) => setCardNumber(e.target.value)}
-                placeholder="Card Number"
+                type="tel"
+                inputMode="numeric"
+                pattern="[0-9\s]{13,19}"
+                autoComplete="cc-number"
+                maxLength={19}
+                placeholder="xxxx xxxx xxxx xxxx"
+                value={cardNumber.replace(/(\d{4})(?=\d)/g, '$1 ')}
+                minLength={19}
+                onChange={(e) => {
+                  // Filter out non-numeric characters
+                  const filteredValue = e.target.value.replace(/[^\d]/g, '');
+                  setCardNumber(filteredValue);
+                }}
                 className="p-2 border rounded-md"
                 required
               />
+              </div>
             </div>
             <div className="flex gap-6">
+            <div className="">
+            <label className="block" htmlFor=""> Card Holder Name</label>
               <input
                 type="text"
                 value={holderName}
                 onChange={(e) => setHolderName(e.target.value)}
-                placeholder="Cardholder Name"
+                placeholder="Name"
                 className="p-2 border rounded-md"
                 required
               />
-              <input
-                type="date"
-                maxLength={2}
-                id="expiry-month"
-                value={expiryDate}
-                onChange={(e) => setExpiryDate(e.target.value)}
-                name="expiry-month"
-                min="1"
-                max="12"
-                required
-                className="p-2 border rounded-md"
-              ></input>
-              
+              </div>
+              <div className="">
+              <label className="block" htmlFor="">valid upto</label>
+              <div className="flex space-x-2">
+  <select
+    id="expiry-month"
+    value={expiryMonth}
+    onChange={(e) => setExpiryMonth(e.target.value)}
+    required
+    className="w-full h-10 border bg-black text-white py-2 rounded-md hover:bg-green-600 transition"
+  >
+    <option value="" disabled>month</option>
+    {Array.from({ length: 12 }, (_, index) => (
+      <option key={index} value={index + 1}>
+        {new Date(0, index).toLocaleString('default', { month: 'long' })}
+      </option>
+    ))}
+  </select>
+
+  <select
+    id="expiry-year"
+    value={expiryYear}
+    onChange={(e) => setExpiryYear(e.target.value)}
+    required
+    className="w-full h-10 border bg-black text-white py-2 rounded-md hover:bg-green-600 transition"
+  >
+    <option value="" disabled>year</option>
+    {Array.from({ length: 10 }, (_, index) => (
+      <option key={index} value={new Date().getFullYear() + index}>
+        {new Date().getFullYear() + index}
+      </option>
+    ))}
+  </select>
+</div>
+              </div>
             </div>
             <button
               type="submit"
