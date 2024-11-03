@@ -47,11 +47,11 @@ const TaskReminder = () => {
             setNewTask({ crop: '', date: '', time: '', notes: '', to: '' });
             setShowTaskForm(false);
             scheduleNotification(task);
-            await sendEmailNotification(task, 'created'); // Send email notification on creation
+            await sendEmailNotification(task, 'created');
             
-            toast.success(`Task for ${task.crop} scheduled successfully!`); // Show success toast
+            toast.success(`Task for ${task.crop} scheduled successfully!`);
         } else {
-            toast.error('Please fill in all required fields.'); // Show error toast
+            toast.error('Please fill in all required fields.');
         }
     };
 
@@ -100,7 +100,7 @@ const TaskReminder = () => {
     const handleDeleteTask = (id) => {
         const deletedTask = tasks.find(task => task.id === id);
         setTasks((prev) => prev.filter((task) => task.id !== id));
-        toast.error(`Task for ${deletedTask.crop} deleted successfully!`); // Show delete toast
+        toast.error(`Task for ${deletedTask.crop} deleted successfully!`);
     };
 
     const handleEditTask = (task) => {
@@ -122,26 +122,29 @@ const TaskReminder = () => {
             setNewTask({ crop: '', date: '', time: '', notes: '', to: '' });
             setShowTaskForm(false);
             setEditingTask(null);
-            toast.success(`Task for ${updatedTask.crop} updated successfully!`); // Show update toast
+            toast.success(`Task for ${updatedTask.crop} updated successfully!`);
         } else {
-            toast.error('Please fill in all required fields.'); // Show error toast
+            toast.error('Please fill in all required fields.');
         }
     };
 
+
     return (
+        <div className="flex items-center justify-center bg-gray-100">
         <div className="w-1/2 max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8 rounded-lg shadow-lg bg-white" style={{ backgroundImage: `url(${img})` }}>
-            <h2 className="text-2xl font-semibold mb-4 text-teal-700">Irrigation Task Reminders</h2>
+            <div className="content flex-1 overflow-y-auto p-4">
+                <h2 className="text-2xl font-semibold mb-4 text-teal-700">Irrigation Task Reminders</h2>
 
-            <button
-                className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
-                onClick={() => setShowTaskForm(!showTaskForm)}
-            >
-                {showTaskForm ? 'Cancel' : 'Add New Task'}
-            </button>
+                <button
+                    className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
+                    onClick={() => setShowTaskForm(!showTaskForm)}
+                >
+                    {showTaskForm ? 'Cancel' : 'Add New Task'}
+                </button>
 
-            {showTaskForm && (
-                <form className="mb-6" onSubmit={editingTask ? handleUpdateTask : handleTaskSubmit}>
-                    <div className="mb-4">
+                {showTaskForm && (
+                    <form className="mb-6" onSubmit={editingTask ? handleUpdateTask : handleTaskSubmit}>
+                                            <div className="mb-4">
                         <label htmlFor="crop" className="block text-teal-700 mb-2">Crop:</label>
                         <input
                             type="text"
@@ -213,15 +216,15 @@ const TaskReminder = () => {
                     >
                         {editingTask ? 'Update Task' : 'Schedule Task'}
                     </button>
-                </form>
-            )}
+                    </form>
+                )}
 
-            <div>
-                {tasks.length > 0 ? (
-                    <ul>
-                        {tasks.map((task) => (
-                            <li key={task.id} className="flex justify-between items-center mb-2 p-2 border border-teal-700 rounded">
-                                <div>
+                <div>
+                    {tasks.length > 0 ? (
+                        <ul>
+                            {tasks.map((task) => (
+                                <li key={task.id} className="flex justify-between items-center mb-2 p-2 border border-teal-700 rounded">
+                                    <div>
                                     <p className="font-semibold text-white">{task.crop}</p>
                                     <p className="text-white">{format(parseISO(task.date), 'MMMM do, yyyy')} at {task.time}</p>
                                     {task.notes && <p className="text-white italic">Notes: {task.notes}</p>}
@@ -240,16 +243,18 @@ const TaskReminder = () => {
                                         Delete
                                     </button>
                                 </div>
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p className="text-gray-600">No tasks scheduled.</p>
-                )}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p className="text-white">No tasks scheduled.</p>
+                    )}
+                </div>
             </div>
 
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />
         </div>
+    </div>
     );
 };
 
