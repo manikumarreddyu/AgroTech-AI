@@ -58,6 +58,7 @@ import Wishlist from './AgroShopAI/pages/Wishlist';
 import ShopNavbar from './AgroShopAI/components/ShopNavbar';
 import ShopProfile from './AgroShopAI/pages/Profile'
 import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndReturn';
+import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
 import ForgotPasswordPage from './components/ForgotPassword';
 import AccountVerificationPage from './components/EmailVerification';
 
@@ -148,6 +149,7 @@ const MainContent = () => {
                 <Route path="/AgroShop/Profile" element={<ShopProfile/>} />
                 {/* Footer Links */}
                 <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />
+                <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
