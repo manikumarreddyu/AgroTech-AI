@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import playstore from "../assets/favicon2.png";
 import { FaHome, FaGithub, FaRegCopyright, FaDiscord, FaLinkedinIn } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6'; // Corrected import for Twitter icon
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -52,7 +54,16 @@ const Footer = () => {
         const token = authData?.token;
         
         if (!token) {
-            alert("Please log in to submit a rating.");
+            toast.error("Please log in to submit a rating.", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             return;
         }
 
@@ -70,17 +81,44 @@ const Footer = () => {
             });
 
             if (response.ok) {
-                alert("Thank you for your feedback!");
+                toast.success("Thank you for your feedback!", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
                 setRating(0);
                 setComment("");
                 setIsModalOpen(false); // Close modal after submission
             } else {
                 const errorData = await response.json();
-                alert(`Error: ${errorData.message || "Submission failed."}`);
+                toast.error(`Error: ${errorData.message || "Submission failed."}`, {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
             }
         } catch (error) {
             console.error("Error submitting rating:", error);
-            alert("An error occurred while submitting your rating.");
+            toast.error("An error occurred while submitting your rating.", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
         }
     };
 
