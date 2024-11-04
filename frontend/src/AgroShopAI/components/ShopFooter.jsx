@@ -154,7 +154,7 @@ const ShopFooter = () => {
               </a>
             </li>
             <li>
-              <a href="/terms" className="hover:underline">
+              <a href="/AgroShop/terms-of-use" className="hover:underline">
                 Terms of Use
               </a>
             </li>
