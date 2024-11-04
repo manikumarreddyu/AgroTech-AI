@@ -17,7 +17,8 @@ require("./services/passport")
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  // origin: "http://localhost:5173",
+  origin:"https://agro-tech-ai-backend-teal.vercel.app",
   credentials: true,
 }));
 app.use(
@@ -57,7 +58,7 @@ const PORT = process.env.PORT || 8080;
 // MongoDB connection
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/agrotech')
+  .connect(process.env.MONGODB_URL)
   .then(() => console.log("Connected to Database"))
   .catch((err) => console.log(err));
 
