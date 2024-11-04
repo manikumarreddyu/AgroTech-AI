@@ -5,7 +5,6 @@ import jsPDF from "jspdf";
 
 export default function Component() {
   const [loading, setLoading] = useState(true)
-  const [darkMode, setDarkMode] = useState(false)
   const [showSpan, setShowSpan] = useState(false);
   const [formData, setFormData] = useState({
     Temparature: "",
@@ -38,9 +37,8 @@ export default function Component() {
 
   const handlePredictClick = (e) => {
     e.preventDefault();
-    // const url = "https://agro-ai-1.onrender.com/fertilizer_predict";
-    // https://agro-kdxo.onrender.com/
-    const url = "https://agro-kdxo.onrender.com/fertilizer_predict";
+    
+    const url = "https://agrotech-api.onrender.com/fertilizer_predict";
     //  const url = "http://127.0.0.1:5000/fertilizer_predict";
     setIsLoading(true);
     const jsonData = JSON.stringify(formData);
@@ -102,7 +100,7 @@ export default function Component() {
   };
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-green-50 to-green-100'} py-20`}>
+    <div className={`min-h-screen bg-gradient-to-br from-green-50 to-green-100 py-20`}>
       <header className="text-center py-8">
         <h1 className="text-4xl font-bold text-green-600 mb-3">Fertilizer Prediction</h1>
         <p className="text-2xl text-green-500">Growing Season: Spring - Summer</p>
@@ -112,7 +110,7 @@ export default function Component() {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-2">
           <div className="w-full lg:w-2/3 px-2 mb-4">
-            <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-6`}>
+            <div className={` bg-white shadow-lg rounded-lg overflow-hidden p-6`}>
               <h2 className="text-2xl font-bold text-green-600 mb-4">Soil Analysis</h2>
               <div className="grid grid-cols-2 gap-4 text-lg">
                 <div>
@@ -128,14 +126,14 @@ export default function Component() {
             </div>
 
             <div className="mt-6 grid grid-cols-3 gap-4">
-              {['Nitrogen', 'Phosphorous', 'Potassium'].map((nutrient) => (
-                <div key={nutrient} className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-4`}>
-                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : nutrient === 'Phosphorous' ? 'text-blue-500' : 'text-orange-500'}`}>
+              {['Nitrogen', 'Phosphorus', 'Potassium'].map((nutrient) => (
+                <div key={nutrient} className={`bg-white shadow-lg rounded-lg overflow-hidden p-4`}>
+                  <h3 className={`text-xl font-bold mb-2 ${nutrient === 'Nitrogen' ? 'text-green-500' : nutrient === 'Phosphorus' ? 'text-blue-500' : 'text-orange-500'}`}>
                     {nutrient}
                   </h3>
                   <div className="relative pt-1">
                     <div className="overflow-hidden h-3 mb-2 text-xs flex rounded bg-gray-200">
-                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : nutrient === 'Phosphorous' ? 'bg-blue-500' : 'bg-orange-500'}`}></div>
+                      <div style={{ width: `${(formData[nutrient] / 50) * 100}%` }} className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center ${nutrient === 'Nitrogen' ? 'bg-green-500' : nutrient === 'Phosphorus' ? 'bg-blue-500' : 'bg-orange-500'}`}></div>
                     </div>
                   </div>
                   <p className="text-sm">Current: {formData[nutrient]}, Optimal: 30-40</p>
@@ -143,11 +141,11 @@ export default function Component() {
               ))}
             </div>
 
-            <div className={`mt-6 ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-6`}>
+            <div className={`mt-6 bg-white shadow-lg rounded-lg overflow-hidden p-6`}>
               <h2 className="text-2xl font-bold text-green-600 mb-4">Crop Growth Stage</h2>
               <div className="flex justify-between items-center mb-4">
                 <div className="w-1/6 text-center">
-                  <div className={`w-10 h-10 mx-auto rounded-full ${darkMode ? 'bg-green-600' : 'bg-green-500'} flex items-center justify-center`}>
+                  <div className={`w-10 h-10 mx-auto rounded-full bg-green-500 flex items-center justify-center`}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                       <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
@@ -156,7 +154,7 @@ export default function Component() {
                   <p className="text-sm mt-2">Germination</p>
                 </div>
                 <div className="w-1/6 text-center">
-                  <div className={`w-10 h-10 mx-auto rounded-full ${darkMode ? 'bg-green-600' : 'bg-green-500'} flex items-center justify-center`}>
+                  <div className={`w-10 h-10 mx-auto rounded-full bg-green-500 flex items-center justify-center`}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clipRule="evenodd" />
                       <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z" />
@@ -165,7 +163,7 @@ export default function Component() {
                   <p className="text-sm mt-2">Seedling</p>
                 </div>
                 <div className="w-1/6 text-center">
-                  <div className={`w-10 h-10 mx-auto rounded-full ${darkMode ? 'bg-green-600' : 'bg-green-500'} flex items-center justify-center`}>
+                  <div className={`w-10 h-10 mx-auto rounded-full bg-green-500 flex items-center justify-center`}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
@@ -199,7 +197,7 @@ export default function Component() {
           </div>
 
           <div className="w-full lg:w-1/3 px-2">
-            <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden mb-6 p-6`}>
+            <div className={`bg-white shadow-lg rounded-lg overflow-hidden mb-6 p-6`}>
               <h2 className="text-2xl font-bold text-green-600 mb-4">Weather</h2>
               <div className="flex items-center justify-between text-lg">
                 <div className="flex items-center">
@@ -223,7 +221,7 @@ export default function Component() {
               </div>
             </div>
 
-            <form onSubmit={handlePredictClick} className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-6`}>
+            <form onSubmit={handlePredictClick} className={`bg-white shadow-lg rounded-lg overflow-hidden p-6`}>
               <h2 className="text-2xl font-bold text-green-600 mb-4">Predict Fertilizer</h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -231,8 +229,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Temparature">Temparature</label>
                   <input
-                    type="number"
-                    max={50}
+                    type="text"
                     id="Temparature"
                     name="Temparature"
                     value={formData.Temparature}
@@ -246,9 +243,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Humidity">Humidity</label>
                   <input
-                    type="number"
-                    max={100}
-                    min={0}
+                    type="text"
                     id="Humidity"
                     name="Humidity"
                     value={formData.Humidity}
@@ -262,9 +257,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Moisture">Moisture</label>
                   <input
-                    type="number"
-                    max={100}
-                    min={0}
+                    type="text"
                     id="Moisture"
                     name="Moisture"
                     value={formData.Moisture}
@@ -279,7 +272,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Soil_Type">Soil Type</label>
                   <select
-                    className= {`w-full px-3 py-2 border rounded-md ${darkMode ? 'text-black' : 'text-black'}`}
+                    className= {`w-full px-3 py-2 border rounded-md text-black`}
                     id="Soil_Type"
                     name="Soil_Type"
                     value={formData.Soil_Type}
@@ -298,7 +291,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Crop_Type">Crop Type</label>
                   <select
-                    className={`w-full px-3 py-2 border rounded-md ${darkMode ? 'text-black' : 'text-black'}`}
+                    className={`w-full px-3 py-2 border rounded-md text-black`}
                     id="Crop_Type"
                     name="Crop_Type"
                     value={formData.Crop_Type}
@@ -324,9 +317,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2 " htmlFor="Nitrogen">Nitrogen</label>
                   <input
-                    type="number"
-                    max={50}
-                    min={0}
+                    type="text"
                     id="Nitrogen"
                     name="Nitrogen"
                     value={formData.Nitrogen}
@@ -340,9 +331,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Potassium">Potassium</label>
                   <input
-                    type="number"
-                    max={50}
-                    min={0}
+                    type="text"
                     id="Potassium"
                     name="Potassium"
                     value={formData.Potassium}
@@ -356,9 +345,7 @@ export default function Component() {
                 <div className="mb-4">
                   <label className="block text-base font-medium mb-2" htmlFor="Phosphorous">Phosphorous</label>
                   <input
-                    type="number"
-                    max={50}
-                    min={0}
+                    type="text"
                     id="Phosphorous"
                     name="Phosphorous"
                     value={formData.Phosphorous}
@@ -381,7 +368,7 @@ export default function Component() {
 
 
             {(result || isLoading) && (
-              <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden mt-6 p-6`}>
+              <div className={`bg-white shadow-lg rounded-lg overflow-hidden mt-6 p-6`}>
                 <h2 className="text-2xl font-bold text-green-600 mb-4">Prediction Result</h2>
                 {isLoading ? (
                   <p className="text-lg">Predicting...</p>
@@ -461,46 +448,18 @@ export default function Component() {
         </div>
 
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-6`}>
+          <div className={`bg-white shadow-lg rounded-lg overflow-hidden p-6`}>
             <h2 className="text-2xl font-bold text-green-600 mb-4">Smart Suggestions</h2>
             <p className="text-lg">Based on current weather patterns and market prices, we recommend considering these alternative fertilizers...</p>
           </div>
 
-          <div className={`${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden p-6`}>
+          <div className={`bg-white shadow-lg rounded-lg overflow-hidden p-6`}>
             <h2 className="text-2xl font-bold text-green-600 mb-4">Nutrient History</h2>
             <div className="h-40 bg-gray-200 rounded-lg flex items-center justify-center">
               <p className="text-lg text-gray-600">Interactive Nutrient History Graph</p>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="fixed bottom-6 right-6">
-        <button className="bg-white p-3 rounded-full shadow-lg hover:bg-green-50">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-          </svg>
-        </button>
-      </div>
-
-      <div className="fixed bottom-6 left-6 flex items-center space-x-3 rounded-full px-3 py-2 bg-green-600 shadow-lg">
-        <div className="relative inline-block w-12 mr-2 align-middle select-none">
-          <input
-            type="checkbox"
-            name="toggle"
-            id="dark-mode"
-            className="toggle-checkbox absolute block w-7 h-7 rounded-full bg-white border-4 appearance-none cursor-pointer"
-            checked={darkMode}
-            onChange={() => setDarkMode(!darkMode)}
-          />
-          <label
-            htmlFor="dark-mode"
-            className="toggle-label block overflow-hidden h-7 rounded-full bg-gray-300 cursor-pointer"
-          ></label>
-        </div>
-        <label htmlFor="dark-mode" className="text-lg">
-          Dark Mode
-        </label>
       </div>
 
       <style jsx>{`

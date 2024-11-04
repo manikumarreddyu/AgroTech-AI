@@ -1,194 +1,267 @@
-// src/TaskReminder.jsx
-
 import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
+import axios from 'axios';
+import img from "../../assets/102.jpg";
+import { ToastContainer, toast } from 'react-toastify';
+import img1 from "../../assets/tp.png";
+import 'react-toastify/dist/ReactToastify.css';
 
 const TaskReminder = () => {
-  // State to manage tasks
-  const [tasks, setTasks] = useState(() => {
-    // Load tasks from localStorage if available
-    const savedTasks = localStorage.getItem('irrigationTasks');
-    return savedTasks ? JSON.parse(savedTasks) : [];
-  });
+    const [tasks, setTasks] = useState(() => {
+        const savedTasks = localStorage.getItem('irrigationTasks');
+        return savedTasks ? JSON.parse(savedTasks) : [];
+    });
 
-  // State to toggle task form visibility
-  const [showTaskForm, setShowTaskForm] = useState(false);
-
-  // State to manage new task input fields
-  const [newTask, setNewTask] = useState({
-    crop: '',
-    date: '',
-    time: '',
-    notes: '',
-  });
-
-  // Save tasks to localStorage whenever they change
-  useEffect(() => {
-    localStorage.setItem('irrigationTasks', JSON.stringify(tasks));
-  }, [tasks]);
-
-  // Request notification permission on mount
-  useEffect(() => {
-    if ('Notification' in window && Notification.permission !== 'granted') {
-      Notification.requestPermission();
-    }
-  }, []);
-
-  // Handle input changes for the new task form
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewTask((prev) => ({ ...prev, [name]: value }));
-  };
-
-  // Handle task submission
-  const handleTaskSubmit = (e) => {
-    e.preventDefault();
-    if (newTask.crop && newTask.date && newTask.time) {
-      const task = {
-        id: Date.now(),
-        ...newTask,
-      };
-      setTasks((prev) => [...prev, task]);
-      setNewTask({
+    const [showTaskForm, setShowTaskForm] = useState(false);
+    const [editingTask, setEditingTask] = useState(null);
+    const [newTask, setNewTask] = useState({
         crop: '',
         date: '',
         time: '',
         notes: '',
-      });
-      setShowTaskForm(false);
-      // Schedule notification
-      scheduleNotification(task);
-    } else {
-      alert('Please fill in all required fields.');
-    }
-  };
+        to: ''
+    });
 
-  // Schedule browser notification for the task
-  const scheduleNotification = (task) => {
-    if ('Notification' in window && Notification.permission === 'granted') {
-      const taskDateTime = new Date(`${task.date}T${task.time}`);
-      const now = new Date();
-      const timeDifference = taskDateTime.getTime() - now.getTime();
+    useEffect(() => {
+        localStorage.setItem('irrigationTasks', JSON.stringify(tasks));
+    }, [tasks]);
 
-      if (timeDifference > 0) {
-        setTimeout(() => {
-          new Notification('Irrigation Reminder', {
-            body: `It's time to irrigate ${task.crop}.`,
-            icon: 'https://img.icons8.com/color/48/000000/plant.png',
-          });
-        }, timeDifference);
-      }
-    }
-  };
+    useEffect(() => {
+        if ('Notification' in window && Notification.permission !== 'granted') {
+            Notification.requestPermission();
+        }
+    }, []);
 
-  // Handle task deletion
-  const handleDeleteTask = (id) => {
-    setTasks((prev) => prev.filter((task) => task.id !== id));
-  };
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setNewTask((prev) => ({ ...prev, [name]: value }));
+    };
 
-  return (
-    <div className="max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8  rounded-lg shadow-lg ">
-      <h2 className="text-2xl font-semibold mb-4 text-teal-700">Irrigation Task Reminders</h2>
+    const handleTaskSubmit = async (e) => {
+        e.preventDefault();
+        if (newTask.crop && newTask.date && newTask.time && newTask.to) {
+            const task = {
+                id: Date.now(),
+                ...newTask,
+            };
+            setTasks((prev) => [...prev, task]);
+            setNewTask({ crop: '', date: '', time: '', notes: '', to: '' });
+            setShowTaskForm(false);
+            scheduleNotification(task);
+            await sendEmailNotification(task, 'created'); // Send email notification on creation
+            
+            toast.success(`Task for ${task.crop} scheduled successfully!`); // Show success toast
+        } else {
+            toast.error('Please fill in all required fields.'); // Show error toast
+        }
+    };
 
-      <button
-        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        onClick={() => setShowTaskForm(!showTaskForm)}
-      >
-        {showTaskForm ? 'Cancel' : 'Add New Task'}
-      </button>
+    const scheduleNotification = (task) => {
+        if ('Notification' in window && Notification.permission === 'granted') {
+            const taskDateTime = new Date(`${task.date}T${task.time}`);
+            const now = new Date();
+            const timeDifference = taskDateTime.getTime() - now.getTime();
 
-      {showTaskForm && (
-        <form className="mb-6" onSubmit={handleTaskSubmit}>
-          <div className="mb-4">
-            <label htmlFor="crop" className="block text-teal-700 mb-2">Crop:</label>
-            <input
-              type="text"
-              id="crop"
-              name="crop"
-              value={newTask.crop}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-teal-700 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
-              required
-              placeholder="Enter crop name"
-            />
-          </div>
+            if (timeDifference > 0) {
+                setTimeout(() => {
+                    new Notification('Irrigation Reminder', {
+                        body: `It's time to irrigate ${task.crop}.`,
+                        icon: 'https://img.icons8.com/color/48/000000/plant.png',
+                    });
+                    sendEmailNotification(task, 'reminder'); 
+                }, timeDifference);
+            }
+        }
+    };
 
-          <div className="mb-4">
-            <label htmlFor="date" className="block text-teal-700 mb-2">Date:</label>
-            <input
-              type="date"
-              id="date"
-              name="date"
-              value={newTask.date}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-teal-700 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
-              required
-            />
-          </div>
+    const sendEmailNotification = async (task, action) => {
+        const subjects = {
+            created: 'New Task Created',
+            updated: 'Task Updated',
+            reminder: 'Irrigation Reminder',
+        };
 
-          <div className="mb-4">
-            <label htmlFor="time" className="block text-teal-700 mb-2">Time:</label>
-            <input
-              type="time"
-              id="time"
-              name="time"
-              value={newTask.time}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-teal-700 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
-              required
-            />
-          </div>
+        const bodies = {
+            created: `A new task has been created for ${task.crop} on ${task.date} at ${task.time}. Notes: ${task.notes}`,
+            updated: `Task for ${task.crop} has been updated. New details: ${task.date} at ${task.time}. Notes: ${task.notes}`,
+            reminder: `It's time to irrigate ${task.crop} on ${task.date} at ${task.time}. Notes: ${task.notes}`,
+        };
 
-          <div className="mb-4">
-            <label htmlFor="notes" className="block text-teal-700 mb-2">Notes:</label>
-            <textarea
-              id="notes"
-              name="notes"
-              value={newTask.notes}
-              onChange={handleInputChange}
-              className="w-full p-2 border border-teal-700 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
-              placeholder="Any additional notes"
-            ></textarea>
-          </div>
+        try {
+            await axios.post('/api/send-email', {
+                to: task.to,
+                subject: subjects[action],
+                body: bodies[action],
+            });
+        } catch (error) {
+            console.error('Error sending email:', error);
+        }
+    };
 
-          <button
-            type="submit"
-            className="w-full px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-          >
-            Schedule Task
-          </button>
-        </form>
-      )}
+    const handleDeleteTask = (id) => {
+        const deletedTask = tasks.find(task => task.id === id);
+        setTasks((prev) => prev.filter((task) => task.id !== id));
+        toast.error(`Task for ${deletedTask.crop} deleted successfully!`); // Show delete toast
+    };
 
-      {/* Display Scheduled Tasks */}
-      <div>
-        {tasks.length > 0 ? (
-          <ul>
-            {tasks.map((task) => (
-              <li
-                key={task.id}
-                className="my-2 p-4 border border-teal-700 rounded bg-teal-100 flex justify-between items-center"
-              >
-                <div>
-                  <p className="font-semibold">{task.crop}</p>
-                  <p>{format(parseISO(task.date), 'MMMM d, yyyy')} at {task.time}</p>
-                  {task.notes && <p className="text-sm italic">{task.notes}</p>}
-                </div>
-                <button
-                  className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                  onClick={() => handleDeleteTask(task.id)}
-                >
-                  Delete
-                </button>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-gray-600">No irrigation tasks scheduled.</p>
-        )}
-      </div>
-    </div>
-  );
+    const handleEditTask = (task) => {
+        setNewTask(task);
+        setEditingTask(task.id);
+        setShowTaskForm(true);
+    };
+
+    const handleUpdateTask = async (e) => {
+        e.preventDefault();
+        if (newTask.crop && newTask.date && newTask.time && newTask.to) {
+            const updatedTask = {
+                ...newTask,
+            };
+            setTasks((prev) =>
+                prev.map((task) => (task.id === editingTask ? { ...task, ...updatedTask } : task))
+            );
+            await sendEmailNotification(updatedTask, 'updated');
+            setNewTask({ crop: '', date: '', time: '', notes: '', to: '' });
+            setShowTaskForm(false);
+            setEditingTask(null);
+            toast.success(`Task for ${updatedTask.crop} updated successfully!`); // Show update toast
+        } else {
+            toast.error('Please fill in all required fields.'); // Show error toast
+        }
+    };
+
+    return (
+        <div
+            className="min-h-screen flex items-center justify-center p-6 mt-12 relative"
+            style={{
+                backgroundImage: `url(${img1})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}
+        >
+            <div className="absolute inset-0 bg-black opacity-40 pointer-events-none"></div>
+            <div className="relative bg-white bg-opacity-50 backdrop-blur-md rounded-xl shadow-2xl p-10 w-full mt-5 max-w-lg text-center transition-all duration-300 transform hover:scale-105" style={{ backgroundImage: `url(${img})` }}>
+            <h2 className="text-2xl font-semibold mb-4 text-teal-400">Irrigation Task Reminders</h2>
+
+            <button
+                className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
+                onClick={() => setShowTaskForm(!showTaskForm)}
+            >
+                {showTaskForm ? 'Cancel' : 'Add New Task'}
+            </button>
+
+            {showTaskForm && (
+                <form className="mb-6" onSubmit={editingTask ? handleUpdateTask : handleTaskSubmit}>
+                    <div className="mb-4">
+                        <label htmlFor="crop" className="block text-teal-400 mb-2">Crop:</label>
+                        <input
+                            type="text"
+                            id="crop"
+                            name="crop"
+                            value={newTask.crop}
+                            onChange={handleInputChange}
+                            className="w-full p-2 border border-teal-700 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                            required
+                            placeholder="Enter crop name"
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <label htmlFor="date" className="block text-teal-400 mb-2">Date:</label>
+                        <input
+                            type="date"
+                            id="date"
+                            name="date"
+                            value={newTask.date}
+                            onChange={handleInputChange}
+                            className="w-full p-2 border border-teal-700 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                            required
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <label htmlFor="time" className="block text-teal-400 mb-2">Time:</label>
+                        <input
+                            type="time"
+                            id="time"
+                            name="time"
+                            value={newTask.time}
+                            onChange={handleInputChange}
+                            className="w-full p-2 border border-teal-700 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                            required
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <label htmlFor="to" className="block text-teal-400 mb-2">To (Email):</label>
+                        <input
+                            type="email"
+                            id="to"
+                            name="to"
+                            value={newTask.to}
+                            onChange={handleInputChange}
+                            className="w-full p-2 border border-teal-700 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                            required
+                            placeholder="Enter recipient's email"
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <label htmlFor="notes" className="block text-teal-400 mb-2">Notes:</label>
+                        <textarea
+                            id="notes"
+                            name="notes"
+                            value={newTask.notes}
+                            onChange={handleInputChange}
+                            className="w-full p-2 border border-teal-700 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
+                            placeholder="Any additional notes"
+                        ></textarea>
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="w-full px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-200"
+                    >
+                        {editingTask ? 'Update Task' : 'Schedule Task'}
+                    </button>
+                </form>
+            )}
+
+            <div>
+                {tasks.length > 0 ? (
+                    <ul>
+                        {tasks.map((task) => (
+                            <li key={task.id} className="flex justify-between items-center mb-2 p-2 border border-teal-700 rounded">
+                                <div>
+                                    <p className="font-semibold text-white">{task.crop}</p>
+                                    <p className="text-white">{format(parseISO(task.date), 'MMMM do, yyyy')} at {task.time}</p>
+                                    {task.notes && <p className="text-white italic">Notes: {task.notes}</p>}
+                                </div>
+                                <div>
+                                    <button
+                                        onClick={() => handleEditTask(task)}
+                                        className="mr-2 px-2 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition duration-200"
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        onClick={() => handleDeleteTask(task.id)}
+                                        className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-200"
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p className="text-gray-300">No tasks scheduled.</p>
+                )}
+            </div>
+
+            <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />
+        </div>
+        </div>
+    );
 };
 
 export default TaskReminder;

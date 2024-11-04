@@ -5,12 +5,18 @@ const userSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  password: { type: String},
   role: {
     type: String,
-    enum: ['admin', 'farmer', 'vendor', 'customer'],  // Roles
-    default: 'customer',  // Default role is 'customer'
+    enum: ['admin', 'farmer', 'vendor', 'customer'],
+    default: 'customer',
   },
+  resetPasswordOTP: { type: String },
+  resetPasswordExpires: { type: Date },
+  isVerified: { type: Boolean, default: false },
+  otp: { type: String },
+  otpExpires: { type: Date },
+  googleId: { type: String, unique: true },
 });
 
 // Hash password before saving

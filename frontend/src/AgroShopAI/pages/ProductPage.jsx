@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import ReviewSection from "../components/ReviewSection"; // Adjust the path as needed
 import { useParams } from "react-router-dom";
 import NotFound from "../../NotFound";
+import { useNavigate } from "react-router-dom";
+import {useAuth} from '../../context/AuthContext';
+import Preloader from "../../components/PreLoader";
 const ProductPage = () => {
   const {id} = useParams();
   if (!id){
@@ -9,15 +12,18 @@ const ProductPage = () => {
       <NotFound />
     )
   }
+  const { isLoggedIn, userData } = useAuth(); 
   const [quantity, setQuantity] = useState(1); // State to hold the selected quantity
   const [chosenVariant, setChosenVariant] = useState(null); // State to store chosen variant
-  const [product,setProduct] = useState(null)//will help in adding to cart
+  const [variant,setVariant] = useState(null)//will help in adding to cart
   const handleVariantClick = (index) => {
     setChosenVariant(index); // Set the chosen variant's index
-    setProduct(items.variants[index]._id)
+    setVariant(items.variants[index]._id)
+    
     console.log('hello')
     console.log(items.variants[index]._id)
   };
+  
   const handleQuantityChange = (e) => {
     setQuantity(Number(e.target.value)); // Update the state when quantity is selected
   };
@@ -25,7 +31,7 @@ const ProductPage = () => {
   const [items, setItems] = useState(null);
   const [loading, setLoading] = useState(false);
   const [currentImage, setCurrentImage] = useState("");
-  const url = `http://127.0.0.1:8080/api/products/${id}`; // Replace with your API URL
+  const url = `${import.meta.env.VITE_BACKEND_BASE_URL}api/products/${id}`; // Replace with your API URL
 
   // Function to fetch product data and reviews
   const fetchData = async () => {
@@ -57,16 +63,48 @@ const ProductPage = () => {
   };
 
   const averageRating = calculateAverageRating();
+  const navigate = useNavigate()
+  const handleCart = async()=>{
+    if (!isLoggedIn) {
+      return (
+        alert("Please login before adding to the cart!")
+      )
+  }
+    if(!variant){
+      return (
+        alert("Please select a variant before adding to the cart!")
+      )
+    }
+    try {
+      const response = await fetch(`http://127.0.0.1:8080/api/cart/${userData}/add`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId: id,
+          variantId: variant,
+          quantity: quantity,
+        }),
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        console.log(result.message);
+        navigate('/agroshop/cart')
+      } else {
+        alert(result.message || "Failed to add item to cart.");
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
+  }
 
   // Display loader while fetching data
   if (loading) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="text-center text-white">
-          <div className="loader border-t-4 border-b-4 border-purple-600 rounded-full w-12 h-12 mb-4 animate-spin"></div>
-          <p>Loading products...</p>
-        </div>
-      </div>
+      <Preloader />
     );
   }
 
@@ -196,7 +234,7 @@ const ProductPage = () => {
     </div>
           {/* Add to Cart and Buy Now Buttons */}
           <div className="space-y-4">
-            <button className="bg-yellow-400 text-black px-6 py-3 rounded-md font-bold hover:bg-yellow-500 w-full">
+            <button className="bg-yellow-400 text-black px-6 py-3 rounded-md font-bold hover:bg-yellow-500 w-full" onClick={() => handleCart()}>
               Add to Cart ( {quantity>0?`${quantity}`:''} )
             </button>
             <button className="bg-orange-600 text-white px-6 py-3 rounded-md font-bold hover:bg-orange-700 w-full">

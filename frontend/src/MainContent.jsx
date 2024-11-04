@@ -52,6 +52,16 @@ import CategoryPage from './AgroShopAI/pages/CategoryPage';
 import ProductPage from './AgroShopAI/pages/ProductPage';
 import BestPractices from './pages/BestPractices';
 import Profile from './components/Profile';
+import AgriProductListing from './AgroRentAI/components/AgriProductListing';
+import CartPage from './AgroShopAI/pages/Cart';
+import Wishlist from './AgroShopAI/pages/Wishlist';
+import ShopNavbar from './AgroShopAI/components/ShopNavbar';
+import ShopProfile from './AgroShopAI/pages/Profile'
+import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndReturn';
+import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
+import ForgotPasswordPage from './components/ForgotPassword';
+import AccountVerificationPage from './components/EmailVerification';
+
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route
@@ -81,7 +91,7 @@ const MainContent = () => {
             <GoTop />
             <ProgressScrollDown />
             <div>
-              {!hideNavbar && <Navbar />} {/* Conditional rendering for Navbar */}
+              {!hideNavbar ? <Navbar /> : <ShopNavbar/>} {/* Conditional rendering for Navbar */}
               <Routes>
                 <Route path="/thank-you" element={<Feedback />} /> {/* Thank You Page Route */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -117,6 +127,8 @@ const MainContent = () => {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/profile" element={<Profile/>} />
                 <Route path="/signup" element={<SignUpPage />} />
+                <Route path="/verify-email" element={<AccountVerificationPage />} />
+                <Route path="/forgot-password" element={<ForgotPasswordPage />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/news" element={<NewsForum />} />
@@ -125,12 +137,19 @@ const MainContent = () => {
                 {/* AgroRentAI Routes */}
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
+                <Route path="/AgriProducts" element={<AgriProductListing/>} />
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
                 <Route path="/AgroShop/Category" element={<CategoryPage/>} />
-                <Route path="/AgroShop/Category/:id" element={<CategoryPage/>} />
+                <Route path="/AgroShop/Category/:name" element={<CategoryPage/>} />
                 <Route path="/AgroShop/Product/:id" element={<ProductPage/>}/>
+                <Route path="/AgroShop/Cart" element={<CartPage/>} />
+                <Route path="/AgroShop/Wishlist" element={<Wishlist/>} />
+                <Route path="/AgroShop/Profile" element={<ShopProfile/>} />
+                {/* Footer Links */}
+                <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />
+                <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
