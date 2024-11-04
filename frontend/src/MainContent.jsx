@@ -57,8 +57,10 @@ import CartPage from './AgroShopAI/pages/Cart';
 import Wishlist from './AgroShopAI/pages/Wishlist';
 import ShopNavbar from './AgroShopAI/components/ShopNavbar';
 import ShopProfile from './AgroShopAI/pages/Profile'
+import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndReturn';
 import ForgotPasswordPage from './components/ForgotPassword';
 import AccountVerificationPage from './components/EmailVerification';
+
 const MainContent = () => {
   UseScrollToTop();
   const location = useLocation(); // Get the current route
@@ -144,6 +146,8 @@ const MainContent = () => {
                 <Route path="/AgroShop/Cart" element={<CartPage/>} />
                 <Route path="/AgroShop/Wishlist" element={<Wishlist/>} />
                 <Route path="/AgroShop/Profile" element={<ShopProfile/>} />
+                {/* Footer Links */}
+                <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
