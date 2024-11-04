@@ -149,7 +149,7 @@ const ShopFooter = () => {
           <h2 className="text-lg font-semibold mb-2">Consumer Policy</h2>
           <ul className="text-sm">
             <li>
-              <a href="/cancellation-return" className="hover:underline">
+              <a href="/agroshop/cancellation-return" className="hover:underline">
                 Cancellation & Return
               </a>
             </li>
