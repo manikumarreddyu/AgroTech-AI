@@ -6,14 +6,16 @@ import { useAuth } from "../context/AuthContext";
 import loginImage from "../assets/LoginImage.png";
 import eyeIcon from "../assets/icons/eye.svg";
 import eyeSlashIcon from "../assets/icons/eye-slash.svg";
+import googleIcon from "../assets/icons/icons8-google.svg"; // Google icon for the button
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false); // New state for remember me checkbox
-  const { isLoggedIn, login } = useAuth(); // Use context
+  const [rememberMe, setRememberMe] = useState(false);
+  const { isLoggedIn, login } = useAuth();
 
+  // Handle standard email/password login
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
@@ -25,12 +27,16 @@ const LoginPage = () => {
           rememberMe, 
         }
       );
-      login(response.data.token, response.data.user_id); 
+      login(response.data.token, response.data.user_id);
       toast.success("Login successful");
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
-      return <Navigate to="/signup" />;
     }
+  };
+
+  // Google Login handler
+  const handleGoogleSignIn = () => {
+    window.location.href = "https://agro-tech-ai-backend-teal.vercel.app/auth/google";
   };
 
   if (isLoggedIn) {
@@ -39,7 +45,6 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 to-blue-500 mt-10">
-      {/* Toast Container */}
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -55,7 +60,6 @@ const LoginPage = () => {
         className="mt-16"
       />
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-500 ease-in-out hover:scale-105">
-        {/* Image section */}
         <div className="hidden md:block">
           <img
             src={loginImage}
@@ -64,7 +68,6 @@ const LoginPage = () => {
           />
         </div>
 
-        {/* Form section */}
         <div className="p-10 flex flex-col justify-center">
           <h2 className="text-4xl font-bold text-center text-green-600 mb-4 animate-fadeInDown">
             Welcome Back!
@@ -121,7 +124,6 @@ const LoginPage = () => {
               </div>
             </div>
 
-            {/* Remember Me Checkbox */}
             <div className="flex items-center animate-fadeInUp">
               <input
                 type="checkbox"
@@ -142,6 +144,16 @@ const LoginPage = () => {
               Sign In
             </button>
           </form>
+
+          {/* Google Login Button */}
+          <button
+            onClick={handleGoogleSignIn}
+            className="w-full mt-4 py-2 flex items-center justify-center bg-white text-gray-700 border border-gray-300 rounded-md font-bold transform transition duration-300 hover:scale-105"
+          >
+            <img src={googleIcon} alt="Google" className="w-6 h-6 mr-2" />
+            Sign in with Google
+          </button>
+
           <p className="text-center text-sm mt-4">
             Don’t have an account?{" "}
             <Link to="/signup" className="text-green-500 hover:underline">Sign Up</Link>
