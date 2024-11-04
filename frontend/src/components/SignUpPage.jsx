@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import signupImage from "../assets/SignUpImage.png";
 import eyeIcon from "../assets/icons/eye.svg";
 import eyeSlashIcon from "../assets/icons/eye-slash.svg";
-
+import googleIcon from "../assets/icons/icons8-google.svg"; // Google icon for the button
 const SignUpPage = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
@@ -52,7 +52,7 @@ const SignUpPage = () => {
 
     try {
       const response = await axios.post(
-        "https://agro-tech-ai-backend-teal.vercel.app/auth/signup",
+        "http://localhost:8080/auth/signup",
         {
           firstName,
           lastName,
@@ -68,6 +68,9 @@ const SignUpPage = () => {
         error.response?.data?.message || "Signup failed. Please try again."
       );
     }
+  };
+  const handleGoogleSignIn = () => {
+    window.location.href = "https://agro-tech-ai-backend-teal.vercel.app/auth/google";
   };
 
   return (
@@ -228,6 +231,14 @@ const SignUpPage = () => {
               >
                 Sign Up
               </button>
+              <button
+            onClick={handleGoogleSignIn}
+            className="w-full mt-4 py-2 flex items-center justify-center bg-white text-gray-700 border border-gray-300 rounded-md font-bold transform transition duration-300 hover:scale-105"
+          >
+            <img src={googleIcon} alt="Google" className="w-6 h-6 mr-2" />
+            Sign in with Google
+          </button>
+
             </div>
           </form>
           <p className="text-center text-sm mt-4">
