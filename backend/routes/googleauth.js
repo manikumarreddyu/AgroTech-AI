@@ -8,10 +8,10 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 // Callback URL for Google
 router.get(
   '/google/callback',
-  passport.authenticate('google', { failureRedirect: 'http://localhost:5173/login' }),
+  passport.authenticate('google', { failureRedirect: 'https://agro-tech-ai.vercel.app/login' }),
   (req, res) => {
     // Redirect to the dashboard or home page on success
-    res.redirect('http://localhost:5173/');
+    res.redirect('https://agro-tech-ai.vercel.app/');
   }
 );
 
