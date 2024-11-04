@@ -18,7 +18,7 @@ const app = express();
 
 app.use(cors({
   // origin: "http://localhost:5173",
-  origin:"https://agro-tech-ai-backend-teal.vercel.app",
+  origin:"https://agro-tech-ai.vercel.app/",
   credentials: true,
 }));
 app.use(
