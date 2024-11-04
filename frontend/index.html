@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AgroTech AI</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Manifest file for PWA -->
+    <link rel="manifest" href="/manifest.json">
   </head>
   <body>
     <!-- React root div -->
@@ -13,7 +15,7 @@
     <script type="module" src="/src/main.jsx"></script>
 
     <div class="circle-container"></div>
-    <script>
+    <script >
       document.addEventListener("DOMContentLoaded", function () {
           const coords = { x: 0, y: 0 };
           const circlesCount = 26; 
@@ -59,7 +61,11 @@
 
           animateCircles();
       });
+
+      
     </script>
+    
+     <script src="script.js"></script> <!-- Link to your service worker registration script -->
 
   </body>
 </html>
