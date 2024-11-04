@@ -49,7 +49,21 @@ const orderSchema = new mongoose.Schema({
 // Define the payment method schema
 const paymentMethodSchema = new mongoose.Schema({
   method: { type: String, required: true },
-  details: { type: Object, required: true },
+  details: {
+    cardNumber: {
+      iv: { type: String, required: true },
+      encryptedData: { type: String, required: true },
+    },
+    lastFour: { type: String, required: true }, // Store last four digits in plain text
+    expiry: {
+      iv: { type: String, required: true },
+      encryptedData: { type: String, required: true },
+    },
+    holderName: {
+      iv: { type: String, required: true },
+      encryptedData: { type: String, required: true },
+    },
+  },
 });
 
 // Extend the user schema
