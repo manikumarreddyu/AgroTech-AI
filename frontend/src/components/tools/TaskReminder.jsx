@@ -3,6 +3,7 @@ import { format, parseISO } from 'date-fns';
 import axios from 'axios';
 import img from "../../assets/102.jpg";
 import { ToastContainer, toast } from 'react-toastify';
+import img1 from "../../assets/tp.png";
 import 'react-toastify/dist/ReactToastify.css';
 
 const TaskReminder = () => {
@@ -129,8 +130,17 @@ const TaskReminder = () => {
     };
 
     return (
-        <div className="w-1/2 max-w-full mt-16 mx-auto px-4 pb-10 pt-5 sm:px-6 lg:px-8 rounded-lg shadow-lg bg-white" style={{ backgroundImage: `url(${img})` }}>
-            <h2 className="text-2xl font-semibold mb-4 text-teal-700">Irrigation Task Reminders</h2>
+        <div
+            className="min-h-screen flex items-center justify-center p-6 mt-12 relative"
+            style={{
+                backgroundImage: `url(${img1})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}
+        >
+            <div className="absolute inset-0 bg-black opacity-40 pointer-events-none"></div>
+            <div className="relative bg-white bg-opacity-50 backdrop-blur-md rounded-xl shadow-2xl p-10 w-full mt-5 max-w-lg text-center transition-all duration-300 transform hover:scale-105" style={{ backgroundImage: `url(${img})` }}>
+            <h2 className="text-2xl font-semibold mb-4 text-teal-400">Irrigation Task Reminders</h2>
 
             <button
                 className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
@@ -142,7 +152,7 @@ const TaskReminder = () => {
             {showTaskForm && (
                 <form className="mb-6" onSubmit={editingTask ? handleUpdateTask : handleTaskSubmit}>
                     <div className="mb-4">
-                        <label htmlFor="crop" className="block text-teal-700 mb-2">Crop:</label>
+                        <label htmlFor="crop" className="block text-teal-400 mb-2">Crop:</label>
                         <input
                             type="text"
                             id="crop"
@@ -156,7 +166,7 @@ const TaskReminder = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="date" className="block text-teal-700 mb-2">Date:</label>
+                        <label htmlFor="date" className="block text-teal-400 mb-2">Date:</label>
                         <input
                             type="date"
                             id="date"
@@ -169,7 +179,7 @@ const TaskReminder = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="time" className="block text-teal-700 mb-2">Time:</label>
+                        <label htmlFor="time" className="block text-teal-400 mb-2">Time:</label>
                         <input
                             type="time"
                             id="time"
@@ -182,7 +192,7 @@ const TaskReminder = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="to" className="block text-teal-700 mb-2">To (Email):</label>
+                        <label htmlFor="to" className="block text-teal-400 mb-2">To (Email):</label>
                         <input
                             type="email"
                             id="to"
@@ -196,7 +206,7 @@ const TaskReminder = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="notes" className="block text-teal-700 mb-2">Notes:</label>
+                        <label htmlFor="notes" className="block text-teal-400 mb-2">Notes:</label>
                         <textarea
                             id="notes"
                             name="notes"
@@ -244,11 +254,12 @@ const TaskReminder = () => {
                         ))}
                     </ul>
                 ) : (
-                    <p className="text-gray-600">No tasks scheduled.</p>
+                    <p className="text-gray-300">No tasks scheduled.</p>
                 )}
             </div>
 
             <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick pauseOnFocusLoss draggable pauseOnHover />
+        </div>
         </div>
     );
 };
