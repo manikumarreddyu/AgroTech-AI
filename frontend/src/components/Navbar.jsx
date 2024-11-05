@@ -74,8 +74,11 @@ const Navbar = () => {
             </NavLink>
 
             {/* Crop Management Dropdown */}
-            <div className="relative">
-              <button onClick={() => handleDropdown("crop")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "crop" ? "true" : "false"}>
+            <div className="relative" onMouseEnter={() => handleDropdown("crop")} > 
+              <button onClick={() => handleDropdown("crop")}
+                className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none"
+                aria-haspopup="true"
+                aria-expanded={openDropdown === "crop" ? "true" : "false"}>
                 Crop Management
                 <FaChevronDown className={`ml-1 transition-transform duration-200 ${openDropdown === "crop" ? "transform rotate-180" : ""}`} />
               </button>
@@ -89,7 +92,7 @@ const Navbar = () => {
             </div>
 
             {/* Soil & Fertilizer Dropdown */}
-            <div className="relative">
+            <div className="relative" onMouseEnter={() => handleDropdown("soil")} >
               <button onClick={() => handleDropdown("soil")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "soil" ? "true" : "false"}>
                 Soil & Fertilizer
                 <FaChevronDown className={`ml-1 transition-transform duration-200 ${openDropdown === "soil" ? "transform rotate-180" : ""}`} />
@@ -107,7 +110,7 @@ const Navbar = () => {
             {/* <NavLink to="/climate" className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>Climate</NavLink> */}
 
             {/* Help Dropdown */}
-            <div className="relative">
+            <div className="relative" onMouseEnter={() => handleDropdown("tools")} >
               <button onClick={() => handleDropdown("tools")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "tools" ? "true" : "false"}>
                 Tools
                 <FaChevronDown className={`ml-1 transition-transform duration-200 ${openDropdown === "tools" ? "transform rotate-180" : ""}`} />
@@ -122,8 +125,8 @@ const Navbar = () => {
 
 
             {/* Help Dropdown */}
-            <div className="relative">
-              <button onClick={() => handleDropdown("help")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "soil" ? "true" : "false"}>
+            <div className="relative" onMouseEnter={() => handleDropdown("help")} >
+              <button onClick={() => handleDropdown("help")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "help" ? "true" : "false"}>
                 Help
                 <FaChevronDown className={`ml-1 transition-transform duration-200 ${openDropdown === "help" ? "transform rotate-180" : ""}`} />
               </button>
