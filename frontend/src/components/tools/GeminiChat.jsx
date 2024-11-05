@@ -151,7 +151,7 @@ const GeminiChat = () => {
                                                     style={{
                                                         padding: '0.01rem 1rem',
                                                         borderRadius: '5px',
-                                                        backgroundColor: msg.sender === "User" ? '#05B913' : 'blue',
+                                                        backgroundColor: msg.sender === "User" ? '#05B913' : 'white',
                                                         color: msg.sender === "User" ? 'white' : 'black',
                                                         maxWidth: '70%',
                                                     }}
