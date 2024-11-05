@@ -22,39 +22,10 @@ const GeminiChat = () => {
         }
     }, [chatHistory]);
 
-    const formatMessage = (text) => {
-        const messageText = typeof text === 'string' ? text : '';
-        const regex = /```(.*?)```/gs;
-
-        return messageText.split(regex).map((part, index) =>
-            index % 2 === 1 ? (
-                <Box key={index} sx={{ position: 'relative', marginBottom: '1rem' }}>
-                    <pre style={{ whiteSpace: 'pre-wrap', backgroundColor: '#f4f4f4', padding: '0.5rem', borderRadius: '5px' }}>
-                        <code>{part}</code>
-                    </pre>
-                    <IconButton
-                        onClick={() => {
-                            navigator.clipboard.writeText(part);
-                            toast.success("Copied Successfully");
-                        }}
-                        size="small"
-                        color="primary"
-                        style={{
-                            position: 'absolute',
-                            top: '0.5rem',
-                            right: '0.5rem',
-                            backgroundColor: 'white',
-                            borderRadius: '50%',
-                        }}
-                    >
-                        <ContentCopyIcon fontSize="small" />
-                    </IconButton>
-                </Box>
-            ) : (
-                <span key={index}>{part}</span>
-            )
-        );
+    const formatMessage = (htmlContent) => {
+        return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
     };
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -72,7 +43,7 @@ const GeminiChat = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    prompt: "Previous Responses By You: " + previousMessages + "\nMy New Query: " + userInput
+                    prompt: "Previous Responses By You: " + previousMessages + "\nMy New Query: " + userInput + "\nNote : Give response in HTML (Tags only, only inside body content)",
                 }),
             });
 
@@ -81,7 +52,12 @@ const GeminiChat = () => {
             }
 
             const data = await res.json();
-            const botMessage = { sender: "Gemini AI", text: data.generatedText };
+
+            // Process the response to skip the first line (heading)
+            const responseLines = data.generatedText.split('\n');
+            const contentWithoutHeading = responseLines.slice(1).join('\n'); // Skip the first line
+
+            const botMessage = { sender: "Gemini AI", text: contentWithoutHeading };
             setChatHistory((prev) => [...prev, botMessage]);
         } catch (error) {
             console.error('Error:', error);
@@ -157,7 +133,7 @@ const GeminiChat = () => {
                                                     }}
                                                 >
                                                     <ListItemText
-                                                        primary={formatMessage(msg.text)}
+                                                        primary={msg.sender === "User" ? msg.text : formatMessage(msg.text)}
                                                         secondary={msg.sender === "User" ? "" : msg.sender}
                                                         secondaryTypographyProps={{
                                                             style: { color: msg.sender === "User" ? '#bbdefb' : '#757575' },
