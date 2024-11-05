@@ -21,11 +21,11 @@ const bcrypt = require('bcryptjs')
 require("./services/passport")
 const app = express();
 
-// app.use(cors({
-//   // origin: "http://localhost:5173",
-//   origin:"https://agro-tech-ai.vercel.app/",
-//   credentials: true,
-// }));
+app.use(cors({
+  origin: "http://localhost:5173",
+  origin:"https://agro-tech-ai.vercel.app/",
+  credentials: true,
+}));
 
 // app.use(cors({
 //   origin: "http://localhost:5173", // Ensure no trailing slash
