@@ -14,6 +14,7 @@ const passport = require('passport');
 const authMiddleware = require('./middleware/auth');
 const bcrypt = require('bcryptjs')
 require("./services/passport")
+const geminiChatRoute = require('./routes/geminiChatRoute');
 const app = express();
 
 // app.use(cors({
@@ -49,6 +50,7 @@ app.use('/api', contactRoutes);
 app.use('/api', shopRoutes);
 app.use('/api', userRoutes); 
 app.use('/api/products', agriProductRoutes);
+app.use('/api/generate-content', geminiChatRoute);
 
 
 app.post('/api/send-email', async (req, res) => {

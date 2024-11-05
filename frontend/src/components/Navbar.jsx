@@ -116,6 +116,7 @@ const Navbar = () => {
                 <div className="absolute left-0 mt-2 w-60 bg-white text-black rounded-lg shadow-lg z-50">
                   <NavLink to="/PlantTaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder</NavLink>
                   <NavLink to="/TaskReminder" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Plant Task Reminder Advanced</NavLink>
+                  <NavLink to="/GeminiChat" className="block py-2 px-4 hover:bg-gray-200" onClick={closeMenu}>Gemini Chat</NavLink>
                 </div>
               )}
             </div>

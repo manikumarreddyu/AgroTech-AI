@@ -61,6 +61,7 @@ import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndRetur
 import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
 import ForgotPasswordPage from './components/ForgotPassword';
 import AccountVerificationPage from './components/EmailVerification';
+import GeminiChat from './components/tools/GeminiChat';
 
 const MainContent = () => {
   UseScrollToTop();
@@ -112,6 +113,7 @@ const MainContent = () => {
                 <Route path="/soiltestingcentres" element={<SoilTestingCentres />} />
              
                 <Route path="/TaskReminder" element={<TaskReminder />} />
+                <Route path="/GeminiChat" element={<GeminiChat />} />
                 <Route path="/SugarcaneRecognition" element={<SugarcaneRecognition />} />
                 <Route path="/PaddyRecognition" element={<PaddyRecognition />} />
                 <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
