@@ -52,8 +52,6 @@ const GeminiChat = () => {
             }
 
             const data = await res.json();
-
-            // Process the response to skip the first line (heading)
             const responseLines = data.generatedText.split('\n');
             const contentWithoutHeading = responseLines.slice(1).join('\n'); // Skip the first line
 
