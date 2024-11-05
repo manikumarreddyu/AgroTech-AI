@@ -45,6 +45,7 @@ import ElectricalElectronicsShops from './components/ElectricalElectronicsShops'
 //AgroRentAI
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
+import RentUserDashboard from './AgroRentAI/RentUserDashboard';
 //AgroShopAI
 import HomeShop from './AgroShopAI/pages/HomeShop';
 import ShopFooter from './AgroShopAI/components/ShopFooter';
@@ -138,6 +139,7 @@ const MainContent = () => {
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
                 <Route path="/AgriProducts" element={<AgriProductListing/>} />
+                <Route path="/RentUserDashboard" element={<RentUserDashboard/>} />
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
