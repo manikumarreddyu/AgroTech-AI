@@ -8,7 +8,11 @@ const contactRoutes = require('./routes/Contactroute');
 const shopRoutes = require('./routes/shop')
 const googleauth = require('./routes/googleauth')
 const agriProductRoutes = require('./routes/agriProductRoutes');
+
 const discussionRoutes = require('./routes/discussionRoutes');
+
+const  rentProductRoutes = require('./routes/rent/rentProductRoutes');
+
 const { sendEmail } = require('./services/emailService');
 const session = require('express-session');
 const passport = require('passport');
@@ -48,6 +52,7 @@ app.use('/auth', authRoutes);
 app.use('/auth', googleauth);
 app.use('/api', contactRoutes);
 app.use('/api', shopRoutes);
+app.use('/api', rentProductRoutes);
 app.use('/api', userRoutes); 
 app.use('/api/discussions', discussionRoutes);
 app.use('/api/products', agriProductRoutes);
