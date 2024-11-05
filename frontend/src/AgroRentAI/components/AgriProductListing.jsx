@@ -13,7 +13,7 @@ const AgriProductListing = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/products");
+        const response = await axios.get("https://agrotech-ai-11j3.onrender.com/api/products");
         setProducts(response.data);
       } catch (err) {
         console.error("Error fetching products:", err);

@@ -12,7 +12,7 @@ const ForgotPasswordPage = () => {
 
   const handleSendOtp = async () => {
     try {
-      await axios.post("http://localhost:8080/auth/forgot-password", { email });
+      await axios.post("https://agrotech-ai-11j3.onrender.com/auth/forgot-password", { email });
       toast.success("OTP sent to your email address");
       setStep(2); // Move to OTP verification step
     } catch (error) {
@@ -22,7 +22,7 @@ const ForgotPasswordPage = () => {
 
   const handleVerifyOtp = async () => {
     try {
-      await axios.post("http://localhost:8080/auth/verify-otp", { email, otp });
+      await axios.post("https://agrotech-ai-11j3.onrender.com/auth/verify-otp", { email, otp });
       toast.success("OTP verified. Enter your new password.");
       setStep(3); // Move to password reset step
     } catch (error) {
@@ -32,7 +32,7 @@ const ForgotPasswordPage = () => {
 
   const handleResetPassword = async () => {
     try {
-      await axios.post("http://localhost:8080/auth/reset-password", { email, otp, newPassword });
+      await axios.post("https://agrotech-ai-11j3.onrender.com/auth/reset-password", { email, otp, newPassword });
       toast.success("Password reset successfully. Please log in.");
       setTimeout(() => {
         <Navigate to="/login" replace />;
