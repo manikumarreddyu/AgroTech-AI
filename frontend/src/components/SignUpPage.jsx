@@ -52,7 +52,7 @@ const SignUpPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/auth/signup",
+        "https://agrotech-ai-11j3.onrender.com/auth/signup",
         {
           firstName,
           lastName,
