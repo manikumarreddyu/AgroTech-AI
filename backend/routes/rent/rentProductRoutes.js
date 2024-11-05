@@ -24,6 +24,7 @@ router.put('/rent-products/:id', productController.updateProduct);
 // Delete a product by ID
 router.delete('/rent-products/:id', productController.deleteProduct);
 
+
 router.post('/rent-products-img', upload.single('image'), async (req, res) => {
     const { name, description, price, rating, category } = req.body;
 
@@ -48,5 +49,13 @@ router.post('/rent-products-img', upload.single('image'), async (req, res) => {
         res.status(500).json({ message: 'Error creating product' });
     }
 });
+
+
+
+router.get('/filtered-rent-products', productController.getFilteredProducts );
+
+
+
+
 
 module.exports = router;
