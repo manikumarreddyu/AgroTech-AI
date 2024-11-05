@@ -58,3 +58,30 @@ exports.deleteProduct = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+exports.getFilteredProducts = async (req, res) => {
+  const { category, minPrice, maxPrice } = req.query;
+
+  try {
+    const filter = {};
+    
+    // Filter by category
+    if (category && category !== 'All') {
+      filter.category = category;
+    }
+
+    // Filter by price range
+    if (minPrice) {
+      filter.price = { ...filter.price, $gte: Number(minPrice) };
+    }
+    if (maxPrice) {
+      filter.price = { ...filter.price, $lte: Number(maxPrice) };
+    }
+
+    const products = await Product.find(filter);
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+}
