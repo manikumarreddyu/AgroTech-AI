@@ -11,6 +11,7 @@ const variantController = require('../controllers/shop/variantController');
 const cartController = require('../controllers/shop/cartController')
 const wishlistController = require('../controllers/shop/wishlistController');
 const extendedUserController = require('../controllers/shop/profileController');
+const UtilityController = require('../controllers/shop/utilityController');
 /**
  * Product Routes
  */
@@ -62,6 +63,7 @@ router.delete('/reviews/:id', reviewController.deleteReview);
 /**
  * Variant Routes
  */
+
 router.get('/variants', variantController.getAllVariants);
 router.get('/variants/:id', variantController.getVariantById);
 router.post('/variants', variantController.createVariant);
@@ -96,5 +98,10 @@ router.get('/profile', extendedUserController.getAllExtendedUsers);// Get all ex
 router.put('/profile/:id', extendedUserController.updateExtendedUser);// Update an existing extended user
 router.delete('/profile/:id', extendedUserController.deleteExtendedUser);// Delete an extended user
 
+/**
+ * Utility Routes
+*/
+
+router.get('/search', UtilityController.searchProducts);
 
 module.exports = router;
