@@ -1,0 +1,16 @@
+/* Styles for the sliding effect */
+.banner-slide {
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Slide-in animation */
+  .slide-in {
+    transform: translateX(0); /* No movement, it slides in naturally */
+  }
+  
+  /* Slide-out animation */
+  .slide-out {
+    transform: translateX(-100%); /* Move the banner to the left to make space for the next one */
+  }
+  
