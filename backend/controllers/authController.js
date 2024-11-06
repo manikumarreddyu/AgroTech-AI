@@ -21,7 +21,7 @@ exports.signupController = async (req, res) => {
     newUser.otp = otp;
     newUser.otpExpires = Date.now() + 10 * 60 * 1000; // OTP expires in 10 minutes
 
-    await newUser.save();
+    
 
     // Send OTP via email
     const transporter = nodemailer.createTransport({
@@ -40,7 +40,7 @@ exports.signupController = async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
-
+    await newUser.save();
     res.status(201).json({ message: 'User created. Please verify your email with the OTP sent.' });
   } catch (error) {
     console.error("Signup error:", error);
