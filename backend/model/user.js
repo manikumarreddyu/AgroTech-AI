@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String},
+  password: { type: String },
   role: {
     type: String,
     enum: ['admin', 'farmer', 'vendor', 'customer'],
@@ -16,8 +16,9 @@ const userSchema = new mongoose.Schema({
   isVerified: { type: Boolean, default: false },
   otp: { type: String },
   otpExpires: { type: Date },
-  googleId: { type: String, unique: true },
+  googleId: { type: String, sparse: true }, // Change unique to sparse
 });
+
 
 // Hash password before saving
 userSchema.pre('save', async function(next) {
