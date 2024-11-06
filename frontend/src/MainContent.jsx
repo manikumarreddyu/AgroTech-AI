@@ -64,7 +64,8 @@ import AgriProductListing from './AgroRentAI/components/AgriProductListing';
 import CartPage from './AgroShopAI/pages/Cart';
 import Wishlist from './AgroShopAI/pages/Wishlist';
 import ShopNavbar from './AgroShopAI/components/ShopNavbar';
-import ShopProfile from './AgroShopAI/pages/Profile'
+import ShopProfile from './AgroShopAI/pages/Profile';
+import SearchResult from './AgroShopAI/pages/SearchResult'
 import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndReturn';
 import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
 import ShopPrivacyPolicy from './AgroShopAI/pages/FooterPages/Privacy';
@@ -168,6 +169,7 @@ const MainContent = () => {
                 <Route path="/AgroShop/Cart" element={<CartPage/>} />
                 <Route path="/AgroShop/Wishlist" element={<Wishlist/>} />
                 <Route path="/AgroShop/Profile" element={<ShopProfile/>} />
+                <Route path="/AgroShop/search" element={<SearchResult/>} />
                 {/* Footer Links */}
                 <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />~
                 <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />

@@ -103,5 +103,5 @@ router.delete('/profile/:id', extendedUserController.deleteExtendedUser);// Dele
 */
 
 router.get('/search', UtilityController.searchProducts);
-
+router.get('/searchproduct', UtilityController.searchAllProducts);
 module.exports = router;
