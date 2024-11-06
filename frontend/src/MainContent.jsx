@@ -46,7 +46,11 @@ import ElectricalElectronicsShops from './components/ElectricalElectronicsShops'
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
 import RentUserDashboard from './AgroRentAI/RentUserDashboard';
+
 import RentProductDetails from './AgroRentAI/RentProductDetails';
+
+import RentAdminDashboard from './AgroRentAI/RentAdminDashboard';
+
 //AgroShopAI
 import HomeShop from './AgroShopAI/pages/HomeShop';
 import ShopFooter from './AgroShopAI/components/ShopFooter';
@@ -63,7 +67,10 @@ import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndRetur
 import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
 import ForgotPasswordPage from './components/ForgotPassword';
 import AccountVerificationPage from './components/EmailVerification';
+
+import FAQ from './AgroShopAI/pages/Faq';
 import GeminiChat from './components/tools/GeminiChat';
+
 
 const MainContent = () => {
   UseScrollToTop();
@@ -142,8 +149,11 @@ const MainContent = () => {
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
                 <Route path="/AgriProducts" element={<AgriProductListing/>} />
-                <Route path="/RentUserDashboard" element={<RentUserDashboard/>} />
+
                 <Route path="/RentProductDetails/:productId" element={<RentProductDetails/>} />
+
+                <Route path="/RentAdminDashboard" element={<RentAdminDashboard/>} />
+
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
@@ -154,8 +164,9 @@ const MainContent = () => {
                 <Route path="/AgroShop/Wishlist" element={<Wishlist/>} />
                 <Route path="/AgroShop/Profile" element={<ShopProfile/>} />
                 {/* Footer Links */}
-                <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />
+                <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />~
                 <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />
+                <Route path="/AgroShop/faq" element={<FAQ/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
