@@ -231,15 +231,16 @@ const SignUpPage = () => {
               >
                 Sign Up
               </button>
-              <button
+             
+
+            </div>
+            <button
             onClick={handleGoogleSignIn}
             className="w-full mt-4 py-2 flex items-center justify-center bg-white text-gray-700 border border-gray-300 rounded-md font-bold transform transition duration-300 hover:scale-105"
           >
             <img src={googleIcon} alt="Google" className="w-6 h-6 mr-2" />
             Sign in with Google
           </button>
-
-            </div>
           </form>
           <p className="text-center text-sm mt-4">
             Already have an account?{" "}

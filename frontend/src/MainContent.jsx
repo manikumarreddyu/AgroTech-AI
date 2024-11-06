@@ -35,9 +35,11 @@ import { AuthProvider } from './context/AuthContext';
 import TermsAndConditions from './components/TermsAndConditions';
 import CookiePolicy from './components/CookiePolicy';
 import PlantTaskReminder from './components/tools/PlantTaskReminder';
+import CodeOfConduct from './components/CodeOfConduct';
 
 import MushroomEdibility from './components/models/Mushroom';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Licensing from './components/Licensing';
 import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
 import NewsForum from './components/NewsForum';
@@ -46,7 +48,11 @@ import ElectricalElectronicsShops from './components/ElectricalElectronicsShops'
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
 import RentUserDashboard from './AgroRentAI/RentUserDashboard';
+
+import RentProductDetails from './AgroRentAI/RentProductDetails';
+
 import RentAdminDashboard from './AgroRentAI/RentAdminDashboard';
+
 //AgroShopAI
 import HomeShop from './AgroShopAI/pages/HomeShop';
 import ShopFooter from './AgroShopAI/components/ShopFooter';
@@ -58,12 +64,17 @@ import AgriProductListing from './AgroRentAI/components/AgriProductListing';
 import CartPage from './AgroShopAI/pages/Cart';
 import Wishlist from './AgroShopAI/pages/Wishlist';
 import ShopNavbar from './AgroShopAI/components/ShopNavbar';
-import ShopProfile from './AgroShopAI/pages/Profile'
+import ShopProfile from './AgroShopAI/pages/Profile';
+import SearchResult from './AgroShopAI/pages/SearchResult'
 import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndReturn';
 import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
+import ShopPrivacyPolicy from './AgroShopAI/pages/FooterPages/Privacy';
 import ForgotPasswordPage from './components/ForgotPassword';
 import AccountVerificationPage from './components/EmailVerification';
+
+import FAQ from './AgroShopAI/pages/Faq';
 import GeminiChat from './components/tools/GeminiChat';
+
 
 const MainContent = () => {
   UseScrollToTop();
@@ -98,6 +109,7 @@ const MainContent = () => {
               <Routes>
                 <Route path="/thank-you" element={<Feedback />} /> {/* Thank You Page Route */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/licensing" element={<Licensing />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/chatbot" element={<ChatBot />} />
                 <Route path="/contact" element={<Contact />} />
@@ -107,6 +119,7 @@ const MainContent = () => {
                 <Route path="/soil" element={<SoilQuality />} />
                 <Route path="/disease" element={<Disease/>}/>
                 <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
+                <Route path="/code-of-conduct" element={<CodeOfConduct />} />
 
                 <Route path="/prices" element={<Prices />} />
                 <Route path="/reports" element={<Reports />} />
@@ -142,8 +155,11 @@ const MainContent = () => {
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
                 <Route path="/AgriProducts" element={<AgriProductListing/>} />
-                <Route path="/RentUserDashboard" element={<RentUserDashboard/>} />
+
+                <Route path="/RentProductDetails/:productId" element={<RentProductDetails/>} />
+
                 <Route path="/RentAdminDashboard" element={<RentAdminDashboard/>} />
+
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
@@ -153,9 +169,12 @@ const MainContent = () => {
                 <Route path="/AgroShop/Cart" element={<CartPage/>} />
                 <Route path="/AgroShop/Wishlist" element={<Wishlist/>} />
                 <Route path="/AgroShop/Profile" element={<ShopProfile/>} />
+                <Route path="/AgroShop/search" element={<SearchResult/>} />
                 {/* Footer Links */}
                 <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />~
                 <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />
+                <Route path="/AgroShop/privacy-policy" element={<ShopPrivacyPolicy/>} />
+                <Route path="/AgroShop/faq" element={<FAQ/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
