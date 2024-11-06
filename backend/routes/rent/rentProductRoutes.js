@@ -19,4 +19,11 @@ router.put('/rent-products/:id', productController.updateProduct);
 // Delete a product by ID
 router.delete('/rent-products/:id', productController.deleteProduct);
 
+
+
+router.get('/filtered-rent-products', productController.getFilteredProducts );
+
+
+
+
 module.exports = router;

@@ -52,7 +52,7 @@ const SignUpPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/auth/signup",
+        "https://agro-tech-ai-backend-teal.vercel.app/auth/signup",
         {
           firstName,
           lastName,

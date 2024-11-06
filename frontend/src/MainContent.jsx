@@ -45,6 +45,7 @@ import ElectricalElectronicsShops from './components/ElectricalElectronicsShops'
 //AgroRentAI
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
+import RentUserDashboard from './AgroRentAI/RentUserDashboard';
 //AgroShopAI
 import HomeShop from './AgroShopAI/pages/HomeShop';
 import ShopFooter from './AgroShopAI/components/ShopFooter';
@@ -61,7 +62,10 @@ import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndRetur
 import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
 import ForgotPasswordPage from './components/ForgotPassword';
 import AccountVerificationPage from './components/EmailVerification';
+
 import FAQ from './AgroShopAI/pages/Faq';
+import GeminiChat from './components/tools/GeminiChat';
+
 
 const MainContent = () => {
   UseScrollToTop();
@@ -113,6 +117,7 @@ const MainContent = () => {
                 <Route path="/soiltestingcentres" element={<SoilTestingCentres />} />
              
                 <Route path="/TaskReminder" element={<TaskReminder />} />
+                <Route path="/GeminiChat" element={<GeminiChat />} />
                 <Route path="/SugarcaneRecognition" element={<SugarcaneRecognition />} />
                 <Route path="/PaddyRecognition" element={<PaddyRecognition />} />
                 <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
@@ -139,6 +144,7 @@ const MainContent = () => {
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
                 <Route path="/AgriProducts" element={<AgriProductListing/>} />
+                <Route path="/RentUserDashboard" element={<RentUserDashboard/>} />
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
