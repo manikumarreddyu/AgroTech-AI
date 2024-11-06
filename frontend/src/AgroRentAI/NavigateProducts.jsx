@@ -2,29 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { Search, ShoppingCart, ChevronDown, Star } from 'lucide-react';
 import img1 from "../assets/116.jpg";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 // Assuming the categories list is the same
 const categories = ['All', 'Farming Technology', 'Farming Equipment', 'Agriculture'];
 
-const ProductCard = ({ product }) => (
-  <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
-    <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
-    <div className="p-4">
-      <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-      <p className="text-gray-600 text-sm mb-2">{product.description}</p>
-      <div className="flex justify-between items-center">
-        <span className="text-lg font-bold text-green-700">${product.price}/day</span>
-        <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors">
-          Rent Now
-        </button>
-      </div>
-      <div className="flex items-center mt-2">
-        <Star className="w-4 h-4 text-yellow-400 fill-current" />
-        <span className="ml-1 text-sm text-gray-600">{product.rating}</span>
+const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+
+  const handleRentNowClick = () => {
+    navigate(`/RentProductDetails/${product._id}`); // Assuming product.id uniquely identifies the product
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
+      <img src={product.image} alt={product.name} className="w-full h-48 object-cover" />
+      <div className="p-4">
+        <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+        <p className="text-gray-600 text-sm mb-2">{product.description}</p>
+        <div className="flex justify-between items-center">
+          <span className="text-lg font-bold text-green-700">${product.price}/day</span>
+          <button
+            onClick={handleRentNowClick}
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors"
+          >
+            Rent Now
+          </button>
+        </div>
+        <div className="flex items-center mt-2">
+          <Star className="w-4 h-4 text-yellow-400 fill-current" />
+          <span className="ml-1 text-sm text-gray-600">{product.rating}</span>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const FilterSidebar = ({ selectedCategory, setSelectedCategory, priceRange, setPriceRange }) => (
   <div className="w-64 bg-green-50 p-4 rounded-lg">
@@ -82,11 +94,14 @@ const RentalMarketplace = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [priceRange, setPriceRange] = useState({ min: 0, max: 100 });
+  const ApiUrl = process.env.NODE_ENV === 'production'
+    ? 'https://agrotech-ai-11j3.onrender.com'
+    : 'http://localhost:8080';
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`https://agrotech-ai-11j3.onrender.com/api/rent-products`);
+        const response = await fetch(`${ApiUrl}/api/rent-products`);
         const data = await response.json();
         setProducts(data);
         setFilteredProducts(data); // Initialize filteredProducts
