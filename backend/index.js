@@ -8,29 +8,21 @@ const contactRoutes = require('./routes/Contactroute');
 const shopRoutes = require('./routes/shop')
 const googleauth = require('./routes/googleauth')
 const agriProductRoutes = require('./routes/agriProductRoutes');
+
+const discussionRoutes = require('./routes/discussionRoutes');
+
 const  rentProductRoutes = require('./routes/rent/rentProductRoutes');
+
 const { sendEmail } = require('./services/emailService');
 const session = require('express-session');
 const passport = require('passport');
 const authMiddleware = require('./middleware/auth');
 const bcrypt = require('bcryptjs')
 require("./services/passport")
+const geminiChatRoute = require('./routes/geminiChatRoute');
 const app = express();
 
-// app.use(cors({
-//   // origin: "http://localhost:5173",
-//   origin:"https://agro-tech-ai.vercel.app/",
-//   credentials: true,
-// }));
-
-// app.use(cors({
-//   origin: "http://localhost:5173", // Ensure no trailing slash
-//   methods: "GET,POST,PUT,DELETE,OPTIONS",
-//   allowedHeaders: "Content-Type,Authorization",
-//   credentials: true,
-// }));
-
-app.use(cors());
+app.use(cors()); // This allows all origins to access your API
 
 app.use(
   session({
@@ -50,7 +42,9 @@ app.use('/api', contactRoutes);
 app.use('/api', shopRoutes);
 app.use('/api', rentProductRoutes);
 app.use('/api', userRoutes); 
+app.use('/api/discussions', discussionRoutes);
 app.use('/api/products', agriProductRoutes);
+app.use('/api/generate-content', geminiChatRoute);
 
 
 app.post('/api/send-email', async (req, res) => {

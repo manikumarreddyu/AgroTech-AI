@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import LOGO from "/favicon2.png";
-
+import SearchBar from './sub-components/SearchBar';
 
 function ShopNavbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -54,7 +54,7 @@ function ShopNavbar() {
 
         {/* Logo Section */}
           <Link
-            to="/"
+            to="/agroshop"
             className="flex items-center gap-2 group transition-all duration-300 ease-in-out transform hover:scale-105"
           >
             <img
@@ -87,14 +87,8 @@ function ShopNavbar() {
         </div>
 
         {/* Search Bar */}
-        <div className="flex-1 mx-4 hidden md:flex">
-          <input 
-            type="text" 
-            placeholder="Search for products..." 
-            className="w-full px-3 py-2 rounded-l-md focus:outline-none text-black"
-          />
-          <button className="bg-white text-green-600 px-4 rounded-r-md hover:bg-gray-200">Search</button>
-        </div>
+        <div className="hidden md:flex"></div>
+        <SearchBar />
 
         {/* Right Corner Tabs */}
         <div className="ml-auto flex items-center space-x-6">
@@ -146,12 +140,7 @@ function ShopNavbar() {
         />
       )}
       <div className="flex md:hidden mt-2 w-full">
-    <input
-      type="text"
-      placeholder="Search..."
-      className="w-full px-3 py-2 rounded-md text-black focus:outline-none"
-    />
-    <button className="bg-white text-green-600 px-4 rounded-md ml-2 hover:bg-gray-200">Search</button>
+        <SearchBar/>
   </div>
     </nav>
   );
