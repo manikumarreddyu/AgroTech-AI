@@ -39,6 +39,7 @@ const Footer = () => {
     // Define legal links with their paths if available
     const legalLinks = [
         { name: 'Privacy Policy', path: '/privacy-policy' },
+        { name: 'License', path: '/licensing' },
         { name: 'Terms and Conditions', path: '/terms' },
         { name: 'Cookie Policy', path: '/cookie-policy' },
     ];
