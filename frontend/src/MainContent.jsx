@@ -35,6 +35,7 @@ import { AuthProvider } from './context/AuthContext';
 import TermsAndConditions from './components/TermsAndConditions';
 import CookiePolicy from './components/CookiePolicy';
 import PlantTaskReminder from './components/tools/PlantTaskReminder';
+import CodeOfConduct from './components/CodeOfConduct';
 
 import MushroomEdibility from './components/models/Mushroom';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -115,6 +116,7 @@ const MainContent = () => {
                 <Route path="/soil" element={<SoilQuality />} />
                 <Route path="/disease" element={<Disease/>}/>
                 <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
+                <Route path="/code-of-conduct" element={<CodeOfConduct />} />
 
                 <Route path="/prices" element={<Prices />} />
                 <Route path="/reports" element={<Reports />} />
