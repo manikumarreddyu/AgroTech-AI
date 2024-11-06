@@ -46,6 +46,7 @@ import ElectricalElectronicsShops from './components/ElectricalElectronicsShops'
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
 import RentUserDashboard from './AgroRentAI/RentUserDashboard';
+import RentAdminDashboard from './AgroRentAI/RentAdminDashboard';
 //AgroShopAI
 import HomeShop from './AgroShopAI/pages/HomeShop';
 import ShopFooter from './AgroShopAI/components/ShopFooter';
@@ -142,6 +143,7 @@ const MainContent = () => {
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
                 <Route path="/AgriProducts" element={<AgriProductListing/>} />
                 <Route path="/RentUserDashboard" element={<RentUserDashboard/>} />
+                <Route path="/RentAdminDashboard" element={<RentAdminDashboard/>} />
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
                 <Route path="/AgroShop" element={<HomeShop/>} />
@@ -152,7 +154,7 @@ const MainContent = () => {
                 <Route path="/AgroShop/Wishlist" element={<Wishlist/>} />
                 <Route path="/AgroShop/Profile" element={<ShopProfile/>} />
                 {/* Footer Links */}
-                <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />
+                <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />~
                 <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
