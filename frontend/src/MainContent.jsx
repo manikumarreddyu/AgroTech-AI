@@ -63,7 +63,10 @@ import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndRetur
 import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
 import ForgotPasswordPage from './components/ForgotPassword';
 import AccountVerificationPage from './components/EmailVerification';
+
+import FAQ from './AgroShopAI/pages/Faq';
 import GeminiChat from './components/tools/GeminiChat';
+
 
 const MainContent = () => {
   UseScrollToTop();
@@ -156,6 +159,7 @@ const MainContent = () => {
                 {/* Footer Links */}
                 <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />~
                 <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />
+                <Route path="/AgroShop/faq" element={<FAQ/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
