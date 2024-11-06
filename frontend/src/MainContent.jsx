@@ -38,6 +38,7 @@ import PlantTaskReminder from './components/tools/PlantTaskReminder';
 
 import MushroomEdibility from './components/models/Mushroom';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Licensing from './components/Licensing';
 import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
 import NewsForum from './components/NewsForum';
@@ -106,6 +107,7 @@ const MainContent = () => {
               <Routes>
                 <Route path="/thank-you" element={<Feedback />} /> {/* Thank You Page Route */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/licensing" element={<Licensing />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/chatbot" element={<ChatBot />} />
                 <Route path="/contact" element={<Contact />} />
