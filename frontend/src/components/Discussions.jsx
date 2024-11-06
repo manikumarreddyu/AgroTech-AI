@@ -38,7 +38,7 @@ const DiscussionPage = () => {
       const newPost = {
         content: newPostContent,
         images: [], // Placeholder for images
-        author: "6725ba1d61742ceab8724142", // Replace with the current user's ID
+        author: userId, // Replace with the current user's ID
       };
 
       const response = await axios.post(`${ApiUrl}/api/discussions/posts`, newPost);
@@ -57,11 +57,11 @@ const DiscussionPage = () => {
     try {
       const newComment = {
         content: newCommentContent,
-        author: "6728e52174915a9964fecf5a", // Replace with current user's ID
+        author: userId , // Replace with current user's ID
       };
 
       const response = await axios.post(
-        `${ApiUrl}/api/discussions/posts/6729c51729c24c5b6589b8ac/comments`,
+        `${ApiUrl}/api/discussions/posts/${postId}/comments`,
         newComment
       );
 
