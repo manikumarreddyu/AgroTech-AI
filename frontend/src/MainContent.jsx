@@ -48,6 +48,7 @@ import ElectricalElectronicsShops from './components/ElectricalElectronicsShops'
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
 import RentUserDashboard from './AgroRentAI/RentUserDashboard';
+import RentCheckoutPage from './AgroRentAI/RentCheckoutPage';
 
 import RentProductDetails from './AgroRentAI/RentProductDetails';
 
@@ -155,6 +156,7 @@ const MainContent = () => {
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
                 <Route path="/AgriProducts" element={<AgriProductListing/>} />
+                <Route path="/RentCheckoutPage" element={<RentCheckoutPage/>} />
 
                 <Route path="/RentProductDetails/:productId" element={<RentProductDetails/>} />
 
