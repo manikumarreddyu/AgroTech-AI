@@ -44,6 +44,7 @@ import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
 import NewsForum from './components/NewsForum';
 import ElectricalElectronicsShops from './components/ElectricalElectronicsShops';
+import DiscussionPage from './components/Discussions';
 //AgroRentAI
 import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
@@ -152,6 +153,7 @@ const MainContent = () => {
                 <Route path="/news" element={<NewsForum />} />
                 <Route path="/ee-shops" element={<ElectricalElectronicsShops/>} />
                 <Route path="/BestPractices" element={<BestPractices/>} />
+                <Route path="/DiscussionPage" element={<DiscussionPage/>} />
                 {/* AgroRentAI Routes */}
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />

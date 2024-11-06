@@ -25,7 +25,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.EventListener('scroll', handleScroll);
   }, []);
 
   const handleChatBotAuthentication = () => {
