@@ -14,6 +14,7 @@ import NotFound from './NotFound';
 import Prices from './components/models/Prices';
 import Reports from './components/models/Reports';
 import AboutUs from "./components/AboutUs";
+import Contributor from './pages/ContributorsPage';
 import UseScrollToTop from './components/UseScrollToTop';
 import Article from './pages/Article';
 import TaskReminder from './components/tools/TaskReminder';
@@ -71,6 +72,7 @@ import SearchResult from './AgroShopAI/pages/SearchResult'
 import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndReturn';
 import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
 import ShopPrivacyPolicy from './AgroShopAI/pages/FooterPages/Privacy';
+import GrievanceRedressal from './AgroShopAI/pages/FooterPages/Grievance';
 import ForgotPasswordPage from './components/ForgotPassword';
 import AccountVerificationPage from './components/EmailVerification';
 
@@ -115,6 +117,7 @@ const MainContent = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/chatbot" element={<ChatBot />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/contributor" element={<Contributor />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/crop" element={<Crop />} />
                 <Route path="/fertilizer" element={<Fertilizer />} />
@@ -179,6 +182,7 @@ const MainContent = () => {
                 <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />
                 <Route path="/AgroShop/privacy-policy" element={<ShopPrivacyPolicy/>} />
                 <Route path="/AgroShop/faq" element={<FAQ/>} />
+                <Route path="/AgroShop/grievance" element={<GrievanceRedressal/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
