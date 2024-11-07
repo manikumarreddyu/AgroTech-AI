@@ -9,10 +9,12 @@ const API_KEY = 'af0348ed3ad216d028627277b50db13f';
 const fetchData = async (URL) => {
   const response = await fetch(`${URL}&appid=${API_KEY}`);
   if (!response.ok) {
+    console.error(`Error ${response.status}: ${response.statusText}`);
     throw new Error('Network response was not ok');
   }
   return response.json();
 };
+
 
 // OpenWeatherAPI Endpoints
 const url = {
@@ -23,6 +25,7 @@ const url = {
   forecast: (lat, lon) =>
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}`,
   geocoding: (query) => `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5`,
+  disaters: (lat, lon) => `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}`
 };
 
 // Helper functions
@@ -45,6 +48,7 @@ export default function Climate() {
   const [error, setError] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
+  const [disasterAlerts, setDisasterAlerts] = useState(null);
 
   // Fetch weather data
   const fetchWeatherData = async (lat, lon) => {
@@ -54,6 +58,9 @@ export default function Climate() {
       const currentWeatherData = await fetchData(url.currentWeather(lat, lon));
       const airPollutionData = await fetchData(url.airPollution(lat, lon));
       const forecast = await fetchData(url.forecast(lat, lon));
+      
+      const disasterData = await fetchData(url.disaters(lat, lon));
+      setDisasterAlerts(disasterData?.alerts || null);
 
       setWeatherData(currentWeatherData);
       setAirQualityIndex(airPollutionData.list[0].main.aqi);
@@ -250,6 +257,25 @@ export default function Climate() {
               ))}
             </div>
           </div>
+        </div>
+      )}
+
+    {disasterAlerts && disasterAlerts.length > 0 ? (
+        <div className="mt-8 w-full max-w-4xl bg-red-100 rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl">
+          <h3 className="text-2xl font-semibold mb-4 text-center text-red-800">Disaster Alerts</h3>
+          <div className="space-y-4">
+            {disasterAlerts.map((alert, index) => (
+              <div key={index} className="p-4 bg-red-200 rounded-lg">
+                <p className="font-semibold text-lg text-red-800">{alert.title}</p>
+                <p className="text-sm text-red-700">{alert.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="mt-8 w-full max-w-4xl bg-green-100 rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl">
+          <h3 className="text-2xl font-semibold mb-4 text-center text-green-800">No Threats for Now</h3>
+          <p className="text-center text-green-700">Currently, there are no disaster alerts for this location.</p>
         </div>
       )}
     </div>

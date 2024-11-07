@@ -132,7 +132,7 @@ const ShopFooter = () => {
               </a>
             </li>
             <li>
-              <a href="/faq" className="hover:underline">
+              <a href="/agroshop/faq" className="hover:underline">
                 FAQ
               </a>
             </li>
@@ -164,12 +164,12 @@ const ShopFooter = () => {
               </a>
             </li>
             <li>
-              <a href="/privacy" className="hover:underline">
+              <a href="/agroshop/privacy-policy" className="hover:underline">
                 Privacy
               </a>
             </li>
             <li>
-              <a href="/grievance" className="hover:underline">
+              <a href="/AgroShop/grievance" className="hover:underline">
                 Grievance Redressal
               </a>
             </li>

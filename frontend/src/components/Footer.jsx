@@ -16,6 +16,7 @@ const Footer = () => {
     const companyLinks = [
         { name: 'About Us', path: '/aboutus' },
         { name: 'Contact Us', path: '/contact' },
+        { name: 'Contributors', path: '/contributor' },
     ];
 
     // Define quick links
@@ -39,6 +40,11 @@ const Footer = () => {
     // Define legal links with their paths if available
     const legalLinks = [
         { name: 'Privacy Policy', path: '/privacy-policy' },
+
+        { name: 'Code Of Conduct', path: '/code-of-conduct' },
+
+        { name: 'License', path: '/licensing' },
+
         { name: 'Terms and Conditions', path: '/terms' },
         { name: 'Cookie Policy', path: '/cookie-policy' },
     ];
@@ -68,7 +74,7 @@ const Footer = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:8080/api/rating", {
+            const response = await fetch("https://agrotech-ai-11j3.onrender.com/api/rating", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

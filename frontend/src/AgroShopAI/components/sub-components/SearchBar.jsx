@@ -57,6 +57,15 @@ const SearchBar = () => {
         }
         setLoading(false);
     };
+    const handleSearchButton = async (searchQuery) => {
+        if (!searchQuery) {
+            setResults([]);
+            setIsDropdownOpen(false);
+            return;
+        }
+
+        navigate(`/agroshop/search?q=${searchQuery}`);
+    };
 
     // Handle click on a search result
     const handleResultClick = (productId) => {
@@ -76,7 +85,7 @@ const SearchBar = () => {
                 className="w-full px-3 py-2 rounded-l-md focus:outline-none text-black"
             />
             <button
-                onClick={() => handleSearch(query)} // Allow manual search
+                onClick={() => handleSearchButton(query)} // Allow manual search
                 disabled={!query || loading}
                 className="bg-white text-green-600 px-4 rounded-r-md hover:bg-gray-200"
             >

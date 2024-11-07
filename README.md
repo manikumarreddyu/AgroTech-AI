@@ -55,22 +55,23 @@ This repository also provides one such platforms where contributers come over an
 
     
 
-## Table of Contents
+## 📑 Table of Contents
 
-1. [Project Description](#project-description)
-2. [Getting Started / Installation](#getting-started--installation)
-3. [API Documentation](#api-documentation)
-   - [Fertilizer Prediction](#fertilizer-prediction)
-   - [Crop Prediction](#crop-prediction)
-   - [Soil Quality Prediction](#soil-quality-prediction)
-   - [Yield Prediction](#yield-prediction)
-   - [Mushroom Edibility Prediction](#mushroom-edibility-prediction)
-4. [Tech Stack](#tech-stack)
-5. [Contributing](#contributing)
-6. [Code of Conduct](#code-of-conduct)
-7. [License](#license)
-8. [Stargazers](#stargazers)
-9. [Forkers](#forkers)
+1. 📘 [Project Description](#project-description)
+2. ⚙️ [Getting Started / Installation](#getting-started--installation)
+3. 📚 [API Documentation](#api-documentation)
+   - 🌱 [Fertilizer Prediction](#fertilizer-prediction)
+   - 🌾 [Crop Prediction](#crop-prediction)
+   - 🧪 [Soil Quality Prediction](#soil-quality-prediction)
+   - 🌽 [Yield Prediction](#yield-prediction)
+   - 🍄 [Mushroom Edibility Prediction](#mushroom-edibility-prediction)
+4. 💻 [Tech Stack](#tech-stack)
+5. 🤝 [Contributing](#contributing)
+6. 📜 [Code of Conduct](#code-of-conduct)
+7. 📝 [License](#license)
+8. 🌟 [Stargazers](#stargazers)
+9. 🍴 [Forkers](#forkers)
+
 
 </details>
 
@@ -81,7 +82,7 @@ This repository also provides one such platforms where contributers come over an
 ## This project is now OFFICIALLY accepted for
 
 <div align="center">
-  <img src="https://github.com/amiya-cyber/banner/blob/main/329829127-e79eb6de-81b1-4ffb-b6ed-f018bb977e88.png" alt="GSSoC 2024 Extd" width="60%">
+  <img src="https://private-user-images.githubusercontent.com/101971980/371491557-4b05b1a1-db82-479a-8dfa-ee7f23a0bfca.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzA4MzI3MzYsIm5iZiI6MTczMDgzMjQzNiwicGF0aCI6Ii8xMDE5NzE5ODAvMzcxNDkxNTU3LTRiMDViMWExLWRiODItNDc5YS04ZGZhLWVlN2YyM2EwYmZjYS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMTA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTEwNVQxODQ3MTZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kODhhMGNlYjIwYzczMWE0MGMyNTZlZDQ1ZTcyYzZhYzViMGY3MzgzODVlOTdjNTJhNGIzNjQzMDJjOTA2M2RiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.B7DCl07eMh3k4Z1flQL_vFB2NuKNFy8RydtV6Ymugjw" alt="GSSoC 2024 Extd" width="60%">
 </div>
 
 <div align="center">
