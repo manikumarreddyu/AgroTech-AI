@@ -14,13 +14,17 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const { isLoggedIn, login } = useAuth();
+  const ApiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://agrotech-ai-11j3.onrender.com'
+  : 'http://localhost:8080';
+
 
   // Handle standard email/password login
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://agro-tech-ai-backend-teal.vercel.app/auth/signin",
+        `${ApiUrl}/auth/signin`,
         {
           email,
           password,
@@ -36,7 +40,7 @@ const LoginPage = () => {
 
   // Google Login handler
   const handleGoogleSignIn = () => {
-    window.location.href = "https://agro-tech-ai-backend-teal.vercel.app/auth/google";
+    window.location.href = `${ApiUrl}/auth/google`;
   };
 
   if (isLoggedIn) {

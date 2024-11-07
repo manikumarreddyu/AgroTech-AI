@@ -8,10 +8,14 @@ const AccountVerificationPage = () => {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [isVerified, setIsVerified] = useState(false);
+  const ApiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://agrotech-ai-11j3.onrender.com'
+  : 'http://localhost:8080';
+
 
   const handleVerifyAccount = async () => {
     try {
-      await axios.post("https://agro-tech-ai-backend-teal.vercel.app/auth/verify-emailotp", { email, otp });
+      await axios.post(`${ApiUrl}/auth/verify-emailotp`, { email, otp });
       toast.success("Account verified successfully. Redirecting to login...");
       setTimeout(() => setIsVerified(true), 2000); // Redirect after a short delay
     } catch (error) {

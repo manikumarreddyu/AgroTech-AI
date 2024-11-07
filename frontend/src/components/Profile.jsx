@@ -14,12 +14,16 @@ const Profile = () => {
   const [profilePicture, setProfilePicture] = useState(null);
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);
+  const ApiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://agrotech-ai-11j3.onrender.com'
+  : 'http://localhost:8080';
+
 
   useEffect(() => {
     const token = localStorage.getItem('auth'); 
     if (token) {
       const { userId } = JSON.parse(atob(token.split('.')[1]));
-      axios.get(`https://agro-tech-ai-backend-teal.vercel.app/api/users/${userId}`, { 
+      axios.get(`${ApiUrl}/api/users/${userId}`, { 
         headers: {
           Authorization: `Bearer ${token}`,
         }
@@ -56,7 +60,7 @@ const Profile = () => {
     const token = localStorage.getItem('auth'); 
     const { userId } = JSON.parse(atob(token.split('.')[1]));
 
-    axios.put(`https://agro-tech-ai-backend-teal.vercel.app/api/users/${userId}`, formData, {
+    axios.put(`${ApiUrl}/api/users/${userId}`, formData, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
