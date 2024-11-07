@@ -55,22 +55,23 @@ This repository also provides one such platforms where contributers come over an
 
     
 
-## Table of Contents
+## 📑 Table of Contents
 
-1. [Project Description](#project-description)
-2. [Getting Started / Installation](#getting-started--installation)
-3. [API Documentation](#api-documentation)
-   - [Fertilizer Prediction](#fertilizer-prediction)
-   - [Crop Prediction](#crop-prediction)
-   - [Soil Quality Prediction](#soil-quality-prediction)
-   - [Yield Prediction](#yield-prediction)
-   - [Mushroom Edibility Prediction](#mushroom-edibility-prediction)
-4. [Tech Stack](#tech-stack)
-5. [Contributing](#contributing)
-6. [Code of Conduct](#code-of-conduct)
-7. [License](#license)
-8. [Stargazers](#stargazers)
-9. [Forkers](#forkers)
+1. 📘 [Project Description](#project-description)
+2. ⚙️ [Getting Started / Installation](#getting-started--installation)
+3. 📚 [API Documentation](#api-documentation)
+   - 🌱 [Fertilizer Prediction](#fertilizer-prediction)
+   - 🌾 [Crop Prediction](#crop-prediction)
+   - 🧪 [Soil Quality Prediction](#soil-quality-prediction)
+   - 🌽 [Yield Prediction](#yield-prediction)
+   - 🍄 [Mushroom Edibility Prediction](#mushroom-edibility-prediction)
+4. 💻 [Tech Stack](#tech-stack)
+5. 🤝 [Contributing](#contributing)
+6. 📜 [Code of Conduct](#code-of-conduct)
+7. 📝 [License](#license)
+8. 🌟 [Stargazers](#stargazers)
+9. 🍴 [Forkers](#forkers)
+
 
 </details>
 
