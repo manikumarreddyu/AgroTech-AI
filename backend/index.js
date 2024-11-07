@@ -12,6 +12,7 @@ const agriProductRoutes = require('./routes/agriProductRoutes');
 const discussionRoutes = require('./routes/discussionRoutes');
 
 const  rentProductRoutes = require('./routes/rent/rentProductRoutes');
+const  rentWishlistRoutes = require('./routes/rent/rentWishlistRoutes');
 
 const { sendEmail } = require('./services/emailService');
 const session = require('express-session');
@@ -22,7 +23,11 @@ require("./services/passport")
 const geminiChatRoute = require('./routes/geminiChatRoute');
 const app = express();
 
-app.use(cors()); // This allows all origins to access your API
+app.use(cors(
+  {
+    origin : "http://localhost:5173"
+  }
+)); // This allows all origins to access your API
 
 app.use(
   session({
@@ -41,6 +46,7 @@ app.use('/auth', googleauth);
 app.use('/api', contactRoutes);
 app.use('/api', shopRoutes);
 app.use('/api', rentProductRoutes);
+app.use('/api', rentWishlistRoutes);
 app.use('/api', userRoutes); 
 app.use('/api/discussions', discussionRoutes);
 app.use('/api/products', agriProductRoutes);

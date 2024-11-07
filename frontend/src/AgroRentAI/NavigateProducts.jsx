@@ -6,16 +6,67 @@ import img3 from "../assets/106.jpg";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "./index.css"
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // Assuming the categories list is the same
 const categories = ['All', 'Farming Technology', 'Farming Equipment', 'Agriculture'];
 
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, userId }) => {
   const navigate = useNavigate();
+  const [isWishlisted, setIsWishlisted] = useState(false);
+  const ApiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://agrotech-ai-11j3.onrender.com'
+  : 'http://localhost:8080';
+
+
+  // Check if the product is already in the user's wishlist
+  useEffect(() => {
+    const fetchWishlistStatus = async () => {
+      try {
+        const userId = '6728e52174915a9964fecf5a';
+        const { data } = await axios.post(`${ApiUrl}/api/wishlist`, { userId });
+        if (data.wishlist.some(item => item._id === product._id)) {
+          setIsWishlisted(true);
+        }
+      } catch (error) {
+        console.error("Error fetching wishlist status", error);
+      }
+    };
+    fetchWishlistStatus();
+  }, [product._id, userId]);
+
+  // Toggle wishlist status
+  const handleWishlistToggle = async () => {
+    try {
+      const userId = '6728e52174915a9964fecf5a'; // Replace with actual userId if dynamic
+      if (isWishlisted) {
+        await axios.delete(`${ApiUrl}/api/wishlist/remove/${product._id}`, { data: { userId } });
+        toast.success('Product removed from wishlist!', {
+         
+          autoClose: 3000, // Duration in ms
+        });
+      } else {
+        await axios.post(`${ApiUrl}/api/wishlist/add/${product._id}`, { userId });
+        toast.success('Product added to wishlist!', {
+         
+          autoClose: 3000, // Duration in ms
+        });
+      }
+      setIsWishlisted(!isWishlisted);
+    } catch (error) {
+      console.error('Error updating wishlist', error);
+      toast.error('Something went wrong while updating the wishlist!', {
+       
+        autoClose: 3000, // Duration in ms
+      });
+    }
+  };
 
   const handleRentNowClick = () => {
-    navigate(`/RentProductDetails/${product._id}`); // Assuming product.id uniquely identifies the product
+    navigate(`/RentProductDetails/${product._id}`);
   };
 
   return (
@@ -36,12 +87,18 @@ const ProductCard = ({ product }) => {
         <div className="flex items-center mt-2">
           <Star className="w-4 h-4 text-yellow-400 fill-current" />
           <span className="ml-1 text-sm text-gray-600">{product.rating}</span>
+          <button onClick={handleWishlistToggle} className="ml-auto">
+            {isWishlisted ? (
+              <AiFillHeart className="text-red-500" />
+            ) : (
+              <AiOutlineHeart className="text-gray-500" />
+            )}
+          </button>
         </div>
       </div>
     </div>
   );
 };
-
 const FilterSidebar = ({ selectedCategory, setSelectedCategory, priceRange, setPriceRange }) => (
   <div className="w-64 bg-green-50 p-4 rounded-lg">
     <h2 className="text-lg font-semibold mb-4 text-green-800">Filters</h2>
@@ -257,6 +314,7 @@ const RentalMarketplace = () => {
 
   return (
     <div className="min-h-screen bg-green-50 pb-20 z-10">
+     <ToastContainer/>
       <header className="bg-green-600 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-white">AgroRent AI</h1>
