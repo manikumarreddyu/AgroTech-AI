@@ -56,7 +56,7 @@ const CartPage = () => {
     const subtotal = cartItems.length ? cartItems.reduce((acc, item) => acc + (item.variantId.price * (1 - (item.productId.offer / 100)) * item.quantity), 0) : 0;
 
     if (!isLoggedIn) {
-        return <LoginPrompt />;
+        return <LoginPrompt message={"Please login to view your Cart."} />;
     }
 
     return (

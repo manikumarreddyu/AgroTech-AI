@@ -136,19 +136,8 @@ exports.getAllExtendedUsers = async (req, res) => {
   try {
     const extendedUsers = await ExtendedUser.find();
     // Optionally decrypt payment methods for all users before returning
-    const decryptedUsers = extendedUsers.map(user => {
-      if (user.paymentMethods) {
-        user.paymentMethods = user.paymentMethods.map(method => {
-          const { iv, details } = method; // Extract iv and encrypted details
-          return {
-            ...method,
-            details: decryptDetails(details, iv) // Decrypt the details
-          };
-        });
-      }
-      return user;
-    });
-    res.status(200).json(decryptedUsers);
+    
+    res.status(200).json(extendedUsers);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
