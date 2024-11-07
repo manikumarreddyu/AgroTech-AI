@@ -12,6 +12,8 @@ const cartController = require('../controllers/shop/cartController')
 const wishlistController = require('../controllers/shop/wishlistController');
 const extendedUserController = require('../controllers/shop/profileController');
 const UtilityController = require('../controllers/shop/utilityController');
+const grievanceController = require('../controllers/shop/grievanceController');
+
 /**
  * Product Routes
  */
@@ -104,4 +106,14 @@ router.delete('/profile/:id', extendedUserController.deleteExtendedUser);// Dele
 
 router.get('/search', UtilityController.searchProducts);
 router.get('/searchproduct', UtilityController.searchAllProducts);
+
+/**
+ * Grievance Routes
+*/
+
+router.post('/report', grievanceController.createGrievance);
+router.get('/report', grievanceController.getAllGrievances);
+router.get('/report/:id', grievanceController.getGrievanceById);
+router.patch('/report/:id/status', grievanceController.updateGrievanceStatus);
+router.delete('/report/:id', grievanceController.deleteGrievance);
 module.exports = router;
