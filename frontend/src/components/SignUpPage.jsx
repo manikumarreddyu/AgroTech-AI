@@ -18,6 +18,9 @@ const SignUpPage = () => {
   const [isNumber, setIsNumber] = useState(false);
   const [isSpecialChar, setIsSpecialChar] = useState(false);
   const [isMinLength, setIsMinLength] = useState(false);
+  const ApiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://agrotech-ai-11j3.onrender.com'
+  : 'http://localhost:8080';
 
   const validatePassword = (input) => {
     setPassword(input);
@@ -52,7 +55,7 @@ const SignUpPage = () => {
 
     try {
       const response = await axios.post(
-        "https://agro-tech-ai-backend-teal.vercel.app/auth/signup",
+        `${ApiUrl}/auth/signup`,
         {
           firstName,
           lastName,
@@ -70,7 +73,7 @@ const SignUpPage = () => {
     }
   };
   const handleGoogleSignIn = () => {
-    window.location.href = "https://agro-tech-ai-backend-teal.vercel.app/auth/google";
+    window.location.href = `${ApiUrl}/auth/google`;
   };
 
   return (
