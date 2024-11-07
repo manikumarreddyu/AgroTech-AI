@@ -51,6 +51,7 @@ import HeroSectionRent from './AgroRentAI/HeroSectionRent';
 import NavigateProducts from './AgroRentAI/NavigateProducts';
 import RentUserDashboard from './AgroRentAI/RentUserDashboard';
 import RentCheckoutPage from './AgroRentAI/RentCheckoutPage';
+import RentCartPage from './AgroRentAI/Cart';
 
 import RentProductDetails from './AgroRentAI/RentProductDetails';
 
@@ -162,6 +163,7 @@ const MainContent = () => {
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
                 <Route path="/AgriProducts" element={<AgriProductListing/>} />
                 <Route path="/RentCheckoutPage" element={<RentCheckoutPage/>} />
+                <Route path="/RentCart" element={<RentCartPage/>} />
 
                 <Route path="/RentProductDetails/:productId" element={<RentProductDetails/>} />
 
