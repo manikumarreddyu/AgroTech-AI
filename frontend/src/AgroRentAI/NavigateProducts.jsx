@@ -26,7 +26,6 @@ const ProductCard = ({ product, userId }) => {
   useEffect(() => {
     const fetchWishlistStatus = async () => {
       try {
-        const userId = '6728e52174915a9964fecf5a';
         const { data } = await axios.post(`${ApiUrl}/api/wishlist`, { userId });
         if (data.wishlist.some(item => item._id === product._id)) {
           setIsWishlisted(true);
@@ -41,7 +40,6 @@ const ProductCard = ({ product, userId }) => {
   // Toggle wishlist status
   const handleWishlistToggle = async () => {
     try {
-      const userId = '6728e52174915a9964fecf5a'; // Replace with actual userId if dynamic
       if (isWishlisted) {
         await axios.delete(`${ApiUrl}/api/wishlist/remove/${product._id}`, { data: { userId } });
         toast.success('Product removed from wishlist!', {
