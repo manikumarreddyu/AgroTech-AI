@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
+  username: { type: String, required: true, unique: true, trim: true,minlength: 3, maxlength: 30  },
   email: { type: String, required: true, unique: true },
   password: { type: String },
   role: {
@@ -13,7 +14,13 @@ const userSchema = new mongoose.Schema({
   },
   resetPasswordOTP: { type: String },
   resetPasswordExpires: { type: Date },
-  isVerified: { type: Boolean, default: false },
+  isVerified: {
+    type: Boolean,
+    default: false
+  },
+  verificationToken: {
+    type: String
+  },
   otp: { type: String },
   otpExpires: { type: Date },
   googleId: { type: String, sparse: true }, // Change unique to sparse

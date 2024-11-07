@@ -1,23 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import loginImage from "../assets/LoginImage.png";
 
 const AccountVerificationPage = () => {
-  const [email, setEmail] = useState("");
-  const [otp, setOtp] = useState("");
   const [isVerified, setIsVerified] = useState(false);
+  const [loading, setLoading] = useState(true); // To show loading while verifying
+  const [error, setError] = useState(null);
+  const location = useLocation();
 
-  const handleVerifyAccount = async () => {
-    try {
-      await axios.post("https://agro-tech-ai-backend-teal.vercel.app/auth/verify-emailotp", { email, otp });
+  // Extract the token from the URL query parameters
+  const queryParams = new URLSearchParams(location.search);
+  const token = queryParams.get("token");
+
+  useEffect(() => {
+    if (token) {
+      verifyAccount(token);
+    } else {
+      setError("Invalid verification link.");
+      setLoading(false);
+    }
+  }, [token]);
+
+  // Function to handle account verification
+  const verifyAccount = async (token) => {
+  try {
+    setLoading(true);
+    
+    // Send a GET request with the token in the URL
+    const response = await axios.get(`https://agro-tech-ai-backend-teal.vercel.app/auth/verify-account?token=${token}`);
+    
+    if (response.status === 200) {
       toast.success("Account verified successfully. Redirecting to login...");
       setTimeout(() => setIsVerified(true), 2000); // Redirect after a short delay
-    } catch (error) {
-      toast.error(error.response?.data?.message || "Verification failed");
+    } else {
+      setError("Verification failed. Please try again.");
     }
-  };
+  } catch (error) {
+    setError(error.response?.data?.message || "Verification failed. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   if (isVerified) {
     return <Navigate to="/login" replace />;
@@ -33,39 +59,18 @@ const AccountVerificationPage = () => {
 
         <div className="p-10 flex flex-col justify-center">
           <h2 className="text-4xl font-bold text-center text-purple-600 mb-4">
-            Verify Your Account
+            Account Verification
           </h2>
-          <p className="text-center text-gray-600 mb-8">
-            Enter your email and OTP to verify your account.
-          </p>
 
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-purple-600">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 mt-1 rounded-md bg-purple-100 text-purple-800 focus:ring focus:ring-purple-400"
-              required
-            />
-          </div>
-
-          <div className="mt-6">
-            <label htmlFor="otp" className="block text-sm font-medium text-purple-600">OTP</label>
-            <input
-              type="text"
-              id="otp"
-              value={otp}
-              onChange={(e) => setOtp(e.target.value)}
-              className="w-full px-4 py-2 mt-1 rounded-md bg-purple-100 text-purple-800 focus:ring focus:ring-purple-400"
-              required
-            />
-          </div>
-
-          <button onClick={handleVerifyAccount} className="w-full mt-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-md font-bold">
-            Verify Account
-          </button>
+          {loading ? (
+            <p className="text-center text-gray-600 mb-8">A</p>
+          ) : error ? (
+            <p className="text-center text-red-600 mb-8">{error}</p>
+          ) : (
+            <p className="text-center text-gray-600 mb-8">
+              Your account has been verified successfully.
+            </p>
+          )}
 
           <p className="text-center text-sm mt-4">
             <a href="/login" className="text-purple-500 hover:underline">Back to Login</a>
