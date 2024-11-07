@@ -169,7 +169,7 @@ const ShopFooter = () => {
               </a>
             </li>
             <li>
-              <a href="/grievance" className="hover:underline">
+              <a href="/AgroShop/grievance" className="hover:underline">
                 Grievance Redressal
               </a>
             </li>

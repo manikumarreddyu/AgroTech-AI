@@ -72,6 +72,7 @@ import SearchResult from './AgroShopAI/pages/SearchResult'
 import CancelAndReturnPolicy from './AgroShopAI/pages/FooterPages/CancelAndReturn';
 import TermsOfUse from './AgroShopAI/pages/FooterPages/TermsOfUse';
 import ShopPrivacyPolicy from './AgroShopAI/pages/FooterPages/Privacy';
+import GrievanceRedressal from './AgroShopAI/pages/FooterPages/Grievance';
 import ForgotPasswordPage from './components/ForgotPassword';
 import AccountVerificationPage from './components/EmailVerification';
 
@@ -181,6 +182,7 @@ const MainContent = () => {
                 <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />
                 <Route path="/AgroShop/privacy-policy" element={<ShopPrivacyPolicy/>} />
                 <Route path="/AgroShop/faq" element={<FAQ/>} />
+                <Route path="/AgroShop/grievance" element={<GrievanceRedressal/>} />
               </Routes>
               {checkShop ? <ShopFooter/> : <Footer/>}
             </div>
