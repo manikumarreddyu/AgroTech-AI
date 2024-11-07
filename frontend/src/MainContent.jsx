@@ -14,6 +14,7 @@ import NotFound from './NotFound';
 import Prices from './components/models/Prices';
 import Reports from './components/models/Reports';
 import AboutUs from "./components/AboutUs";
+import Contributor from './pages/ContributorsPage';
 import UseScrollToTop from './components/UseScrollToTop';
 import Article from './pages/Article';
 import TaskReminder from './components/tools/TaskReminder';
@@ -116,6 +117,7 @@ const MainContent = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/chatbot" element={<ChatBot />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/contributor" element={<Contributor />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/crop" element={<Crop />} />
                 <Route path="/fertilizer" element={<Fertilizer />} />

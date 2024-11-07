@@ -16,6 +16,7 @@ const Footer = () => {
     const companyLinks = [
         { name: 'About Us', path: '/aboutus' },
         { name: 'Contact Us', path: '/contact' },
+        { name: 'Contributors', path: '/contributor' },
     ];
 
     // Define quick links
