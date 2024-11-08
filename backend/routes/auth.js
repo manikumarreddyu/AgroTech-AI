@@ -10,10 +10,12 @@ const {
   checkUsernameAvailability,
   verifyEmail,
   checkEmailAvailability,
-  resendVerificationEmail
+  resendVerificationEmail,
+  updateUserProfile
 } = require("../controllers/authController");
 
 router.post("/signup", signupController);
+router.put("/profile-update", updateUserProfile);
 router.get("/check-username/:username", checkUsernameAvailability);
 router.get("/check-email/:email", checkEmailAvailability);
 router.get("/verify-account", verifyEmail);

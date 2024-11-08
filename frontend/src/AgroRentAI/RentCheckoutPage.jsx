@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/ReactToastify.min.css";
 
 const RentCheckoutPage = () => {
   // Dummy cartItems data
@@ -22,12 +24,71 @@ const RentCheckoutPage = () => {
     }
   ]);
 
+  const ApiUrl = process.env.NODE_ENV === 'production'
+    ? 'https://agrotech-ai-11j3.onrender.com'
+    : 'http://localhost:8080';
+
   const [userDetails, setUserDetails] = useState({
     name: '',
     email: '',
     address: '',
     phone: '',
   });
+
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    address: '',
+    phone: '',
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserDetails((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {};
+
+    // Validate Name
+    if (!userDetails.name) {
+      newErrors.name = 'Name is required';
+      isValid = false;
+    }
+
+    // Validate Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!userDetails.email) {
+      newErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!emailRegex.test(userDetails.email)) {
+      newErrors.email = 'Please enter a valid email';
+      isValid = false;
+    }
+
+    // Validate Address
+    if (!userDetails.address) {
+      newErrors.address = 'Address is required';
+      isValid = false;
+    }
+
+    // Validate Phone
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!userDetails.phone) {
+      newErrors.phone = 'Phone number is required';
+      isValid = false;
+    } else if (!phoneRegex.test(userDetails.phone)) {
+      newErrors.phone = 'Phone number must be 10 digits';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
@@ -44,29 +105,47 @@ const RentCheckoutPage = () => {
     setCartItems(updatedCartItems);
   };
 
-  const handleCheckout = () => {
-    // Normally you would send the order to the backend for processing
-    console.log('Proceeding to checkout with the following details:', userDetails);
-    alert('Your order is placed. Waiting for approval from the admin/seller.');
-    navigate('/order-confirmation');  // Redirect to order confirmation page
-  };
+  const handleCheckout = async (e) => {
+    e.preventDefault(); // Prevent form submission reload
 
-  // Handle form input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserDetails((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    if (!validateForm()) {
+      toast.error("Error in validating form");
+      return;
+    }
+
+    try {
+      const response = await fetch(`${ApiUrl}/api/rent-product`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userDetails,
+          cartItems,
+          totalPrice,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        toast.success(`Your order has been placed. Tracking ID: ${data.trackingID}`);
+      } else {
+        toast.error(data.message || 'Error placing the order');
+      }
+    } catch (error) {
+      toast.error('An error occurred while placing the order.');
+      console.error('Error during checkout:', error);
+    }
   };
 
   // Recalculate total when cart items change
-  React.useEffect(() => {
+  useEffect(() => {
     calculateTotalPrice();
   }, [cartItems]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-green-50 to-green-100 p-8 mt-12">
+      <ToastContainer />
       <h2 className="text-4xl font-extrabold text-green-900 mb-8">Checkout</h2>
 
       <div className="max-w-5xl bg-gradient-to-b from-green-100 to-green-200 rounded-lg shadow-2xl p-6 w-full">
@@ -103,7 +182,8 @@ const RentCheckoutPage = () => {
         {/* User Details Form */}
         <div className="mb-6">
           <h3 className="text-2xl font-semibold text-green-900 mb-4">Billing Details</h3>
-          <form>
+          <form >
+            {/* Name */}
             <div className="mb-4">
               <label className="block text-green-700 mb-2">Name</label>
               <input
@@ -114,7 +194,10 @@ const RentCheckoutPage = () => {
                 className="w-full p-3 border border-green-300 rounded-md"
                 required
               />
+              {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
             </div>
+
+            {/* Email */}
             <div className="mb-4">
               <label className="block text-green-700 mb-2">Email</label>
               <input
@@ -125,7 +208,10 @@ const RentCheckoutPage = () => {
                 className="w-full p-3 border border-green-300 rounded-md"
                 required
               />
+              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </div>
+
+            {/* Address */}
             <div className="mb-4">
               <label className="block text-green-700 mb-2">Address</label>
               <textarea
@@ -135,7 +221,10 @@ const RentCheckoutPage = () => {
                 className="w-full p-3 border border-green-300 rounded-md"
                 required
               />
+              {errors.address && <p className="text-red-500 text-sm">{errors.address}</p>}
             </div>
+
+            {/* Phone */}
             <div className="mb-4">
               <label className="block text-green-700 mb-2">Phone</label>
               <input
@@ -146,7 +235,10 @@ const RentCheckoutPage = () => {
                 className="w-full p-3 border border-green-300 rounded-md"
                 required
               />
+              {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
             </div>
+
+       
           </form>
         </div>
 

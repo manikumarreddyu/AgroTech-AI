@@ -254,5 +254,30 @@ exports.resendVerificationEmail = async (req, res) => {
 };
 
 
+exports.updateUserProfile = async (req, res) => {
+  const {userId} = req.query;  // Retrieved from authentication middleware
+  const { firstName, lastName, username, email, address } = req.body;
 
+  // Validate the fields
+  if (firstName.length < 2 || lastName.length < 2) {
+    return res.status(400).json({ message: 'First and Last names must be at least 2 characters long.' });
+  }
+
+  try {
+    const user = await User.findById(userId);
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    // Update the fields only if provided
+    if (firstName) user.firstName = firstName;
+    if (lastName) user.lastName = lastName;
+    if (username) user.username = username;
+    if (email) user.email = email;
+    if (address) user.address = address;
+
+    await user.save();
+    res.status(200).json({ message: 'Profile updated successfully', user });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error while updating profile', error });
+  }
+};
 
