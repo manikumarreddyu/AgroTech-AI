@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
 import loginImage from "../assets/LoginImage.png";
@@ -15,10 +15,10 @@ const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const { isLoggedIn, login } = useAuth();
   const ApiUrl = process.env.NODE_ENV === 'production'
-  ? 'https://agrotech-ai-11j3.onrender.com'
+  ? 'https://agro-tech-ai-backend-teal.vercel.app'
   : 'http://localhost:8080';
 
-
+  const navigate = useNavigate()
   // Handle standard email/password login
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -28,15 +28,36 @@ const LoginPage = () => {
         {
           email,
           password,
-          rememberMe, 
+          rememberMe,
         }
       );
-      login(response.data.token, response.data.user_id);
-      toast.success("Login successful");
+      console.log(response.data)
+      // Check if user is verified
+      if (response.status === 403) {
+        // Redirect to verification page with email as a query parameter
+        navigate(`/verification?email=${email}`);
+      } else {
+        // If the user is verified, log them in and display success message
+        login(response.data.token, response.data.user_id);
+        toast.success("Login successful");
+      }
+  
     } catch (error) {
-      toast.error(error.response?.data?.message || "Login failed");
+
+    if (error.response) {
+      if (error.response.status === 401) {
+        toast.error(error.response?.data?.message || "Invalid credentials");
+      } else if (error.response.status === 403) {
+        navigate(`/verification?email=${email}`);
+      } else {
+        toast.error("Login failed");
+      }
+    } else {
+      toast.error("Network error or unexpected failure.");
     }
+  }
   };
+  
 
   // Google Login handler
   const handleGoogleSignIn = () => {

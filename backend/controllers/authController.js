@@ -11,19 +11,39 @@ exports.signinController = async (req, res) => {
     const { email, password, rememberMe } = req.body; 
     const user = await User.findOne({ email });
 
+    // Check if user exists
     if (!user) {
       return res.status(401).json({ message: 'User not found' });
     }
 
+    // Check if user is verified
+    if (!user.isVerified) {
+      // Generate a new verification token
+      const verificationToken = crypto.randomBytes(32).toString('hex');
+      user.verificationToken = verificationToken;
+      
+      // Save the updated user with the new verification token
+      await user.save();
+
+      // Send the verification email
+      await sendVerificationEmail(user.email, verificationToken);
+
+      // Return a response saying the user needs to verify their email
+      return res.status(403).json({
+        message: 'User is not verified. Please verify your email.'
+      });
+    }
+
+    // Compare password with stored hash
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    
+    // Set token expiry based on rememberMe flag
     const tokenExpiry = rememberMe ? '7d' : '1h'; 
 
-    
+    // Generate JWT token
     const token = jwt.sign(
       { userId: user._id, role: user.role },
       process.env.JWT_SECRET,
@@ -37,6 +57,7 @@ exports.signinController = async (req, res) => {
     res.status(500).json({ message: 'Login failed' });
   }
 };
+
 exports.verifyOtpController = async (req, res) => {
   try {
     const { email, otp } = req.body;
@@ -202,6 +223,33 @@ exports.verifyEmail = async (req, res) => {
     res.status(200).json({ message: 'Account successfully verified' });
   } catch (error) {
     res.status(500).json({ message: 'Error verifying email' });
+  }
+};
+
+exports.resendVerificationEmail = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (user.isVerified) {
+      return res.status(400).json({ message: 'Account is already verified' });
+    }
+
+    // Generate a new verification token and resend the email
+    const verificationToken = crypto.randomBytes(32).toString('hex');
+    user.verificationToken = verificationToken;
+    
+    // Save the updated user and resend the email
+    await user.save();
+    await sendVerificationEmail(user.email, verificationToken);
+
+    res.status(200).json({ message: 'Verification email resent. Please check your inbox.' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error resending verification email' });
   }
 };
 
