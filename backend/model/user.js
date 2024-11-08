@@ -1,3 +1,5 @@
+// models/User.js
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -16,9 +18,15 @@ const userSchema = new mongoose.Schema({
   isVerified: { type: Boolean, default: false },
   otp: { type: String },
   otpExpires: { type: Date },
-  googleId: { type: String, sparse: true }, // Change unique to sparse
-});
+  googleId: { type: String, sparse: true }, 
 
+  wishlist: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'RentProduct',
+    }
+  ]
+});
 
 // Hash password before saving
 userSchema.pre('save', async function(next) {
