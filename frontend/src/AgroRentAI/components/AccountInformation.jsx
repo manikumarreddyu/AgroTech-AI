@@ -64,7 +64,7 @@ const ProfileComponent = ({ profile, setProfile }) => {
     }
 
     try {
-      const response = await fetch(`${ApiUrl}/auth/profile-update?userId=${"6725ba1d61742ceab8724142"}`, {
+      const response = await fetch(`${ApiUrl}/auth/profile-update?userId=${profile.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
