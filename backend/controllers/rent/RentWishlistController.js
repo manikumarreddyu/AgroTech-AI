@@ -58,7 +58,7 @@ exports.removeFromWishlist = async (req, res) => {
 
 // Get User Wishlist
 exports.getWishlist = async (req, res) => {
-  const { userId } = req.body; // Accepts userId from body for now
+  const { userId } = req.query; // Accepts userId from query 
 
   try {
     const user = await User.findById(userId).populate('wishlist');
