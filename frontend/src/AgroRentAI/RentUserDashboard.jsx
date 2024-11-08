@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 
 import {
@@ -29,6 +30,7 @@ const RentUserDashboard = () => {
     email: "",
     address: "",
     profilePicture: "",
+
     paymentMethods: [],
   });
   const [rentals, setRentals] = useState([]);
@@ -51,11 +53,13 @@ const RentUserDashboard = () => {
 
   // Mock API calls
   const fetchUserProfile = async () => ({
+
     name: "John Doe",
     email: "john@example.com",
     address: "123 Main St, Springfield, USA",
     profilePicture: "/images/profile.png",
     paymentMethods: ["Visa **** 1234", "Mastercard **** 5678"],
+
   });
 
   const fetchUserRentals = async () => [
@@ -98,14 +102,12 @@ const RentUserDashboard = () => {
     setRentals(rentals.filter((rental) => rental.id !== id));
   };
 
-  const handleProfileEdit = () => {
-    alert("Profile edit functionality to be implemented.");
-  };
-
   const renderSectionContent = () => {
     switch (activeSection) {
       case "Account Information":
+
         return <ProfileComponent profile={profile} />;
+
       case "Rental History":
         return <RentalHistoryComponent rentals={rentals} />;
       case "Payment Methods & Billing":

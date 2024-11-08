@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  username: { type: String, required: true, unique: true, trim: true,minlength: 3, maxlength: 30  },
-  email: { type: String, required: true, unique: true },
+  firstName: { type: String, required: true, minlength: 2 },
+  lastName: { type: String, required: true, minlength: 2 },
+  username: { type: String, required: true, unique: true, trim: true, minlength: 3, maxlength: 30 },
+  email: { type: String, required: true, unique: true, match: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ },
+  address: { type: String, maxlength: 100 },
   password: { type: String },
   role: {
     type: String,
