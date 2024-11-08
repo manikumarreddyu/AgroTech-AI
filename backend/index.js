@@ -26,11 +26,7 @@ require("./services/passport")
 const geminiChatRoute = require('./routes/geminiChatRoute');
 const app = express();
 
-app.use(cors(
-  {
-    origin : "http://localhost:5173"
-  }
-)); // This allows all origins to access your API
+app.use(cors()); // This allows all origins to access your API
 
 app.use(
   session({
