@@ -16,6 +16,7 @@ const discussionRoutes = require('./routes/discussionRoutes');
 const  rentProductRoutes = require('./routes/rent/rentProductRoutes');
 const  rentWishlistRoutes = require('./routes/rent/rentWishlistRoutes');
 const  rentCartRoutes = require('./routes/rent/rentCartRoutes');
+const  rentOrderRoutes = require('./routes/rent/rentOrderRoutes');
 
 const { sendEmail } = require('./services/emailService');
 const session = require('express-session');
@@ -47,6 +48,7 @@ app.use('/api', shopRoutes);
 app.use('/api', rentProductRoutes);
 app.use('/api', rentWishlistRoutes);
 app.use('/api', rentCartRoutes);
+app.use('/api', rentOrderRoutes);
 app.use('/api', userRoutes); 
 app.use('/api/discussions', discussionRoutes);
 app.use('/api/products', agriProductRoutes);

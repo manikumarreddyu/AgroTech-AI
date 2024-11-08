@@ -18,6 +18,38 @@ const RentCartPage = () => {
     ? 'https://agrotech-ai-11j3.onrender.com'
     : 'http://localhost:8080';
 
+    const recommendedItems = [
+      {
+        name: 'Tractor - Model X100',
+        image: 'https://via.placeholder.com/150?text=Tractor',
+        price: 1500,
+      },
+      {
+        name: 'Rototiller - 2000 Series',
+        image: 'https://via.placeholder.com/150?text=Rototiller',
+        price: 1200,
+      },
+      {
+        name: 'Plow - Heavy Duty',
+        image: 'https://via.placeholder.com/150?text=Plow',
+        price: 800,
+      },
+      {
+        name: 'Seeder - Pro Seed 3000',
+        image: 'https://via.placeholder.com/150?text=Seeder',
+        price: 2200,
+      },
+      {
+        name: 'Lawn Mower - Eco Series',
+        image: 'https://via.placeholder.com/150?text=Lawn+Mower',
+        price: 900,
+      },
+      {
+        name: 'Harrow - Ground Breaker',
+        image: 'https://via.placeholder.com/150?text=Harrow',
+        price: 1100,
+      },
+    ];
   // Fetch user cart items from backend
   useEffect(() => {
     const fetchCartItems = async () => {
