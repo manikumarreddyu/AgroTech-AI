@@ -168,6 +168,7 @@ const MainContent = () => {
                 <Route path="/RentProductDetails/:productId" element={<RentProductDetails/>} />
 
                 <Route path="/RentAdminDashboard" element={<RentAdminDashboard/>} />
+                <Route path="/RentUserDashboard" element={<RentUserDashboard/>} />
 
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
