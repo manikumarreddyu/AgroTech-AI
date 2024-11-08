@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
       ref: 'RentProduct',
     }
   ]
-});
+}, { timestamps: true });
 
 // Hash password before saving
 userSchema.pre('save', async function(next) {

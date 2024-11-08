@@ -9,14 +9,15 @@ const {
   resetPasswordController,
   checkUsernameAvailability,
   verifyEmail,
-  checkEmailAvailability
+  checkEmailAvailability,
+  resendVerificationEmail
 } = require("../controllers/authController");
 
 router.post("/signup", signupController);
 router.get("/check-username/:username", checkUsernameAvailability);
 router.get("/check-email/:email", checkEmailAvailability);
 router.get("/verify-account", verifyEmail);
-
+router.post("/resend-verify-email", resendVerificationEmail);
 // Login Route
 router.post("/signin", signinController);
 router.post("/forgot-password", forgotPasswordController);
