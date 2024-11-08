@@ -119,7 +119,7 @@ const SignUpPage = () => {
     setIsSubmitting(true);
     try {
       const response = await axios.post(
-        "https://agro-tech-ai-backend-teal.vercel.app/auth/signup",
+        `${ApiUrl}/auth/signup`,
         {
           firstName,
           lastName,
@@ -167,7 +167,7 @@ const SignUpPage = () => {
     }
   };
   const handleGoogleSignIn = () => {
-    window.location.href = "https://agro-tech-ai-backend-teal.vercel.app/auth/google";
+    window.location.href = `${ApiUrl}/auth/google`;
   };
 
   return (

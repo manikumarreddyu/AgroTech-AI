@@ -22,6 +22,9 @@ const AccountVerificationPage = () => {
       setLoading(false);
     }
   }, [token]);
+  const ApiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://agro-tech-ai-backend-teal.vercel.app'
+  : 'http://localhost:8080';
 
   // Function to handle account verification
   const verifyAccount = async (token) => {
@@ -29,7 +32,7 @@ const AccountVerificationPage = () => {
     setLoading(true);
     
     // Send a GET request with the token in the URL
-    const response = await axios.get(`https://agro-tech-ai-backend-teal.vercel.app/auth/verify-account?token=${token}`);
+    const response = await axios.get(`${ApiUrl}/auth/verify-account?token=${token}`);
     
     if (response.status === 200) {
       toast.success("Account verified successfully. Redirecting to login...");
