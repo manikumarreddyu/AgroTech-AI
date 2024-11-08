@@ -32,8 +32,15 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'RentProduct',
     }
+  ],
+  cart: [
+    {
+      product: { type: mongoose.Schema.Types.ObjectId, ref: 'RentProduct', required: true },
+      quantity: { type: Number, default: 1 }
+    }
   ]
-});
+}, { timestamps: true });
+
 
 // Hash password before saving
 userSchema.pre('save', async function(next) {

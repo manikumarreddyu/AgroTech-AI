@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require("cors");
 const mongoose = require("mongoose");
+const cron = require('node-cron');
+const { deleteUnverifiedUsers } = require('./controllers/userController'); // Import the function
 const dotenv = require("dotenv").config();
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
@@ -13,6 +15,7 @@ const discussionRoutes = require('./routes/discussionRoutes');
 
 const  rentProductRoutes = require('./routes/rent/rentProductRoutes');
 const  rentWishlistRoutes = require('./routes/rent/rentWishlistRoutes');
+const  rentCartRoutes = require('./routes/rent/rentCartRoutes');
 
 const { sendEmail } = require('./services/emailService');
 const session = require('express-session');
@@ -23,11 +26,7 @@ require("./services/passport")
 const geminiChatRoute = require('./routes/geminiChatRoute');
 const app = express();
 
-app.use(cors(
-  {
-    origin : "http://localhost:5173"
-  }
-)); // This allows all origins to access your API
+app.use(cors()); // This allows all origins to access your API
 
 app.use(
   session({
@@ -47,6 +46,7 @@ app.use('/api', contactRoutes);
 app.use('/api', shopRoutes);
 app.use('/api', rentProductRoutes);
 app.use('/api', rentWishlistRoutes);
+app.use('/api', rentCartRoutes);
 app.use('/api', userRoutes); 
 app.use('/api/discussions', discussionRoutes);
 app.use('/api/products', agriProductRoutes);
@@ -83,5 +83,9 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+// Schedule the deletion task to run every day at midnight
+cron.schedule('0 0 * * *', deleteUnverifiedUsers);
+console.log('Scheduler started: Unverified users cleanup task will run every day at midnight.');
+
 
 module.exports = app; 
