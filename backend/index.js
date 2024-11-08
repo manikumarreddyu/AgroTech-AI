@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require("cors");
 const mongoose = require("mongoose");
+const cron = require('node-cron');
+const { deleteUnverifiedUsers } = require('./controllers/userController'); // Import the function
 const dotenv = require("dotenv").config();
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
@@ -83,5 +85,9 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+// Schedule the deletion task to run every day at midnight
+cron.schedule('0 0 * * *', deleteUnverifiedUsers);
+console.log('Scheduler started: Unverified users cleanup task will run every day at midnight.');
+
 
 module.exports = app; 
