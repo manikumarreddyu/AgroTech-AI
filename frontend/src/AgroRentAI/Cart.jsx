@@ -217,6 +217,22 @@ const RentCartPage = () => {
           ))}
         </div>
       )}
+
+      {/* Recommended Products */}
+      <div className="bg-gradient-to-b from-green-100 to-green-200 p-6 rounded-lg shadow-md mt-8">
+        <h2 className="text-xl font-semibold mb-4 text-green-800">Recommended for You</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {recommendedItems.map((item, index) => (
+            <div key={index} className="flex items-center border border-gray-200 p-4 rounded-md">
+              <img src={item.image} alt={item.name} className="w-16 h-16 rounded-md mr-4" />
+              <div>
+                <h3 className="text-green-800 font-semibold">{item.name}</h3>
+                <p className="text-gray-500">Price: ₹{item.price}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
