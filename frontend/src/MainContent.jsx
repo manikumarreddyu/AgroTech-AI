@@ -80,6 +80,7 @@ import AccountVerificationPage from './components/EmailVerification';
 
 import FAQ from './AgroShopAI/pages/Faq';
 import GeminiChat from './components/tools/GeminiChat';
+import ResendVerificationPage from './components/ResendVerification';
 
 
 const MainContent = () => {
@@ -152,6 +153,7 @@ const MainContent = () => {
                 <Route path="/profile" element={<Profile/>} />
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/verify-email" element={<AccountVerificationPage />} />
+                <Route path="/verification" element={<ResendVerificationPage />} />
                 <Route path="/forgot-password" element={<ForgotPasswordPage />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />

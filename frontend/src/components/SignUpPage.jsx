@@ -23,6 +23,10 @@ const SignUpPage = () => {
   const [typingTimeout, setTypingTimeout] = useState(null);
   const [emailMessage, setEmailMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false); 
+  const isFormDisabled =
+    isSubmitting ||
+    message.includes("Username is already taken") ||
+    emailMessage.includes("Email is already taken");
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
 
@@ -79,7 +83,7 @@ const SignUpPage = () => {
     setIsChecking(true); // Disable the input field
   
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}auth/check-username/${username}`, {
+      const response = await fetch(`${ApiUrl}/auth/check-username/${username}`, {
         method: 'GET', // Change to GET request
         headers: {
           'Content-Type': 'application/json',
@@ -100,7 +104,9 @@ const SignUpPage = () => {
     }
   };
   
-
+  const ApiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://agro-tech-ai-backend-teal.vercel.app'
+  : 'http://localhost:8080';
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -128,12 +134,12 @@ const SignUpPage = () => {
           password,
         }
       );
-      toast.info("Please check your email to verify your account.");
       setFirstName("");
       setLastName("");
       setUsername("");
       setEmail("");
       setPassword("");
+      navigate(`/verification?email=${email}`)
     } catch (error) {
       toast.error(
         error.response?.data?.message || "Signup failed. Please try again."
@@ -146,7 +152,7 @@ const SignUpPage = () => {
   const checkEmailAvailability = async (email) => {
     setIsChecking(true); // Disable the input field
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}auth/check-email/${email}`, {
+      const response = await fetch(`${ApiUrl}/auth/check-email/${email}`, {
         method: 'GET', // Change to GET request
         headers: {
           'Content-Type': 'application/json',
@@ -378,7 +384,7 @@ const SignUpPage = () => {
               <button
                 type="submit"
                 disabled={
-                  !isLowerUpper || !isNumber || !isSpecialChar || !isMinLength
+                  !isLowerUpper || !isNumber || !isSpecialChar || !isMinLength || isFormDisabled || username.length < 3 
                 }
                 className="w-full py-2 bg-gradient-to-r from-green-500 to-blue-500 hover:from-blue-500 hover:to-green-500 text-white rounded-md font-bold disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
