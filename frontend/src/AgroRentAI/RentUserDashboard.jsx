@@ -81,9 +81,6 @@ const RentUserDashboard = () => {
     { id: 2, name: "Lawn Mower", price: "$200" },
   ];
 
-  const fetchUserReviews = async () => [
-    { rentalId: 3, rating: 5, comment: "Excellent equipment!" },
-  ];
 
   const fetchUserNotifications = async () => [
     {
@@ -107,7 +104,7 @@ const RentUserDashboard = () => {
       case "Account Information":
         return <ProfileComponent profile={profile} />;
       case "Rental History":
-        return <RentalHistoryComponent rentals={rentals} />;
+        return <RentalHistoryComponent />;
       case "Payment Methods & Billing":
         return (
           <PaymentMethodsComponent paymentMethods={profile.paymentMethods} />
@@ -117,7 +114,7 @@ const RentUserDashboard = () => {
       case "Notifications & Alerts":
         return <NotificationsComponent notifications={notifications} />;
       case "Ratings & Reviews":
-        return <RatingsReviewsComponent reviews={reviews} />;
+        return <RatingsReviewsComponent />;
       case "Security & Privacy":
         return <SecurityPrivacyComponent />;
       case "Support & Assistance":

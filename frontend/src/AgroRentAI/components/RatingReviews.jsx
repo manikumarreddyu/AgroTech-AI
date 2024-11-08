@@ -2,7 +2,15 @@
 import React from 'react';
 import { Star, Tractor } from 'lucide-react'; // Using icons to match the agricultural theme
 
-const RatingsReviewsComponent = ({ reviews }) => (
+const RatingsReviewsComponent = () =>{ 
+
+  const reviews = [
+    { rentalId: 'A123', rating: 5, comment: 'Excellent product, very helpful!' },
+    { rentalId: 'B456', rating: 4, comment: 'Good quality, but a bit expensive.' },
+    { rentalId: 'C789', rating: 2, comment: 'Not very effective, needs improvement.' },
+  ];
+
+  return (
   <div className="bg-white p-6 rounded-lg ">
     <h3 className="text-2xl font-bold text-green-700 mb-6 flex items-center">
       <Tractor className="mr-2 text-green-700" /> Ratings & Reviews
@@ -34,5 +42,5 @@ const RatingsReviewsComponent = ({ reviews }) => (
     </ul>
   </div>
 );
-
+}
 export default RatingsReviewsComponent;
