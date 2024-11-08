@@ -13,7 +13,7 @@ const WishlistComponent = ({ userId }) => {
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
-        const response = await fetch(`${ApiUrl}/api/wishlist?userId=${"6728e52174915a9964fecf5a"}`);
+        const response = await fetch(`${ApiUrl}/api/wishlist?userId=${userId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch wishlist');
         }
