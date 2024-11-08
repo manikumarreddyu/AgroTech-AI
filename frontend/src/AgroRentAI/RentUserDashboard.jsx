@@ -1,4 +1,3 @@
-// RentUserDashboard.js
 import React, { useState, useEffect } from 'react';
 
 import { User, Clock, CreditCard, Heart, Bell } from 'lucide-react';
@@ -10,7 +9,9 @@ import NotificationsComponent from './components/RentNotifications';
 
 const RentUserDashboard = () => {
   const [profile, setProfile] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
+    username: '',
     email: '',
     address: '',
     profilePicture: '',
@@ -43,7 +44,9 @@ const RentUserDashboard = () => {
 
   // Mock API calls
   const fetchUserProfile = async () => ({
-    name: 'John Doe',
+    firstName: 'John',
+    lastName: 'Doe',
+    username: 'johnnyd',
     email: 'john@example.com',
     address: '123 Main St, Springfield, USA',
     profilePicture: '/images/profile.png',
@@ -74,14 +77,10 @@ const RentUserDashboard = () => {
     setRentals(rentals.filter(rental => rental.id !== id));
   };
 
-  const handleProfileEdit = () => {
-    alert("Profile edit functionality to be implemented.");
-  };
-
   const renderSectionContent = () => {
     switch (activeSection) {
       case "Account Information":
-        return <ProfileComponent profile={profile} handleProfileEdit={handleProfileEdit} />;
+        return <ProfileComponent profile={profile} setProfile={setProfile} />;
       case "Rental History":
         return <RentalHistoryComponent rentals={rentals} handleCancelRental={handleCancelRental} />;
       case "Payment Methods & Billing":

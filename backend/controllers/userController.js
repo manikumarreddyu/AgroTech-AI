@@ -28,3 +28,4 @@ exports.getUserByID =async (req, res) => {
       console.error('Error deleting unverified accounts:', error);
     }
   };
+
