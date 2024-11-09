@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { User, BarChart, Box, Package, Bell } from "lucide-react";
+import { User, BarChart, Box, Package, Bell, DollarSign, Tag, MessageSquare, Settings, FileText, Shield } from "lucide-react";
 import ProductManagement from "./components/AdminProductManagement";
 import OrderManagement from "./components/AdminOrderManagement";
 import UserManagement from "./components/AdminUserManagement";
 import Analytics from "./components/AdminAnalytics";
 import { toast } from 'react-toastify'; // Make sure to add this import if using toast
+import SalesRevenueAnalytics from "./components/AdminSalesAnalytics";
+import MarketingPromotions from "./components/AdminMarketing";
+import CustomerSupportReviews from "./components/AdminCustomerSupport";
+import SettingsConfiguration from "./components/AdminSettings";
+import ReportsDataExport from "./components/AdminReport";
+import SecurityAuditLogs from "./components/AdminSecurity";
 
 const RentAdminDashboard = () => {
   const [activeSection, setActiveSection] = useState("Product Management");
@@ -253,6 +259,18 @@ const RentAdminDashboard = () => {
         return <UserManagement users={users} />;
       case "Analytics & Reporting":
         return <Analytics analytics={analytics} />;
+      case "Sales & Revenue Analytics":
+        return <SalesRevenueAnalytics />;
+      case "Marketing & Promotions":
+        return <MarketingPromotions />;
+      case "Customer Support & Reviews":
+        return <CustomerSupportReviews />;
+      case "Settings & Configuration":
+        return <SettingsConfiguration />;
+      case "Reports and Data Export":
+        return <ReportsDataExport />;
+      case "Security & Audit Logs":
+        return <SecurityAuditLogs />;
       default:
         return null;
     }
@@ -274,6 +292,24 @@ const RentAdminDashboard = () => {
           </li>
           <li className="cursor-pointer" onClick={() => setActiveSection("Analytics & Reporting")}>
             <BarChart className="inline mr-2" /> Analytics & Reporting
+          </li>
+          <li className="cursor-pointer" onClick={() => setActiveSection("Sales & Revenue Analytics")}>
+            <DollarSign className="inline mr-2" /> Sales & Revenue Analytics
+          </li>
+          <li className="cursor-pointer" onClick={() => setActiveSection("Marketing & Promotions")}>
+            <Tag className="inline mr-2" /> Marketing & Promotions
+          </li>
+          <li className="cursor-pointer" onClick={() => setActiveSection("Customer Support & Reviews")}>
+            <MessageSquare className="inline mr-2" /> Customer Support & Reviews
+          </li>
+          <li className="cursor-pointer" onClick={() => setActiveSection("Settings & Configuration")}>
+            <Settings className="inline mr-2" /> Settings & Configuration
+          </li>
+          <li className="cursor-pointer" onClick={() => setActiveSection("Reports and Data Export")}>
+            <FileText className="inline mr-2" /> Reports and Data Export
+          </li>
+          <li className="cursor-pointer" onClick={() => setActiveSection("Security & Audit Logs")}>
+            <Shield className="inline mr-2" /> Security & Audit Logs
           </li>
         </ul>
       </aside>
