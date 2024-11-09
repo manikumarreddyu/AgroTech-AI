@@ -82,6 +82,7 @@ import FAQ from './AgroShopAI/pages/Faq';
 import GeminiChat from './components/tools/GeminiChat';
 import ResendVerificationPage from './components/ResendVerification';
 import AiChatbot from './components/AiChatbot';
+import SellerAccountPage from './AgroShopAI/components/Pages/SellerDashboard';
 
 
 const MainContent = () => {
@@ -169,7 +170,7 @@ const MainContent = () => {
                 <Route path="/AgriProducts" element={<AgriProductListing />} />
                 <Route path="/RentCheckoutPage" element={<RentCheckoutPage />} />
                 <Route path="/RentCart" element={<RentCartPage />} />
-
+                
                 <Route path="/RentProductDetails/:productId" element={<RentProductDetails />} />
 
                 <Route path="/RentAdminDashboard" element={<RentAdminDashboard />} />
@@ -191,6 +192,7 @@ const MainContent = () => {
                 <Route path="/AgroShop/privacy-policy" element={<ShopPrivacyPolicy />} />
                 <Route path="/AgroShop/faq" element={<FAQ />} />
                 <Route path="/AgroShop/grievance" element={<GrievanceRedressal />} />
+                <Route path="/agri/seller" element={<SellerAccountPage />} />
               </Routes>
               {checkShop ? <ShopFooter /> : <Footer />}
             </div>
