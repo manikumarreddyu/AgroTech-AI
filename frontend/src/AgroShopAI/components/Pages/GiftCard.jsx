@@ -3,7 +3,7 @@ import GiftBenefit from './GiftBenefit'
 import GiftIdeas from './GiftIdeas'
 import GiftTest from './GiftTest'
 import GiftFaq from './GiftFaq'
-import GiftLetter from './GIftLetter'
+import GiftLetter from './GiftLetter'
 
 export default function GiftCard() {
   const [giftCardNumber, setGiftCardNumber] = useState('')
