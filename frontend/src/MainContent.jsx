@@ -81,7 +81,11 @@ import AccountVerificationPage from './components/EmailVerification';
 import FAQ from './AgroShopAI/pages/Faq';
 import GeminiChat from './components/tools/GeminiChat';
 import ResendVerificationPage from './components/ResendVerification';
+
 import DiscussionForum from './components/DiscussionForum';
+
+import AiChatbot from './components/AiChatbot';
+
 
 
 const MainContent = () => {
@@ -111,6 +115,7 @@ const MainContent = () => {
         <div>
           <AuthProvider>
             <GoTop />
+            <AiChatbot />
             <ProgressScrollDown />
             <div>
               {!hideNavbar ? <Navbar /> : <ShopNavbar />} {/* Conditional rendering for Navbar */}
@@ -190,7 +195,9 @@ const MainContent = () => {
                 <Route path="/AgroShop/privacy-policy" element={<ShopPrivacyPolicy />} />
                 <Route path="/AgroShop/faq" element={<FAQ />} />
                 <Route path="/AgroShop/grievance" element={<GrievanceRedressal />} />
+
                 <Route path="/discussion" element={<DiscussionForum />} />
+
               </Routes>
               {checkShop ? <ShopFooter /> : <Footer />}
             </div>
