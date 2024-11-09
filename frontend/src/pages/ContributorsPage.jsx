@@ -4,32 +4,46 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import CountUp from 'react-countup'
 import axios from 'axios'
+
 const ContributorsPage = () => {
     const [contributors, setContributors] = useState([])
     const [repoStats, setRepoStats] = useState({})
     const [loading, setLoading] = useState(true)
     const fetchData = async () => {
         try {
-            const contributorsResponse = await fetch(
-                'https://api.github.com/repos/manikumarreddyu/AgroTech-AI/contributors'
-            )
-            const contributorsData = await contributorsResponse.json()
-
-            const repoResponse = await fetch(
-                'https://api.github.com/repos/manikumarreddyu/AgroTech-AI'
-            )
-            const repoData = await repoResponse.json()
-
-            setContributors(contributorsData)
-            setRepoStats(repoData)
+            const contributorsData = [];
+            const repoUrl = 'https://api.github.com/repos/manikumarreddyu/AgroTech-AI';
+            let page = 1;
+            let isFetching = true;
+    
+            // Fetch repository stats
+            const repoResponse = await fetch(repoUrl);
+            const repoData = await repoResponse.json();
+            setRepoStats(repoData);
+    
+            // Fetch all contributors with pagination
+            while (isFetching) {
+                const contributorsResponse = await fetch(`${repoUrl}/contributors?per_page=100&page=${page}`);
+                const pageData = await contributorsResponse.json();
+    
+                if (!contributorsResponse.ok || pageData.length === 0) {
+                    isFetching = false;
+                } else {
+                    contributorsData.push(...pageData);
+                    page++;
+                }
+            }
+    
+            setContributors(contributorsData);
         } catch (error) {
-            console.error('Error fetching data:', error)
-            setContributors([])
-            setRepoStats({})
+            console.error('Error fetching data:', error);
+            setContributors([]);
+            setRepoStats({});
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
-    }
+    };
+    
 
     useEffect(() => {
         fetchData()
