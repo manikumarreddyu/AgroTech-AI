@@ -87,7 +87,7 @@ import DiscussionForum from './components/DiscussionForum';
 import AiChatbot from './components/AiChatbot';
 import SellerAccountPage from './AgroShopAI/components/Pages/SellerDashboard';
 import AdminDashboard from './AgroShopAI/components/Pages/Admin-Dashboard';
-
+import WaterManagement from './components/models/WaterManagement';
 
 
 const MainContent = () => {
@@ -131,6 +131,7 @@ const MainContent = () => {
                 <Route path="/contributor" element={<Contributor />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/crop" element={<Crop />} />
+                <Route path="/water-management" element={<WaterManagement />} />
                 <Route path="/fertilizer" element={<Fertilizer />} />
                 <Route path="/soil" element={<SoilQuality />} />
                 <Route path="/disease" element={<Disease />} />

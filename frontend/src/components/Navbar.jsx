@@ -90,7 +90,9 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-
+            <NavLink to="/water-management" exact className={({ isActive }) => `block py-2 px-3 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>
+              Water Management
+            </NavLink>
             {/* Soil & Fertilizer Dropdown */}
             <div className="relative" onMouseEnter={() => handleDropdown("soil")}  onMouseLeave={closeMenu}>
               <button onClick={() => handleDropdown("soil")} className="flex items-center py-2 px-3 text-white rounded-lg hover:bg-green-500 transition-all duration-300 focus:outline-none" aria-haspopup="true" aria-expanded={openDropdown === "soil" ? "true" : "false"}>
