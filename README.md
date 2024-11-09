@@ -79,10 +79,12 @@ This repository also provides one such platforms where contributers come over an
 <img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 
-## This project is now OFFICIALLY accepted for
+**This project is now OFFICIALLY accepted for**
+---
 
 <div align="center">
-  <img src="https://private-user-images.githubusercontent.com/101971980/371491557-4b05b1a1-db82-479a-8dfa-ee7f23a0bfca.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzA4MzI3MzYsIm5iZiI6MTczMDgzMjQzNiwicGF0aCI6Ii8xMDE5NzE5ODAvMzcxNDkxNTU3LTRiMDViMWExLWRiODItNDc5YS04ZGZhLWVlN2YyM2EwYmZjYS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMTA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTEwNVQxODQ3MTZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kODhhMGNlYjIwYzczMWE0MGMyNTZlZDQ1ZTcyYzZhYzViMGY3MzgzODVlOTdjNTJhNGIzNjQzMDJjOTA2M2RiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.B7DCl07eMh3k4Z1flQL_vFB2NuKNFy8RydtV6Ymugjw" alt="GSSoC 2024 Extd" width="60%">
+  <img src="https://github.com/user-attachments/assets/349f039e-8ecc-42da-863f-00c4fc531d39" alt="GirlScript Summer of Code" style="width:60%; margin-bottom: 20px;" />
+  <img src="https://github.com/user-attachments/assets/352ba700-4f8d-45cc-87e4-86fc569a2c78" alt="Hacktoberfest" style="width:60%;" />
 </div>
 
 <div align="center">
