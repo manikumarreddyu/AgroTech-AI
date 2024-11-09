@@ -6,7 +6,7 @@ import SellerProductManagementPage from "./components/SellerProductManagementPag
 import SellerOrderManagementPage from "./components/SellerOrderManagementPage";
 import SellerAnalyticsPage from "./components/SellerAnalyticsPage";
 import SellerSettingsPage from "./components/SellerSettingsPage";
-import ProductEntry from "./components/productEntry";
+
 export default function SellerAccountPage() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [products, setProducts] = useState(initialProducts);
@@ -63,10 +63,7 @@ export default function SellerAccountPage() {
           <SellerOrderManagementPage orders={orders} />
         )}
         {activeTab === "analytics" && <SellerAnalyticsPage />}
-        {activeTab === "add" && (
-          <ProductEntry/>
-          
-        )}
+       
         {activeTab === "settings" && (
           <SellerSettingsPage initialSellerData={sellerInfo} />
         )}
