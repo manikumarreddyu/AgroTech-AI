@@ -68,7 +68,7 @@ export default function SellerAccountPage() {
           
         )}
         {activeTab === "settings" && (
-          <SellerSettingsPage sellerInfo={sellerInfo} />
+          <SellerSettingsPage initialSellerData={sellerInfo} />
         )}
       </main>
     </div>
@@ -77,17 +77,33 @@ export default function SellerAccountPage() {
 
 const sellerInfo = {
   name: "Ravi Singh",
-  storeName: "Fitness Pro",
-  email: "ravi.singh@example.com",
+  storeName: "Swaraj Krishi Udyog",
+  email: "contact@swarajkrishi.com",
   joinDate: "July 8, 2023",
   sellerId: "S99887",
-  location: "Chennai, India",
-  phone: "+91 9876543255",
-  returnPolicy: "Returns accepted within 30 days for unused items",
-  shippingPolicy:
-    "Free shipping on orders over ₹2500, ships in 2 business days",
+  location: "Madhya Pradesh, India",
+  phone: "(91) 98765 43210",
+  returnPolicy: "We take pride in the quality of our products. If you are not satisfied with your order, please contact us within 24 hours of receipt. We will gladly replace the items or issue a full refund. Due to the perishable nature of our products, returns are not accepted, but we will ensure your satisfaction with the purchase.",
+  shippingPolicy: "We offer free shipping on orders over ₹2000. Most orders are processed and shipped within 2-3 business days. During peak harvest seasons, this may extend to 4-5 days. We currently ship across India, with delivery times depending on the location.",
   paymentMethods: ["Credit Card", "UPI", "Amazon Pay"],
+  profilePicture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlie4MsQ9pJSSKY7DoEpxn3uBAq-rT7in1sA&s',
+  tagline: "Farm Fresh, Straight from the Fields",
+  sellerType: "Business",
+  customerService: "Monday-Saturday, 9AM-6PM IST",
+  socialMedia: {
+    facebook: "https://facebook.com/swarajkrishi",
+    instagram: "https://instagram.com/swarajkrishi",
+    twitter: "https://twitter.com/swarajkrishi",
+  },
+  about: "Swaraj Krishi Udyog is a family-run agricultural enterprise located in the heart of Madhya Pradesh, India. We specialize in a wide range of organic fruits, vegetables, and grains, cultivated using sustainable farming practices. Our mission is to promote healthy living by offering fresh, organic produce while contributing to a greener, cleaner environment.",
+  
+  policies: {
+    shipping: "We offer free shipping on orders over ₹2000. Most orders are processed and shipped within 2-3 business days. During peak harvest seasons, this may extend to 4-5 days. We currently ship across India, with delivery times depending on the location.",
+    returns: "We take pride in the quality of our products. If you are not satisfied with your order, please contact us within 24 hours of receipt. We will gladly replace the items or issue a full refund. Due to the perishable nature of our products, returns are not accepted, but we will ensure your satisfaction with the purchase.",
+    support: "Customer support is available Monday to Saturday, 9 AM to 6 PM IST. You can reach us via email at support@swarajkrishi.com or by phone at (91) 98765 43210. We aim to respond to all queries within 24 hours."
+  }
 };
+
 
 const initialProducts = [
   { id: 1, name: "Organic Tomatoes", price: 2.99, stock: 100 },

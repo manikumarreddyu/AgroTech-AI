@@ -86,6 +86,7 @@ import DiscussionForum from './components/DiscussionForum';
 
 import AiChatbot from './components/AiChatbot';
 import SellerAccountPage from './AgroShopAI/components/Pages/SellerDashboard';
+import AdminDashboard from './AgroShopAI/components/Pages/Admin-Dashboard';
 
 
 
@@ -198,7 +199,7 @@ const MainContent = () => {
                 <Route path="/AgroShop/grievance" element={<GrievanceRedressal />} />
 
                 <Route path="/agri/seller" element={<SellerAccountPage />} />
-
+                <Route path="/agri/admin" element={<AdminDashboard />} />
 
                 <Route path="/discussion" element={<DiscussionForum />} />
 
