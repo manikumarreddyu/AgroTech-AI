@@ -93,6 +93,7 @@ import FlashSale from './AgroShopAI/components/Pages/components/SalePage';
 
 
 import WaterManagement from './components/models/WaterManagement';
+import BundledProducts from './AgroShopAI/components/Pages/BulkPage';
 
 
 
@@ -211,6 +212,7 @@ const MainContent = () => {
                 <Route path="/agri/sale" element={<FlashSale/>} />
                 <Route path="/discussion" element={<DiscussionForum />} />
 
+                <Route path="/agri/bulk" element={<BundledProducts/>} />
 
               </Routes>
               {checkShop ? <ShopFooter /> : <Footer />}
