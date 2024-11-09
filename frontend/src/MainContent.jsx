@@ -81,6 +81,7 @@ import AccountVerificationPage from './components/EmailVerification';
 import FAQ from './AgroShopAI/pages/Faq';
 import GeminiChat from './components/tools/GeminiChat';
 import ResendVerificationPage from './components/ResendVerification';
+import DiscussionForum from './components/DiscussionForum';
 
 
 const MainContent = () => {
@@ -112,7 +113,7 @@ const MainContent = () => {
             <GoTop />
             <ProgressScrollDown />
             <div>
-              {!hideNavbar ? <Navbar /> : <ShopNavbar/>} {/* Conditional rendering for Navbar */}
+              {!hideNavbar ? <Navbar /> : <ShopNavbar />} {/* Conditional rendering for Navbar */}
               <Routes>
                 <Route path="/thank-you" element={<Feedback />} /> {/* Thank You Page Route */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -125,7 +126,7 @@ const MainContent = () => {
                 <Route path="/crop" element={<Crop />} />
                 <Route path="/fertilizer" element={<Fertilizer />} />
                 <Route path="/soil" element={<SoilQuality />} />
-                <Route path="/disease" element={<Disease/>}/>
+                <Route path="/disease" element={<Disease />} />
                 <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
                 <Route path="/code-of-conduct" element={<CodeOfConduct />} />
 
@@ -134,23 +135,23 @@ const MainContent = () => {
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/article" element={<Article />} />
                 <Route path="/soiltestingcentres" element={<SoilTestingCentres />} />
-             
+
                 <Route path="/TaskReminder" element={<TaskReminder />} />
                 <Route path="/GeminiChat" element={<GeminiChat />} />
                 <Route path="/SugarcaneRecognition" element={<SugarcaneRecognition />} />
                 <Route path="/PaddyRecognition" element={<PaddyRecognition />} />
                 <Route path="/DiseaseRecognition" element={<DiseaseRecognition />} />
                 <Route path="/PlantTaskReminder" element={<PlantTaskReminder />} />
-              
+
 
                 <Route path="/Climate" element={<Climate />} />
 
-                <Route path="/MushroomEdibility" element={<MushroomEdibility/>}/>
+                <Route path="/MushroomEdibility" element={<MushroomEdibility />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/Auth-page" element={<AuthPage />} />
                 <Route path="/whyai" element={<WhyAI />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route path="/profile" element={<Profile/>} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/signup" element={<SignUpPage />} />
                 <Route path="/verify-email" element={<AccountVerificationPage />} />
                 <Route path="/verification" element={<ResendVerificationPage />} />
@@ -158,39 +159,40 @@ const MainContent = () => {
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/news" element={<NewsForum />} />
-                <Route path="/ee-shops" element={<ElectricalElectronicsShops/>} />
-                <Route path="/BestPractices" element={<BestPractices/>} />
-                <Route path="/DiscussionPage" element={<DiscussionPage/>} />
+                <Route path="/ee-shops" element={<ElectricalElectronicsShops />} />
+                <Route path="/BestPractices" element={<BestPractices />} />
+                <Route path="/DiscussionPage" element={<DiscussionPage />} />
                 {/* AgroRentAI Routes */}
                 <Route path="/HeroSectionRent" element={<HeroSectionRent />} />
                 <Route path="/NavigateProducts" element={<NavigateProducts />} />
-                <Route path="/AgriProducts" element={<AgriProductListing/>} />
-                <Route path="/RentCheckoutPage" element={<RentCheckoutPage/>} />
-                <Route path="/RentCart" element={<RentCartPage/>} />
+                <Route path="/AgriProducts" element={<AgriProductListing />} />
+                <Route path="/RentCheckoutPage" element={<RentCheckoutPage />} />
+                <Route path="/RentCart" element={<RentCartPage />} />
 
-                <Route path="/RentProductDetails/:productId" element={<RentProductDetails/>} />
+                <Route path="/RentProductDetails/:productId" element={<RentProductDetails />} />
 
-                <Route path="/RentAdminDashboard" element={<RentAdminDashboard/>} />
-                <Route path="/RentUserDashboard" element={<RentUserDashboard/>} />
+                <Route path="/RentAdminDashboard" element={<RentAdminDashboard />} />
+                <Route path="/RentUserDashboard" element={<RentUserDashboard />} />
 
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
-                <Route path="/AgroShop" element={<HomeShop/>} />
-                <Route path="/AgroShop/Category" element={<CategoryPage/>} />
-                <Route path="/AgroShop/Category/:name" element={<CategoryPage/>} />
-                <Route path="/AgroShop/Product/:id" element={<ProductPage/>}/>
-                <Route path="/AgroShop/Cart" element={<CartPage/>} />
-                <Route path="/AgroShop/Wishlist" element={<Wishlist/>} />
-                <Route path="/AgroShop/Profile" element={<ShopProfile/>} />
-                <Route path="/AgroShop/search" element={<SearchResult/>} />
+                <Route path="/AgroShop" element={<HomeShop />} />
+                <Route path="/AgroShop/Category" element={<CategoryPage />} />
+                <Route path="/AgroShop/Category/:name" element={<CategoryPage />} />
+                <Route path="/AgroShop/Product/:id" element={<ProductPage />} />
+                <Route path="/AgroShop/Cart" element={<CartPage />} />
+                <Route path="/AgroShop/Wishlist" element={<Wishlist />} />
+                <Route path="/AgroShop/Profile" element={<ShopProfile />} />
+                <Route path="/AgroShop/search" element={<SearchResult />} />
                 {/* Footer Links */}
-                <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy/>} />~
-                <Route path="/AgroShop/terms-of-use" element={<TermsOfUse/>} />
-                <Route path="/AgroShop/privacy-policy" element={<ShopPrivacyPolicy/>} />
-                <Route path="/AgroShop/faq" element={<FAQ/>} />
-                <Route path="/AgroShop/grievance" element={<GrievanceRedressal/>} />
+                <Route path="/AgroShop/cancellation-return" element={<CancelAndReturnPolicy />} />~
+                <Route path="/AgroShop/terms-of-use" element={<TermsOfUse />} />
+                <Route path="/AgroShop/privacy-policy" element={<ShopPrivacyPolicy />} />
+                <Route path="/AgroShop/faq" element={<FAQ />} />
+                <Route path="/AgroShop/grievance" element={<GrievanceRedressal />} />
+                <Route path="/discussion" element={<DiscussionForum />} />
               </Routes>
-              {checkShop ? <ShopFooter/> : <Footer/>}
+              {checkShop ? <ShopFooter /> : <Footer />}
             </div>
           </AuthProvider>
         </div>
