@@ -63,6 +63,7 @@ export default function SellerAccountPage() {
           <SellerOrderManagementPage orders={orders} />
         )}
         {activeTab === "analytics" && <SellerAnalyticsPage />}
+       
         {activeTab === "settings" && (
           <SellerSettingsPage initialSellerData={sellerInfo} />
         )}
