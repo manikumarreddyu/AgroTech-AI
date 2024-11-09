@@ -132,9 +132,9 @@ const RentUserDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex">
-      <div className="w-1/4 bg-green-50 p-6">
+      <div className="w-1/4 bg-green-50 p-6 mt-14">
         <h2 className="text-2xl font-extrabold tracking-tight text-green-900 mb-6">
-          Dashboard
+          User Dashboard
         </h2>
         <ul className="space-y-4">
           <li

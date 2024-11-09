@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Plus, Edit, Trash, BarChart, Bell } from 'lucide-react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for toastify
+import React, { useState, useEffect } from "react";
+import { User, BarChart, Box, Package, Bell } from "lucide-react";
+import ProductManagement from "./components/AdminProductManagement";
+import OrderManagement from "./components/AdminOrderManagement";
+import UserManagement from "./components/AdminUserManagement";
+import Analytics from "./components/AdminAnalytics";
+
 
 const RentAdminDashboard = () => {
+  const [activeSection, setActiveSection] = useState("Product Management");
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [users, setUsers] = useState([]);
@@ -17,7 +21,6 @@ const RentAdminDashboard = () => {
     ? 'https://agrotech-ai-11j3.onrender.com'
     : 'http://localhost:8080';
 
-
   const [showModal, setShowModal] = useState(false);
   const [newProduct, setNewProduct] = useState({
     name: '',
@@ -27,6 +30,7 @@ const RentAdminDashboard = () => {
     rating: 0,
     category: [],
   });
+
   // Fetch data
   useEffect(() => {
     const fetchData = async () => {
@@ -44,25 +48,121 @@ const RentAdminDashboard = () => {
     fetchData();
   }, []);
 
-  // Mock API calls
+  // Dummy data based on the schema
   const fetchProducts = async () => {
     return [
-      { id: 1, name: 'Tractor', price: '$300', category: 'Heavy Machinery', availability: 'In Stock' },
-      { id: 2, name: 'Lawn Mower', price: '$100', category: 'Gardening', availability: 'In Stock' },
+      {
+        _id: '1',
+        name: 'Tractor',
+        description: 'Heavy-duty tractor for large farm operations',
+        price: 30000,
+        image: 'tractor.jpg',
+        category: ['Heavy Machinery'],
+        availabilityStatus: 'available',
+        rentalPricePerDay: 200,
+        rentalDurationOptions: ['daily', 'weekly'],
+        maxRentalDuration: 30,
+        depositAmount: 1000,
+        rentalTerms: 'Damage costs will be deducted from the deposit.',
+        rentedQuantity: 2,
+        reviews: [
+          { rentalId: '1', rating: 5, comment: 'Great tractor!' },
+        ],
+        rating: 5,
+      },
+      {
+        _id: '2',
+        name: 'Lawn Mower',
+        description: 'Electric lawn mower suitable for small gardens',
+        price: 500,
+        image: 'lawnmower.jpg',
+        category: ['Gardening'],
+        availabilityStatus: 'available',
+        rentalPricePerDay: 20,
+        rentalDurationOptions: ['hourly', 'daily'],
+        maxRentalDuration: 7,
+        depositAmount: 50,
+        rentalTerms: 'Return in good condition.',
+        rentedQuantity: 5,
+        reviews: [
+          { rentalId: '2', rating: 4, comment: 'Very useful!' },
+        ],
+        rating: 4,
+      }
     ];
   };
 
   const fetchOrders = async () => {
     return [
-      { id: 1, item: 'Tractor', user: 'John Doe', status: 'Pending Approval', returnDate: '2024-12-01' },
-      { id: 2, item: 'Lawn Mower', user: 'Jane Smith', status: 'Active', returnDate: '2024-11-15' },
+      {
+        rentalId: '1',
+        product: 'Tractor',
+        quantity: 1,
+        rentalDuration: 'weekly',
+        rentalDate: '2024-11-01',
+        returnDate: '2024-11-08',
+        status: 'ongoing',
+      },
+      {
+        rentalId: '2',
+        product: 'Lawn Mower',
+        quantity: 2,
+        rentalDuration: 'daily',
+        rentalDate: '2024-11-05',
+        returnDate: '2024-11-06',
+        status: 'returned',
+      },
     ];
   };
 
   const fetchUsers = async () => {
     return [
-      { id: 1, name: 'John Doe', email: 'john@example.com', feedback: 'Excellent service!' },
-      { id: 2, name: 'Jane Smith', email: 'jane@example.com', feedback: 'Very helpful!' },
+      {
+        _id: 'u1',
+        firstName: 'John',
+        lastName: 'Doe',
+        username: 'johndoe',
+        email: 'john@example.com',
+        address: '123 Farm Lane',
+        role: 'farmer',
+        isVerified: true,
+        rentals: [
+          {
+            rentalId: '1',
+            product: 'Tractor',
+            quantity: 1,
+            rentalDuration: 'weekly',
+            rentalDate: '2024-11-01',
+            returnDate: '2024-11-08',
+            status: 'ongoing',
+          },
+        ],
+        wishlist: [],
+        cart: [],
+      },
+      {
+        _id: 'u2',
+        firstName: 'Jane',
+        lastName: 'Smith',
+        username: 'janesmith',
+        email: 'jane@example.com',
+        address: '456 Garden Blvd',
+        role: 'customer',
+        isVerified: false,
+        rentals: [
+          {
+            rentalId: '2',
+            product: 'Lawn Mower',
+            quantity: 2,
+            rentalDuration: 'daily',
+            rentalDate: '2024-11-05',
+            returnDate: '2024-11-06',
+            status: 'returned',
+          },
+        ],
+        wishlist: [],
+        cart: [],
+      }
     ];
   };
 
@@ -71,267 +171,73 @@ const RentAdminDashboard = () => {
       popularProducts: ['Tractor', 'Lawn Mower'],
       revenue: '$1200',
       rentalFrequency: ['Daily', 'Weekly'],
-      userBehavior: ['Frequently rented Tractor and Plow'],
+      userBehavior: ['Frequently rented Tractor and Lawn Mower'],
     };
-  };
+  }
 
-  const handleAddProduct = () => {
-    setShowModal(true); // Open the modal to add a new product
-  };
+  const handleAddProduct =()=> {
+      return
+  }
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewProduct((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  const handleUpdateProduct =()=> {
+      return
+  }
 
-  const handleCategoryChange = (e) => {
-    const selectedCategories = Array.from(e.target.selectedOptions, (option) => option.value);
-    setNewProduct((prevState) => ({
-      ...prevState,
-      category: selectedCategories,
-    }));
-  };
+  const handleDeleteProduct =()=>{
+    return
+  }
 
-  const handleSubmitProduct = async (e) => {
-    e.preventDefault();
+  const handleOrderApproval = () => {
+    return
+  }
 
-    // Call the backend API to create a new product
-    try {
-      const response = await fetch(`${ApiUrl}/api/rent-products`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newProduct),
-      });
 
-      if (response.ok) {
-        const savedProduct = await response.json();
-        setProducts([...products, savedProduct]); 
-        setShowModal(false); 
-        toast.success('Product added successfully!'); // Show success toast
-      } else {
-        console.error('Failed to add product');
-        toast.error('Failed to add product. Please try again!'); // Show error toast
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      toast.error('Error adding product. Please try again!'); // Show error toast
+  const renderSectionContent = () => {
+    switch (activeSection) {
+      case "Product Management":
+        return <ProductManagement products={products} onAddProduct={handleAddProduct} onUpdateProduct={handleUpdateProduct} onDeleteProduct={handleDeleteProduct} />;
+      case "Order Management":
+        return <OrderManagement orders={orders} onOrderApproval={handleOrderApproval} />;
+      case "User Management":
+        return <UserManagement users={users} />;
+      case "Analytics & Reporting":
+        return <Analytics />;
+      default:
+        return null;
     }
   };
 
-  const handleCloseModal = () => {
-    setShowModal(false); // Close the modal without saving
-  };
-
-  const handleUpdateProduct = (id) => {
-    // Update product logic
-  };
-
-  const handleDeleteProduct = (id) => {
-    setProducts(products.filter((product) => product.id !== id));
-  };
-
-  const handleOrderApproval = (id) => {
-    setOrders(orders.map((order) => (order.id === id ? { ...order, status: 'Approved' } : order)));
-  };
-
-  const handleSendNotification = () => {
-    // Send notification logic
-  };
-
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <ToastContainer/>
-      <h1 className="text-3xl font-extrabold tracking-tight text-green-900 mb-8 mt-16">Admin Dashboard</h1>
-
-      {/* Product Management Section */}
-      <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg shadow-lg p-6 mb-8">
-        <h2 className="text-2xl text-center text-green-500 font-bold mb-4">Product Management</h2>
-        <button onClick={handleAddProduct} className="inline-block bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-500 transition-colors duration-300 mb-4">
-          <Plus className="inline w-4 h-4 mr-1" /> Add Product
-        </button>
-        <div>
-          {products.map((product) => (
-            <div key={product.id} className="flex justify-between items-center border-b py-4">
-              <div>
-                <p className="text-lg text-green-700">{product.name}</p>
-                <p className="text-green-600">{product.price} - {product.category} - {product.availability}</p>
-              </div>
-              <div className="flex items-center">
-                <button onClick={() => handleUpdateProduct(product.id)} className="bg-green-600 text-white px-3 py-2 rounded-md hover:bg-green-500 transition-colors duration-300 mr-2">
-                  <Edit className="w-4 h-4" /> Edit
-                </button>
-                <button onClick={() => handleDeleteProduct(product.id)} className="bg-red-600 text-white px-3 py-2 rounded-md hover:bg-red-500 transition-colors duration-300">
-                  <Trash className="w-4 h-4" /> Delete
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Order Management Section */}
-      <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg shadow-lg p-6 mb-8">
-        <h2 className="text-2xl text-center text-green-500 font-bold mb-4">Order Management</h2>
-        <div>
-          {orders.map((order) => (
-            <div key={order.id} className="flex justify-between items-center border-b py-4">
-              <div>
-                <p className="text-lg text-green-700">{order.item}</p>
-                <p className="text-green-600">User: {order.user} - Status: {order.status} - Return Date: {order.returnDate}</p>
-              </div>
-              <button onClick={() => handleOrderApproval(order.id)} className="inline-block bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-500 transition-colors duration-300">
-                Approve
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* Add Product Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50 pt-4 pb-4">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h2 className="text-2xl text-center text-green-500 font-bold mb-4">Add New Product</h2>
-            <form onSubmit={handleSubmitProduct}>
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-gray-700">Product Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={newProduct.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="description" className="block text-gray-700">Description</label>
-                <textarea
-                  id="description"
-                  name="description"
-                  value={newProduct.description}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="price" className="block text-gray-700">Price</label>
-                <input
-                  type="number"
-                  id="price"
-                  name="price"
-                  value={newProduct.price}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="image" className="block text-gray-700">Image URL</label>
-                <input
-                  type="text"
-                  id="image"
-                  name="image"
-                  value={newProduct.image}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="rating" className="block text-gray-700">Rating (0-5)</label>
-                <input
-                  type="number"
-                  id="rating"
-                  name="rating"
-                  value={newProduct.rating}
-                  onChange={handleInputChange}
-                  min="0"
-                  max="5"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                />
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="category" className="block text-gray-700">Category</label>
-                <select
-                  multiple
-                  id="category"
-                  name="category"
-                  value={newProduct.category}
-                  onChange={handleCategoryChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
-                >
-                  <option value="Heavy Machinery">Heavy Machinery</option>
-                  <option value="Gardening">Gardening</option>
-                  <option value="Electronics">Electronics</option>
-                </select>
-              </div>
-
-              <div className="flex justify-between">
-                <button type="submit" className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-500 transition-colors duration-300">
-                  Add Product
-                </button>
-                <button type="button" onClick={handleCloseModal} className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-400 transition-colors duration-300">
-                  Close
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* User Management Section */}
-      <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg shadow-lg p-6 mb-8">
-        <h2 className="text-2xl text-center text-green-500 font-bold mb-4">User Management</h2>
-        <div>
-          {users.map((user) => (
-            <div key={user.id} className="flex justify-between items-center border-b py-4">
-              <div>
-                <p className="text-lg text-green-700">{user.name}</p>
-                <p className="text-green-600">Email: {user.email}</p>
-                <p className="text-green-600">Feedback: {user.feedback}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Analytics & Reporting Section */}
-      <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg shadow-lg p-6 mb-8">
-        <h2 className="text-2xl text-center text-green-500 font-bold mb-4">Analytics & Reporting</h2>
-        <div>
-          <p className="text-lg text-green-700">Revenue: {analytics.revenue}</p>
-          <p className="text-green-700">Popular Products: {analytics.popularProducts.join(', ')}</p>
-          <p className="text-green-700">Rental Frequency: {analytics.rentalFrequency.join(', ')}</p>
-          <p className="text-green-700">User Behavior: {analytics.userBehavior.join(', ')}</p>
-          <button className="bg-green-600 text-white px-6 py-3 mt-4 rounded-md hover:bg-green-500 transition-colors duration-300">
-            <BarChart className="inline w-4 h-4 mr-1" /> View Detailed Report
-          </button>
-        </div>
-      </div>
-
-      {/* Notifications Section */}
-      <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-lg shadow-lg p-6 mb-8">
-        <h2 className="text-2xl text-center text-green-500 font-bold mb-4">Notifications</h2>
-        <p className="text-green-600">Send reminders and alerts to users.</p>
-        <button onClick={handleSendNotification} className="inline-block bg-green-600 text-white px-6 py-3 mt-4 rounded-md hover:bg-green-500 transition-colors duration-300">
-          <Bell className="inline w-4 h-4 mr-1" /> Send Notifications
-        </button>
-      </div>
+    <div className="min-h-screen bg-gray-100 flex">
+      <aside className="w-1/4 bg-green-50 p-6 mt-14">
+        <h2 className="text-2xl font-extrabold tracking-tight text-green-900 mb-6">
+          Admin Dashboard
+        </h2>
+        <ul className="space-y-4">
+          <li className="cursor-pointer" onClick={() => setActiveSection("Product Management")}>
+            <Box className="inline mr-2" /> Product Management
+          </li>
+          <li className="cursor-pointer" onClick={() => setActiveSection("Order Management")}>
+            <Package className="inline mr-2" /> Order Management
+          </li>
+          <li className="cursor-pointer" onClick={() => setActiveSection("User Management")}>
+            <User className="inline mr-2" /> User Management
+          </li>
+          <li className="cursor-pointer" onClick={() => setActiveSection("Analytics & Reporting")}>
+            <BarChart className="inline mr-2" /> Analytics & Reporting
+          </li>
+        </ul>
+      </aside>
+  
+      <main className="w-3/4 bg-white p-8">
+        <h2 className="text-2xl font-bold text-green-500 mb-4">
+          {activeSection}
+        </h2>
+        {renderSectionContent()}
+      </main>
     </div>
   );
+  
 };
 
 export default RentAdminDashboard;
