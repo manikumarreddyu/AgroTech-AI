@@ -5,6 +5,7 @@ import {
   Settings,
   Users,
   TrendingUp,
+  CornerDownLeft
 } from "lucide-react";
 
 export const Sidebar = ({ onViewChange, activeView }) => {
@@ -69,6 +70,17 @@ export const Sidebar = ({ onViewChange, activeView }) => {
               }`}
             >
               <TrendingUp className="mr-2" /> Sales
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => onViewChange("return")}
+              className={`flex items-center py-2 px-4 hover:bg-green-700 rounded ${
+                activeView === "return" ? "bg-green-700" : ""
+              }`}
+            >
+              <CornerDownLeft className="mr-2" /> Return
             </a>
           </li>
           <li>
