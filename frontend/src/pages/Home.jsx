@@ -7,9 +7,9 @@ import About from './About';
 import Showcase from '../components/Showcase';
 import TestimonialSlider from '../components/TestimonialSlider';
 import FAQ from '../components/FAQ';
-import { FaComment } from "react-icons/fa"; 
-import { toast, ToastContainer } from 'react-toastify'; 
-import 'react-toastify/dist/ReactToastify.css'; 
+import { FaComment } from "react-icons/fa";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import AdvantagesDisadvantages from '../components/AdvDis'; // Import the new component
 import "../styles/ChatbotButton.css";
 import { useAuth } from '../context/AuthContext';
@@ -19,7 +19,7 @@ export default function Home() {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
-  const { isLoggedIn } = useAuth(); 
+  const { isLoggedIn } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -45,17 +45,17 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-r from-green-50 to-green-100">
       {/* Toast Container */}
-      <ToastContainer 
-        position="top-center" 
-        autoClose={5000} 
-        hideProgressBar 
-        newestOnTop 
-        closeOnClick 
-        rtl={false} 
-        pauseOnFocusLoss 
-        draggable 
-        pauseOnHover 
-        toastClassName="custom-toast" 
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        toastClassName="custom-toast"
         bodyClassName="custom-toast-body"
         className="mt-16"
       />
@@ -92,7 +92,7 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
-        <div className="relative">
+        {/* <div className="relative">
           <button
             onClick={handleChatBotAuthentication} // Call handleChatBotAuthentication on button click
             className="group fixed bottom-4 right-20 bg-green-500 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110 animate-swing"
@@ -102,7 +102,7 @@ export default function Home() {
               Try Our ChatBot
             </span>
           </button>
-        </div>
+        </div> */}
 
         {/* Hero Image */}
         <motion.div
