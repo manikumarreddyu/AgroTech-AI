@@ -25,6 +25,11 @@ const Nav = ({ activeTab, setActiveTab }) => {
           </button>
         </li>
         <li>
+          <button onClick={() => setActiveTab('add')} className={activeTab === 'add' ? 'font-bold' : ''}>
+            Add Product
+          </button>
+        </li>
+        <li>
           <button onClick={() => setActiveTab('settings')} className={activeTab === 'settings' ? 'font-bold' : ''}>
             Settings
           </button>
