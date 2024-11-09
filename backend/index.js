@@ -16,6 +16,7 @@ const discussionRoutes = require('./routes/discussionRoutes');
 const  rentProductRoutes = require('./routes/rent/rentProductRoutes');
 const  rentWishlistRoutes = require('./routes/rent/rentWishlistRoutes');
 const  rentCartRoutes = require('./routes/rent/rentCartRoutes');
+const  rentalRoutes = require('./routes/rent/rentalRoutes');
 
 const  ratingRoutes = require('./routes/rent/ratingRoutes');
 
@@ -51,6 +52,7 @@ app.use('/api', shopRoutes);
 app.use('/api', rentProductRoutes);
 app.use('/api', rentWishlistRoutes);
 app.use('/api', rentCartRoutes);
+app.use('/api', rentalRoutes);
 
 app.use('/api', ratingRoutes);
 

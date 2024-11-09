@@ -24,6 +24,7 @@ const Nav = ({ activeTab, setActiveTab }) => {
             Analytics
           </button>
         </li>
+
         <li>
           <button onClick={() => setActiveTab('settings')} className={activeTab === 'settings' ? 'font-bold' : ''}>
             Settings

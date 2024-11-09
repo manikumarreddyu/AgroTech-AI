@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import  FeaturedProductsCarousel from './ProductCarousel'
 const SellerProductManagementPage = ({
   products,
   searchTerm,
@@ -68,6 +68,7 @@ const SellerProductManagementPage = ({
           </li>
         ))}
       </ul>
+    <FeaturedProductsCarousel />
     </div>
   );
 }
