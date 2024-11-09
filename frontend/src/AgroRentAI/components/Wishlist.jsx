@@ -39,7 +39,7 @@ const WishlistComponent = ({ userId }) => {
       </h3>
       <p className="text-gray-700 mb-4">Items you’ve saved for later rental.</p>
 
-      <div className="space-y-6">
+      <div className="space-y-6"> 
         {wishlist.length > 0 ? (
           wishlist.map((item) => (
             <div
