@@ -1,5 +1,3 @@
-// models/User.js
-
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -26,8 +24,24 @@ const userSchema = new mongoose.Schema({
   },
   otp: { type: String },
   otpExpires: { type: Date },
-  googleId: { type: String, sparse: true }, 
+  googleId: { type: String, sparse: true },
 
+  rentals: [
+    {
+      rentalId: { type: String, required: true }, 
+      product: { type: mongoose.Schema.Types.ObjectId, ref: 'RentProduct', required: true }, 
+      quantity: { type: Number, default: 1 },
+      rentalDuration: { type: String, required: true }, 
+      rentalDate: { type: Date, default: Date.now }, 
+      returnDate: { type: Date }, 
+      status: {
+        type: String,
+        enum: ['ongoing', 'returned', 'cancelled'],
+        default: 'ongoing',
+      },
+    }
+  ],
+  
   wishlist: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -41,7 +55,6 @@ const userSchema = new mongoose.Schema({
     }
   ]
 }, { timestamps: true });
-
 
 // Hash password before saving
 userSchema.pre('save', async function(next) {
