@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
       returnDate: { type: Date }, 
       status: {
         type: String,
-        enum: ['ongoing', 'returned', 'cancelled'],
+        enum: ['ongoing', 'returned', 'cancelled', 'approved' ,'rejected'],
         default: 'ongoing',
       },
     }
