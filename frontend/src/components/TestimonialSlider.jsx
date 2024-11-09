@@ -1,138 +1,153 @@
-import React, { useState, useEffect } from 'react';
-import { BiChevronRight, BiChevronLeft } from 'react-icons/bi';
-
-const testimonialsData = {
-  title: "⭐ What Our Users Say ⭐",
-  users: [
-    {
-      quote: "AgroTech AI platform has transformed my farming operations! With its accurate ML models, I can make informed decisions about crop management, leading to increased yields.",
-      author: "Ravi Kiran, Farmer",
-      image: "https://th.bing.com/th/id/OIP.MnOHsqmDK0x6eSduQ6UjdwHaHa?w=512&h=512&rs=1&pid=ImgDetMain"
-    },
-    {
-      quote: "I've been using AgroTech AI platform for my farm, and I'm amazed by its efficiency. It provides precise predictions that help me optimize resource usage and reduce costs.",
-      author: "Yash Goyal, Farmer",
-      image: "https://th.bing.com/th/id/OIP.MnOHsqmDK0x6eSduQ6UjdwHaHa?w=512&h=512&rs=1&pid=ImgDetMain"
-    },
-    {
-      quote: "Thanks to AgroTech AI platform, I've been able to enhance my crop yield significantly. Its easy-to-use interface and reliable models make farming much more manageable.",
-      author: "Manoj Kumar, Farmer",
-      image: "https://th.bing.com/th/id/OIP.MnOHsqmDK0x6eSduQ6UjdwHaHa?w=512&h=512&rs=1&pid=ImgDetMain"
-    },
-    {
-      quote: "AgroTech AI platform has streamlined our farming processes. The consistent and scalable models ensure that we are always making data-driven decisions, boosting our productivity.",
-      author: "Surya Teja, Farmer",
-      image: "https://th.bing.com/th/id/OIP.MnOHsqmDK0x6eSduQ6UjdwHaHa?w=512&h=512&rs=1&pid=ImgDetMain"
-    },
-    {
-      quote: "I can't imagine managing my farm without AgroTech AI platform. Its simplicity and powerful predictions have enabled me to improve my farming practices and deliver better produce.",
-      author: "Sivaram, Farmer",
-      image: "https://th.bing.com/th/id/OIP.MnOHsqmDK0x6eSduQ6UjdwHaHa?w=512&h=512&rs=1&pid=ImgDetMain"
-    },
-    {
-      quote: "AgroTech AI platform has made collaboration with my team more efficient. Its accurate and reliable predictions help us plan our farming activities better, leading to improved outcomes.",
-      author: "Bharath, Farmer",
-      image: "https://th.bing.com/th/id/OIP.MnOHsqmDK0x6eSduQ6UjdwHaHa?w=512&h=512&rs=1&pid=ImgDetMain"
-    }
-  ]
-};
+import { useEffect, useState } from 'react';
 
 const TestimonialSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(1);
-  const [isHovered, setIsHovered] = useState(false);
+  const [active, setActive] = useState(3);
+  const items = [
+    {
+      img: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
+      stars: "★★★★★",
+      text: "The AgroTech AI platform has completely transformed the way I approach agricultural data analysis. The AI-driven insights are accurate, user-friendly, and truly empowering for farmers. I’m thrilled to use this tool that’s making a real difference in sustainable agriculture!",
+      name: "- Arjun Sharma",
+      jobTitle: "Data Analyst",
+      location: "Location: Bengaluru, India"
+    },
+    {
+      img: "https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?ga=GA1.1.713761379.1679213202&semt=ais_hybrid",
+      stars: "★★★★",
+      text: "Working with AgroTech AI has opened new possibilities for crop management. The platform’s predictive models help me recommend tailored solutions for farmers, which they find incredibly helpful. The entire experience has made my job easier and much more impactful!",
+      name: "- Priya Desai",
+      jobTitle: "Agronomist",
+      location: "Location: Mumbai, India"
+    },
+    {
+      img: "https://img.freepik.com/free-vector/gradient-professional-sarah-smith-linkedin-personal-profile-picture_742173-13011.jpg?ga=GA1.1.713761379.1679213202&semt=ais_hybrid",
+      stars: "★★★★★",
+      text: "AgroTech AI’s pest control recommendations have been a game-changer for our farm. We can now manage pests more effectively and sustainably. The platform’s easy-to-use tools are perfect for any farm size. It’s a must-have for anyone in agriculture!",
+      name: "- Rohan Patel",
+      jobTitle: "Farm Manager",
+      location: "Location: Ahmedabad, India"
+    },
+    {
+      img: "https://img.freepik.com/free-vector/profile-picture-template-design_742173-22027.jpg?ga=GA1.1.713761379.1679213202&semt=ais_hybrid",
+      stars: "★★★★",
+      text: "AgroTech AI is an invaluable resource for managing soil health. The insights on nutrient levels and soil quality have helped me guide farmers toward healthier crops and improved yields. It’s a must-use tool for anyone serious about sustainable farming!",
+      name: "- Neha Iyer",
+      jobTitle: "Environmental Scientist",
+      location: "Location: Chennai, India"
+    },
+    {
+      img: "https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk",
+      stars: "★★★★★",
+      text: "The AgroTech AI platform has been an amazing resource for understanding climate impact on crops. I can now make informed decisions based on weather predictions and irrigation insights a noticeable difference in crop health and yield.",
+      name: "- Rahul Singh",
+      jobTitle: "Agricultural Consultant",
+      location: "Location: Hyderabad, India"
+    },
+    {
+      img: "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
+      stars: "★★★★★",
+      text: "AgroTech AI has been an outstanding tool for improving our pest control strategies. With data-backed recommendations, we’ve reduced pesticide use and achieved better crop health. The platform is incredibly insightful!",
+      name: "- Kavita Nair",
+      jobTitle: "Sustainable Farming Specialist",
+      location: "Location: Pune, India"
+    },
+  ];
+
 
   useEffect(() => {
-    const updateSlidesToShow = () => {
-      setSlidesToShow(window.innerWidth < 768 ? 1 : 1);
-    };
+    const interval = setInterval(() => {
+      setActive(prev => (prev + 1) % items.length);
+    }, 2500);
 
-    window.addEventListener('resize', updateSlidesToShow);
-    updateSlidesToShow();
-
-    return () => window.removeEventListener('resize', updateSlidesToShow);
-  }, []);
+    return () => clearInterval(interval);
+  }, [items.length]);
 
   useEffect(() => {
-    let intervalId;
+    loadShow();
+  }, [active]);
 
-    if (!isHovered) {
-      intervalId = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + slidesToShow) % testimonialsData.users.length);
-      }, 2000);
+  const loadShow = () => {
+    const itemsElement = document.querySelectorAll('.slider .item');
+    itemsElement[active].style.transform = `none`;
+    itemsElement[active].style.zIndex = 1;
+    itemsElement[active].style.filter = 'none';
+    itemsElement[active].style.opacity = 1;
+    // Show after
+    let stt = 0;
+    for (let i = active + 1; i < itemsElement.length; i++) {
+      stt++;
+      itemsElement[i].style.transform = `translateX(${120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(-1deg)`;
+      itemsElement[i].style.zIndex = 0;
+      itemsElement[i].style.filter = 'blur(5px)';
+      itemsElement[i].style.opacity = stt > 2 ? 0 : 0.6;
     }
-
-    return () => clearInterval(intervalId);
-  }, [slidesToShow, isHovered, testimonialsData.users.length]);
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + slidesToShow) % testimonialsData.users.length);
-  };
-
-  const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - slidesToShow + testimonialsData.users.length) % testimonialsData.users.length);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
+    stt = 0;
+    for (let i = (active - 1); i >= 0; i--) {
+      stt++;
+      itemsElement[i].style.transform = `translateX(${-120 * stt}px) scale(${1 - 0.2 * stt}) perspective(16px) rotateY(1deg)`;
+      itemsElement[i].style.zIndex = 0;
+      itemsElement[i].style.filter = 'blur(5px)';
+      itemsElement[i].style.opacity = stt > 2 ? 0 : 0.6;
+    }
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-green-600 text-center mb-10">{testimonialsData.title}</h2>
-        <div className="testimonial-slider-container flex items-center justify-center" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-          <button
-            className="prev-arrow text-3xl text-green-600 hover:text-green-800 transition-transform duration-300"
-            onClick={goToPrevious}
-          >
-            <BiChevronLeft />
-          </button>
-          <div className="flex overflow-hidden max-w-full">
-            {testimonialsData.users.slice(currentIndex, currentIndex + slidesToShow).map((testimonial, index) => (
-              <div
-                key={index}
-                className="testimonial mx-4 p-6 md:p-10 rounded-lg shadow-lg transition-transform duration-300 transform hover:shadow-2xl hover:scale-105"
-                style={{
-                  background: 'linear-gradient(180deg, rgba(228, 240, 229, 1) 0%, rgba(255, 255, 255, 1) 100%)', // Light green gradient
-                  border: '1px solid rgba(207, 230, 207, 0.5)', // Light green border
-                }}
-              >
-                <div className="flex justify-center">
-                  <img
-                    src={testimonial.image}
-                    alt={`${testimonial.author}'s picture`}
-                    className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-4 border-2 border-green-400 transition-all duration-300 transform hover:scale-105"
-                  />
-                </div>
-                <p className="text-lg md:text-xl italic mb-4 text-center text-green-800">{testimonial.quote}</p>
-                <h4 className="text-base md:text-lg text-green-600 font-semibold text-center">- {testimonial.author}</h4>
-              </div>
-            ))}
-          </div>
-          <button
-            className="next-arrow text-3xl text-green-600 hover:text-green-800 transition-transform duration-300"
-            onClick={goToNext}
-          >
-            <BiChevronRight />
-          </button>
-        </div>
-        <div className="dots flex justify-center mt-4">
-          {testimonialsData.users.map((_, index) => (
-            <div
-              key={index}
-              className={`w-3 h-3 mx-1 rounded-full border border-green-600 cursor-pointer ${index === currentIndex ? 'bg-green-600' : 'bg-white'}`}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+    <div>
 
+      <h2 className="text-3xl md:text-4xl font-extrabold text-green-600 text-center mb-10">⭐ What Our Users Say ⭐</h2>
+
+      <div className="slider" style={{ position: 'relative', marginTop: '100px', width: '100%', height: '550px', overflow: 'hidden' }}>
+        {items.map((item, index) => (
+          <div className="item max-sm:!w-[300px] max-sm:!h-[430px]" key={index} style={{
+            position: 'absolute',
+            width: '350px',
+            height: '500px',
+            textAlign: 'justify',
+            background: '#15ae49', // Dark green to light yellow gradient
+            borderRadius: '12px',
+            padding: '20px',
+            transition: '0.5s',
+            left: 'calc(50% - 150px)',
+            top: '0',
+            marginBottom: '100px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
+            overflow: 'hidden', // Ensures the image does not overflow
+            color: 'white',
+          }}>
+            <img
+              src={item.img}
+              alt="User Avatar"
+              className='w-[150px] h-[150px] rounded-lg object-cover mb-[20px] cursor-pointer max-sm:h-[120px] mb-0'
+              style={{
+                transition: 'transform 0.3s ease, filter 0.3s ease',
+                border: '3px solid #d0e7b0' // Green border for the image
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.transform = 'scale(1.1)';
+                e.currentTarget.style.filter = 'brightness(1.1)'; // Brightness effect on hover
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.filter = 'brightness(1)'; // Reset brightness
+              }}
+            />
+            <div className="stars text-[#ffd700] text-2xl mt-auto max-sm:mt-2">{item.stars}</div>
+            <p className='text-justify mb-[15px] max-sm:text-xs max-sm:mb-0'>{item.text}</p>
+            <h2 className='mb-[5px] text-xl font-semibold max-sm:mb-1 max-sm:text-lg'>{item.name}</h2>
+            <div className="job-title text-[#ffffff] font-bold mb-[3px]">{item.jobTitle}</div>
+            <div className="location text-[#e4e4e4] mb-[10px] max-sm:mb-1">{item.location}</div>
+          </div>
+
+
+        ))}
+
+        <button id="next" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 right-[50px] max-sm:text-white max-sm:text-2xl max-sm:right-2' onClick={() => setActive(prev => (prev + 1 < items.length ? prev + 1 : prev))}>{">>"}</button>
+        <button id="prev" className=' absolute top-[40%] text-green-900 bg-none border-none text-6xl font-mono font-bold opacity-80 transition-opacity z-10 left-[50px] max-sm:text-white max-sm:text-2xl max-sm:left-2' onClick={() => setActive(prev => (prev - 1 >= 0 ? prev - 1 : prev))}> {"<<"}</button>
+      </div>
+    </div>
   );
 };
 
