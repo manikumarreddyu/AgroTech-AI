@@ -19,6 +19,7 @@ const  rentCartRoutes = require('./routes/rent/rentCartRoutes');
 const  rentalRoutes = require('./routes/rent/rentalRoutes');
 const  adminOrderRoutes = require('./routes/rent/adminOrderRoutes');
 const  adminUserControlRoutes = require('./routes/rent/adminUserControlRoutes');
+const  analyticsRoutes = require('./routes/rent/analyticsRoutes');
 
 const  ratingRoutes = require('./routes/rent/ratingRoutes');
 
@@ -57,6 +58,7 @@ app.use('/api', rentCartRoutes);
 app.use('/api', rentalRoutes);
 app.use('/api', adminOrderRoutes);
 app.use('/api/admin', adminUserControlRoutes);
+app.use('/api', analyticsRoutes);
 
 app.use('/api', ratingRoutes);
 
