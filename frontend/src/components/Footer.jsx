@@ -27,6 +27,7 @@ const Footer = () => {
         { name: 'Price Prediction', path: '/prices' },
         { name: 'Forecast', path: '/Climate' },
         { name: 'Disease', path: '/disease' },
+        { name: 'Discussion Forum', path: '/discussion' },
     ];
 
     // Define social media links
@@ -58,7 +59,7 @@ const Footer = () => {
 
         // Extract the token
         const token = authData?.token;
-        
+
         if (!token) {
             toast.error("Please log in to submit a rating.", {
                 position: "top-right",
@@ -252,12 +253,12 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Rating Modal */}           
+            {/* Rating Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50 transition-opacity duration-300 ease-in-out">
                     <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full relative">
                         {/* Close Icon */}
-                        <button 
+                        <button
                             onClick={() => setIsModalOpen(false)}
                             className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition duration-200"
                         >
@@ -274,9 +275,8 @@ const Footer = () => {
                             {[1, 2, 3, 4, 5].map((value) => (
                                 <span
                                     key={value}
-                                    className={`cursor-pointer text-2xl ${
-                                        rating >= value ? 'text-yellow-500' : 'text-gray-300'
-                                    } transition-transform transform hover:scale-105`}
+                                    className={`cursor-pointer text-2xl ${rating >= value ? 'text-yellow-500' : 'text-gray-300'
+                                        } transition-transform transform hover:scale-105`}
                                     onClick={() => handleRating(value)}
                                 >
                                     ★
@@ -310,7 +310,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-            )}          
+            )}
         </footer>
     );
 };
