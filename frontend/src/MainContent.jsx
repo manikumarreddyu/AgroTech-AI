@@ -87,7 +87,12 @@ import DiscussionForum from './components/DiscussionForum';
 import AiChatbot from './components/AiChatbot';
 import SellerAccountPage from './AgroShopAI/components/Pages/SellerDashboard';
 import AdminDashboard from './AgroShopAI/components/Pages/Admin-Dashboard';
+
+import FlashSale from './AgroShopAI/components/Pages/components/SalePage';
+
+
 import WaterManagement from './components/models/WaterManagement';
+
 
 
 const MainContent = () => {
@@ -201,7 +206,7 @@ const MainContent = () => {
 
                 <Route path="/agri/seller" element={<SellerAccountPage />} />
                 <Route path="/agri/admin" element={<AdminDashboard />} />
-
+                <Route path="/agri/sale" element={<FlashSale/>} />
                 <Route path="/discussion" element={<DiscussionForum />} />
 
 
