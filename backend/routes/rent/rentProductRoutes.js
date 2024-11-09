@@ -3,25 +3,26 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../../controllers/rent/RentProductController');
+const authMiddleware = require('../../middleware/authMiddleware');
 
 // Create a new product
-router.post('/rent-products', productController.createProduct);
+router.post('/rent-products',authMiddleware, productController.createProduct);
 
 // Get all products
-router.get('/rent-products', productController.getAllProducts);
+router.get('/rent-products',authMiddleware, productController.getAllProducts);
 
 // Get a single product by ID
-router.get('/rent-products/:id', productController.getProductById);
+router.get('/rent-products/:id',authMiddleware, productController.getProductById);
 
 // Update a product by ID
-router.put('/rent-products/:id', productController.updateProduct);
+router.put('/rent-products/:id',authMiddleware, productController.updateProduct);
 
 // Delete a product by ID
-router.delete('/rent-products/:id', productController.deleteProduct);
+router.delete('/rent-products/:id',authMiddleware, productController.deleteProduct);
 
 
 
-router.get('/filtered-rent-products', productController.getFilteredProducts );
+router.get('/filtered-rent-products',authMiddleware, productController.getFilteredProducts );
 
 
 
