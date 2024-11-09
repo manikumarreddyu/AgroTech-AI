@@ -85,6 +85,7 @@ import ResendVerificationPage from './components/ResendVerification';
 import DiscussionForum from './components/DiscussionForum';
 
 import AiChatbot from './components/AiChatbot';
+import SellerAccountPage from './AgroShopAI/components/Pages/SellerDashboard';
 
 
 
@@ -173,7 +174,7 @@ const MainContent = () => {
                 <Route path="/AgriProducts" element={<AgriProductListing />} />
                 <Route path="/RentCheckoutPage" element={<RentCheckoutPage />} />
                 <Route path="/RentCart" element={<RentCartPage />} />
-
+                
                 <Route path="/RentProductDetails/:productId" element={<RentProductDetails />} />
 
                 <Route path="/RentAdminDashboard" element={<RentAdminDashboard />} />
@@ -196,7 +197,11 @@ const MainContent = () => {
                 <Route path="/AgroShop/faq" element={<FAQ />} />
                 <Route path="/AgroShop/grievance" element={<GrievanceRedressal />} />
 
+                <Route path="/agri/seller" element={<SellerAccountPage />} />
+
+
                 <Route path="/discussion" element={<DiscussionForum />} />
+
 
               </Routes>
               {checkShop ? <ShopFooter /> : <Footer />}
