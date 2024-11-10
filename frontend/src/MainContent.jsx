@@ -98,6 +98,7 @@ import BundledProducts from './AgroShopAI/components/Pages/BulkPage';
 import TrendingProductsPage from './AgroShopAI/components/Pages/Trending';
 
 import AffiliateProgramPage from './AgroShopAI/components/Pages/Affiliate';
+import SupportPage from './AgroShopAI/components/Pages/TicketUser';
 
 
 
@@ -219,7 +220,7 @@ const MainContent = () => {
 
 
                 <Route path="/agri/bulk" element={<BundledProducts/>} />
-
+                <Route path="/agri/ticket" element={<SupportPage/>} />
                 <Route path="/agri/trend" element={<TrendingProductsPage/>} />
 
 
