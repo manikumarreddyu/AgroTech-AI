@@ -28,6 +28,7 @@
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "stripe": "^12.2.0",
-    "supertest": "^7.0.0"
+    "supertest": "^7.0.0",
+    "winston": "^3.17.0"
   }
 }
