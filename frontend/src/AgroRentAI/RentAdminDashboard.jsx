@@ -256,7 +256,7 @@ const RentAdminDashboard = () => {
       case "Order Management":
         return <OrderManagement orders={orders} onOrderApproval={handleOrderApproval} />;
       case "User Management":
-        return <UserManagement users={users} />;
+        return <UserManagement  />;
       case "Analytics & Reporting":
         return <Analytics analytics={analytics} />;
       case "Sales & Revenue Analytics":
