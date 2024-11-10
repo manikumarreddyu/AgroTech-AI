@@ -1,0 +1,41 @@
+@keyframes swing {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+        /* Adjust the value to control the amplitude */
+    }
+}
+
+.animate-swing {
+    animation: swing 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+        /* The text will disappear at 50% of the animation */
+    }
+}
+
+.blink-text {
+    animation: blink 1.5s infinite;
+    /* Blinking effect */
+}
+
+.group:hover .blink-text {
+    animation: none;
+    /* Stops blinking when hovered */
+    opacity: 1;
+    /* Ensure the text is fully visible on hover */
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon1.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgroTech AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Manifest file for PWA -->
+    <link rel="manifest" href="/manifest.json">
+  </head>
+  <body>
+    <!-- React root div -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <div class="circle-container"></div>
+    <script >
+      document.addEventListener("DOMContentLoaded", function () {
+          const coords = { x: 0, y: 0 };
+          const circlesCount = 26; 
+          const circleContainer = document.querySelector(".circle-container");
+
+          for (let i = 0; i < circlesCount; i++) {
+              const circle = document.createElement("div");
+              circle.classList.add("circle");
+              circleContainer.appendChild(circle);
+          }
+
+          const circles = document.querySelectorAll(".circle");
+
+          circles.forEach(function (circle) {
+              circle.x = 0;
+              circle.y = 0;
+          });
+
+          window.addEventListener("mousemove", function (e) {
+              coords.x = e.pageX;
+              coords.y = e.pageY - window.scrollY;
+          });
+
+          function animateCircles() {
+              let x = coords.x;
+              let y = coords.y;
+
+              circles.forEach(function (circle, index) {
+                  circle.style.left = `${x - 12}px`;
+                  circle.style.top = `${y - 12}px`;
+                  circle.style.transform = `scale(${(circles.length - index) / circles.length})`;
+
+                  const nextCircle = circles[index + 1] || circles[0];
+                  circle.x = x;
+                  circle.y = y;
+
+                  x += (nextCircle.x - x) * 0.3;
+                  y += (nextCircle.y - y) * 0.3;
+              });
+
+              requestAnimationFrame(animateCircles);
+          }
+
+          animateCircles();
+      });
+
+      
+    </script>
+    
+     <script src="script.js"></script> <!-- Link to your service worker registration script -->
+
+  </body>
+</html>

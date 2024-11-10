@@ -1,0 +1,39 @@
+.imgAnimate {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(15px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+.text-typing {
+  font-size: medium; /* Default font size */
+}
+
+@media (max-width: 320px) {
+  .text-typing {
+    font-size: large; /* Font size for screens up to 320px */
+    color:blueviolet;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 425px) {
+  .text-typing {
+    font-size: x-large; /* Font size for screens between 321px and 425px */
+    color:blueviolet;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .text-typing {
+    font-size: xx-large; /* Font size for screens between 426px and 768px */
+    color:blueviolet;
+  }
+}

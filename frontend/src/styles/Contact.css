@@ -1,0 +1,15 @@
+.formlevel {
+    color: #000000;
+    font-family: Georgia, Times New Roman, Times, serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 2px;
+}
+
+.smalltitlefont {
+    font-family: Georgia, Times New Roman, Times, serif;
+    font-size: 1.2rem;
+    font-weight: 470;
+    letter-spacing: 1px;
+}

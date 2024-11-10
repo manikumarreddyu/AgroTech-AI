@@ -1,0 +1,40 @@
+::-webkit-scrollbar-track {
+  background-image: white
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #06ac06;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #32cd32;
+  cursor: pointer;
+}
+
+.scroll-margin-top {
+  scroll-margin-top: 100px;
+}
+
+.animated-border-inner {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: rgb(0, 191, 0);
+  text-align: left;
+}
+
+.emoji-button {
+  transition: transform 0.2s ease-in-out;
+}
+
+.emoji-button:hover {
+  transform: translateY(-5px);
+}

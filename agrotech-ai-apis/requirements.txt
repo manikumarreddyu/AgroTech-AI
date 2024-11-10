@@ -1,0 +1,14 @@
+flask
+flask-cors
+requests
+google-generativeai
+python-dotenv
+pandas
+numpy
+matplotlib
+scikit-learn
+xgboost
+seaborn
+pillow
+tensorflow
+gunicorn
