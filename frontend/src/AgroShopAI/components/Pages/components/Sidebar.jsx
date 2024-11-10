@@ -5,7 +5,8 @@ import {
   Settings,
   Users,
   TrendingUp,
-  CornerDownLeft
+  CornerDownLeft,
+  FolderKanban
 } from "lucide-react";
 
 export const Sidebar = ({ onViewChange, activeView }) => {
@@ -81,6 +82,17 @@ export const Sidebar = ({ onViewChange, activeView }) => {
               }`}
             >
               <CornerDownLeft className="mr-2" /> Return
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => onViewChange("product")}
+              className={`flex items-center py-2 px-4 hover:bg-green-700 rounded ${
+                activeView === "product" ? "bg-green-700" : ""
+              }`}
+            >
+              <FolderKanban className="mr-2" /> Product Management
             </a>
           </li>
           <li>
