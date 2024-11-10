@@ -107,8 +107,7 @@ import RentSupportPage from './AgroRentAI/components/RentSupportPage';
 
 import WarehouseInventory from './AgroShopAI/components/Pages/Admin-Warehouse';
 import FarmerSuccessStories from './AgroShopAI/components/Pages/components/SuccessPage';
-
-
+import Notification from './AgroShopAI/components/Pages/NotificationPage';
 
 
 
@@ -236,6 +235,7 @@ const MainContent = () => {
                 <Route path="/agri/adminTicket" element={<TicketManagement/>} />
                 <Route path="/agri/warehouse" element={<WarehouseInventory/>} />
                 <Route path="/agri/success" element={<FarmerSuccessStories/>} />
+                <Route path="/agri/notify" element={<Notification/>} />
               </Routes>
               {checkShop ? <ShopFooter /> : <Footer />}
             </div>
