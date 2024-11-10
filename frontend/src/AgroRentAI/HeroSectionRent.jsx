@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import img1 from "./rent-assets/tp.png";
+import img1 from "/rent-assets/tp.png";
 
 export default function HeroSectionRent() {
   const [searchTerm, setSearchTerm] = useState('');
