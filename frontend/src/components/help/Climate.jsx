@@ -15,7 +15,6 @@ const fetchData = async (URL) => {
   return response.json();
 };
 
-
 // OpenWeatherAPI Endpoints
 const url = {
   currentWeather: (lat, lon) =>
@@ -25,7 +24,7 @@ const url = {
   forecast: (lat, lon) =>
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}`,
   geocoding: (query) => `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5`,
-  disaters: (lat, lon) => `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}`
+  disasters: (lat, lon) => `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}`
 };
 
 // Helper functions
@@ -49,6 +48,8 @@ export default function Climate() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLocation, setSelectedLocation] = useState('');
   const [disasterAlerts, setDisasterAlerts] = useState(null);
+  const [suggestions, setSuggestions] = useState([]);  // For storing location suggestions
+  const [debounceTimeout, setDebounceTimeout] = useState(null);  // For debounce control
 
   // Fetch weather data
   const fetchWeatherData = async (lat, lon) => {
@@ -58,12 +59,11 @@ export default function Climate() {
       const currentWeatherData = await fetchData(url.currentWeather(lat, lon));
       const airPollutionData = await fetchData(url.airPollution(lat, lon));
       const forecast = await fetchData(url.forecast(lat, lon));
-      
-      const disasterData = await fetchData(url.disaters(lat, lon));
-      setDisasterAlerts(disasterData?.alerts || null);
+      const disasterData = await fetchData(url.disasters(lat, lon));
 
       setWeatherData(currentWeatherData);
       setAirQualityIndex(airPollutionData.list[0].main.aqi);
+      setDisasterAlerts(disasterData?.alerts || null);
 
       const now = new Date();
       const cutoffTime = new Date(now.getTime() + 24 * 60 * 60 * 1000);
@@ -83,38 +83,39 @@ export default function Climate() {
     }
   };
 
-  // Handle search
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    if (!searchTerm) {
-      alert('Please enter a location to search.');
+  // Handle search term change with debounce
+  const handleSearchChange = async (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout);
+    }
+
+    if (value.length === 0) {
+      setSuggestions([]);
       return;
     }
 
-    setLoading(true);
-    setError(false);
-    setWeatherData(null);
-    setForecastData([]);
-    setCurrentWeather([]);
-    setAirQualityIndex(null);
-
-    try {
-      const locations = await fetchData(url.geocoding(searchTerm));
-      if (locations.length === 0) {
-        alert('No locations found. Please try a different search term.');
-        setLoading(false);
-        return;
+    const newDebounceTimeout = setTimeout(async () => {
+      try {
+        const locations = await fetchData(url.geocoding(value));
+        setSuggestions(locations);  // Set the location suggestions
+      } catch (err) {
+        console.error('Error fetching geocoding data:', err);
       }
+    }, 500);  // 500ms debounce time
 
-      // Assuming the first result is the most relevant
-      const { lat, lon, name, state, country } = locations[0];
-      setSelectedLocation(`${name}${state ? ', ' + state : ''}, ${country}`);
-      fetchWeatherData(lat, lon);
-    } catch (err) {
-      console.error('Error fetching geocoding data:', err);
-      setError(true);
-      setLoading(false);
-    }
+    setDebounceTimeout(newDebounceTimeout);
+  };
+
+  // Handle suggestion click
+  const handleSuggestionClick = (location) => {
+    const { lat, lon, name, state, country } = location;
+    setSelectedLocation(`${name}${state ? ', ' + state : ''}, ${country}`);
+    setSearchTerm(`${name}${state ? ', ' + state : ''}, ${country}`);
+    setSuggestions([]);
+    fetchWeatherData(lat, lon);
   };
 
   // Handle current location
@@ -146,32 +147,44 @@ export default function Climate() {
     );
   };
 
-  // Use effect to fetch current location weather on component mount
-  useEffect(() => {
-    handleCurrentLocation();
-  }, []); // Empty dependency array to run only once when the component mounts
-
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-blue-100 to-green-100 p-5 w-full mt-14">
-      <div className="w-full max-w-4xl mb-8">
-        <form onSubmit={handleSearch} className="flex w-full mb-4">
+      <div className="w-full max-w-4xl mb-1 mt-24 relative">
+        <form onSubmit={(e) => e.preventDefault()} className="flex w-full mb-4">
           <input
             type="text"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={handleSearchChange}
             className="p-4 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full transition duration-300 ease-in-out"
-            placeholder="Search for a location"
+            placeholder="Search for a location (City, State, Country)"
           />
           <button
-            type="submit"
+            type="button"
+            onClick={() => handleSearchChange({ target: { value: searchTerm } })}
             className="p-4 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 transition duration-300 ease-in-out"
           >
             <Search className="w-6 h-6" />
           </button>
         </form>
+
+        {/* Display suggestions */}
+        {suggestions.length > 0 && (
+          <div className="absolute bg-white shadow-lg rounded-lg max-w-xl w-full mt-2 z-10">
+            {suggestions.map((location, index) => (
+              <div
+                key={index}
+                className="p-3 cursor-pointer hover:bg-gray-200"
+                onClick={() => handleSuggestionClick(location)}
+              >
+                <p>{`${location.name}${location.state ? ', ' + location.state : ''}, ${location.country}`}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
         <button
           onClick={handleCurrentLocation}
-          className="w-full p-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300 ease-in-out flex items-center justify-center"
+          className="w-full p-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300 ease-in-out flex items-center justify-center mt-4"
         >
           Use Current Location
         </button>
@@ -180,6 +193,7 @@ export default function Climate() {
       {loading && <p className="text-blue-800">Loading...</p>}
       {error && <p className="text-red-500">Error fetching data. Please try again.</p>}
 
+      {/* Weather details and other components as before */}
       {weatherData && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
           {/* Current Weather */}
@@ -260,7 +274,8 @@ export default function Climate() {
         </div>
       )}
 
-    {disasterAlerts && disasterAlerts.length > 0 ? (
+      {/* Disaster Alerts */}
+      {disasterAlerts && disasterAlerts.length > 0 ? (
         <div className="mt-8 w-full max-w-4xl bg-red-100 rounded-xl shadow-lg p-6 transition duration-300 hover:shadow-xl">
           <h3 className="text-2xl font-semibold mb-4 text-center text-red-800">Disaster Alerts</h3>
           <div className="space-y-4">
