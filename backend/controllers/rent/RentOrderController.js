@@ -67,3 +67,110 @@ exports.OrderConfirmation  = async (req, res) => {
 };
 
 
+exports.getOrderHistory = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).populate('rentals.product');
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const rentals = user.rentals.map(rental => {
+      return {
+        rentalId: rental.rentalId,
+        productName: rental.product.name,
+        rentalDate: rental.rentalDate,
+        returnDate: rental.returnDate,
+        status: rental.status,
+        totalCost: rental.product.rentalPricePerDay * rental.rentalDuration,
+        rentalDuration: rental.rentalDuration,
+      };
+    });
+
+    res.status(200).json({ rentals });
+  } catch (error) {
+    console.error(`Error in getOrderHistory: ${error.message}`, error);
+    res.status(500).json({ error: "An error occurred while fetching the order history." });
+  }
+};
+
+
+// Re-rent previously rented items
+exports.reRent = async (req, res) => {
+  try {
+    const { rentalId } = req.params; // Get rental ID from params
+    const user = await User.findById(req.user.id).populate('rentals.product');
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const rental = user.rentals.find(rental => rental.rentalId === rentalId);
+    if (!rental) {
+      return res.status(404).json({ error: "Rental not found" });
+    }
+
+    const product = rental.product;
+
+    // Check if product is available for re-rental
+    if (product.availabilityStatus !== "available") {
+      return res.status(400).json({ error: "Product is not available for re-rental" });
+    }
+
+    // Create new rental entry
+    const newRental = {
+      rentalId: `RENT-${Date.now()}`, // New rental ID
+      product: product._id,
+      quantity: rental.quantity,
+      rentalDuration: rental.rentalDuration, // Same duration as previous
+      rentalDate: Date.now(),
+      status: "ongoing",
+    };
+
+    user.rentals.push(newRental);
+    await user.save();
+
+    res.status(200).json({ message: "Re-rental successful", newRental });
+  } catch (error) {
+    console.error(`Error in reRent: ${error.message}`, error);
+    res.status(500).json({ error: "An error occurred while re-renting the item." });
+  }
+};
+
+
+// Generate rental receipt with pricing and terms
+exports.generateReceipt = async (req, res) => {
+  try {
+    const { rentalId } = req.params;
+    const user = await User.findById(req.user.id).populate('rentals.product');
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const rental = user.rentals.find(rental => rental.rentalId === rentalId);
+    if (!rental) {
+      return res.status(404).json({ error: "Rental not found" });
+    }
+
+    const product = rental.product;
+    const totalCost = product.rentalPricePerDay * rental.rentalDuration;
+
+    const receipt = {
+      rentalId: rental.rentalId,
+      productName: product.name,
+      rentalDate: rental.rentalDate,
+      returnDate: rental.returnDate,
+      rentalDuration: rental.rentalDuration,
+      totalCost: totalCost,
+      rentalTerms: product.rentalTerms || "N/A", // Include rental terms if available
+      pricePerDay: product.rentalPricePerDay,
+    };
+
+    res.status(200).json({ receipt });
+  } catch (error) {
+    console.error(`Error in generateReceipt: ${error.message}`, error);
+    res.status(500).json({ error: "An error occurred while generating the receipt." });
+  }
+};
+
