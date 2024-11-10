@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Analytics = require('../../model/rent/Analytics');
 const RentProduct = require('../../model/rent/rentProduct');
-const { productPerformace, rentalInsights, rentalStats, topCustomers } = require('../../controllers/rent/AnalyticsController');
+const { productPerformance, rentalInsights, rentalStats, topCustomers } = require('../../controllers/rent/AnalyticsController');
 
 
 // Calculate total rentals, revenue, and rating for a product
-router.get('/product-performance/:productId', productPerformace );
+router.get('/product-performance/:productId', productPerformance );
 
 // Fetch rental insights by user
 router.get('/user-insights/:userId', rentalInsights);
