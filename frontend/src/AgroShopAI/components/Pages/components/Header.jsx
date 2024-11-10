@@ -2,7 +2,7 @@
 export const Header = () => {
   return (
     <header className="flex justify-between items-center mb-8">
-      <h2 className="text-3xl font-bold text-gray-800">Grievance Redressal</h2>
+      <h2 className="text-3xl font-bold text-gray-800">Admin Dashboard</h2>
       <div className="flex items-center">
         <span className="mr-4">Welcome, Admin</span>
         <img
