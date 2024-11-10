@@ -14,6 +14,7 @@ const RentOrderTracking = () => {
     setError(null);
     setOrderStatus(null);
 
+    
     // Simulate order tracking (In a real app, you would fetch this from an API)
     const mockOrderStatus = {
       123: "Shipped - Expected delivery: 2 days",
