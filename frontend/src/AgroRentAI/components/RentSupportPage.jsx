@@ -1,7 +1,7 @@
 import React from "react";
-import LiveChat from "./sub-component/live-chat";
 import RentOrderTracking from "./sub-component/OrderTracking";
 import FAQ from "./sub-component/Fa";
+import LiveChat from "./sub-component/Livechat";
 
 
 const RentSupportPage = () => {
