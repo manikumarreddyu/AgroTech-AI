@@ -12,6 +12,8 @@ import {
   LifeBuoy,
   FileText,
   Package,
+  AlertTriangle,
+  Settings,
 } from "lucide-react";
 import ProfileComponent from "./components/AccountInformation";
 import RentalHistoryComponent from "./components/RentalHistory";
@@ -23,6 +25,8 @@ import SecurityPrivacyComponent from "./components/SecurityPrivacyComponent";
 import SupportAssistanceComponent from "./components/SupportAssistance";
 import SubscriptionMembershipComponent from "./components/Subscription";
 import OrderDeliveryTrackingComponent from "./components/OrderTracking";
+import RentalRemindersComponent from "./components/RentalReminders";
+import PersonalizationSettingsComponent from "./components/PersonalizationSettings";
 
 const RentUserDashboard = () => {
   const [profile, setProfile] = useState({
@@ -125,6 +129,10 @@ const RentUserDashboard = () => {
         return <SubscriptionMembershipComponent />;
       case "Order & Delivery Tracking":
         return <OrderDeliveryTrackingComponent rentals={rentals} />;
+        case "Rental Reminders":
+          return <RentalRemindersComponent  />;
+        case "Personalization Settings":
+          return <PersonalizationSettingsComponent />;
       default:
         return null;
     }
@@ -182,6 +190,9 @@ const RentUserDashboard = () => {
           <li className="cursor-pointer" onClick={() => setActiveSection("Order & Delivery Tracking")}>
             <Package className="inline mr-2" /> Order & Delivery Tracking
           </li>
+          <li onClick={() => setActiveSection("Rental Reminders")}><AlertTriangle className="inline mr-2" /> Rental Reminders</li>
+          <li onClick={() => setActiveSection("Personalization Settings")}><Settings className="inline mr-2" /> Personalization Settings</li>
+          
         </ul>
       </div>
 
