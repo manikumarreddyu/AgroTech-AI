@@ -6,6 +6,7 @@ import { useState } from "react";
 import StatisticComponent from "./components/StatisticComponent";
 import ReturnPanel from "./components/ReturnPage";
 import AdminProductManagement from "./ProductManagement";
+import ProfileEdit from "./components/ProfileManage";
 export default function AdminDashboard() {
   const [activeView, setActiveView] = useState("dashboard"); // Track active view
 
@@ -25,6 +26,7 @@ export default function AdminDashboard() {
         {activeView === "analytics" && <StatisticComponent />}
         {activeView === "return" && <ReturnPanel/>}
         {activeView === "product" && <AdminProductManagement/>}
+        {activeView === "settings" && <ProfileEdit/>}
       </main>
     </div>
   );
