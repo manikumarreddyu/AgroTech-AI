@@ -93,6 +93,7 @@ import FlashSale from './AgroShopAI/components/Pages/components/SalePage';
 
 
 import WaterManagement from './components/models/WaterManagement';
+import AffiliateProgramPage from './AgroShopAI/components/Pages/Affiliate';
 
 
 
@@ -207,7 +208,7 @@ const MainContent = () => {
 
                 <Route path="/agri/seller" element={<SellerAccountPage />} />
                 <Route path="/agri/admin" element={<AdminDashboard />} />
-
+                <Route path="/agri/affiliate" element={<AffiliateProgramPage />} />
                 <Route path="/agri/sale" element={<FlashSale/>} />
                 <Route path="/discussion" element={<DiscussionForum />} />
 
