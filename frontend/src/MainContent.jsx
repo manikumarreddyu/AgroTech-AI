@@ -102,6 +102,7 @@ import AffiliateProgramPage from './AgroShopAI/components/Pages/Affiliate';
 import TicketManagement from './AgroShopAI/components/Pages/AdminTicket';
 
 import SupportPage from './AgroShopAI/components/Pages/TicketUser';
+import WarehouseInventory from './AgroShopAI/components/Pages/Admin-Warehouse';
 
 
 
@@ -227,7 +228,7 @@ const MainContent = () => {
                 <Route path="/agri/ticket" element={<SupportPage/>} />
                 <Route path="/agri/trend" element={<TrendingProductsPage/>} />
                 <Route path="/agri/adminTicket" element={<TicketManagement/>} />
-
+                <Route path="/agri/warehouse" element={<WarehouseInventory/>} />
               </Routes>
               {checkShop ? <ShopFooter /> : <Footer />}
             </div>
