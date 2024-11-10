@@ -22,9 +22,13 @@ const  adminOrderRoutes = require('./routes/rent/adminOrderRoutes');
 const  adminUserControlRoutes = require('./routes/rent/adminUserControlRoutes');
 const  analyticsRoutes = require('./routes/rent/analyticsRoutes');
 const  reviewRoutes = require('./routes/rent/reviewRoutes');
+
 const  promotionRoutes = require('./routes/rent/promotionRoutes');
 const  seasonalPricingRoutes = require('./routes/rent/seasonalPricingRoutes');
 const featuredProductRoutes = require('./routes/rent/featuredProductRoutes');
+
+const  rewardsRoutes = require('./routes/rent/rewardsRoutes');
+
 
 const  ratingRoutes = require('./routes/rent/ratingRoutes');
 
@@ -65,9 +69,13 @@ app.use('/api', adminOrderRoutes);
 app.use('/api/admin', adminUserControlRoutes);
 app.use('/api', analyticsRoutes);
 app.use('/api', reviewRoutes);
+
 app.use('/api', promotionRoutes);
 app.use('/api', seasonalPricingRoutes);
 app.use('/api', featuredProductRoutes);
+
+app.use('/api', rewardsRoutes);
+
 
 app.use('/api', ratingRoutes);
 
