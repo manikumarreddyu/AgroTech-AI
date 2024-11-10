@@ -102,7 +102,11 @@ import AffiliateProgramPage from './AgroShopAI/components/Pages/Affiliate';
 import TicketManagement from './AgroShopAI/components/Pages/AdminTicket';
 
 import SupportPage from './AgroShopAI/components/Pages/TicketUser';
+
+import RentSupportPage from './AgroRentAI/components/RentSupportPage';
+
 import WarehouseInventory from './AgroShopAI/components/Pages/Admin-Warehouse';
+
 
 
 
@@ -199,6 +203,7 @@ const MainContent = () => {
 
                 <Route path="/RentAdminDashboard" element={<RentAdminDashboard />} />
                 <Route path="/RentUserDashboard" element={<RentUserDashboard />} />
+                <Route path="/RentSupport" element={<RentSupportPage />} />
 
                 <Route path="*" element={<NotFound />} />
                 {/* AgroShopAI Routes */}
