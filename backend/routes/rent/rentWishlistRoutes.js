@@ -2,18 +2,17 @@
 
 const express = require('express');
 const wishlistController = require('../../controllers/rent/RentWishlistController');
-const authMiddleware = require('../../middleware/authMiddleware');
 
 
 const router = express.Router();
 
 // Add to Wishlist
-router.post('/wishlist/add/:productId',authMiddleware,   wishlistController.addToWishlist);
+router.post('/wishlist/add/:productId',  wishlistController.addToWishlist);
 
 // Remove from Wishlist
-router.delete('/wishlist/remove/:productId',authMiddleware,   wishlistController.removeFromWishlist);
+router.delete('/wishlist/remove/:productId',  wishlistController.removeFromWishlist);
 
 // Get Wishlist
-router.get('/wishlist',authMiddleware, wishlistController.getWishlist);
+router.get('/wishlist',wishlistController.getWishlist);
 
 module.exports = router;
