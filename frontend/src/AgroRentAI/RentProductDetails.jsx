@@ -3,6 +3,8 @@ import { Star } from 'lucide-react';
 import { useParams } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProductReview from './components/RatingProductReview';
+
 
 const RentProductDetails = () => {
   const [product, setProduct] = useState(null);
@@ -84,7 +86,7 @@ const RentProductDetails = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-8 mt-14">
       <ToastContainer />
       {/* Heading */}
       <h2 className="text-4xl font-extrabold text-green-900 mb-8 ">Product Details</h2>
@@ -150,6 +152,7 @@ const RentProductDetails = () => {
           </div>
         </div>
       </div>
+   <ProductReview/>
     </div>
   );
 };
