@@ -62,9 +62,59 @@ const userSchema = new mongoose.Schema(
         quantity: { type: Number, default: 1 },
       },
     ],
+    points: { type: Number, default: 0 }, // Points for rewards
+    referralCode: { type: String, unique: true }, // Referral code unique to each user
+    referredBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Referral tracking
+    loyaltyTier: {
+      type: String,
+      enum: ["bronze", "silver", "gold", "platinum"],
+      default: "bronze",
+    },
   },
   { timestamps: true } // Timestamps automatically add createdAt and updatedAt
 );
+
+
+// Generate a referral code on user creation
+userSchema.pre("save", function (next) {
+  if (this.isNew) {
+    this.referralCode = generateReferralCode(this._id);
+  }
+  next();
+});
+
+// Utility function to generate a referral code
+function generateReferralCode(userId) {
+  return `REF${userId.toString().slice(-4).toUpperCase()}`;
+}
+
+
+userSchema.methods.addPoints = async function (rentalCost) {
+  const pointsEarned = Math.floor(rentalCost / 10); // 10% of rental cost as points
+  this.points += pointsEarned;
+
+  // Update loyalty tier based on accumulated points
+  if (this.points >= 1000) this.loyaltyTier = "platinum";
+  else if (this.points >= 500) this.loyaltyTier = "gold";
+  else if (this.points >= 200) this.loyaltyTier = "silver";
+
+  await this.save();
+};
+
+userSchema.methods.redeemPoints = async function (points, rewardType) {
+  if (this.points < points) throw new Error("Insufficient points");
+  this.points -= points;
+
+  const reward = await Reward.create({
+    userId: this._id,
+    pointsUsed: points,
+    rewardType,
+  });
+
+  await this.save();
+  return reward;
+};
+
 
 // Hash the password before saving
 userSchema.pre("save", async function (next) {
