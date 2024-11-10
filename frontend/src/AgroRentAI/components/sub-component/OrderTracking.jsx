@@ -6,6 +6,7 @@ const RentOrderTracking = () => {
   const [orderStatus, setOrderStatus] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  
 
   const handleTrackOrder = () => {
     if (!orderId) return; // Avoid empty submission
@@ -14,7 +15,7 @@ const RentOrderTracking = () => {
     setError(null);
     setOrderStatus(null);
 
-    
+
     // Simulate order tracking (In a real app, you would fetch this from an API)
     const mockOrderStatus = {
       123: "Shipped - Expected delivery: 2 days",
