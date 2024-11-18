@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Container, TextField, Button, Paper, Box, List, ListItem, ListItemText, Divider, IconButton, Stack } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { Container, TextField, Button, Paper, Box, List, ListItem, ListItemText, Divider, Stack } from '@mui/material';
+import { FaPaperPlane, FaTrash } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from 'framer-motion';
@@ -25,7 +24,6 @@ const GeminiChat = () => {
     const formatMessage = (htmlContent) => {
         return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
     };
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -154,10 +152,21 @@ const GeminiChat = () => {
                                 placeholder="Type a message..."
                                 style={{ backgroundColor: 'white', borderRadius: '4px' }}
                             />
-                            <Button type="submit" variant="contained" style={{ background: "white", color: "black" }} endIcon={<SendIcon />} onClick={handleSubmit}>
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                style={{ background: "white", color: "black" }}
+                                endIcon={<FaPaperPlane />}
+                                onClick={handleSubmit}
+                            >
                                 Send
                             </Button>
-                            <Button variant="contained" style={{background:"white",color:"black"}} onClick={handleClearChat}>
+                            <Button
+                                variant="contained"
+                                style={{ background: "white", color: "black" }}
+                                startIcon={<FaTrash />}
+                                onClick={handleClearChat}
+                            >
                                 Clear
                             </Button>
                         </Stack>
@@ -170,3 +179,5 @@ const GeminiChat = () => {
 };
 
 export default GeminiChat;
+
+
