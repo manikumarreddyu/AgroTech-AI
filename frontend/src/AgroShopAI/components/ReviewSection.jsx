@@ -1,4 +1,4 @@
-// ReviewSection.js
+
 import React, { useState } from 'react';
 
 const ReviewSection = ({ product_id,reviews, setReviews }) => {
