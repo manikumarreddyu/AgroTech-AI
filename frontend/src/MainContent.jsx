@@ -85,32 +85,11 @@ import ResendVerificationPage from './components/ResendVerification';
 import DiscussionForum from './components/DiscussionForum';
 
 import AiChatbot from './components/AiChatbot';
-import SellerAccountPage from './AgroShopAI/components/Pages/SellerDashboard';
-import AdminDashboard from './AgroShopAI/components/Pages/Admin-Dashboard';
-import GiftCard from './AgroShopAI/components/Pages/GiftCard';
-
-import FlashSale from './AgroShopAI/components/Pages/components/SalePage';
 
 
 import WaterManagement from './components/models/WaterManagement';
-import BundledProducts from './AgroShopAI/components/Pages/BulkPage';
-
-import TrendingProductsPage from './AgroShopAI/components/Pages/Trending';
-
-import AffiliateProgramPage from './AgroShopAI/components/Pages/Affiliate';
-
-import TicketManagement from './AgroShopAI/components/Pages/AdminTicket';
-
-import SupportPage from './AgroShopAI/components/Pages/TicketUser';
 
 import RentSupportPage from './AgroRentAI/components/RentSupportPage';
-
-import WarehouseInventory from './AgroShopAI/components/Pages/Admin-Warehouse';
-import FarmerSuccessStories from './AgroShopAI/components/Pages/components/SuccessPage';
-import Notification from './AgroShopAI/components/Pages/NotificationPage';
-
-
-
 
 const MainContent = () => {
   UseScrollToTop();
@@ -221,21 +200,10 @@ const MainContent = () => {
                 <Route path="/AgroShop/privacy-policy" element={<ShopPrivacyPolicy />} />
                 <Route path="/AgroShop/faq" element={<FAQ />} />
                 <Route path="/AgroShop/grievance" element={<GrievanceRedressal />} />
-
-                <Route path="/agri/seller" element={<SellerAccountPage />} />
-                <Route path="/agri/admin" element={<AdminDashboard />} />
-                <Route path="/agri/affiliate" element={<AffiliateProgramPage />} />
-                <Route path="/agri/sale" element={<FlashSale/>} />
                 <Route path="/discussion" element={<DiscussionForum />} />
 
 
-                <Route path="/agri/bulk" element={<BundledProducts/>} />
-                <Route path="/agri/ticket" element={<SupportPage/>} />
-                <Route path="/agri/trend" element={<TrendingProductsPage/>} />
-                <Route path="/agri/adminTicket" element={<TicketManagement/>} />
-                <Route path="/agri/warehouse" element={<WarehouseInventory/>} />
-                <Route path="/agri/success" element={<FarmerSuccessStories/>} />
-                <Route path="/agri/notify" element={<Notification/>} />
+  
               </Routes>
               {checkShop ? <ShopFooter /> : <Footer />}
             </div>
